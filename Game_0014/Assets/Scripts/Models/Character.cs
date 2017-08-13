@@ -1,0 +1,126 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public class Character 
+{
+	public float health = 100f;
+    public float mana = 100;
+	public int money;			// This should be in additional parameters
+
+    /// <summary>
+    /// If we have level system then we need to increase some variables
+    /// depend on this
+    /// </summary>
+    int CurrentLevel;
+
+    public Direction direction = Direction.None;
+
+
+	public float axis;
+
+    //bu şimdilik public buna daha iyi çözümler üretebiliriz
+    public bool isAlive=true;
+	// how fast my character moves right to left 2 fps
+	public float speed;
+
+	//How fast my character jump. I'll use this in rigidbody > Addforce
+	public float jumpCoefficient = 500f;
+
+	// FIXME: bunun public olma konusunda düşün
+	public Weapon currentWeapon;
+
+	public string Type{ get; set; }
+
+
+
+    Action<Character> charControlsByAI;
+    
+	Action<Character> cbOnAttack;
+	Action<Character> cbOnJump;
+	Action<Character> cbOnCrouch;
+	Action<Character> cbOnWalk;
+
+	public void Attack()
+	{
+		if(cbOnAttack != null)
+			cbOnAttack(this);
+	}
+
+	public void Walk(float axis)
+	{
+		this.axis = axis;
+		if(cbOnWalk != null)
+			cbOnWalk(this);
+	}
+
+	public void Jump()
+	{
+		if(cbOnJump != null)
+			cbOnJump(this);
+	}
+
+	public void Crouch()
+	{
+		
+	}
+
+
+
+
+
+	public void RegisterOnAttackCallback(Action<Character> cb)
+	{
+		cbOnAttack += cb;
+	}
+
+	public void RegisterOnJumpCallback(Action<Character> cb)
+	{
+		cbOnJump += cb;
+	}
+
+	public void RegisterOnCrouchCallback(Action<Character> cb)
+	{
+		cbOnCrouch += cb;
+	}
+
+	public void RegisterOnWalkCallback(Action<Character> cb)
+	{
+		cbOnWalk += cb;
+	}
+
+    /// <summary>
+    /// Character can buy weapons.
+    /// </summary>
+    public void RegisterActions(Action<Character> act)
+    {
+        charControlsByAI += act;
+    }
+
+    public void ActByAI()
+    {
+        if (charControlsByAI != null)
+            charControlsByAI(this);
+    }
+
+	// FIXME: Bu yorumların bulunduğu konumda kodla ilişkilerini bulamadım. Eğer gereksizse silelim :D
+
+	// Character parametresinde emin değilim. Biraz ileriye dönük düşündüm.
+
+	// Aslında şuan ihtiyaç yok. CC zaten bir referansa sahip.
+
+	// silahları dictionary içinde string to sprite şeklinde tutarak uygun silah sprite ını çekebiliriz
+
+	// public Vector2 characterDir=Vector2.right; 
+
+	// string spriteName="Player";		//we will get sprites with name from a controller (Which one??)
+
+
+	//TODO : Karakter envanter taşıayacak
+	//          aktif silah olacak
+	//          
+
+	//TODO : İlerleyen zamanda 2 yada 1 kullanılabilir büyü ekleyebiliriz 
+	//          zorluk seviyesine göre büyüler işini düünebiliriz
+}
