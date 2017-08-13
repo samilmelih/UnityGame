@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         Instance = this;
         world = WorldController.Instance.world;
         enemyGameObjectMap = new Dictionary<Character, GameObject>();
@@ -118,7 +117,7 @@ public class EnemyController : MonoBehaviour
         Vector2 enemyPosition =new Vector2(enemy_go.transform.position.x , enemy_go.transform.position.y);
        
 
-        GameObject go_mainCharacter;
+		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
         Vector3 mainCharacterPosition;
         
 		//eğer karakter görüş açımızda ise ona doğru yürü
@@ -154,7 +153,6 @@ public class EnemyController : MonoBehaviour
                 break;
             case EnemyImpact.Player:
                // Debug.Log(EnemyImpact.Player);
-                go_mainCharacter = CharacterController.go_mainCharacter;
 
                 mainCharacterPosition = go_mainCharacter.transform.position;
 

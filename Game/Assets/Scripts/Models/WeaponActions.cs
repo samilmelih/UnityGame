@@ -8,6 +8,8 @@ public class WeaponActions : MonoBehaviour
 
     public static void Magnum_One_Shot(Character character, Weapon magnum)
     {
+		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
+
 		float currTime = Time.time;
 
 		if (currTime - magnum.weaponParameters["fireCoolDown"] > magnum.weaponParameters["fireFrequency"])
@@ -24,7 +26,7 @@ public class WeaponActions : MonoBehaviour
 				}
 				else if(character.Type == "Main Character")
 				{
-					chr_go = CharacterController.go_mainCharacter;
+					chr_go = go_mainCharacter;
 				}
 				else
 				{

@@ -9,12 +9,16 @@ public class CharacterController : MonoBehaviour
 	// in a lot of place. If we want allias, it won't effect them. We can
 	// still create AlliesController like EnemyController and control them to
 	// serve our main character.
-	public static GameObject go_mainCharacter;
+	public GameObject go_mainCharacter;
 
 	World world;
 
+	public static CharacterController Instance;
+
     void Start()
-    {		
+    {
+		Instance = this;
+
 		world = WorldController.Instance.world;
 
 		CreateCharacter();
