@@ -59,7 +59,7 @@ public class BulletBehaviour : MonoBehaviour {
     {
         //check if you hit something hittable
         //which means has an enemyController
-
+        if(other.gameObject.tag == "bullet")return;
 		if(other.gameObject.tag == "Player" && go_shooter.tag != "Player")
 		{
 			world.character.health -= bullet.damage;

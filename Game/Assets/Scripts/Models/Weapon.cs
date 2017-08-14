@@ -37,7 +37,7 @@ public class Weapon
 
 		this.type = weapon.type;
 		this.cbAttack = weapon.cbAttack;
-		this.weaponParameters = weapon.weaponParameters;
+        this.weaponParameters =new Dictionary<string, float>( weapon.weaponParameters);
 	}
 
 	public Weapon Clone()
