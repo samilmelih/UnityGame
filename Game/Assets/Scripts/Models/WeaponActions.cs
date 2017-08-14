@@ -6,23 +6,22 @@ public class WeaponActions : MonoBehaviour
 {
     //bunun içerisinde silahın bulunması ne gibibir fayda verir
 
-    public static void Magnum_One_Shot(Character character, Weapon magnum)
+    public static void Magnum_One_Shot(Character character)
     {
 		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
+		Weapon weapon = character.currentWeapon;
 
 		float currTime = Time.time;
 
-		if (currTime - magnum.weaponParameters["fireCoolDown"] > magnum.weaponParameters["fireFrequency"])
+		if (currTime - weapon.weaponParameters["fireCoolDown"] > weapon.weaponParameters["fireFrequency"])
 		{
-			if(magnum.weaponParameters["bulletCount"] > 0f)
+			if(weapon.weaponParameters["bulletCount"] > 0f)
 			{
 				GameObject chr_go;
 
-				magnum.weaponParameters["bulletCount"] -= 1f;
-
 				if(character.Type == "Enemy")
 				{
-                    chr_go = EnemyController.Instance.enemyGameObjectMap[character];
+                    chr_go = EnemyController.Instance.enemyGOMap[character];
 				}
 				else if(character.Type == "Main Character")
 				{
@@ -42,13 +41,14 @@ public class WeaponActions : MonoBehaviour
 
 				// We need to attach bullet instance into bullet go.
 				// Because when we hit something we need to know how damage we gave to enemy/character
-				bullet.GetComponent<BulletBehaviour>().bullet = magnum.bullet;
+				bullet.GetComponent<BulletController>().bullet = weapon.bullet;
 
-				bullet.GetComponent<BulletBehaviour>().character = character;
+				bullet.GetComponent<BulletController>().character = character;
 
-				bullet.GetComponent<BulletBehaviour>().go_shooter = chr_go;
+				bullet.GetComponent<BulletController>().go_shooter = chr_go;
 
-                magnum.weaponParameters["fireCoolDown"] = Time.time;
+				weapon.weaponParameters["bulletCount"] -= 1f;
+                weapon.weaponParameters["fireCoolDown"] = Time.time;
 			}
 			else
 			{

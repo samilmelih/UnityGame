@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 9
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 8
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -264,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167165190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.72, y: 3.08, z: 0}
+  m_LocalPosition: {x: -0.72, y: 3.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2080184886}
@@ -444,8 +444,8 @@ Transform:
   m_LocalPosition: {x: -0.021551898, y: 1.28, z: 0}
   m_LocalScale: {x: 0.025031243, y: 1, z: 1}
   m_Children:
-  - {fileID: 447391443}
   - {fileID: 674560423}
+  - {fileID: 447391443}
   - {fileID: 1654892012}
   - {fileID: 1665803368}
   - {fileID: 1097754690}
@@ -478,7 +478,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443517404}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &499980092
 Prefab:
@@ -734,7 +734,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443517404}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &753189616
 Prefab:
@@ -1194,7 +1194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1097754690}
   m_Layer: 0
-  m_Name: SpawnPos3 (1)
+  m_Name: SpawnPos4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 1546569910}
   - component: {fileID: 1546569911}
   m_Layer: 0
-  m_Name: CharacterController
+  m_Name: CharacterCont
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,6 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99891b39a713d604f95d4961913caec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  go_mainCharacter: {fileID: 0}
 --- !u!1001 &1553141712
 Prefab:
   m_ObjectHideFlags: 0
@@ -1588,7 +1589,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!1 &1728603127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1882,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!1 &1887747184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1954,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
 --- !u!1001 &1909108700
 Prefab:
   m_ObjectHideFlags: 0

@@ -7,8 +7,6 @@ public class Weapon
 {
     public string type;
 
-	// FIXME: Prototipleri oluşturabilmek için şimdilik
-	// public yaptım. Sonra karar veririz ne olacağına.
     Character character;
 
     public Bullet bullet;
@@ -16,18 +14,14 @@ public class Weapon
 	// Buradaki action larıda olay olay bölmemiz gerekli,
 	// tek bir action yetersiz olacaktır.
 	// Fire ı daha genel olarak attack ile değiştirdim.
-	public Action<Character, Weapon> cbAttack;
-
-	// Not sure about parameter type.
-   
+	public Action<Character> cbAttack;
+	   
     public Dictionary<string, float> weaponParameters;
 
 	// For now, we just have "type" for prototype parameters.
-    //HACK
-    public Weapon(string type,Bullet bullet=null)
+    public Weapon(string type, Bullet bullet=null)
 	{
-
-        //if there is no bullet then it is a sword.
+        // if there is no bullet then it is a sword.
         if (bullet != null)
             this.bullet = bullet;
 		this.type = type;
@@ -51,7 +45,7 @@ public class Weapon
 		return new Weapon(this);
 	}
 
-	public void RegisterWeaponActionsCallback(Action<Character, Weapon> cb)
+	public void RegisterWeaponActionsCallback(Action<Character> cb)
 	{
 		cbAttack += cb;
 	}

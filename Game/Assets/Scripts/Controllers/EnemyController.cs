@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public Dictionary<Character, GameObject> enemyGameObjectMap;
+    public Dictionary<Character, GameObject> enemyGOMap;
     public Dictionary<GameObject,Character > GOenemyMap;
 
     World world;
@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     {
         Instance = this;
         world = WorldController.Instance.world;
-        enemyGameObjectMap = new Dictionary<Character, GameObject>();
+        enemyGOMap = new Dictionary<Character, GameObject>();
         GOenemyMap = new Dictionary<GameObject, Character>();
 
 
@@ -45,8 +45,8 @@ public class EnemyController : MonoBehaviour
 
             enemy_go.transform.SetParent(this.transform);
 
-           enemyGameObjectMap.Add(enemy, enemy_go);
-            GOenemyMap.Add(enemy_go,enemy);
+            enemyGOMap.Add(enemy, enemy_go);
+            GOenemyMap.Add(enemy_go, enemy);
         }
 
     }
@@ -54,30 +54,32 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         // Not sure that we need to check these states in here,
         // for now I couldn't find a better place.
 				
         // Just check enemy states on every frame
-        foreach (KeyValuePair<Character, GameObject> enemy in enemyGameObjectMap)
-        {
-            
+
+		// It's just a fix for "out of sync" exception of dictionary
+		// We can not remove key/values while iterating
+		List<Character> keys = new List<Character>(enemyGOMap.Keys);
+		foreach (Character enemy in keys)
+        {   
             //Debug.DrawRay(enemy.Value.transform.position,new Vector3(Vector2.down.x,Vector2.down.y,0)*5,Color.red);
+
             // If enemy's health is 0 or under 0 just Destroy it
             // and remove from enemyGameObjectMap, and also from
             // the world enemy list.
-            if (enemy.Key.health <= 0)
+			if (enemy.health <= 0)
             {
-                enemy.Value.SetActive(false);
-                enemy.Key.isAlive = false;
+				enemyGOMap[enemy].SetActive(false);
+                enemy.isAlive = false;
 
-                //remove from the lists 
-               enemyGameObjectMap.Remove(enemy.Key);
-               GOenemyMap.Remove(enemy.Value);
+                // remove from the maps
+				GOenemyMap.Remove(enemyGOMap[enemy]);
+            	enemyGOMap.Remove(enemy);
 
-                //remove from the world
-                world.enemies.Remove(enemy.Key);
+                // remove from the world
+                world.enemies.Remove(enemy);
             }
 			// If enemy's health above 0, update states
 			else
@@ -87,13 +89,12 @@ public class EnemyController : MonoBehaviour
                 // Watch(enemy);
             }
         }
-  
     }
 
     void FixedUpdate()
     {
         // Update physical things
-        foreach (KeyValuePair<Character, GameObject> enemy in enemyGameObjectMap)
+        foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
         {
             Walk(enemy);
         }
@@ -102,36 +103,26 @@ public class EnemyController : MonoBehaviour
     void Walk(KeyValuePair<Character, GameObject> enemyGOPair)
     {
 		
-        //TODO burayı çok genel yapabiliriz
+        // TODO: burayı çok genel yapabiliriz
 
         // Eğer karakteri görmüyorsa ona yeni gidecek pozisyon tanımlamaları yaparız kısa aralıklarda destPos şeklinde veirriz oraya yürür
         // Karakteri görüyorsa destPos karakterin konumu olur
         // karakter görüşünden çıktığı anda yeni bir destPos oluştururuz
 
-
-
         Character enemy = enemyGOPair.Key;
         GameObject enemy_go = enemyGOPair.Value;
-
-      
-        Vector2 enemyPosition =new Vector2(enemy_go.transform.position.x , enemy_go.transform.position.y);
+		 
+        Vector2 enemyPosition = new Vector2(enemy_go.transform.position.x , enemy_go.transform.position.y);
        
-
 		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
         Vector3 mainCharacterPosition;
         
 		//eğer karakter görüş açımızda ise ona doğru yürü
         EnemyImpact impact = Watch(enemyGOPair);
       
-        
 		Vector2 destPos;
 		float direction;
 		float scaleX;
-
-		// direction ve scaleX i local değişken yapıp başta güncel yön bilgisini
-		// alıyorum ki eğer değişiklik olmazsa olduğu gibi devam etsin.
-
-
 
 		if(enemyGOPair.Key.direction == Direction.Left)
 			direction = scaleX = -1f;
@@ -192,7 +183,7 @@ public class EnemyController : MonoBehaviour
 		enemy_go.transform.localScale = new Vector3(scaleX, 1, 0);
 
 		Rigidbody2D rgbd2D = enemy_go.GetComponent<Rigidbody2D>();
-		rgbd2D.velocity = new Vector2(enemy.speed * direction, rgbd2D.velocity.y);
+		rgbd2D.velocity = new Vector2(enemy.speed.x * direction, rgbd2D.velocity.y);
 
         
     }
@@ -245,6 +236,6 @@ public class EnemyController : MonoBehaviour
 
     void Fire(Character enemy, Transform gunPosition)
     {
-        enemy.currentWeapon.cbAttack(enemy, enemy.currentWeapon);
+        enemy.currentWeapon.cbAttack(enemy);
     }
 }

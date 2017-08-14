@@ -7,28 +7,33 @@ public class Bullet
 {
 	Action<Bullet> cbBulletActions;
 
-	// Vurduğu düşmana verdiği hasar.
-
+	// Owner of this bullet.
     Character character;
 
+	// Damage caused by shooter.
 	public float damage;
 
+	// How fast this bullet moves
+	public float speed;
+
+	// We can use this to distinguish sprites.
 	string bulletType;
 
-    //THINK : Bunun üzeirne düşünelim
-    //uygunsa ingilizce açıklama yapalım
+    // THINK : Bunun üzerine düşünelim.
     bool canPassTheWall;
 
-	public Bullet(string bulletType, float damage)
+	public Bullet(string bulletType, float damage, float speed)
 	{
         this.bulletType = bulletType;
         this.damage = damage;
+		this.speed = speed;
 	}
 
     protected Bullet(Bullet other)
     {
         this.bulletType =other.bulletType;
         this.damage = other.damage;
+		this.speed = other.speed;
     }
 
     public Bullet Clone()
