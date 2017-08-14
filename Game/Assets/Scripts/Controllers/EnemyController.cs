@@ -21,6 +21,10 @@ public class EnemyController : MonoBehaviour
         enemyGOMap = new Dictionary<Character, GameObject>();
         GOenemyMap = new Dictionary<GameObject, Character>();
 
+<<<<<<< HEAD
+        //Creates enemies with GO
+=======
+>>>>>>> 708d10874b0c746f0d3a4c7908d18a0afbb94ced
         CreateEnemies();
     }
 
