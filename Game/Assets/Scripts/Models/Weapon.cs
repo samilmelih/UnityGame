@@ -15,6 +15,10 @@ public class Weapon
 	// tek bir action yetersiz olacaktır.
 	// Fire ı daha genel olarak attack ile değiştirdim.
 	public Action<Character> cbAttack;
+    public Func<Character,bool> cbOnReload;
+
+    //şimdilik buna ihtiyaç var mı bilmiyorum olursa diye yazdım
+    public bool isReloadable=false;
 	   
     public Dictionary<string, float> weaponParameters;
 
@@ -23,8 +27,14 @@ public class Weapon
 	{
         // if there is no bullet then it is a sword.
         if (bullet != null)
+        {
+            isReloadable = true;
             this.bullet = bullet;
-		this.type = type;
+        }
+        else
+            isReloadable = false;
+         
+        this.type = type;
         weaponParameters = new Dictionary<string, float>();
 	}
 
@@ -49,4 +59,5 @@ public class Weapon
 	{
 		cbAttack += cb;
 	}
+   
 }

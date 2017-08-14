@@ -13,6 +13,8 @@ public class WeaponActions : MonoBehaviour
 
 		float currTime = Time.time;
 
+       
+
 		if (currTime - weapon.weaponParameters["fireCoolDown"] > weapon.weaponParameters["fireFrequency"])
 		{
 			if(weapon.weaponParameters["bulletCount"] > 0f)
@@ -53,8 +55,14 @@ public class WeaponActions : MonoBehaviour
 			else
 			{
 				// We are out of bullet.
+                //FIXME: şimdilik direk değştiricez 
+
+                Debug.Log("Reloaded");
+                weapon.weaponParameters["bulletCount"] =weapon.weaponParameters["maxBulletCount"];
+
 			}
 		}
 
     }
+   
 }

@@ -43,6 +43,7 @@ public class CharacterController : MonoBehaviour
 		world.character.RegisterOnCrouchCallback(OnCharacterCrouch);
 		world.character.RegisterOnJumpCallback(OnCharacterJump);
 		world.character.RegisterOnWalkCallback(OnCharacterWalk);
+
 	}
 
     // Update is called once per frame
@@ -101,4 +102,5 @@ public class CharacterController : MonoBehaviour
 	void OnCharacterCrouch(Character ch)
 	{
 	}
+   
 }

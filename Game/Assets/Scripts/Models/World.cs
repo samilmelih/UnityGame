@@ -49,7 +49,7 @@ public class World
 		character.direction = Direction.Right;
 		character.scale = new Vector3(1f, 1f, 1f);
 
-		character.currentWeapon = weaponPrototypes["Magnum"].Clone();
+		character.currentWeapon = weaponPrototypes["MP5"].Clone();
 	}
 
 	void CreateEnemies()
@@ -71,11 +71,7 @@ public class World
     //Bu çok uzun bir metod olacak parçalara ayıracağız muhtemelen her bir silah için ayrı bir metod yapmak daha okunaklı olacaktır
     void CreatePrototypes()
     {
-        bulletPrototypes.Add(
-            "Magnum",
-			// 	Type, damage, speed
-            new Bullet("Magnum", 10f, 30f)
-        );
+  
 
         //Buraya bir mermi animasyon metodu yerleştirebiliriz yada ona benzer birşey....
         //THINK bunu burada mı yapmalıyız?
@@ -83,45 +79,123 @@ public class World
 
        // bulletPrototypes["Magnum"].RegisterBulletActionsCallback();
 
+        CreateBulletProtos();
+
+        CreateMagnumProto();
+		
+        CreateMP5Proto();
+
+
+    }
+    /// <summary>
+    /// Creates the bullet protos.
+    /// </summary>
+    void CreateBulletProtos()
+    {
+        bulletPrototypes.Add(
+            "Magnum",
+            //  Type, damage, speed
+            new Bullet(
+                "Magnum", //Name
+                5, //damage
+                30f //velocity
+            )
+            
+        );
+
+        bulletPrototypes.Add("MP5",
+            new Bullet(
+                "MP5",//Name
+                25,//damage
+                20//velocity
+            )
+        );
+
+    }
+    /// <summary>
+    /// Creates the knife proto.
+    /// </summary>
+    void CreateKnifeProto()
+    {
         weaponPrototypes.Add(
             "Knife",
             new Weapon("Knife")
         );
 
-		weaponPrototypes["Knife"].weaponParameters.Add(
-			"hitPower",
-			5
-		);
 
-		weaponPrototypes["Knife"].weaponParameters.Add(
-			"hitSpeed",
-			2
-		);
+        weaponPrototypes["Knife"].weaponParameters.Add(
+            "hitPower",
+            5
+        );
 
+        weaponPrototypes["Knife"].weaponParameters.Add(
+            "hitSpeed",
+            2
+        );
 
-
-		weaponPrototypes.Add(
+    }
+    /// <summary>
+    /// Creates the magnum proto.
+    /// </summary>
+    void CreateMagnumProto()
+    {
+        weaponPrototypes.Add(
             "Magnum",
             new Weapon("Magnum", bulletPrototypes["Magnum"])
-		);
+        );
 
         weaponPrototypes["Magnum"].cbAttack += WeaponActions.Magnum_One_Shot;
 
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
-			"fireFrequency",
-			2f	// .1 saniyede bir ateş edilebilir
-		);
-
-		weaponPrototypes["Magnum"].weaponParameters.Add(
-			"fireCoolDown",
-			-weaponPrototypes["Magnum"].weaponParameters["fireFrequency"]	// Başlangıç aniden ateş edebilmesi için gerekli
-		);
+            "fireFrequency",
+            .5f // .1 saniyede bir ateş edilebilir
+        );
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
-			"bulletCount",
-			40
-		);
+            "fireCoolDown",
+            -weaponPrototypes["Magnum"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+        );
+
+        weaponPrototypes["Magnum"].weaponParameters.Add(
+            "bulletCount",
+            10
+        );
+        weaponPrototypes["Magnum"].weaponParameters.Add(
+            "maxBulletCount",
+            10
+        );
+    }
+    /// <summary>
+    /// Creates the M p5 proto.
+    /// </summary>
+    void CreateMP5Proto()
+    {
+        weaponPrototypes.Add(
+            "MP5",
+            new Weapon("MP5",bulletPrototypes["MP5"])
+        );
+        weaponPrototypes["MP5"].cbAttack += WeaponActions.Magnum_One_Shot;
+
+
+        weaponPrototypes["MP5"].weaponParameters.Add(
+            "fireFrequency",
+            .2f // .1 saniyede bir ateş edilebilir
+        );
+
+        weaponPrototypes["MP5"].weaponParameters.Add(
+            "fireCoolDown",
+            -weaponPrototypes["MP5"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+        );
+
+        weaponPrototypes["MP5"].weaponParameters.Add(
+            "bulletCount",
+            30
+        );
+        weaponPrototypes["MP5"].weaponParameters.Add(
+            "maxBulletCount",
+            30
+        );
     }
 
 

@@ -35,6 +35,11 @@ public class KeyboardController : MonoBehaviour
             {
                 character.Attack();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log("It will reload automaticly when you run out of bullet");
+            }
         }
 	}
 

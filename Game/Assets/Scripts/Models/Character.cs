@@ -40,6 +40,7 @@ public class Character
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
 
+
 	public void Attack()
 	{
 		if(cbOnAttack != null)
@@ -77,6 +78,7 @@ public class Character
 		
 	}
 
+   
 
 
 
@@ -86,6 +88,7 @@ public class Character
 		cbOnAttack += cb;
 	}
 
+  
 	public void RegisterOnJumpCallback(Action<Character> cb)
 	{
 		cbOnJump += cb;
