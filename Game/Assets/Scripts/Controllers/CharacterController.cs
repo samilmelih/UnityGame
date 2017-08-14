@@ -29,7 +29,8 @@ public class CharacterController : MonoBehaviour
 		// Create our characters into scene. For now,
 		// we only have one character.
 
-		GameObject chr_prefab = (GameObject) Resources.Load("Prefabs/Character");	// FIXME: This need to be change in the future.
+		// FIXME: This need to be change in the future.
+		GameObject chr_prefab = (GameObject) Resources.Load("Prefabs/Character");
 
 		go_mainCharacter = Instantiate(chr_prefab, chr_prefab.transform);
 
@@ -48,22 +49,12 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         if (world.character.isAlive && world.character.health <= 0)
-        {
-            
+        {            
             Destroy(go_mainCharacter);
             world.character.isAlive = false;
 
             Debug.Log("Main Character is Dead Finish or restart the level");
         }
-	}
-
-	void OnCharacterAttack(Character ch)
-	{
-		ch.currentWeapon.cbAttack(ch, ch.currentWeapon);
-	}
-
-	void OnCharacterCrouch(Character ch)
-	{
 	}
 
 	void OnCharacterJump(Character ch)
@@ -83,36 +74,31 @@ public class CharacterController : MonoBehaviour
 
 		if (grounded == true)
 		{
-			rgbd2D.AddForce(new Vector2(0, ch.jumpCoefficient));
+			rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, ch.velocity.y);
 		}
 	}
 
 	void OnCharacterWalk(Character ch)
 	{
-		float velocity = ch.axis;
-        Transform chr_transform=null;
-        if(go_mainCharacter!=null)
-		     chr_transform = go_mainCharacter.GetComponent<Transform>();
-
-		if (velocity < 0/* && character.direction != Direction.Left*/)
+		if(go_mainCharacter == null)
 		{
-			chr_transform.localScale = new Vector3(-1f, 1f, 0f);
-			ch.direction = Direction.Left;
+			Debug.LogError("OnCharacterWalk() -- We assigned null to go_mainCharacter somewhere.");
+			return;
 		}
 
-		if (velocity > 0 /*&& character.direction != Direction.Right*/)
-		{
-			ch.direction = Direction.Right;
-			chr_transform.localScale = new Vector3(1f, 1f, 0f);
-		}
+        Transform chr_transform = go_mainCharacter.GetComponent<Transform>();
+		Rigidbody2D chr_rgbd2D  = go_mainCharacter.GetComponent<Rigidbody2D>();
 
-		//hangi şarta göre karakterin yönü değişecek(bunu değiştirdiğin zaman karakterin yönünü unutma) 
-		//        transform.localScale = new Vector3(transform.localScale.x * -1f,1,0);
-        if (go_mainCharacter != null)
-        {
-            Rigidbody2D rgbd2D = go_mainCharacter.GetComponent<Rigidbody2D>();
+		chr_transform.localScale = new Vector3(ch.scale.x, ch.scale.y, 1f);
+		chr_rgbd2D.velocity 	 = new Vector2(ch.velocity.x, chr_rgbd2D.velocity.y);
+	}
 
-            rgbd2D.velocity = new Vector2(ch.speed * velocity, rgbd2D.velocity.y);
-        }
+	void OnCharacterAttack(Character ch)
+	{
+		ch.currentWeapon.cbAttack(ch);
+	}
+
+	void OnCharacterCrouch(Character ch)
+	{
 	}
 }

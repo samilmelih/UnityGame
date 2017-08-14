@@ -15,27 +15,25 @@ public class Character
     /// </summary>
     int CurrentLevel;
 
-    public Direction direction = Direction.None;
-
-
-	public float axis;
+	public Direction direction;
 
     //bu şimdilik public buna daha iyi çözümler üretebiliriz
     public bool isAlive=true;
 	// how fast my character moves right to left 2 fps
-	public float speed;
-
-	//How fast my character jump. I'll use this in rigidbody > Addforce
-	public float jumpCoefficient = 500f;
 
 	// FIXME: bunun public olma konusunda düşün
 	public Weapon currentWeapon;
 
 	public string Type{ get; set; }
 
+	// This is just speed, no direction. We use this to get velocity
+	public Vector2 speed;
 
+	// For updating velocity of our character
+	public Vector2 velocity;
 
-    Action<Character> charControlsByAI;
+	// For updating scale of our character
+	public Vector3 scale;
     
 	Action<Character> cbOnAttack;
 	Action<Character> cbOnJump;
@@ -50,13 +48,26 @@ public class Character
 
 	public void Walk(float axis)
 	{
-		this.axis = axis;
+		velocity.x = speed.x * axis;
+
+		if (axis < 0)
+		{
+			scale = new Vector2(-1f, 1f);
+			direction = Direction.Left;
+		}
+		else if (axis > 0)
+		{
+			scale = new Vector2(1f, 1f);
+			direction = Direction.Right;
+		}
+
 		if(cbOnWalk != null)
 			cbOnWalk(this);
 	}
 
 	public void Jump()
 	{
+		velocity.y = speed.y;
 		if(cbOnJump != null)
 			cbOnJump(this);
 	}
@@ -89,20 +100,6 @@ public class Character
 	{
 		cbOnWalk += cb;
 	}
-
-    /// <summary>
-    /// Character can buy weapons.
-    /// </summary>
-    public void RegisterActions(Action<Character> act)
-    {
-        charControlsByAI += act;
-    }
-
-    public void ActByAI()
-    {
-        if (charControlsByAI != null)
-            charControlsByAI(this);
-    }
 
 	// FIXME: Bu yorumların bulunduğu konumda kodla ilişkilerini bulamadım. Eğer gereksizse silelim :D
 

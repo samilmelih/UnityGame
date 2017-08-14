@@ -40,7 +40,14 @@ public class World
 		// If we have, We need a character list.
 		character = new Character();
 		character.Type = "Main Character";
-		character.speed = 5f;
+
+		// Default move speed in x-axis is +-5f.
+		// Default jump speed in y-axis is 12f.
+		character.speed = new Vector2(7f, 12f);
+
+		// At the begining our characters looks right
+		character.direction = Direction.Right;
+		character.scale = new Vector3(1f, 1f, 1f);
 
 		character.currentWeapon = weaponPrototypes["Magnum"].Clone();
 	}
@@ -53,7 +60,7 @@ public class World
 		{
 			Character enemy = new Character();
 			enemy.Type = "Enemy";
-			enemy.speed = 4f;
+			enemy.speed.x = 3f;
             enemy.direction = (Direction) Random.Range(1, 3);
 			enemy.currentWeapon = weaponPrototypes["Magnum"].Clone();
 
@@ -66,7 +73,8 @@ public class World
     {
         bulletPrototypes.Add(
             "Magnum",
-            new Bullet("Magnum", 50f)
+			// 	Type, damage, speed
+            new Bullet("Magnum", 50f, 30f)
         );
 
         //Buraya bir mermi animasyon metodu yerleştirebiliriz yada ona benzer birşey....
@@ -102,7 +110,7 @@ public class World
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
 			"fireFrequency",
-			.1f	// .5 saniyede bir ateş edilebilir
+			.1f	// .1 saniyede bir ateş edilebilir
 		);
 
 		weaponPrototypes["Magnum"].weaponParameters.Add(
@@ -112,15 +120,8 @@ public class World
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
 			"bulletCount",
-			10
+			40
 		);
-
-        weaponPrototypes["Magnum"].weaponParameters.Add(
-			"damage",
-			0.2f
-		);
-
-
     }
 
 
