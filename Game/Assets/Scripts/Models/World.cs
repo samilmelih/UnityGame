@@ -110,7 +110,7 @@ public class World
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
 			"fireFrequency",
-			.5f	// .1 saniyede bir ateş edilebilir
+			2f	// .1 saniyede bir ateş edilebilir
 		);
 
 		weaponPrototypes["Magnum"].weaponParameters.Add(

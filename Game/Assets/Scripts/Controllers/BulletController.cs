@@ -8,15 +8,9 @@ public class BulletController : MonoBehaviour
 	public Character character;
 	public Bullet bullet;
 
-	// FIXME: If we have one world, why don't we make this as static.
-	// We don't need each individual bullet have a world reference.
-	World world;
-
 	// Use this for initialization
 	void Start()		
 	{
-		world = WorldController.Instance.world;
-
 		Rigidbody2D rgbd2D = GetComponent< Rigidbody2D >();
 
 		Vector2 direction;
@@ -40,7 +34,7 @@ public class BulletController : MonoBehaviour
 
 		if(other.gameObject.tag == "Player" && go_shooter.tag != "Player")
 		{
-			world.character.health -= bullet.damage;
+			WorldController.Instance.world.character.health -= bullet.damage;
             Destroy(this.gameObject);
 		}
 		else if(other.gameObject.tag == "Enemy" && go_shooter.tag != "Enemy")
