@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour
         enemyGOMap = new Dictionary<Character, GameObject>();
         GOenemyMap = new Dictionary<GameObject, Character>();
 
-
         CreateEnemies();
     }
 
@@ -162,7 +161,6 @@ public class EnemyController : MonoBehaviour
                 float groundRadius = 0.2f;
 
                 bool grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-
 
 				// FIXME: Düşman spawn edildiğinde havada olduğu için bu kod yüzünden saçmalıyor.
 				// Çok büyük bir hata olmadığı için şimdilik not olarak buraya bırakıyorum.

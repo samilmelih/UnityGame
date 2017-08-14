@@ -74,7 +74,7 @@ public class World
         bulletPrototypes.Add(
             "Magnum",
 			// 	Type, damage, speed
-            new Bullet("Magnum", 50f, 30f)
+            new Bullet("Magnum", 10f, 30f)
         );
 
         //Buraya bir mermi animasyon metodu yerleştirebiliriz yada ona benzer birşey....
@@ -110,7 +110,7 @@ public class World
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
 			"fireFrequency",
-			.1f	// .1 saniyede bir ateş edilebilir
+			.5f	// .1 saniyede bir ateş edilebilir
 		);
 
 		weaponPrototypes["Magnum"].weaponParameters.Add(
