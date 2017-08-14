@@ -8,7 +8,7 @@ TagManager:
   - area
   - gun
   - Enemy
-  - Main Character
+  - Bullet
   layers:
   - Default
   - TransparentFX
