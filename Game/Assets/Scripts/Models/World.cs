@@ -62,7 +62,13 @@ public class World
 			enemy.Type = "Enemy";
 			enemy.speed.x = 3f;
             enemy.direction = (Direction) Random.Range(1, 3);
+
+            //FIXME şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
+
+            if(Random.Range(0,2)==0)
 			enemy.currentWeapon = weaponPrototypes["Magnum"].Clone();
+            else
+                enemy.currentWeapon = weaponPrototypes["MP5"].Clone();
 
 			enemies.Add(enemy);
 		}

@@ -736,7 +736,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Helath :'
+  m_Text: 'Money :'
 --- !u!222 &542494137
 CanvasRenderer:
   m_ObjectHideFlags: 0

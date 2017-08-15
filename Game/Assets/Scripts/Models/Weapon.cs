@@ -11,6 +11,10 @@ public class Weapon
 
     public Bullet bullet;
 
+
+    //FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
+    public float Range = 0;
+
 	// Buradaki action larıda olay olay bölmemiz gerekli,
 	// tek bir action yetersiz olacaktır.
 	// Fire ı daha genel olarak attack ile değiştirdim.
