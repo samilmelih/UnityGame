@@ -5,7 +5,9 @@ using UnityEngine;
 public class WeaponActions : MonoBehaviour
 {
     //bunun içerisinde silahın bulunması ne gibibir fayda verir
-
+    public static void CloseWeapons(Character character)
+    {
+    }
     public static void Magnum_One_Shot(Character character)
     {
 		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
@@ -57,9 +59,22 @@ public class WeaponActions : MonoBehaviour
 				// We are out of bullet.
                 //FIXME: şimdilik direk değştiricez 
 
-                Debug.Log("Reloaded");
-                weapon.weaponParameters["bulletCount"] =weapon.weaponParameters["maxBulletCount"];
+               
 
+                //FIXME sistem çalışması açısından yazıyorum bu kodu düzeltilecek 
+                float money=WorldController.Instance.world.character.money;
+
+                if (money >= 40)
+                {
+                    Debug.Log("Reloaded");
+                    WorldController.Instance.world.character.money -= 40;
+                    weapon.weaponParameters["bulletCount"] = weapon.weaponParameters["maxBulletCount"];
+                }
+                else
+                {
+                    Debug.Log("Run out of money and bullet Use Knife or sword kinda things");
+                    WorldController.Instance.world.character.currentWeapon = WorldController.Instance.world.weaponPrototypes["Knife"].Clone();
+                }
 			}
 		}
 

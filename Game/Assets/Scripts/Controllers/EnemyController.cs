@@ -80,6 +80,12 @@ public class EnemyController : MonoBehaviour
 				GOenemyMap.Remove(enemyGOMap[enemy]);
             	enemyGOMap.Remove(enemy);
 
+                //Düşman öldürdüğümü bilmem lazım ki paramı artırabileyim burayı düşün
+                //FIXME buraya daha iyi bir şey düşün
+
+                world.character.money += 50;
+
+
                 // remove from the world
                 world.enemies.Remove(enemy);
             }

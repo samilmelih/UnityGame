@@ -122,7 +122,7 @@ public class World
             new Weapon("Knife")
         );
 
-
+        weaponPrototypes["Knife"].type="Knife";
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -132,6 +132,8 @@ public class World
             "hitSpeed",
             2
         );
+
+        weaponPrototypes["Knife"].cbAttack += WeaponActions.CloseWeapons;
 
     }
     /// <summary>
@@ -145,12 +147,13 @@ public class World
         );
 
         weaponPrototypes["Magnum"].cbAttack += WeaponActions.Magnum_One_Shot;
-
+        weaponPrototypes["Magnum"].type="Magnum";
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireFrequency",
             .5f // .1 saniyede bir ateş edilebilir
         );
+
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireCoolDown",
@@ -176,7 +179,7 @@ public class World
             new Weapon("MP5",bulletPrototypes["MP5"])
         );
         weaponPrototypes["MP5"].cbAttack += WeaponActions.Magnum_One_Shot;
-
+        weaponPrototypes["MP5"].type="MP5";
 
         weaponPrototypes["MP5"].weaponParameters.Add(
             "fireFrequency",
