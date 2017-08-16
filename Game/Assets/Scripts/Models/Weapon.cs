@@ -32,6 +32,7 @@ public class Weapon
         // if there is no bullet then it is a sword.
         if (bullet != null)
         {
+            
             isReloadable = true;
             this.bullet = bullet;
         }

@@ -57,6 +57,7 @@ public class WeaponActions : MonoBehaviour
 			}
 			else
 			{
+                
 				// We are out of bullet.
                 //FIXME: şimdilik direk değştiricez 
 

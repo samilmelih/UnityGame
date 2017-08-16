@@ -18,6 +18,7 @@ public class CharacterGunInfoText : MonoBehaviour {
     */
     void Start()
     {
+        
         characterWeapon = WorldController.Instance.world.character.currentWeapon;
 
     }
@@ -29,6 +30,7 @@ public class CharacterGunInfoText : MonoBehaviour {
         BulletCount.text ="Bullet Count: " + characterWeapon.weaponParameters["bulletCount"].ToString();
 
         MaxBulletCount.text ="Max Bullet Count: " + characterWeapon.weaponParameters["maxBulletCount"].ToString();
+
 
 
         HealthText.text = "Health :" + WorldController.Instance.world.character.health.ToString();

@@ -14,6 +14,7 @@ public class WorldController : MonoBehaviour
         if(Instance==null)
 			Instance = this;
 
+
         if(world==null)
 			world = new World();
 	}
