@@ -8,6 +8,7 @@ public class WeaponActions : MonoBehaviour
     public static void CloseWeapons(Character character)
     {
     }
+
     public static void Magnum_One_Shot(Character character)
     {
 		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;

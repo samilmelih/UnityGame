@@ -21,6 +21,7 @@ public class CharacterGunInfoText : MonoBehaviour {
         characterWeapon = WorldController.Instance.world.character.currentWeapon;
 
     }
+
 	// Update is called once per frame
 	void Update () {
         GunNameText.text ="Curr Weapon: " + characterWeapon.type;
