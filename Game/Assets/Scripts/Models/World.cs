@@ -41,6 +41,8 @@ public class World
 		character = new Character();
 		character.Type = "Main Character";
 
+		character.jumpCoolDown = 0.3f;
+
 		// Default move speed in x-axis is +-5f.
 		// Default jump speed in y-axis is 12f.
 		character.speed = new Vector2(7f, 12f);
@@ -98,8 +100,9 @@ public class World
 		
         CreateMP5Proto();
 
-
+		CreateKnifeProto();
     }
+
     /// <summary>
     /// Creates the bullet protos.
     /// </summary>
@@ -109,22 +112,22 @@ public class World
             "Magnum",
             //  Type, damage, speed
             new Bullet(
-                "Magnum", //Name
-                5, //damage
-                30f //velocity
+                "Magnum",	// name
+                5,			// damage
+                30f			// velocity
             )
             
         );
 
         bulletPrototypes.Add("MP5",
             new Bullet(
-                "MP5",//Name
-                25,//damage
-                20//velocity
+                "MP5",		// name
+                25,			// damage
+                20			// velocity
             )
         );
-
     }
+
     /// <summary>
     /// Creates the knife proto.
     /// </summary>
@@ -135,7 +138,6 @@ public class World
             new Weapon("Knife")
         );
 
-        weaponPrototypes["Knife"].type="Knife";
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -149,6 +151,7 @@ public class World
         weaponPrototypes["Knife"].cbAttack += WeaponActions.CloseWeapons;
 
     }
+
     /// <summary>
     /// Creates the magnum proto.
     /// </summary>
@@ -158,16 +161,12 @@ public class World
             "Magnum",
             new Weapon("Magnum", bulletPrototypes["Magnum"])
         );
-
-        weaponPrototypes["Magnum"].cbAttack += WeaponActions.Magnum_One_Shot;
-        weaponPrototypes["Magnum"].type="Magnum";
-
+			
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireFrequency",
-            .5f // .1 saniyede bir ateş edilebilir
+            .5f 		// .5 saniyede bir ateş edilebilir
         );
-
-
+			
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireCoolDown",
             -weaponPrototypes["Magnum"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
@@ -181,9 +180,12 @@ public class World
             "maxBulletCount",
             10
         );
+
+		weaponPrototypes["Magnum"].cbAttack += WeaponActions.One_Shot;
     }
+
     /// <summary>
-    /// Creates the M p5 proto.
+    /// Creates the Mp5 proto.
     /// </summary>
     void CreateMP5Proto()
     {
@@ -191,7 +193,7 @@ public class World
             "MP5",
             new Weapon("MP5",bulletPrototypes["MP5"])
         );
-        weaponPrototypes["MP5"].cbAttack += WeaponActions.Magnum_One_Shot;
+
         weaponPrototypes["MP5"].type="MP5";
 
         weaponPrototypes["MP5"].weaponParameters.Add(
@@ -212,7 +214,7 @@ public class World
             "maxBulletCount",
             30
         );
+
+		weaponPrototypes["MP5"].cbAttack += WeaponActions.One_Shot;
     }
-
-
 }

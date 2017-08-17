@@ -9,6 +9,8 @@ public class Character
     public float mana = 100;
 	public int money;			// This should be in additional parameters
 
+	public float jumpCoolDown;
+
     /// <summary>
     /// If we have level system then we need to increase some variables
     /// depend on this
@@ -39,6 +41,7 @@ public class Character
 	Action<Character> cbOnJump;
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
+
 
 
 	public void Attack()

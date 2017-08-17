@@ -46,5 +46,10 @@ public class BulletController : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+		else if(other.gameObject.tag == "Bullet")
+		{
+			Destroy(this.gameObject);
+			Destroy(other.gameObject);
+		}
     }
 }

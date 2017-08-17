@@ -8,10 +8,14 @@ public class KeyboardController : MonoBehaviour
 	// için direk karakteri referansı almayı daha uygun gördüm.
 	Character character;
 
+	float jumpCoolDown;
+
 	// Use this for initialization
 	void Start ()
 	{
 		character = WorldController.Instance.world.character;	
+
+		jumpCoolDown = 0f;
 	}
 	
 	// Update is called once per frame
@@ -21,9 +25,17 @@ public class KeyboardController : MonoBehaviour
 		// Şimdilik bu şekilde yapıyorum.
         if (character.isAlive)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) == true)
+            if (Input.GetKey(KeyCode.UpArrow) == true)
             {
-                character.Jump();
+				if(jumpCoolDown <= 0)
+				{
+					character.Jump();
+					jumpCoolDown = character.jumpCoolDown;
+				}
+				else
+				{
+					jumpCoolDown -= Time.deltaTime;
+				}
             }
 
             if (Input.GetKey(KeyCode.DownArrow) == true)
