@@ -42,5 +42,9 @@ public class BulletController : MonoBehaviour
             EnemyController.Instance.GOenemyMap[other.gameObject].health -= bullet.damage;
             Destroy(this.gameObject);
 		}
+		else if(other.gameObject.tag == "ground")
+		{
+			Destroy(this.gameObject);
+		}
     }
 }

@@ -47,7 +47,7 @@ public class World
 
 		// At the begining our characters looks right
 		character.direction = Direction.Right;
-		character.scale = new Vector3(1f, 1f, 1f);
+		character.scale = new Vector3(1f, 1f, 0f);
 
 		character.currentWeapon = weaponPrototypes["MP5"].Clone();
 	}
@@ -56,17 +56,24 @@ public class World
 	{
 		enemies = new List<Character>();
 
-		for(int i = 0; i < 9; i++)	// FIXME: Test amaçlı şuan 0 enemy üretiliyor.
+		for(int i = 0; i < 9; i++)
 		{
 			Character enemy = new Character();
 			enemy.Type = "Enemy";
-			enemy.speed.x = 3f;
+
+			// Default move speed in x-axis is +-3f.
+			// Default jump speed in y-axis is 9f.
+			enemy.speed = new Vector2(3f, 9f);
+
             enemy.direction = (Direction) Random.Range(1, 3);
+			if(enemy.direction == Direction.Left)
+				enemy.scale = new Vector3(-1f, 1f, 0f);
+			else
+				enemy.scale = new Vector3(1f, 1f, 0f);
 
-            //FIXME şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
-
-            if(Random.Range(0,2)==0)
-			enemy.currentWeapon = weaponPrototypes["Magnum"].Clone();
+			// FIXME: şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
+            if(Random.Range(0, 2) == 0)
+				enemy.currentWeapon = weaponPrototypes["Magnum"].Clone();
             else
                 enemy.currentWeapon = weaponPrototypes["MP5"].Clone();
 

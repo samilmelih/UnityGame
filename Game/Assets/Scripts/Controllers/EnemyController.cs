@@ -21,9 +21,7 @@ public class EnemyController : MonoBehaviour
         enemyGOMap = new Dictionary<Character, GameObject>();
         GOenemyMap = new Dictionary<GameObject, Character>();
 
-
-        //Creates enemies with GO
-
+        // Creates enemies with GO
         CreateEnemies();
     }
 
@@ -37,7 +35,7 @@ public class EnemyController : MonoBehaviour
            
             //TODO : burada bir transform list içince spawn positions belirlenecek
             //bu posizsyonlar ne olursa olsun bu şekilde yapılabilir
-            GameObject enemy_go = (GameObject)Instantiate(enemy_prefab, spawnPos[numberOfEnemy],false);
+            GameObject enemy_go = (GameObject)Instantiate(enemy_prefab, spawnPos[numberOfEnemy], false);
       
             enemy_go.name = "Enemy_" + (++numberOfEnemy);
             enemy_go.tag = "Enemy";
@@ -60,14 +58,9 @@ public class EnemyController : MonoBehaviour
         // for now I couldn't find a better place.
 				
         // Just check enemy states on every frame
-
-		// It's just a fix for "out of sync" exception of dictionary
-		// We can not remove key/values while iterating
 		List<Character> keys = new List<Character>(enemyGOMap.Keys);
 		foreach (Character enemy in keys)
         {   
-            //Debug.DrawRay(enemy.Value.transform.position,new Vector3(Vector2.down.x,Vector2.down.y,0)*5,Color.red);
-
             // If enemy's health is 0 or under 0 just Destroy it
             // and remove from enemyGameObjectMap, and also from
             // the world enemy list.
@@ -85,16 +78,8 @@ public class EnemyController : MonoBehaviour
 
                 world.character.money += 50;
 
-
                 // remove from the world
                 world.enemies.Remove(enemy);
-            }
-			// If enemy's health above 0, update states
-			else
-            {
-				// FIXME: Walk içinde sürekli Watch çağırıldığı için bu artık gereksiz mi?
-				// Emin olamadığım için comment olarak bırakıyorum.
-                // Watch(enemy);
             }
         }
     }
@@ -119,80 +104,73 @@ public class EnemyController : MonoBehaviour
 
         Character enemy = enemyGOPair.Key;
         GameObject enemy_go = enemyGOPair.Value;
-		 
-        Vector2 enemyPosition = new Vector2(enemy_go.transform.position.x , enemy_go.transform.position.y);
-       
-		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
-        Vector3 mainCharacterPosition;
-        
-		//eğer karakter görüş açımızda ise ona doğru yürü
+		                
+		// Eğer karakter görüş açımızda ise ona doğru yürü
         EnemyImpact impact = Watch(enemyGOPair);
       
-		Vector2 destPos;
-		float direction;
-		float scaleX;
-
-		if(enemyGOPair.Key.direction == Direction.Left)
-			direction = scaleX = -1f;
-		else
-			direction = scaleX = 1f;
+		bool turnBack = false;
 
 		switch (impact)
         {
             case EnemyImpact.Enemy:
-
-                //Debug.Log(EnemyImpact.Enemy);
-                direction *= -1;
-                scaleX    *= -1;
-                if(enemy.direction==Direction.Left)
-                    enemy.direction = Direction.Right;
-                else
-                    enemy.direction = Direction.Left;
-
+				turnBack = true;
                 break;
             case EnemyImpact.Player:
-               // Debug.Log(EnemyImpact.Player);
-
-                mainCharacterPosition = go_mainCharacter.transform.position;
-
-                destPos = new Vector2(mainCharacterPosition.x, mainCharacterPosition.y);
+				enemy.currentWeapon.cbAttack(enemy);
                 break;
             case EnemyImpact.Wall:
-              //  Debug.Log(EnemyImpact.Wall);
+				turnBack = true;
                 break;
             case EnemyImpact.None:
-              
-               
-                LayerMask whatIsGround = 127;
+
+				// FIXME: We need to fix this variable.
+                LayerMask whatIsGround = 255;	// 1111 1111
 
                 Transform groundCheck = enemy_go.transform.Find("GroundCheck");
 
                 float groundRadius = 0.2f;
 
-                bool grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+                Collider2D grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
 				// FIXME: Düşman spawn edildiğinde havada olduğu için bu kod yüzünden saçmalıyor.
 				// Çok büyük bir hata olmadığı için şimdilik not olarak buraya bırakıyorum.
-                if (grounded == false)
+                if (grounded == null)
                 {
-                    direction *= -1;
-                    scaleX    *= -1;
-                    if(enemy.direction==Direction.Left)
-                        enemy.direction = Direction.Right;
-                    else
-                        enemy.direction = Direction.Left;
+					turnBack = true;
                 }
-               
-                break;
-        }   
-        
 
-		enemy_go.transform.localScale = new Vector3(scaleX, 1, 0);
+				break;
+        }
 
-		Rigidbody2D rgbd2D = enemy_go.GetComponent<Rigidbody2D>();
-		rgbd2D.velocity = new Vector2(enemy.speed.x * direction, rgbd2D.velocity.y);
+		if(turnBack == true)
+		{
+			enemy.velocity.x *= -1f;
+			enemy.scale.x *= -1f;
 
-        
+			if(enemy.direction == Direction.Left)
+				enemy.direction = Direction.Right;
+			else
+				enemy.direction = Direction.Left;
+		}
+		else
+		{
+			if(enemy.direction == Direction.Left)
+			{
+				enemy.velocity.x = -enemy.speed.x;
+				enemy.scale.x = -1f;
+			}
+			else
+			{
+				enemy.velocity.x = enemy.speed.x;
+				enemy.scale.x = 1f;
+			}
+		}
+
+		Transform enemy_transform = enemy_go.GetComponent<Transform>();
+		Rigidbody2D enemy_rgbd2D  = enemy_go.GetComponent<Rigidbody2D>();
+
+		enemy_transform.localScale = new Vector3(enemy.scale.x, enemy.scale.y, 0f);
+		enemy_rgbd2D.velocity = new Vector2(enemy.velocity.x, enemy_rgbd2D.velocity.y);   
     }
 
     EnemyImpact Watch(KeyValuePair<Character, GameObject> enemyGOPair)
@@ -202,9 +180,6 @@ public class EnemyController : MonoBehaviour
 
         Vector2 direction;
 
-        //baktığın yönde doğrusal olarak bir raycast yap ve gördüğün nesne Player ise ateş et
-
-
         if (enemy.direction == Direction.Left)
             direction = Vector2.left;
         else
@@ -213,36 +188,30 @@ public class EnemyController : MonoBehaviour
         Transform gunPosition = go.transform.Find("Gun");
 
         RaycastHit2D hit = Physics2D.Raycast(gunPosition.position, direction, 10);
-        Debug.DrawRay(gunPosition.position,new Vector3(direction.x,direction.y,0) * 10 , Color.red);
 
-        //Palyer dışında menzili düşürmemiz lazım küçük bir hesap yap
+		// Debug.DrawRay(gunPosition.position, new Vector3(direction.x, direction.y, 0) * 10, Color.red);
 
-        //duvar ile yada enemy ile arasında 10 birim mesafe olmasın 1 2 olsa yeter o yüzden tekrar bi pozisyon farkı al
+		// Baktığın yönde doğrusal olarak bir raycast yap ve gördüğün nesne Player ise ateş et
+
+        // Player dışında menzili düşürmemiz lazım küçük bir hesap yap
+
+        // duvar ile yada enemy ile arasında 10 birim mesafe olmasın 1 2 olsa yeter o yüzden tekrar bi pozisyon farkı al
+
         if (hit.collider != null && hit.collider.tag == "Player")
-        {
-          
-            Fire(enemy, gunPosition);
+        {       
             return EnemyImpact.Player;
         }
 
-        if (hit.collider != null && hit.collider.tag == "Enemy"&& hit.distance < 1f)
+        if (hit.collider != null && hit.collider.tag == "Enemy" && hit.distance < 1f)
         {
-            
             return EnemyImpact.Enemy;
         }
 
-        if (hit.collider != null && hit.collider.tag == "Wall")
-        {
-
+		if (hit.collider != null && hit.collider.tag == "Wall"  && hit.distance < 1f)
+		{
             return EnemyImpact.Wall;
         }
-
        
         return EnemyImpact.None;
-    }
-
-    void Fire(Character enemy, Transform gunPosition)
-    {
-        enemy.currentWeapon.cbAttack(enemy);
     }
 }

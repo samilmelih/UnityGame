@@ -90,7 +90,7 @@ public class CharacterController : MonoBehaviour
         Transform chr_transform = go_mainCharacter.GetComponent<Transform>();
 		Rigidbody2D chr_rgbd2D  = go_mainCharacter.GetComponent<Rigidbody2D>();
 
-		chr_transform.localScale = new Vector3(ch.scale.x, ch.scale.y, 1f);
+		chr_transform.localScale = new Vector3(ch.scale.x, ch.scale.y, 0f);
 		chr_rgbd2D.velocity 	 = new Vector2(ch.velocity.x, chr_rgbd2D.velocity.y);
 	}
 
