@@ -147,6 +147,14 @@ public class EnemyController : MonoBehaviour
 			enemy.velocity.x *= -1f;
 			enemy.scale.x *= -1f;
 
+			// This is a workaround.
+			Transform enemyCanvas = enemy_go.transform.Find("CanvasHolder");
+			enemyCanvas.localScale = new Vector3(
+				enemyCanvas.localScale.x * -1f,
+				enemyCanvas.localScale.y,
+				enemyCanvas.localScale.z
+			);
+
 			if(enemy.direction == Direction.Left)
 				enemy.direction = Direction.Right;
 			else
