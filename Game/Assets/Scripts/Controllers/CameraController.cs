@@ -12,7 +12,11 @@ public class CameraController : MonoBehaviour
         {
         	Vector3 new_position = new Vector3(
          		go_mainCharacter.transform.position.x,
-                go_mainCharacter.transform.position.y,
+
+				// FIXME: If character is at the center, in mobile, it won't be look good so
+				// fixed camera position would be good for now. But we need to talk about
+				// camera positions later.
+				Camera.main.transform.position.y,
                 Camera.main.transform.position.z
 			);
 
