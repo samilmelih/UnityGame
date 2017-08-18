@@ -27,7 +27,7 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-#*.apk
+*.apk
 *.unitypackage
 Game_0014/Assets/level1.unity
 Game_0014/Assets/level1.unity
