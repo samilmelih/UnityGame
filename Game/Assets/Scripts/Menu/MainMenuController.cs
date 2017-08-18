@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -22,14 +21,11 @@ public class MainMenuController : MonoBehaviour
         StartCoroutine(LoadingScreen(sceneIndex));
         loadingScreen.gameObject.SetActive(true);
         txtLoadingText.text = "Loading!";
-
 	}
-
-
 
     IEnumerator LoadingScreen(int sceneIndex)
     {
-        AsyncOperation op= SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneIndex);
 
         while (!op.isDone)
         {

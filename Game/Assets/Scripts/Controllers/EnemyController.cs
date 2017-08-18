@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour
             case EnemyImpact.None:
 
 				// FIXME: We need to fix this variable.
-                LayerMask whatIsGround = 255;	// 1111 1111
+                LayerMask whatIsGround = 1024;	// 100 0000 0000
 
                 Transform groundCheck = enemy_go.transform.Find("GroundCheck");
 

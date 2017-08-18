@@ -41,8 +41,6 @@ public class World
 		character = new Character();
 		character.Type = "Main Character";
 
-		character.jumpCoolDown = 0.2f;
-
 		// Default move speed in x-axis is +-5f.
 		// Default jump speed in y-axis is 12f.
 		character.speed = new Vector2(7f, 12f);

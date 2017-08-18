@@ -26,16 +26,8 @@ public class KeyboardController : MonoBehaviour
         if (character.isAlive)
         {
             if (Input.GetKey(KeyCode.UpArrow) == true)
-            {
-				if(jumpCoolDown <= 0)
-				{
-					character.Jump();
-					jumpCoolDown = character.jumpCoolDown;
-				}
-				else
-				{
-					jumpCoolDown -= Time.deltaTime;
-				}
+			{
+				character.Jump();
             }
 
             if (Input.GetKey(KeyCode.DownArrow) == true)

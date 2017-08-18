@@ -60,21 +60,20 @@ public class CharacterController : MonoBehaviour
 
 	void OnCharacterJump(Character ch)
 	{
-		// 01111111, ilk 7 layer dahil, 8 ve sonrası yok. Bunu karakter
-		// özelliği olarak yapmak istersek sanırım <Character, LayerMask>
-		// şekline tutmamız gerekecek bu sınıfta.
-		LayerMask whatIsGround = 127;
+		// We can just jump on grounds.
+		LayerMask whatIsGround = 1024;	// 100 0000 0000
 
 		Transform groundCheck = go_mainCharacter.transform.Find("GroundCheck");
 
 		float groundRadius = 0.2f;
 
-		bool grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+		Collider2D grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
 		Rigidbody2D rgbd2D = go_mainCharacter.GetComponent<Rigidbody2D>();
 
-		if (grounded == true)
+		if (grounded != null)
 		{
+			Debug.Log(grounded.gameObject.name);
 			rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, ch.velocity.y);
 		}
 	}
