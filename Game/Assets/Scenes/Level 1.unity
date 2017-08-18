@@ -386,6 +386,10 @@ Prefab:
       propertyPath: m_Name
       value: Ground 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1571922777237522, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
   m_IsPrefabParent: 0
@@ -434,6 +438,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4414117994607406, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
       propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571922777237522, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
+      propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1568,6 +1576,14 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1571922777237522, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571922777237522, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
   m_IsPrefabParent: 0
@@ -1918,6 +1934,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1571922777237522, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
   m_IsPrefabParent: 0
@@ -2242,6 +2262,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4414117994607406, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
       propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571922777237522, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
+      propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
