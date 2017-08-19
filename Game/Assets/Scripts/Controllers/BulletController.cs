@@ -48,8 +48,10 @@ public class BulletController : MonoBehaviour
 		}
 		else if(other.gameObject.tag == "Bullet")
 		{
-			Destroy(this.gameObject);
-			Destroy(other.gameObject);
+            //Çanakkale savaşını canlandırmıyoruz :D
+
+			//Destroy(this.gameObject);
+		//	Destroy(other.gameObject);
 		}
     }
 }
