@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
 	public Character character;
 	public Bullet bullet;
 
+    //dont need to use this keyword if you dont have same named variable in this class(in methods)
+
 	// Use this for initialization
 	void Start()		
 	{
@@ -24,7 +26,7 @@ public class BulletController : MonoBehaviour
 
 		// For now, we need to clear bullets that are not contact 
 		// by other objects. In fact, we need a better aprroach on this too.
-		Destroy(this.gameObject, 2);
+		Destroy(gameObject, 2);
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,25 +34,30 @@ public class BulletController : MonoBehaviour
         // check if you hit something hittable
         // which means has an enemyController
 
+
+        //TODO:
+        //object üzerinden kontrol edince şöyle bir sorun oluşuyor biz bu objeyi destroy ettiğimzde mermi kime ait olduğunu bilmiyor
+        //bunun yerine Bir ENUM yapısı kullanmak nasıl olur?? IDK
+
 		if(other.gameObject.tag == "Player" && go_shooter.tag != "Player")
 		{
 			WorldController.Instance.world.character.health -= bullet.damage;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
 		}
 		else if(other.gameObject.tag == "Enemy" && go_shooter.tag != "Enemy")
 		{
             EnemyController.Instance.GOenemyMap[other.gameObject].health -= bullet.damage;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
 		}
 		else if(other.gameObject.tag == "ground")
 		{
-			Destroy(this.gameObject);
+			Destroy(gameObject);
 		}
 		else if(other.gameObject.tag == "Bullet")
 		{
             //Çanakkale savaşını canlandırmıyoruz :D
 
-			//Destroy(this.gameObject);
+			//Destroy(gameObject);
 		//	Destroy(other.gameObject);
 		}
     }
