@@ -43,11 +43,9 @@ public class Character
 	public Inventory inventory;
 
 
-
-
-	public void ChangeWeapon(int weapon_index)
+	public void ChangeWeapon(WeaponType type)
 	{
-		currentWeapon = inventory.ChangeWeapon(this, weapon_index);
+		currentWeapon = inventory.ChangeWeapon(this, type);
 	}
 
 	public void Attack()

@@ -22,7 +22,7 @@ public class CharacterGunInfoText : MonoBehaviour
 	{
 		characterWeapon = WorldController.Instance.world.character.currentWeapon;
 
-		GunNameText.text ="Curr Weapon: " + characterWeapon.type;
+		GunNameText.text ="Curr Weapon: " + characterWeapon.name;
 
 		HealthText.text = "Health :" + WorldController.Instance.world.character.health.ToString();
 

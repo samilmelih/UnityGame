@@ -52,9 +52,9 @@ public class World
 		character.currentWeapon = weaponPrototypes["MP5"].Clone();
 		
 		Inventory ch_inventory = new Inventory();
-		// It's empty because weapon is on character.
-		ch_inventory.weapons[0] = null;
-		ch_inventory.weapons[1] = weaponPrototypes["Magnum"];
+		ch_inventory.weapons[0] = weaponPrototypes["Magnum"];
+		// It's null because weapon is on character.
+		ch_inventory.weapons[1] = null;
 		ch_inventory.weapons[2] = weaponPrototypes["Knife"];
 
 		character.inventory = ch_inventory;
@@ -144,6 +144,8 @@ public class World
             new Weapon("Knife")
         );
 
+		weaponPrototypes["Knife"].type = WeaponType.Close;
+
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -166,7 +168,9 @@ public class World
             "Magnum",
             new Weapon("Magnum", bulletPrototypes["Magnum"])
         );
-			
+
+		weaponPrototypes["Magnum"].type = WeaponType.Gun;
+
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireFrequency",
             .5f 		// .5 saniyede bir ateş edilebilir
@@ -199,7 +203,7 @@ public class World
             new Weapon("MP5", bulletPrototypes["MP5"])
         );
 
-        weaponPrototypes["MP5"].type="MP5";
+		weaponPrototypes["MP5"].type = WeaponType.Rifle;
 
         weaponPrototypes["MP5"].weaponParameters.Add(
             "fireFrequency",

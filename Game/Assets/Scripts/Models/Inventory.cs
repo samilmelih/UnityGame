@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Inventory
 {
-	// Close Weapons (e.g. knife, sword)
-	// Guns
-	// Rifles
-	// Arrows
 	const int numberOfWeapon = 3;
 	public Weapon[] weapons;
 
@@ -16,28 +12,20 @@ public class Inventory
 		weapons = new Weapon[numberOfWeapon];
 	}
 		
-	public Weapon ChangeWeapon(Character character, int weapon_index)
+	public Weapon ChangeWeapon(Character character, WeaponType weaponType)
 	{
-		weapon_index--;
-
+		int type = (int) weaponType;
+		Debug.Log(type);
 		// If requested weapon is already on character then just return.
-		if(weapons[weapon_index] == null)
+		if(weapons[type] == null)
 			return character.currentWeapon;
 
-		// Find the empty weapon and change with the character's current weapon
-		// FIXME: For now, I couldn't find a better way. We may need to change this later.
-		for(int i = 0; i < numberOfWeapon; i++)
-		{
-			if(weapons[i] == null)
-			{
-				weapons[i] = character.currentWeapon;
-			}
-		}
+		weapons[(int) character.currentWeapon.type] = character.currentWeapon;
 
 		// Keep weapon that will be changed
-		Weapon changed = weapons[weapon_index];
+		Weapon changed = weapons[type];
 
-		weapons[weapon_index] = null;
+		weapons[type] = null;
 
 		return changed;
 	}

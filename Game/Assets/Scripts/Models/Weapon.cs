@@ -5,7 +5,9 @@ using System;
 
 public class Weapon
 {
-    public string type;
+    public string name;
+
+	public WeaponType type;
 
     public Bullet bullet;
 
@@ -25,7 +27,7 @@ public class Weapon
     public Dictionary<string, float> weaponParameters;
 
 	// For now, we just have "type" for prototype parameters.
-    public Weapon(string type, Bullet bullet = null)
+    public Weapon(string name, Bullet bullet = null)
 	{
         // if there is no bullet then it is a sword.
         if (bullet != null)
@@ -36,7 +38,7 @@ public class Weapon
         else
             isReloadable = false;
          
-        this.type = type;
+        this.name = name;
         weaponParameters = new Dictionary<string, float>();
 	}
 
@@ -47,6 +49,7 @@ public class Weapon
             this.bullet = weapon.bullet;
         }
 
+		this.name = weapon.name;
 		this.type = weapon.type;
 		this.isReloadable = weapon.isReloadable;
 		this.cbAttack = weapon.cbAttack;

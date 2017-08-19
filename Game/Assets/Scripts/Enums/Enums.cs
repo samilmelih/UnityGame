@@ -4,10 +4,9 @@ using UnityEngine;
 
 public enum Direction
 {
-    None,
+	None,
 	Left,
 	Right
-
 }
 
 public enum EnemyImpact
@@ -16,5 +15,11 @@ public enum EnemyImpact
     Player,
     Wall,
     Enemy
+}
 
+public enum WeaponType : byte
+{
+	Gun,
+	Rifle,
+	Close
 }

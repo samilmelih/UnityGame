@@ -10,11 +10,11 @@ public class InputController : MonoBehaviour
 
 	#if UNITY_ANDROID || UNITY_IOS
 		
-		// We need these variables because we are updating walk state
-		// in FixedUpdate so use these variables to check in FixedUpdate
-		
-		bool leftDown;
-		bool rightDown;
+	// We need these variables because we are updating walk state
+	// in FixedUpdate so use these variables to check in FixedUpdate
+	
+	bool leftDown;
+	bool rightDown;
 
 	#endif
 
@@ -25,10 +25,10 @@ public class InputController : MonoBehaviour
 
 		#if UNITY_STANDALONE_WIN
 
-			// If platform is not mobile, we won't need buttons on the screen so Destroy them.
+		// If platform is not mobile, we won't need buttons on the screen so Destroy them.
 
-			GameObject canvas = GameObject.Find("Canvas");
-			Destroy(canvas.transform.Find("MobileInputs").gameObject);
+		GameObject canvas = GameObject.Find("Canvas");
+		Destroy(canvas.transform.Find("MobileInputs").gameObject);
 
 		#endif
 	}
@@ -64,17 +64,17 @@ public class InputController : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.Alpha1) == true)
 			{
-				character.ChangeWeapon(1);
+				character.ChangeWeapon(WeaponType.Gun);
 			}
 
 			if (Input.GetKeyDown(KeyCode.Alpha2) == true)
 			{
-				character.ChangeWeapon(2);
+				character.ChangeWeapon(WeaponType.Rifle);
 			}
 
 			if (Input.GetKeyDown(KeyCode.Alpha3) == true)
 			{
-				character.ChangeWeapon(3);
+				character.ChangeWeapon(WeaponType.Close);
 			}
 		}
 
@@ -91,33 +91,33 @@ public class InputController : MonoBehaviour
 		{
 			#if UNITY_ANDROID || UNITY_IOS
 				
-				// This should look like as a comment but it's not. When we switch
-				// build settings to android or ios, it won't be comment.
+			// This should look like as a comment but it's not. When we switch
+			// build settings to android or ios, it won't be comment.
 
-				if(leftDown ^ rightDown)
-				{
-					if(leftDown)
-						character.Walk(-1f);
-					else
-						character.Walk(1f);
-				}
+			if(leftDown ^ rightDown)
+			{
+				if(leftDown)
+					character.Walk(-1f);
 				else
-				{
-					character.Walk(0f);
-				}	
+					character.Walk(1f);
+			}
+			else
+			{
+				character.Walk(0f);
+			}	
 
 			#endif
 
 			#if UNITY_STANDALONE_WIN
 				
-				if (Input.GetKey(KeyCode.LeftArrow) ^ Input.GetKey(KeyCode.RightArrow))
-				{
-					character.Walk(Input.GetAxis("Horizontal"));
-				}
-				else
-				{
-					character.Walk(0f);
-				}
+			if (Input.GetKey(KeyCode.LeftArrow) ^ Input.GetKey(KeyCode.RightArrow))
+			{
+				character.Walk(Input.GetAxis("Horizontal"));
+			}
+			else
+			{
+				character.Walk(0f);
+			}
 
 			#endif
 		}
@@ -138,7 +138,7 @@ public class InputController : MonoBehaviour
 		character.Attack();
 	}
 
-#if UNITY_ANDROID || UNITY_IOS
+	#if UNITY_ANDROID || UNITY_IOS
 
 	public void Mobile_Button_Up(int direction)
 	{
@@ -162,6 +162,6 @@ public class InputController : MonoBehaviour
 			rightDown = true;
 	}
 
-#endif
+	#endif
 
 }
