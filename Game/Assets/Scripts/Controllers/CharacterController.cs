@@ -74,6 +74,7 @@ public class CharacterController : MonoBehaviour
 		if (grounded != null)
 		{
 			rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, ch.velocity.y);
+			SoundController.Instance.Jump();
 		}
 	}
 

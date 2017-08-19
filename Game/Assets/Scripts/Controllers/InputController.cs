@@ -8,10 +8,15 @@ public class InputController : MonoBehaviour
 	// için direk karakteri referansı almayı daha uygun gördüm.
 	Character character;
 
-	// We need these variables because we are updating walk state
-	// in FixedUpdate so use these variables to check in FixedUpdate
-	bool leftDown;
-	bool rightDown;
+	#if UNITY_ANDROID || UNITY_IOS
+		
+		// We need these variables because we are updating walk state
+		// in FixedUpdate so use these variables to check in FixedUpdate
+		
+		bool leftDown;
+		bool rightDown;
+
+	#endif
 
 	// Use this for initialization
 	void Start ()
@@ -118,6 +123,8 @@ public class InputController : MonoBehaviour
 		character.Attack();
 	}
 
+#if UNITY_ANDROID || UNITY_IOS
+
 	public void Mobile_Button_Up(int direction)
 	{
 		if(direction == 0)
@@ -139,4 +146,7 @@ public class InputController : MonoBehaviour
 		else
 			rightDown = true;
 	}
+
+#endif
+
 }
