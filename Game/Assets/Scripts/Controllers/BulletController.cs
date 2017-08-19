@@ -41,16 +41,19 @@ public class BulletController : MonoBehaviour
 
 		if(other.gameObject.tag == "Player" && go_shooter.tag != "Player")
 		{
+			SoundController.Instance.Hit();
 			WorldController.Instance.world.character.health -= bullet.damage;
             Destroy(gameObject);
 		}
 		else if(other.gameObject.tag == "Enemy" && go_shooter.tag != "Enemy")
 		{
+			SoundController.Instance.Hit();
             EnemyController.Instance.GOenemyMap[other.gameObject].health -= bullet.damage;
             Destroy(gameObject);
 		}
 		else if(other.gameObject.tag == "ground")
 		{
+			SoundController.Instance.Ground_Hit();
 			Destroy(gameObject);
 		}
     }
