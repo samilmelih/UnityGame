@@ -73,7 +73,6 @@ public class CharacterController : MonoBehaviour
 
 		if (grounded != null)
 		{
-			Debug.Log(grounded.gameObject.name);
 			rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, ch.velocity.y);
 		}
 	}
