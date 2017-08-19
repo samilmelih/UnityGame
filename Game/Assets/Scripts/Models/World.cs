@@ -50,6 +50,14 @@ public class World
 		character.scale = new Vector3(1f, 1f, 0f);
 
 		character.currentWeapon = weaponPrototypes["MP5"].Clone();
+		
+		Inventory ch_inventory = new Inventory();
+		// It's empty because weapon is on character.
+		ch_inventory.weapons[0] = null;
+		ch_inventory.weapons[1] = weaponPrototypes["Magnum"];
+		ch_inventory.weapons[2] = weaponPrototypes["Knife"];
+
+		character.inventory = ch_inventory;
 	}
 
 	void CreateEnemies()
@@ -111,8 +119,8 @@ public class World
             //  Type, damage, speed
             new Bullet(
                 "Magnum",	// name
-                5,			// damage
-                30f			// velocity
+                15f,		// damage
+                20f			// velocity
             )
             
         );
@@ -147,7 +155,6 @@ public class World
         );
 
         weaponPrototypes["Knife"].cbAttack += WeaponActions.CloseWeapons;
-
     }
 
     /// <summary>
@@ -189,7 +196,7 @@ public class World
     {
         weaponPrototypes.Add(
             "MP5",
-            new Weapon("MP5",bulletPrototypes["MP5"])
+            new Weapon("MP5", bulletPrototypes["MP5"])
         );
 
         weaponPrototypes["MP5"].type="MP5";

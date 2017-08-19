@@ -6,7 +6,7 @@ public class WeaponActions : MonoBehaviour
 {
     public static void CloseWeapons(Character character)
     {
-		
+		Debug.Log("This weapon's attack mode is not implemented.");
     }
 
     public static void One_Shot(Character character)

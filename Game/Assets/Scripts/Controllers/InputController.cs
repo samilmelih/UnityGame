@@ -38,30 +38,45 @@ public class InputController : MonoBehaviour
 	{
 		#if UNITY_STANDALONE_WIN
 
-			// Tuşa basılı tuttukça zıplaması istersek GetKey kullanmalıyız.
-			// Şimdilik bu şekilde yapıyorum.
-	        if (character.isAlive)
-	        {
-	            if (Input.GetKey(KeyCode.UpArrow) == true)
-				{
-					Jump();
-	            }
+		// Tuşa basılı tuttukça zıplaması istersek GetKey kullanmalıyız.
+		// Şimdilik bu şekilde yapıyorum.
+        if (character.isAlive)
+        {
+            if (Input.GetKey(KeyCode.UpArrow) == true)
+			{
+				Jump();
+            }
 
-	            if (Input.GetKey(KeyCode.DownArrow) == true)
-	            {
-	                character.Crouch();
-	            }
+            if (Input.GetKey(KeyCode.DownArrow) == true)
+            {
+                character.Crouch();
+            }
 
-	            if (Input.GetKeyDown(KeyCode.Space) == true)
-	            {
-	                character.Attack();
-	            }
+            if (Input.GetKeyDown(KeyCode.Space) == true)
+            {
+                character.Attack();
+            }
 
-	            if (Input.GetKeyDown(KeyCode.R))
-	            {
-	                Debug.Log("It will reload automaticly when you run out of bullet");
-	            }
-	        }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log("It will reload automaticly when you run out of bullet");
+            }
+
+			if (Input.GetKeyDown(KeyCode.Alpha1) == true)
+			{
+				character.ChangeWeapon(1);
+			}
+
+			if (Input.GetKeyDown(KeyCode.Alpha2) == true)
+			{
+				character.ChangeWeapon(2);
+			}
+
+			if (Input.GetKeyDown(KeyCode.Alpha3) == true)
+			{
+				character.ChangeWeapon(3);
+			}
+		}
 
 		#endif
 	}

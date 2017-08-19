@@ -40,14 +40,23 @@ public class Character
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
 
+	public Inventory inventory;
 
+
+
+
+	public void ChangeWeapon(int weapon_index)
+	{
+		currentWeapon = inventory.ChangeWeapon(this, weapon_index);
+	}
 
 	public void Attack()
 	{
 		if(cbOnAttack != null)
+		{
 			cbOnAttack(this);
-
-		SoundController.Instance.Shot();
+			SoundController.Instance.Shot();
+		}
 	}
 
 	public void Walk(float axis)
@@ -81,7 +90,6 @@ public class Character
 		
 	}
 
-   
 
 
 

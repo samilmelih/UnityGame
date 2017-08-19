@@ -95,7 +95,8 @@ public class CharacterController : MonoBehaviour
 
 	void OnCharacterAttack(Character ch)
 	{
-		ch.currentWeapon.cbAttack(ch);
+		if(ch.currentWeapon.cbAttack != null)
+			ch.currentWeapon.cbAttack(ch);
 	}
 
 	void OnCharacterCrouch(Character ch)

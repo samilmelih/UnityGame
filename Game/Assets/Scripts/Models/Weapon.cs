@@ -7,8 +7,6 @@ public class Weapon
 {
     public string type;
 
-    Character character;
-
     public Bullet bullet;
 
 
@@ -22,12 +20,12 @@ public class Weapon
     public Func<Character,bool> cbOnReload;
 
     //şimdilik buna ihtiyaç var mı bilmiyorum olursa diye yazdım
-    public bool isReloadable=false;
-	   
+    public bool isReloadable = false;
+
     public Dictionary<string, float> weaponParameters;
 
 	// For now, we just have "type" for prototype parameters.
-    public Weapon(string type, Bullet bullet=null)
+    public Weapon(string type, Bullet bullet = null)
 	{
         // if there is no bullet then it is a sword.
         if (bullet != null)
@@ -50,6 +48,7 @@ public class Weapon
         }
 
 		this.type = weapon.type;
+		this.isReloadable = weapon.isReloadable;
 		this.cbAttack = weapon.cbAttack;
         this.weaponParameters =new Dictionary<string, float>( weapon.weaponParameters);
 	}
