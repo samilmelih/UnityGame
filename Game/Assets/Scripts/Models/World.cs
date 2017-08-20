@@ -67,7 +67,7 @@ public class World
 	{
 		enemies = new List<Character>();
 
-		for(int i = 0; i < 9; i++)
+		for(int i = 0; i < 8; i++)
 		{
 			Character enemy = new Character();
 			enemy.Type = "Enemy";
