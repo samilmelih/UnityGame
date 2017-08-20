@@ -5,6 +5,10 @@ using System;
 
 public class Character 
 {
+
+
+
+
 	public float health = 100f;
     public float mana = 100;
 	public int money;			// This should be in additional parameters
@@ -14,6 +18,7 @@ public class Character
     /// depend on this
     /// </summary>
     int CurrentLevel;
+
 
 	public Direction direction;
 
@@ -40,7 +45,7 @@ public class Character
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
 
-	public Inventory inventory;
+    public Inventory inventory;
 
 
 	public void ChangeWeapon(WeaponType type)

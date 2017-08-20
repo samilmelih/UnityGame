@@ -49,15 +49,18 @@ public class World
 		character.direction = Direction.Right;
 		character.scale = new Vector3(1f, 1f, 0f);
 
-		character.currentWeapon = weaponPrototypes["MP5"].Clone();
+	//	character.currentWeapon = weaponPrototypes["MP5"].Clone();
 		
 		Inventory ch_inventory = new Inventory();
-		ch_inventory.weapons[0] = weaponPrototypes["Magnum"];
+        ch_inventory.weapons[0] = weaponPrototypes["Knife"].Clone();
+            
 		// It's null because weapon is on character.
-		ch_inventory.weapons[1] = null;
-		ch_inventory.weapons[2] = weaponPrototypes["Knife"];
+        ch_inventory.weapons[1] = weaponPrototypes["Magnum"].Clone();
+            
+        ch_inventory.weapons[2] = weaponPrototypes["MP5"].Clone();
 
 		character.inventory = ch_inventory;
+        character.currentWeapon = ch_inventory.weapons[0];
 	}
 
 	void CreateEnemies()

@@ -19,7 +19,7 @@ public enum EnemyImpact
 
 public enum WeaponType : byte
 {
-	Gun,
-	Rifle,
-	Close
+	Gun=1,
+	Rifle=2,
+	Close=0
 }

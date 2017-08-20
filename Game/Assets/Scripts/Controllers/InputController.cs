@@ -7,6 +7,8 @@ public class InputController : MonoBehaviour
 	// KeyboardController sadece karakter üzerinde işler yaptığı
 	// için direk karakteri referansı almayı daha uygun gördüm.
 	Character character;
+    public GameObject GunTypesGO;
+    bool UIShowed=false;
 
 	#if UNITY_ANDROID || UNITY_IOS
 		
@@ -22,6 +24,8 @@ public class InputController : MonoBehaviour
 	void Start ()
 	{
 		character = WorldController.Instance.world.character;
+
+        GunTypesGO.SetActive(UIShowed);
 
 		#if UNITY_STANDALONE_WIN
 
@@ -64,24 +68,37 @@ public class InputController : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.Alpha1) == true)
 			{
-				character.ChangeWeapon(WeaponType.Gun);
+                character.ChangeWeapon(WeaponType.Close);
 			}
 
 			if (Input.GetKeyDown(KeyCode.Alpha2) == true)
 			{
-				character.ChangeWeapon(WeaponType.Rifle);
+                character.ChangeWeapon(WeaponType.Gun);
 			}
 
 			if (Input.GetKeyDown(KeyCode.Alpha3) == true)
 			{
-				character.ChangeWeapon(WeaponType.Close);
+                character.ChangeWeapon(WeaponType.Rifle);
 			}
 		}
 
 		#endif
 	}
+    public void ChangeWeapon()
+    {
+        UIShowed = !UIShowed;
+        GunTypesGO.SetActive(UIShowed);
+   
+    }
+    public void ChangeWeapon(int type)
+    {
+        character.ChangeWeapon((WeaponType)type);
+        GunTypesGO.SetActive(false);
 
-	void FixedUpdate()
+        UIShowed = false;
+
+    }
+    	void FixedUpdate()
 	{
 		// Eğer ikiside farklıysa bir tarafa gidilecek demektir.
 		// Eğer ikisi aynıysa ya hiç basılmadı yada iki tuşa birden basıldı.
