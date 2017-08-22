@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+using UnityEngine.SceneManagement;
+
 public class CharacterController : MonoBehaviour
 {
 	// We only have one character. I guess, we'll need this GameObject info
@@ -55,6 +57,7 @@ public class CharacterController : MonoBehaviour
             world.character.isAlive = false;
 
 			Debug.Log("Main Character is Dead Finish or restart the level");
+            SceneManager.LoadScene(0);
         }
 	}
 
