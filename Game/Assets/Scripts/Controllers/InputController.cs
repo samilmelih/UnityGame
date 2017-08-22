@@ -9,6 +9,7 @@ public class InputController : MonoBehaviour
 	Character character;
     public GameObject GunTypesGO;
     bool UIShowed=false;
+     Animator gunChooseAnim;
 
 	#if UNITY_ANDROID || UNITY_IOS
 		
@@ -25,8 +26,10 @@ public class InputController : MonoBehaviour
 	{
 		character = WorldController.Instance.world.character;
 
-        GunTypesGO.SetActive(UIShowed);
-
+       // GunTypesGO.SetActive(UIShowed);
+   
+        gunChooseAnim = GunTypesGO.GetComponent<Animator>();
+        gunChooseAnim.SetBool("open",UIShowed);
 		#if UNITY_STANDALONE_WIN
 
 		// If platform is not mobile, we won't need buttons on the screen so Destroy them.
@@ -87,15 +90,30 @@ public class InputController : MonoBehaviour
     public void ChangeWeapon()
     {
         UIShowed = !UIShowed;
-        GunTypesGO.SetActive(UIShowed);
+
+
+       gunChooseAnim.SetBool("open",UIShowed);
+        WaitForAnimation(gunChooseAnim.GetComponent<Animation>());
+  
+
    
+    }
+    private IEnumerator WaitForAnimation ( Animation animation )
+    {
+        do
+        {
+            yield return null;
+        } while ( animation.isPlaying );
     }
     public void ChangeWeapon(int type)
     {
-        character.ChangeWeapon((WeaponType)type);
-        GunTypesGO.SetActive(false);
-
         UIShowed = false;
+        gunChooseAnim.SetBool("open",false);
+        character.ChangeWeapon((WeaponType)type);
+
+       
+       
+
 
     }
     	void FixedUpdate()
