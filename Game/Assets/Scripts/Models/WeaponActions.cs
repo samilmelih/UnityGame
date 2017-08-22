@@ -20,6 +20,7 @@ public class WeaponActions : MonoBehaviour
 		{
 			if(weapon.weaponParameters["bulletCount"] > 0f)
 			{
+                SoundController.Instance.Shot();
 				GameObject chr_go;
 
 				if(character.Type == "Enemy")

@@ -93,18 +93,12 @@ public class InputController : MonoBehaviour
 
 
        gunChooseAnim.SetBool("open",UIShowed);
-        WaitForAnimation(gunChooseAnim.GetComponent<Animation>());
+
   
 
    
     }
-    private IEnumerator WaitForAnimation ( Animation animation )
-    {
-        do
-        {
-            yield return null;
-        } while ( animation.isPlaying );
-    }
+   
     public void ChangeWeapon(int type)
     {
         UIShowed = false;

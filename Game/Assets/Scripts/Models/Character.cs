@@ -58,7 +58,7 @@ public class Character
 		if(cbOnAttack != null)
 		{
 			cbOnAttack(this);
-			SoundController.Instance.Shot();
+			
 		}
 	}
 
