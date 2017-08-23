@@ -30,6 +30,7 @@ public class InputController : MonoBehaviour
    
         gunChooseAnim = GunTypesGO.GetComponent<Animator>();
       //  gunChooseAnim.SetBool("open",UIShowed);
+
 		#if UNITY_STANDALONE_WIN
 
 		// If platform is not mobile, we won't need buttons on the screen so Destroy them.
