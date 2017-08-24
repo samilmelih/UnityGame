@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-
-    public GameObject GOUIShow;
+    public GameObject storeUI;
+    public GameObject mainMenuUI;
     public Transform loadingScreen;
     public Slider sldrLoading;
     public Text txtLoadingPerc;
@@ -22,7 +22,7 @@ public class MainMenuController : MonoBehaviour
 	{
         StartCoroutine(LoadingScreen(sceneIndex));
         loadingScreen.gameObject.SetActive(true);
-        GOUIShow.SetActive(false);
+        mainMenuUI.SetActive(false);
         txtLoadingText.text = "Loading!";
 	}
 
@@ -39,5 +39,11 @@ public class MainMenuController : MonoBehaviour
         }
 
         txtLoadingText.text = "Loaded!";
+    }
+
+    public void OpenStore()
+    {
+        mainMenuUI.SetActive(false);
+        storeUI.SetActive(true);
     }
 }

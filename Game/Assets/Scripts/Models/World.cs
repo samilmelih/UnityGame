@@ -148,7 +148,6 @@ public class World
         );
 
 		weaponPrototypes["Knife"].type = WeaponType.Close;
-
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -176,7 +175,7 @@ public class World
 
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireFrequency",
-            .5f 		// .5 saniyede bir ateş edilebilir
+            1f 		// .5 saniyede bir ateş edilebilir
         );
 			
         weaponPrototypes["Magnum"].weaponParameters.Add(
@@ -210,7 +209,7 @@ public class World
 
         weaponPrototypes["MP5"].weaponParameters.Add(
             "fireFrequency",
-            .2f // .1 saniyede bir ateş edilebilir
+            .1f // .1 saniyede bir ateş edilebilir
         );
 
         weaponPrototypes["MP5"].weaponParameters.Add(

@@ -5,6 +5,8 @@ using System;
 
 public class Weapon
 {
+
+ 
     public string name;
 
 	public WeaponType type;
