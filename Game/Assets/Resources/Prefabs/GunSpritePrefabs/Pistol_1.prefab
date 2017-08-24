@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222035877271541750}
   - component: {fileID: 114668433010394042}
   m_Layer: 5
-  m_Name: PistolSilencer
+  m_Name: Pistol_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

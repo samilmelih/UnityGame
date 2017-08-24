@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 public class StoreController : MonoBehaviour {
 
 
@@ -9,21 +11,46 @@ public class StoreController : MonoBehaviour {
 
     public GameObject MainMenuGO;
 
+    Dictionary<string,GameObject> stringToGameObjectMap;
 
     GameObject itemHolderPrefab;
+
+    void LoadAllGunPrefabs()
+    {
+        GameObject[] gunPrefabs= Resources.LoadAll<GameObject>("Prefabs/GunSpritePrefabs/");
+
+        foreach (GameObject go in gunPrefabs)
+        {
+            stringToGameObjectMap.Add( go.name , go );
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
 		
+        stringToGameObjectMap = new Dictionary<string, GameObject>();
+
+        LoadAllGunPrefabs();
+
         itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
 
         World world = WorldController.Instance.world;
        
-        foreach (Weapon item in world.weaponPrototypes.Values)
+        foreach (Weapon weapon in world.weaponPrototypes.Values)
         {
             GameObject itemHolderGO = Instantiate(itemHolderPrefab, this.transform);
-            itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate {BuyItem(item.name);});
-            itemHolderGO.name = item.name;
+
+            Transform itemPlaceOfThisObject=itemHolderGO.transform.Find("ItemPlace");
+
+            itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate {BuyItem(weapon.name);});
+
+            itemHolderGO.name = weapon.name;
+
+           
+            Instantiate(stringToGameObjectMap[weapon.name], itemPlaceOfThisObject);
+
+
+           
         }
 
 	}

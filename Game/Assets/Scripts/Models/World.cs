@@ -144,7 +144,7 @@ public class World
     {
         weaponPrototypes.Add(
             "Knife",
-            new Weapon("Knife")
+            new Weapon("Close")
         );
 
 		weaponPrototypes["Knife"].type = WeaponType.Close;
@@ -168,7 +168,7 @@ public class World
     {
         weaponPrototypes.Add(
             "Magnum",
-            new Weapon("Magnum", bulletPrototypes["Magnum"])
+            new Weapon("Pistol", bulletPrototypes["Magnum"])
         );
 
 		weaponPrototypes["Magnum"].type = WeaponType.Gun;
@@ -202,7 +202,7 @@ public class World
     {
         weaponPrototypes.Add(
             "MP5",
-            new Weapon("MP5", bulletPrototypes["MP5"])
+            new Weapon("Rifle", bulletPrototypes["MP5"])
         );
 
 		weaponPrototypes["MP5"].type = WeaponType.Rifle;
