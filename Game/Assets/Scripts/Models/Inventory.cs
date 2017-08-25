@@ -15,7 +15,7 @@ public class Inventory
 	public Weapon ChangeWeapon(Character character, WeaponType weaponType)
 	{
 		int type = (int) weaponType;
-
+		Debug.Log(type);
 		// If requested weapon is already on character then just return.
 		if(weapons[type] == null)
 			return character.currentWeapon;

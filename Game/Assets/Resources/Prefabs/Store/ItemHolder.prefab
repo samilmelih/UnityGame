@@ -209,7 +209,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost : 500 G'
+  m_Text: 'Bullet Size: 0.44 mm
+
+    Bullet Count :9 + 1
+
+    Cost : 500 G'
 --- !u!114 &114475553605382036
 MonoBehaviour:
   m_ObjectHideFlags: 1
