@@ -657,9 +657,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518209555}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
-=======
->>>>>>> parent of 9b33fa5... Inventory work.
+
 --- !u!1 &540443948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,14 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1e2010a4bd46e489ce1c07168f81f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-<<<<<<< HEAD
   moneytext: {fileID: 2083696572}
-=======
-  moneytext: {fileID: 1525380369}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
-=======
->>>>>>> parent of 9b33fa5... Inventory work.
   storeGO: {fileID: 1056202067}
   MainMenuGO: {fileID: 1170140954}
 --- !u!1 &1050555455
@@ -1307,14 +1298,9 @@ RectTransform:
   - {fileID: 1279114696}
   - {fileID: 2011464687}
   - {fileID: 1021954642}
-<<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 2083696571}
-=======
+
   - {fileID: 1525380368}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
-=======
->>>>>>> parent of 9b33fa5... Inventory work.
   m_Father: {fileID: 1050555459}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2412,8 +2398,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2011464686}
-<<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1 &2083696570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,13 +2424,13 @@ GameObject:
   - component: {fileID: 2048224426}
   m_Layer: 5
   m_Name: Text
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
+
 --- !u!224 &2083696571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2461,12 +2445,11 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048224424}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-<<<<<<< HEAD
+
   m_Father: {fileID: 1056202068}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2497,7 +2480,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048224424}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -2513,7 +2495,6 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
     m_FontSize: 22
     m_FontStyle: 1
     m_BestFit: 0
@@ -2532,7 +2513,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083696570}
-=======
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -2552,6 +2532,3 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048224424}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
-=======
->>>>>>> parent of 9b33fa5... Inventory work.

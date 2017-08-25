@@ -34,8 +34,7 @@ public class StoreController : MonoBehaviour {
             stringToGameObjectMap.Add( go.name , go );
         }
     }
-
-<<<<<<< HEAD
+		
 	bool IsGameFirstStarted()
 	{
 		if(PlayerPrefs.HasKey("firstStarted") == false)
@@ -49,18 +48,13 @@ public class StoreController : MonoBehaviour {
 		}
 	}
 
-<<<<<<< HEAD
-        PlayerPrefs.DeleteKey("inventory");
-=======
+
 	// Use this for testing. Maybe it can be a feature in game later.
 	void CleanPlayerPrefs()
 	{
 		PlayerPrefs.DeleteAll();
 	}
->>>>>>> 9b33fa546bb3207f03370c62a77c43ab00d8aa61
-
-=======
->>>>>>> parent of 9b33fa5... Inventory work.
+		
 	// Use this for initialization
 	void Start () {
 
