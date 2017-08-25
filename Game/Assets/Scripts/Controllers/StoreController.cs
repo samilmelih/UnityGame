@@ -38,7 +38,7 @@ public class StoreController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        PlayerPrefs.DeleteKey("inventory");
+       // PlayerPrefs.DeleteKey("inventory");
 
         List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
 
@@ -66,7 +66,7 @@ public class StoreController : MonoBehaviour {
             if (inv.Contains(weapon.name) == false)
                 itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate
                     {
-                        BuyItem(weapon.name, itemHolderGO.GetComponentInChildren<Button>());
+                        BuyItem(weapon.name, itemHolderGO);
                     });
             else
             {
@@ -111,7 +111,11 @@ public class StoreController : MonoBehaviour {
             inventoryString += weaponName + ",";
             PlayerPrefs.SetString("inventory",inventoryString);
 
-            (sender as Button).enabled = false;
+            (sender as GameObject).GetComponentInChildren<Button>().enabled = false;
+
+            gunInfotexts = (sender as GameObject).GetComponentsInChildren<Text>();
+
+            gunInfotexts[2].text="Alindi";
 
         }
         else
