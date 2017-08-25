@@ -58,7 +58,7 @@ public class StoreController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        PlayerPrefs.DeleteKey("inventory");
+       // PlayerPrefs.DeleteKey("inventory");
 
         List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
 
