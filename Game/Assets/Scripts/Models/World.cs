@@ -54,27 +54,23 @@ public partial class World
 		Inventory ch_inventory = new Inventory();
 
         //bunun böyle olmaması lazım
-        string[] myInv = PlayerPrefs.GetString("inventory").Split(',');
-        Debug.Log(PlayerPrefs.GetString("inventory"));
+		if(!PlayerPrefs.GetString("inventory").Equals(""))
+		{
+	        string[] myInv = PlayerPrefs.GetString("inventory").Split(',');
 
-        foreach (var item in myInv)
-        {
-
-            if (item != "")
-            {
-                if (weaponPrototypes.ContainsKey(item))
-                    ch_inventory.weapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
-                else
-                    Debug.Log("item" + item + "yok");
-            }
-        }
+	        foreach (var item in myInv)
+	        {
+	        	if (weaponPrototypes.ContainsKey(item))
+	            	ch_inventory.weapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
+	            else
+	            	Debug.Log("item" + item + "yok");
+	        }
+	    }
        
         character.inventory = ch_inventory;
 
         //şuan hangi silah var bizde onu bilmiyoruz hangi silahı currWeapon yapacağız elimize varsayılan olarak bıçak mı vereceğiz napcaz????
         character.currentWeapon = character.inventory.weapons[0];
-
-       
 	}
 
 	void CreateEnemies()
