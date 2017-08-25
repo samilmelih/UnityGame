@@ -14,6 +14,8 @@ public class Weapon
     public Bullet bullet;
 
 
+    public int cost;
+
     //FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
     public float Range = 0;
 

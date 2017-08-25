@@ -78,6 +78,8 @@ public class EnemyController : MonoBehaviour
 
                 world.character.money += 50;
 
+                PlayerPrefs.SetInt("money", world.character.money);
+
                 // remove from the world
                 world.enemies.Remove(enemy);
             }

@@ -24,6 +24,8 @@ public class CharacterController : MonoBehaviour
 		world = WorldController.Instance.world;
 
 		CreateCharacter();
+
+        world.character.money = PlayerPrefs.GetInt("money");
 	}
 
 	void CreateCharacter()

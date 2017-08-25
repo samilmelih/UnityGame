@@ -20,25 +20,31 @@ public class CharacterGunInfoText : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+       
 		characterWeapon = WorldController.Instance.world.character.currentWeapon;
 
-		GunNameText.text ="Curr Weapon: " + characterWeapon.name;
+        if (characterWeapon != null)
+        {
+            GunNameText.text = "Curr Weapon: " + characterWeapon.name;
 
+            if(characterWeapon.isReloadable == true)
+            {
+                BulletCount.text = "Bullet Count: " + characterWeapon.weaponParameters["bulletCount"].ToString();
+
+                MaxBulletCount.text = "Max Bullet Count: " + characterWeapon.weaponParameters["maxBulletCount"].ToString();
+            }
+            else
+            {
+                BulletCount.text = "Bullet Count: ";
+
+                MaxBulletCount.text = "Max Bullet Count: ";
+            }
+
+        }
 		HealthText.text = "Health :" + WorldController.Instance.world.character.health.ToString();
 
 		MoneyText.text = "Money :" + WorldController.Instance.world.character.money.ToString();
 
-		if(characterWeapon.isReloadable == true)
-		{
-			BulletCount.text = "Bullet Count: " + characterWeapon.weaponParameters["bulletCount"].ToString();
-
-			MaxBulletCount.text = "Max Bullet Count: " + characterWeapon.weaponParameters["maxBulletCount"].ToString();
-		}
-		else
-		{
-			BulletCount.text = "Bullet Count: ";
-
-			MaxBulletCount.text = "Max Bullet Count: ";
-		}
+		
 	}
 }

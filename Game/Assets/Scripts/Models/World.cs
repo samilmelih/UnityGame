@@ -52,15 +52,29 @@ public class World
 	//	character.currentWeapon = weaponPrototypes["MP5"].Clone();
 		
 		Inventory ch_inventory = new Inventory();
-        ch_inventory.weapons[0] = weaponPrototypes["Knife"].Clone();
-            
-		// It's null because weapon is on character.
-        ch_inventory.weapons[1] = weaponPrototypes["Magnum"].Clone();
-            
-        ch_inventory.weapons[2] = weaponPrototypes["MP5"].Clone();
 
-		character.inventory = ch_inventory;
-        character.currentWeapon = ch_inventory.weapons[0];
+        //bunun böyle olmaması lazım
+        string[] myInv = PlayerPrefs.GetString("inventory").Split(',');
+        Debug.Log(PlayerPrefs.GetString("inventory"));
+
+        foreach (var item in myInv)
+        {
+
+            if (item != "")
+            {
+                if (weaponPrototypes.ContainsKey(item))
+                    ch_inventory.weapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
+                else
+                    Debug.Log("item" + item + "yok");
+            }
+        }
+       
+        character.inventory = ch_inventory;
+
+        //şuan hangi silah var bizde onu bilmiyoruz hangi silahı currWeapon yapacağız elimize varsayılan olarak bıçak mı vereceğiz napcaz????
+        character.currentWeapon = character.inventory.weapons[0];
+
+       
 	}
 
 	void CreateEnemies()
@@ -144,10 +158,11 @@ public class World
     {
         weaponPrototypes.Add(
             "Knife",
-            new Weapon("Close")
+            new Weapon("Knife")
         );
 
 		weaponPrototypes["Knife"].type = WeaponType.Close;
+        weaponPrototypes["Knife"].cost = 50;
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -168,11 +183,11 @@ public class World
     {
         weaponPrototypes.Add(
             "Magnum",
-            new Weapon("Pistol", bulletPrototypes["Magnum"])
+            new Weapon("Magnum", bulletPrototypes["Magnum"])
         );
 
 		weaponPrototypes["Magnum"].type = WeaponType.Gun;
-
+        weaponPrototypes["Magnum"].cost = 150;
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireFrequency",
             1f 		// .5 saniyede bir ateş edilebilir
@@ -202,11 +217,11 @@ public class World
     {
         weaponPrototypes.Add(
             "MP5",
-            new Weapon("Rifle", bulletPrototypes["MP5"])
+            new Weapon("MP5", bulletPrototypes["MP5"])
         );
 
 		weaponPrototypes["MP5"].type = WeaponType.Rifle;
-
+        weaponPrototypes["MP5"].cost = 500;
         weaponPrototypes["MP5"].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
