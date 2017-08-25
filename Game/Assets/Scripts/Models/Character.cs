@@ -5,13 +5,9 @@ using System;
 
 public class Character 
 {
-
-
-
-
 	public float health = 100f;
     public float mana = 100;
-	public int money;			// This should be in additional parameters
+	public int money;
 
     /// <summary>
     /// If we have level system then we need to increase some variables
