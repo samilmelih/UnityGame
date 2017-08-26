@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class World
+public partial class World
 {
 	// We only can Instantiate Character Instance in the world
 	// THINK: We can have multiple characters soon maybe???(think about it)
@@ -120,123 +120,10 @@ public class World
 		CreateMP5Proto();
 
 		CreateKnifeProto();
+
+        CreateShotgunProto();
+
+        CreateUziProto();
 	}
 
-	/// <summary>
-	/// Creates the bullet protos.
-	/// </summary>
-	void CreateBulletProtos()
-	{
-		bulletPrototypes.Add(
-			"Magnum",
-			//  Type, damage, speed
-			new Bullet(
-				"Magnum",	// name
-				15f,		// damage
-				20f			// velocity
-			)
-
-		);
-
-		bulletPrototypes.Add("MP5",
-			new Bullet(
-				"MP5",		// name
-				25,			// damage
-				20			// velocity
-			)
-		);
-	}
-
-	/// <summary>
-	/// Creates the knife proto.
-	/// </summary>
-	void CreateKnifeProto()
-	{
-		weaponPrototypes.Add(
-			"Knife",
-			new Weapon("Knife")
-		);
-
-		weaponPrototypes["Knife"].type = WeaponType.Close;
-		weaponPrototypes["Knife"].cost = 50;
-		weaponPrototypes["Knife"].weaponParameters.Add(
-			"hitPower",
-			5
-		);
-
-		weaponPrototypes["Knife"].weaponParameters.Add(
-			"hitSpeed",
-			2
-		);
-
-		weaponPrototypes["Knife"].cbAttack += WeaponActions.CloseWeapons;
-	}
-
-	/// <summary>
-	/// Creates the magnum proto.
-	/// </summary>
-	void CreateMagnumProto()
-	{
-		weaponPrototypes.Add(
-			"Magnum",
-			new Weapon("Magnum", bulletPrototypes["Magnum"])
-		);
-
-		weaponPrototypes["Magnum"].type = WeaponType.Gun;
-		weaponPrototypes["Magnum"].cost = 150;
-		weaponPrototypes["Magnum"].weaponParameters.Add(
-			"fireFrequency",
-			1f 		// .5 saniyede bir ateş edilebilir
-		);
-
-		weaponPrototypes["Magnum"].weaponParameters.Add(
-			"fireCoolDown",
-			-weaponPrototypes["Magnum"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
-		);
-
-		weaponPrototypes["Magnum"].weaponParameters.Add(
-			"bulletCount",
-			10
-		);
-		weaponPrototypes["Magnum"].weaponParameters.Add(
-			"maxBulletCount",
-			10
-		);
-
-		weaponPrototypes["Magnum"].cbAttack += WeaponActions.One_Shot;
-	}
-
-	/// <summary>
-	/// Creates the Mp5 proto.
-	/// </summary>
-	void CreateMP5Proto()
-	{
-		weaponPrototypes.Add(
-			"MP5",
-			new Weapon("MP5", bulletPrototypes["MP5"])
-		);
-
-		weaponPrototypes["MP5"].type = WeaponType.Rifle;
-		weaponPrototypes["MP5"].cost = 500;
-		weaponPrototypes["MP5"].weaponParameters.Add(
-			"fireFrequency",
-			.1f // .1 saniyede bir ateş edilebilir
-		);
-
-		weaponPrototypes["MP5"].weaponParameters.Add(
-			"fireCoolDown",
-			-weaponPrototypes["MP5"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
-		);
-
-		weaponPrototypes["MP5"].weaponParameters.Add(
-			"bulletCount",
-			30
-		);
-		weaponPrototypes["MP5"].weaponParameters.Add(
-			"maxBulletCount",
-			30
-		);
-
-		weaponPrototypes["MP5"].cbAttack += WeaponActions.One_Shot;
-	}
 }
