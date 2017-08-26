@@ -5,36 +5,36 @@ using UnityEngine.UI;
 using System.Linq;
 
 
-public class StoreController : MonoBehaviour {
+public class StoreController : MonoBehaviour
+{
+	public Text moneytext;
 
-    public Text moneytext;
-     
-    public GameObject storeGO;
+	public GameObject storeGO;
 
-    public GameObject MainMenuGO;
+	public GameObject MainMenuGO;
 
-    int currentMoney;
+	Dictionary<string,GameObject> stringToGameObjectMap;
 
-    Text[] gunInfotexts;
+	World world;
 
-    Dictionary<string,GameObject> stringToGameObjectMap;
+	GameObject itemHolderPrefab;
 
-    World world;
+	string inventoryString="";
 
-    GameObject itemHolderPrefab;
+	Text itemName;
+	Text itemDescription;
+	Text buyButtonText;
 
-    string inventoryString="";
+	void LoadAllGunPrefabs()
+	{
+		GameObject[] gunPrefabs = Resources.LoadAll<GameObject>("Prefabs/GunSpritePrefabs/");
 
-    void LoadAllGunPrefabs()
-    {
-        GameObject[] gunPrefabs= Resources.LoadAll<GameObject>("Prefabs/GunSpritePrefabs/");
+		foreach (GameObject go in gunPrefabs)
+		{
+			stringToGameObjectMap.Add( go.name , go );
+		}
+	}
 
-        foreach (GameObject go in gunPrefabs)
-        {
-            stringToGameObjectMap.Add( go.name , go );
-        }
-    }
-		
 	bool IsGameFirstStarted()
 	{
 		if(PlayerPrefs.HasKey("firstStarted") == false)
@@ -48,104 +48,108 @@ public class StoreController : MonoBehaviour {
 		}
 	}
 
-
 	// Use this for testing. Maybe it can be a feature in game later.
 	void CleanPlayerPrefs()
 	{
 		PlayerPrefs.DeleteAll();
 	}
-		
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+		stringToGameObjectMap = new Dictionary<string, GameObject>();
+		LoadAllGunPrefabs();
 
-       // PlayerPrefs.DeleteKey("inventory");
+		world = WorldController.Instance.world;
 
-        List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
+		// FIXME: We need to know when game is first started. If first started we have a start money.
+		// If not first started, we need to get from PlayerPrefs.
 
-        inventoryString = PlayerPrefs.GetString("inventory");
-        currentMoney = PlayerPrefs.GetInt("money");
+		if(IsGameFirstStarted() == true)
+		{
+			world.character.money = 200;
+			PlayerPrefs.SetInt("money", world.character.money);
+		}
+		else
+		{
+			world.character.money = PlayerPrefs.GetInt("money"); 
+		}
 
-        Debug.Log(inventoryString);
+		List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
+		inventoryString = PlayerPrefs.GetString("inventory");
 
-        stringToGameObjectMap = new Dictionary<string, GameObject>();
+		itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
 
-        LoadAllGunPrefabs();
+		foreach (Weapon weapon in world.weaponPrototypes.Values)
+		{
+			GameObject itemHolderGO = Instantiate(itemHolderPrefab, this.transform);
 
-        itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
+			Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
 
-        world = WorldController.Instance.world;
-       
-        foreach (Weapon weapon in world.weaponPrototypes.Values)
-        {
-            GameObject itemHolderGO = Instantiate(itemHolderPrefab, this.transform);
+			itemName	     = itemHolderGO.transform.Find("Item Name - Text").GetComponent<Text>();
+			itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
+			buyButtonText    = itemHolderGO.transform.Find("Buy - Button").GetComponent<Text>();
 
-            Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
+			if (inv.Contains(weapon.name) == false)
+			{
+				itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate
+					{
+						BuyItem(weapon.name, itemHolderGO);
+					});
+			}
+			else
+			{
+				itemHolderGO.GetComponentInChildren<Button>().enabled = false;
+				buyButtonText.text = "Alindi";
+			}
 
-            gunInfotexts = itemHolderGO.GetComponentsInChildren<Text>();
+			itemHolderGO.name = weapon.name;
 
-            if (inv.Contains(weapon.name) == false)
-                itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate
-                    {
-                        BuyItem(weapon.name, itemHolderGO.GetComponentInChildren<Button>());
-                    });
-            else
-            {
-                itemHolderGO.GetComponentInChildren<Button>().enabled = false;
-                gunInfotexts[2].text = "Alindi";
+			itemName.text = weapon.type.ToString();
+			itemDescription.text = "Cost : " + weapon.cost.ToString();
 
-            }
-
-
-            itemHolderGO.name = weapon.name;
-
-            gunInfotexts[0].text = weapon.type.ToString();
-            gunInfotexts[1].text ="Cost : " + weapon.cost.ToString();
-
-            Instantiate(stringToGameObjectMap[weapon.name], itemPlaceOfThisObject);
-
-
-           
-        }
-
+			Instantiate(stringToGameObjectMap[weapon.name], itemPlaceOfThisObject);
+		}
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-        moneytext.text = "Gold : " + PlayerPrefs.GetInt("money");
+	void Update ()
+	{    
+		moneytext.text = "Gold : " + PlayerPrefs.GetInt("money");
 	}
 
-    public void BuyItem(string weaponName,object sender)
-    {
+	public void BuyItem(string weaponName,object sender)
+	{
+		if (world.weaponPrototypes.ContainsKey(weaponName) == false)
+		{
+			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun ismi ile proto dan erişmek mümkün değil yanlış birşey var?", weaponName));
+			return;
+		}
 
-        if (world.weaponPrototypes.ContainsKey(weaponName) == false)
-        {
-            Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun ismi ile proto dan erişmek mümkün değil yanlış birşey var?", weaponName));
-            return;
-        }
+		if (world.weaponPrototypes[weaponName].cost <= world.character.money)
+		{
+			world.character.money -= world.weaponPrototypes[weaponName].cost;
+			PlayerPrefs.SetInt("money", world.character.money);
 
-        if (world.weaponPrototypes[weaponName].cost <= currentMoney)
-        {
-            currentMoney -= world.weaponPrototypes[weaponName].cost;
-            PlayerPrefs.SetInt("money", currentMoney);
+			inventoryString += weaponName + ",";
+			PlayerPrefs.SetString("inventory", inventoryString);
 
-            inventoryString += weaponName + ",";
-            PlayerPrefs.SetString("inventory",inventoryString);
+			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
+			buyButtonText = (sender as GameObject).transform.Find("Buy - Button").GetComponent<Text>();
+			buyButtonText.text="Alindi";
+		}
+		else
+		{
+			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun paran yok???", weaponName));
 
-            (sender as Button).enabled = false;
+		}
 
-        }
-        else
-        {
-            Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun paran yok???", weaponName));
+	}
 
-        }
-       
-    }
-
-    public void CloseStore()
-    {
-        storeGO.SetActive(false);
-        MainMenuGO.SetActive(true);
-    }
+	public void CloseStore()
+	{
+		storeGO.SetActive(false);
+		MainMenuGO.SetActive(true);
+	}
 
 }

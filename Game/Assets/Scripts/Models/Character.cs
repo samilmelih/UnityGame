@@ -5,25 +5,21 @@ using System;
 
 public class Character 
 {
-
-
-
-
 	public float health = 100f;
-    public float mana = 100;
-	public int money;			// This should be in additional parameters
+	public float mana = 100;
+	public int money;
 
-    /// <summary>
-    /// If we have level system then we need to increase some variables
-    /// depend on this
-    /// </summary>
-    int CurrentLevel;
+	/// <summary>
+	/// If we have level system then we need to increase some variables
+	/// depend on this
+	/// </summary>
+	int CurrentLevel;
 
 
 	public Direction direction;
 
-    //bu şimdilik public buna daha iyi çözümler üretebiliriz
-    public bool isAlive=true;
+	//bu şimdilik public buna daha iyi çözümler üretebiliriz
+	public bool isAlive=true;
 	// how fast my character moves right to left 2 fps
 
 	// FIXME: bunun public olma konusunda düşün
@@ -39,13 +35,13 @@ public class Character
 
 	// For updating scale of our character
 	public Vector3 scale;
-    
+
 	Action<Character> cbOnAttack;
 	Action<Character> cbOnJump;
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
 
-    public Inventory inventory;
+	public Inventory inventory;
 
 
 	public void ChangeWeapon(WeaponType type)
@@ -58,7 +54,7 @@ public class Character
 		if(cbOnAttack != null)
 		{
 			cbOnAttack(this);
-			
+
 		}
 	}
 
@@ -90,7 +86,7 @@ public class Character
 
 	public void Crouch()
 	{
-		
+
 	}
 
 
@@ -102,7 +98,7 @@ public class Character
 		cbOnAttack += cb;
 	}
 
-  
+
 	public void RegisterOnJumpCallback(Action<Character> cb)
 	{
 		cbOnJump += cb;
