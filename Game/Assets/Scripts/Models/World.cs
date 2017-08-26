@@ -53,6 +53,8 @@ public partial class World
 
 		Inventory ch_inventory = new Inventory();
 
+		Debug.Log(PlayerPrefs.GetString("inventory"));
+
 		//bunun böyle olmaması lazım
 		if(!PlayerPrefs.GetString("inventory").Equals(""))
 		{
@@ -63,7 +65,7 @@ public partial class World
 				if (weaponPrototypes.ContainsKey(item))
 					ch_inventory.weapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
 				else
-					Debug.Log("item" + item + "yok");
+					Debug.LogError("CreateCharacters() -- Can not find the weapon called " + item);
 			}
 		}
 

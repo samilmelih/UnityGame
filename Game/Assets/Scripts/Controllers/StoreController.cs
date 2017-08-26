@@ -58,7 +58,7 @@ public class StoreController : MonoBehaviour
 	void Start ()
 	{
 
-        //CleanPlayerPrefs();return;
+        // CleanPlayerPrefs();return;
 		
 
         stringToGameObjectMap = new Dictionary<string, GameObject>();
@@ -144,7 +144,11 @@ public class StoreController : MonoBehaviour
 			world.character.money -= world.weaponPrototypes[weaponName].cost;
 			PlayerPrefs.SetInt("money", world.character.money);
 
-			inventoryString += weaponName + ",";
+			if(inventoryString == "")
+				inventoryString += weaponName;
+			else
+				inventoryString += "," + weaponName;
+			
 			PlayerPrefs.SetString("inventory", inventoryString);
 
 			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
