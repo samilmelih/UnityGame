@@ -41,7 +41,9 @@ public class WeaponActions : MonoBehaviour
 
 				GameObject bullet_prefab = Resources.Load<GameObject>("Prefabs/Bullet");
 
-				GameObject bullet_go = Instantiate<GameObject>(bullet_prefab, gunPosition.position, Quaternion.identity);
+                Vector3 bulletRotation = Vector3.back * 90f;
+
+                GameObject bullet_go = Instantiate<GameObject>(bullet_prefab, gunPosition.position, Quaternion.Euler(bulletRotation));
 
 				// We need to attach bullet instance into bullet go.
 				// Because when we hit something we need to know how damage we gave to enemy/character

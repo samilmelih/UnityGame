@@ -57,7 +57,11 @@ public class StoreController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		stringToGameObjectMap = new Dictionary<string, GameObject>();
+
+        //CleanPlayerPrefs();return;
+		
+
+        stringToGameObjectMap = new Dictionary<string, GameObject>();
 		LoadAllGunPrefabs();
 
 		world = WorldController.Instance.world;
@@ -75,43 +79,52 @@ public class StoreController : MonoBehaviour
 			world.character.money = PlayerPrefs.GetInt("money"); 
 		}
 
-		List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
-		inventoryString = PlayerPrefs.GetString("inventory");
+        inventoryString = PlayerPrefs.GetString("inventory");
 
-		itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
-
-		foreach (Weapon weapon in world.weaponPrototypes.Values)
-		{
-			GameObject itemHolderGO = Instantiate(itemHolderPrefab, this.transform);
-
-			Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
-
-			itemName	     = itemHolderGO.transform.Find("Item Name - Text").GetComponent<Text>();
-			itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
-			buyButtonText    = itemHolderGO.transform.Find("Buy - Button").GetComponentInChildren<Text>();
-
-			if (inv.Contains(weapon.name) == false)
-			{
-				itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate
-					{
-						BuyItem(weapon.name, itemHolderGO);
-					});
-			}
-			else
-			{
-				itemHolderGO.GetComponentInChildren<Button>().enabled = false;
-				buyButtonText.text = "Alindi";
-			}
-
-			itemHolderGO.name = weapon.name;
-
-			itemName.text = weapon.type.ToString();
-			itemDescription.text = "Cost : " + weapon.cost.ToString();
-
-			Instantiate(stringToGameObjectMap[weapon.name], itemPlaceOfThisObject);
-		}
+        CreateStoreWithUI();
+		
 	}
 
+
+    void CreateStoreWithUI()
+    {
+        List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
+
+
+        itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
+
+        foreach (Weapon weapon in world.weaponPrototypes.Values)
+        {
+            GameObject itemHolderGO = Instantiate(itemHolderPrefab, this.transform);
+
+            Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
+
+            itemName         = itemHolderGO.transform.Find("Item Name - Text").GetComponent<Text>();
+            itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
+            buyButtonText    = itemHolderGO.transform.Find("Buy - Button").GetComponentInChildren<Text>();
+
+            if (inv.Contains(weapon.name) == false)
+            {
+                itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate
+                    {
+                        BuyItem(weapon.name, itemHolderGO);
+                    });
+            }
+            else
+            {
+                itemHolderGO.GetComponentInChildren<Button>().enabled = false;
+                buyButtonText.text = "purchased";
+            }
+
+            itemHolderGO.name = weapon.name;
+
+            itemName.text = weapon.type.ToString();
+            itemDescription.text = "Cost : " + weapon.cost.ToString();
+
+            Instantiate(stringToGameObjectMap[weapon.name], itemPlaceOfThisObject);
+        }
+
+    }
 	// Update is called once per frame
 	void Update ()
 	{    
@@ -136,7 +149,7 @@ public class StoreController : MonoBehaviour
 
 			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
 			buyButtonText = (sender as GameObject).transform.Find("Buy - Button").GetComponentInChildren<Text>();
-			buyButtonText.text="Alindi";
+            buyButtonText.text="purchased";
 		}
 		else
 		{

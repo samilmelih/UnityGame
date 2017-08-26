@@ -88,11 +88,6 @@ public class Character
 	{
 
 	}
-
-
-
-
-
 	public void RegisterOnAttackCallback(Action<Character> cb)
 	{
 		cbOnAttack += cb;
@@ -113,23 +108,6 @@ public class Character
 	{
 		cbOnWalk += cb;
 	}
-
-	// FIXME: Bu yorumların bulunduğu konumda kodla ilişkilerini bulamadım. Eğer gereksizse silelim :D
-
-	// Character parametresinde emin değilim. Biraz ileriye dönük düşündüm.
-
-	// Aslında şuan ihtiyaç yok. CC zaten bir referansa sahip.
-
-	// silahları dictionary içinde string to sprite şeklinde tutarak uygun silah sprite ını çekebiliriz
-
-	// public Vector2 characterDir=Vector2.right; 
-
-	// string spriteName="Player";		//we will get sprites with name from a controller (Which one??)
-
-
-	//TODO : Karakter envanter taşıayacak
-	//          aktif silah olacak
-	//          
 
 	//TODO : İlerleyen zamanda 2 yada 1 kullanılabilir büyü ekleyebiliriz 
 	//          zorluk seviyesine göre büyüler işini düünebiliriz

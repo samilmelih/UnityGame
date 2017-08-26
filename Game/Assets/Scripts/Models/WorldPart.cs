@@ -58,7 +58,7 @@ public partial class World
         );
 
         weaponPrototypes["Knife"].type = WeaponType.Close;
-        weaponPrototypes["Knife"].cost = 50;
+        weaponPrototypes["Knife"].cost = 1;
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -83,7 +83,7 @@ public partial class World
         );
 
         weaponPrototypes["Magnum"].type = WeaponType.Gun;
-        weaponPrototypes["Magnum"].cost = 150;
+        weaponPrototypes["Magnum"].cost = 1;
         weaponPrototypes["Magnum"].weaponParameters.Add(
             "fireFrequency",
             1f      // .5 saniyede bir ateş edilebilir
@@ -115,7 +115,7 @@ public partial class World
         );
 
         weaponPrototypes["Shotgun"].type = WeaponType.Rifle;
-        weaponPrototypes["Shotgun"].cost = 700;
+        weaponPrototypes["Shotgun"].cost = 1;
         weaponPrototypes["Shotgun"].weaponParameters.Add(
             "fireFrequency",
             1f      // .5 saniyede bir ateş edilebilir
@@ -148,7 +148,7 @@ public partial class World
         );
 
         weaponPrototypes["MP5"].type = WeaponType.Rifle;
-        weaponPrototypes["MP5"].cost = 500;
+        weaponPrototypes["MP5"].cost = 1;
         weaponPrototypes["MP5"].weaponParameters.Add(
             "fireFrequency",
             .3f // .1 saniyede bir ateş edilebilir
@@ -180,7 +180,7 @@ public partial class World
         );
 
         weaponPrototypes["Uzi"].type = WeaponType.Rifle;
-        weaponPrototypes["Uzi"].cost = 300;
+        weaponPrototypes["Uzi"].cost = 1;
         weaponPrototypes["Uzi"].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
