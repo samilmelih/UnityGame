@@ -88,7 +88,7 @@ public class StoreController : MonoBehaviour
 
 			itemName	     = itemHolderGO.transform.Find("Item Name - Text").GetComponent<Text>();
 			itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
-			buyButtonText    = itemHolderGO.transform.Find("Buy - Button").GetComponent<Text>();
+			buyButtonText    = itemHolderGO.transform.Find("Buy - Button").GetComponentInChildren<Text>();
 
 			if (inv.Contains(weapon.name) == false)
 			{
@@ -135,7 +135,7 @@ public class StoreController : MonoBehaviour
 			PlayerPrefs.SetString("inventory", inventoryString);
 
 			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
-			buyButtonText = (sender as GameObject).transform.Find("Buy - Button").GetComponent<Text>();
+			buyButtonText = (sender as GameObject).transform.Find("Buy - Button").GetComponentInChildren<Text>();
 			buyButtonText.text="Alindi";
 		}
 		else
