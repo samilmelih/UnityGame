@@ -126,6 +126,30 @@ public partial class World
         CreateShotgunProto();
 
         CreateUziProto();
+
+        CreateSniperProto();
+
+        ///Knife_Sharp
+        /// Knife_Smooth
+        /// RockerLauncher
+        /// RockerLauncher_Modern
+        /// RockerLauncher_Side
+        /// Uzi_Long
+        /// Machinegun
+
+        CreateKnife_SharpProto();
+
+        CreateKnife_SmoothProto();
+
+        CreateRocketLauncherProto();
+
+        CreateRocketLauncher_SideProto();
+
+        CreateRocketLauncher_ModernProto();
+
+        CreateUzi_LongProto();
+
+        CreateMachinegunProto();
 	}
 
 }

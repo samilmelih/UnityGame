@@ -13,7 +13,7 @@ public class StoreController : MonoBehaviour
 
 	public GameObject MainMenuGO;
 
-	Dictionary<string,GameObject> stringToGameObjectMap;
+    Dictionary<string,Sprite> stringToSpriteMap;
 
 	World world;
 
@@ -25,14 +25,20 @@ public class StoreController : MonoBehaviour
 	Text itemDescription;
 	Text buyButtonText;
 
-	void LoadAllGunPrefabs()
+	void LoadAllGunSprites()
 	{
-		GameObject[] gunPrefabs = Resources.LoadAll<GameObject>("Prefabs/GunSpritePrefabs/");
+        Sprite[] gunSprites = Resources.LoadAll<Sprite>("Sprites/GunSpritesBlack");
 
-		foreach (GameObject go in gunPrefabs)
+        foreach (Sprite sprite in gunSprites)
 		{
-			stringToGameObjectMap.Add( go.name , go );
+			stringToSpriteMap.Add( sprite.name , sprite );
 		}
+
+
+        foreach (var item in stringToSpriteMap.Keys)
+        {
+            Debug.Log(item);
+        }
 	}
 
 	bool IsGameFirstStarted()
@@ -58,11 +64,11 @@ public class StoreController : MonoBehaviour
 	void Start ()
 	{
 
-        // CleanPlayerPrefs();return;
+       // CleanPlayerPrefs();return;
 		
 
-        stringToGameObjectMap = new Dictionary<string, GameObject>();
-		LoadAllGunPrefabs();
+        stringToSpriteMap = new Dictionary<string, Sprite>();
+		LoadAllGunSprites();
 
 		world = WorldController.Instance.world;
 
@@ -88,6 +94,7 @@ public class StoreController : MonoBehaviour
 
     void CreateStoreWithUI()
     {
+     
         List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
 
 
@@ -99,10 +106,12 @@ public class StoreController : MonoBehaviour
 
             Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
 
-            itemName         = itemHolderGO.transform.Find("Item Name - Text").GetComponent<Text>();
-            itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
-            buyButtonText    = itemHolderGO.transform.Find("Buy - Button").GetComponentInChildren<Text>();
+            itemName         = itemHolderGO.transform.Find("ItemNameText").GetComponent<Text>();
+         //   itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
+            buyButtonText    = itemHolderGO.transform.Find("PurchaseButton").GetComponentInChildren<Text>();
 
+
+            itemHolderGO.transform.Find("ItemImage").GetComponentInChildren<Image>().sprite = stringToSpriteMap[weapon.name];
             if (inv.Contains(weapon.name) == false)
             {
                 itemHolderGO.GetComponentInChildren<Button>().onClick.AddListener(delegate
@@ -119,9 +128,9 @@ public class StoreController : MonoBehaviour
             itemHolderGO.name = weapon.name;
 
             itemName.text = weapon.type.ToString();
-            itemDescription.text = "Cost : " + weapon.cost.ToString();
+//            itemDescription.text = "Cost : " + weapon.cost.ToString();
 
-            Instantiate(stringToGameObjectMap[weapon.name], itemPlaceOfThisObject);
+
         }
 
     }
@@ -152,7 +161,7 @@ public class StoreController : MonoBehaviour
 			PlayerPrefs.SetString("inventory", inventoryString);
 
 			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
-			buyButtonText = (sender as GameObject).transform.Find("Buy - Button").GetComponentInChildren<Text>();
+			buyButtonText = (sender as GameObject).transform.Find("PurchaseButton").GetComponentInChildren<Text>();
             buyButtonText.text="purchased";
 		}
 		else
