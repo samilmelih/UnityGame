@@ -6,23 +6,22 @@ using UnityEngine.UI;
 
 
 
-public class PurchasedItemController : MonoBehaviour {
-
-
+public class PurchasedItemController : MonoBehaviour
+{
     GameObject itemHolderPrefab;
     string[] currentInventoryItems;
 
     List<string> equippedItems;
 
+    public int inventoryItemSize = 20;
 
-    public int invnentoryItemSize = 20;
-
-    Dictionary<string,Sprite> stringToSpriteMap;
+    Dictionary<string, Sprite> stringToSpriteMap;
 
     //TODO
     ///burada callBack Kullanmamzı gerekebilir 
     /// biz bir item seçtiğimizde ve equip dediğimzde equipped içinde bir nesne oluşturulacak ve içine bu item koyulacak 
     /// drop denildiği zaman sahip olann itemlere düzenlenip Equip butonu aktif edilecek texti değişecek
+
 	// Use this for initialization
 	void Start () {
         itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Inventory/PurchasedItemHolder");
@@ -40,7 +39,7 @@ public class PurchasedItemController : MonoBehaviour {
 
         LoadItemSprites();
 
-        for (int i = 0; i < invnentoryItemSize; i++)
+        for (int i = 0; i < inventoryItemSize; i++)
         {
             GameObject holderGO = Instantiate(itemHolderPrefab, this.transform);
 
@@ -93,7 +92,7 @@ public class PurchasedItemController : MonoBehaviour {
 		
 	}
 
-    void OnEquipItem_Click(string itemName,Object sender)
+    void OnEquipItem_Click(string itemName, Object sender)
     {
         GameObject holderGO = sender as GameObject;
 

@@ -11,6 +11,17 @@ public class Inventory
 	{
 		weapons = new Weapon[numberOfWeapon];
 	}
+
+	// If a weapon equipped, add it our inventory.
+	public void AddWeapon()
+	{
+		
+	}
+
+	// If a weapon dropped, remove it from our inventory.
+	public void RemoveWeapon()
+	{
+	}
 		
 	public Weapon ChangeWeapon(Character character, WeaponType weaponType)
 	{

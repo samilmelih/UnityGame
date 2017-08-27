@@ -19,7 +19,7 @@ public class StoreController : MonoBehaviour
 
 	GameObject itemHolderPrefab;
 
-	string inventoryString="";
+	string inventoryString = "";
 
 	Text itemName;
 	Text itemDescription;
@@ -33,8 +33,7 @@ public class StoreController : MonoBehaviour
 		{
 			stringToSpriteMap.Add( sprite.name , sprite );
 		}
-
-
+			
         foreach (var item in stringToSpriteMap.Keys)
         {
             Debug.Log(item);
@@ -94,9 +93,7 @@ public class StoreController : MonoBehaviour
 
     void CreateStoreWithUI()
     {
-     
         List<string> inv = PlayerPrefs.GetString("inventory").Split(',').ToList();
-
 
         itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
 
@@ -107,9 +104,8 @@ public class StoreController : MonoBehaviour
             Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
 
             itemName         = itemHolderGO.transform.Find("ItemNameText").GetComponent<Text>();
-         //   itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
+         // itemDescription  = itemHolderGO.transform.Find("Description - Text").GetComponent<Text>();
             buyButtonText    = itemHolderGO.transform.Find("PurchaseButton").GetComponentInChildren<Text>();
-
 
             itemHolderGO.transform.Find("ItemImage").GetComponentInChildren<Image>().sprite = stringToSpriteMap[weapon.name];
             if (inv.Contains(weapon.name) == false)
@@ -126,17 +122,14 @@ public class StoreController : MonoBehaviour
             }
 
             itemHolderGO.name = weapon.name;
-
             itemName.text = weapon.type.ToString();
-//            itemDescription.text = "Cost : " + weapon.cost.ToString();
-
-
+//          itemDescription.text = "Cost : " + weapon.cost.ToString();
         }
-
     }
 	// Update is called once per frame
 	void Update ()
-	{    
+	{
+		// FIXME: We don't want to update every frame.
 		moneytext.text = "Gold : " + PlayerPrefs.GetInt("money");
 	}
 
@@ -162,14 +155,12 @@ public class StoreController : MonoBehaviour
 
 			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
 			buyButtonText = (sender as GameObject).transform.Find("PurchaseButton").GetComponentInChildren<Text>();
-            buyButtonText.text="purchased";
+            buyButtonText.text = "purchased";
 		}
 		else
 		{
 			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun paran yok???", weaponName));
-
 		}
-
 	}
 
 	public void CloseStore()

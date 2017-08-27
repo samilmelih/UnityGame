@@ -49,8 +49,6 @@ public partial class World
 		character.direction = Direction.Right;
 		character.scale = new Vector3(1f, 1f, 0f);
 
-		//	character.currentWeapon = weaponPrototypes["MP5"].Clone();
-
 		Inventory ch_inventory = new Inventory();
 
 		Debug.Log(PlayerPrefs.GetString("inventory"));
@@ -71,7 +69,7 @@ public partial class World
 
 		character.inventory = ch_inventory;
 
-		//şuan hangi silah var bizde onu bilmiyoruz hangi silahı currWeapon yapacağız elimize varsayılan olarak bıçak mı vereceğiz napcaz????
+		// FIXME: şuan hangi silah var bizde onu bilmiyoruz hangi silahı currWeapon yapacağız elimize varsayılan olarak bıçak mı vereceğiz napcaz????
 		character.currentWeapon = character.inventory.weapons[0];
 	}
 
