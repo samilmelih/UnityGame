@@ -61,7 +61,7 @@ public partial class World
 			foreach (var item in myInv)
 			{
 				if (weaponPrototypes.ContainsKey(item))
-					ch_inventory.myWeapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
+					ch_inventory.equippedWeapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
 				else
 					Debug.LogError("CreateCharacters() -- Can not find the weapon called " + item);
 			}
@@ -70,7 +70,7 @@ public partial class World
 		character.inventory = ch_inventory;
 
 		// FIXME: şuan hangi silah var bizde onu bilmiyoruz hangi silahı currWeapon yapacağız elimize varsayılan olarak bıçak mı vereceğiz napcaz????
-		character.currentWeapon = character.inventory.myWeapons[0];
+		character.currentWeapon = character.inventory.equippedWeapons[0];
 	}
 
 	void CreateEnemies()

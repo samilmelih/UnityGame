@@ -10,26 +10,33 @@ public class Inventory
     //whole items will be in the list
 
 	const int numberOfWeapon = 3;
-	public Weapon[] myWeapons;
+	public Weapon[] equippedWeapons;
 
 	public Inventory()
 	{
-		myWeapons = new Weapon[numberOfWeapon];
+		equippedWeapons = new Weapon[numberOfWeapon];
        
 	}
 
 
 
 	// If a weapon equipped, add it our inventory.
-    public void EquipWeapon(Weapon weapon)
+    public void EquipItem(Item item)
     {
-        
+        //diğer itemleri de equip edildiğinde nerede tutulacak ise oraya yönlendirebiliriz
+        if (item is Weapon)
+        {
+            equippedWeapons[(int)(item as Weapon).type] = item as Weapon;
+        }
     }
 
     // If a weapon dropped, remove it from our inventory.
-    public void DropWeapon(Weapon weapon)
+    public void DropItem(Item item)
     {
-        
+        if (item is Weapon)
+        {
+            equippedWeapons[(int)(item as Weapon).type] = null;
+        }
     }
 
     public void AddItem(Item item)
@@ -57,15 +64,15 @@ public class Inventory
 		int type = (int) weaponType;
 		Debug.Log(type);
 		// If requested weapon is already on character then just return.
-		if(myWeapons[type] == null)
+		if(equippedWeapons[type] == null)
 			return character.currentWeapon;
 
-		myWeapons[(int) character.currentWeapon.type] = character.currentWeapon;
+		equippedWeapons[(int) character.currentWeapon.type] = character.currentWeapon;
 
 		// Keep weapon that will be changed
-		Weapon changed = myWeapons[type];
+		Weapon changed = equippedWeapons[type];
 
-		myWeapons[type] = null;
+		equippedWeapons[type] = null;
 
 		return changed;
 	}
