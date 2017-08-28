@@ -63,7 +63,7 @@ public class StoreController : MonoBehaviour
 	void Start ()
 	{
 
-       //CleanPlayerPrefs();return;
+      // CleanPlayerPrefs();return;
 		
 
         stringToSpriteMap = new Dictionary<string, Sprite>();
@@ -133,25 +133,27 @@ public class StoreController : MonoBehaviour
 		moneytext.text = "Gold : " + PlayerPrefs.GetInt("money");
 	}
 
-	public void BuyItem(string weaponName,object sender)
+	public void BuyItem(string itemName,object sender)
 	{
-		if (world.weaponPrototypes.ContainsKey(weaponName) == false)
+		if (world.weaponPrototypes.ContainsKey(itemName) == false)
 		{
-			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun ismi ile proto dan erişmek mümkün değil yanlış birşey var?", weaponName));
+			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun ismi ile proto dan erişmek mümkün değil yanlış birşey var?", itemName));
 			return;
 		}
 
-		if (world.weaponPrototypes[weaponName].cost <= world.character.money)
+		if (world.weaponPrototypes[itemName].cost <= world.character.money)
 		{
-			world.character.money -= world.weaponPrototypes[weaponName].cost;
+			world.character.money -= world.weaponPrototypes[itemName].cost;
 			PlayerPrefs.SetInt("money", world.character.money);
 
 			if(inventoryString == "")
-				inventoryString += weaponName;
+				inventoryString += itemName;
 			else
-				inventoryString += "," + weaponName;
+				inventoryString += "," + itemName;
 			
 			PlayerPrefs.SetString("inventory", inventoryString);
+
+            world.character.inventory.AddItem(world.itemProtoTypes[itemName]);
 
 			(sender as GameObject).GetComponentInChildren<Button>().enabled = false;
 			buyButtonText = (sender as GameObject).transform.Find("PurchaseButton").GetComponentInChildren<Text>();
@@ -159,7 +161,7 @@ public class StoreController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun paran yok???", weaponName));
+			Debug.LogError(string.Format("{0} adlı silahı satın almaya çalışıyorsun paran yok???", itemName));
 		}
 	}
 

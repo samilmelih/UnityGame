@@ -11,6 +11,8 @@ public class PurchasedItemController : MonoBehaviour
     GameObject itemHolderPrefab;
     string[] currentInventoryItems;
 
+    List<GameObject> itemHolders;
+
     List<string> equippedItems;
 
     public int inventoryItemSize = 20;
@@ -29,26 +31,72 @@ public class PurchasedItemController : MonoBehaviour
 
         inventory = WorldController.Instance.world.character.inventory;
         world = WorldController.Instance.world;
-
+        itemHolders = new List<GameObject>();
 
         itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Inventory/PurchasedItemHolder");
-
-
-        currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
-
-
-        equippedItems = inventory.GetEquippedItemsNameList();
-
-    
 
         stringToSpriteMap = new Dictionary<string, Sprite>();
 
 
         LoadItemSprites();
 
+        LoadPurchasedUI();
+
+        inventory.OnItemPurchased += UpdatePurchasedUI;
+
+	
+    }
+    void UpdatePurchasedUI()
+    {
+        currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
+
+
+        equippedItems = inventory.GetEquippedItemsNameList();
+
+        for (int i = 0; i < currentInventoryItems.Length; i++)
+        {
+            GameObject holderGO = itemHolders[i];
+            string itemName = currentInventoryItems[i];
+            holderGO.transform.Find("ItemNameText").GetComponent<Text>().text = itemName;
+            holderGO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[itemName];
+            //holderGo dan itemin ismini al
+            if (equippedItems.Contains(itemName) == true)
+            {
+                //
+                holderGO.GetComponentInChildren<Button>().enabled = false;
+                holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
+            }
+            else
+            {
+
+                holderGO.GetComponentInChildren<Button>().enabled = true;
+                holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equip";
+                holderGO.GetComponentInChildren<Button>().onClick.AddListener(
+                    delegate
+                    {
+                        OnEquipItem_Click(itemName, holderGO);
+                    }
+
+                );
+            }
+        }
+    }
+    void LoadPurchasedUI()
+    {
+
+        currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
+
+
+        equippedItems = inventory.GetEquippedItemsNameList();
+
+
+
+
+
         for (int i = 0; i < inventoryItemSize; i++)
         {
             GameObject holderGO = Instantiate(itemHolderPrefab, this.transform);
+            itemHolders.Add(holderGO);
 
             if (currentInventoryItems.Length > i)
             {
@@ -69,13 +117,12 @@ public class PurchasedItemController : MonoBehaviour
                         {
                             OnEquipItem_Click(itemName, holderGO);
                         }
-            
+
                     );
                 }
             }
         }
-	}
-
+    }
 
     //TODO item yazdım çünkü sadece silah yüklenmeyecek diğer eşyalarda gelecek
     void LoadItemSprites()

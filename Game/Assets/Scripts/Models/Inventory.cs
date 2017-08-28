@@ -5,7 +5,9 @@ using UnityEngine;
 public class Inventory
 {
 
-   
+    public delegate void InventoryeventHandler();
+    public event InventoryeventHandler OnItemPurchased;
+    public event InventoryeventHandler OnItemEquipped;
 
     public List<Weapon> purchasedWeapons;
     public List<Bullet> purchasedBullets;
@@ -34,6 +36,12 @@ public class Inventory
         {
             equippedWeapons[(int)(item as Weapon).type] = item as Weapon;
         }
+
+        if (OnItemEquipped != null)
+            OnItemEquipped();
+
+        if (OnItemPurchased != null)
+            OnItemPurchased();
     }
 
     // If a weapon dropped, remove it from our inventory.
@@ -54,6 +62,9 @@ public class Inventory
         else if (item is Bullet)
             purchasedBullets.Add(item as Bullet);
 
+
+        if (OnItemPurchased != null)
+            OnItemPurchased();
         //TODO   else if (item is (whatever))
         //          purchasedWhatever.Add(item as whatever);
         // make sure the item you wanna add in the list is inherited from Item class

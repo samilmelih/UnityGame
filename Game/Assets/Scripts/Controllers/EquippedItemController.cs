@@ -10,6 +10,8 @@ public class EquippedItemController : MonoBehaviour {
     GameObject itemHolderPrefab;
     Dictionary<string, Sprite> stringToSpriteMap;
 
+    List<GameObject> itemHolders;
+
     List<string> equippedItems;
 
     public int maxEquippedItemSize = 10;
@@ -18,10 +20,16 @@ public class EquippedItemController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         world = WorldController.Instance.world;
+
         inventory = world.character.inventory;
+
         stringToSpriteMap = new Dictionary<string, Sprite>();
+        itemHolders = new List<GameObject>();
+
         LoadItemSprites();
         LoadItemHolderPrefab();
+
+        inventory.OnItemEquipped += UpdateUI;
 	}
 
     void LoadItemSprites()
@@ -40,11 +48,27 @@ public class EquippedItemController : MonoBehaviour {
 
     }
 
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void UpdateUI()
+    {
+        equippedItems = inventory.GetEquippedItemsNameList();
+        for (int i = 0; i < equippedItems.Count; i++)
+        {
+            GameObject holder_GO = itemHolders[i];
+
+            holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite=stringToSpriteMap[equippedItems[i]];
+            holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = equippedItems[i];
+
+            holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
+                delegate
+                {
+                    OnDropButton_Click(equippedItems[i], holder_GO);
+                }
+
+            );
+
+        }
+    }
 
     void LoadItemHolderPrefab()
     {
@@ -56,7 +80,7 @@ public class EquippedItemController : MonoBehaviour {
         {
             GameObject holder_GO = (GameObject)Instantiate(itemHolderPrefab, this.transform);
 
-
+            itemHolders.Add(holder_GO);
 
             if (i < equippedItems.Count)
             {
@@ -68,6 +92,7 @@ public class EquippedItemController : MonoBehaviour {
                 //oyuncu hangi silahında kaç mermisi var bilmek ister yada hangisi daha çok vuruyordu gibi bilgiler 
 
                 holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite=stringToSpriteMap[equippedItems[i]];
+                holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = equippedItems[i];
 
                 holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
                     delegate
