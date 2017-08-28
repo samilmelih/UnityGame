@@ -11,11 +11,16 @@ public class WorldController : MonoBehaviour
 	// Use this for initialization
 	void Awake()
 	{
-        if(Instance==null)
-			Instance = this;
-
-
-        if(world==null)
+        if(Instance == null)
+		{
 			world = new World();
+			Instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
 	}
 }
