@@ -11,6 +11,10 @@ public class Item  {
 
     public bool isStackable;
 
+    public Item Clone()
+    {
+        return null;
+    }
 
 
 }

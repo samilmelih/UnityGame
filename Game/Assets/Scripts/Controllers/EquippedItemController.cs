@@ -8,17 +8,38 @@ public class EquippedItemController : MonoBehaviour {
 
 
     GameObject itemHolderPrefab;
+    Dictionary<string, Sprite> stringToSpriteMap;
 
     List<string> equippedItems;
 
     public int maxEquippedItemSize = 10;
+    Inventory inventory;
+    World world;
 	// Use this for initialization
 	void Start () {
-		
+        world = WorldController.Instance.world;
+        inventory = world.character.inventory;
+        stringToSpriteMap = new Dictionary<string, Sprite>();
+        LoadItemSprites();
         LoadItemHolderPrefab();
 	}
 
-   
+    void LoadItemSprites()
+    {
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/GunSprites");
+
+        foreach (var item in sprites)
+        {
+            if (stringToSpriteMap.ContainsKey(item.name))
+                Debug.LogError("PurchasedItemController -- LoadItemSprites we have same sprite name???");
+
+
+            stringToSpriteMap.Add(item.name,item);
+        }
+
+
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,7 +48,7 @@ public class EquippedItemController : MonoBehaviour {
 
     void LoadItemHolderPrefab()
     {
-        equippedItems = PlayerPrefs.GetString("equippedItems").Split(',').ToList();
+        equippedItems = inventory.GetEquippedItemsNameList();
 
         itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Inventory/EquippedItemHolder");
 
@@ -37,15 +58,7 @@ public class EquippedItemController : MonoBehaviour {
 
 
 
-            holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
-                delegate
-                {
-                    OnDropButton_Click("itemName", holder_GO);
-                }
-
-            );
-
-            if (i < equippedItems.Count && equippedItems[i] != "")
+            if (i < equippedItems.Count)
             {
 
                 //TODO : item ile ilgili sprite resourcestan çekilsin
@@ -53,6 +66,20 @@ public class EquippedItemController : MonoBehaviour {
                 // itemler sadece silah olmayacak world içinde tüm itemlerin bulunduğu bir liste falan mı olacak
 
                 //oyuncu hangi silahında kaç mermisi var bilmek ister yada hangisi daha çok vuruyordu gibi bilgiler 
+
+                holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite=stringToSpriteMap[equippedItems[i]];
+
+                holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
+                    delegate
+                    {
+                        OnDropButton_Click(equippedItems[i], holder_GO);
+                    }
+
+                );
+
+
+
+
 
             }
         }

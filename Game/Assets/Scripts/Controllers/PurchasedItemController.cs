@@ -17,6 +17,8 @@ public class PurchasedItemController : MonoBehaviour
 
     Dictionary<string, Sprite> stringToSpriteMap;
 
+    World world;
+    Inventory inventory;
     //TODO
     ///burada callBack Kullanmamzı gerekebilir 
     /// biz bir item seçtiğimizde ve equip dediğimzde equipped içinde bir nesne oluşturulacak ve içine bu item koyulacak 
@@ -24,15 +26,20 @@ public class PurchasedItemController : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
+
+        inventory = WorldController.Instance.world.character.inventory;
+        world = WorldController.Instance.world;
+
+
         itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Inventory/PurchasedItemHolder");
 
 
-        currentInventoryItems = PlayerPrefs.GetString("inventory").Split(',');
+        currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
 
 
-        equippedItems = PlayerPrefs.GetString("equippedInventory").Split(',').ToList();
+        equippedItems = inventory.GetEquippedItemsNameList();
 
-        Debug.Log("Equipped " +PlayerPrefs.GetString("equippedInventory"));
+    
 
         stringToSpriteMap = new Dictionary<string, Sprite>();
 
@@ -96,19 +103,23 @@ public class PurchasedItemController : MonoBehaviour
     {
         GameObject holderGO = sender as GameObject;
 
-        equippedItems.Add(itemName);
 
 
+        inventory.EquipItem(world.itemProtoTypes[itemName]);
 
         string equippedItemsString = "";
 
-
-        foreach (var item in equippedItems)
+        equippedItems = inventory.GetEquippedItemsNameList();
+        foreach (var equippedItemName in equippedItems)
         {
-            equippedItemsString += item + ",";
+           
+            if(equippedItemsString == "")
+                equippedItemsString += equippedItemName;
+            else
+                equippedItemsString += "," + equippedItemName;
         }
 
-        PlayerPrefs.SetString("equippedInventory",equippedItemsString);
+        PlayerPrefs.SetString("equippedItems",equippedItemsString);
 
 
         holderGO.GetComponentInChildren<Button>().enabled = false;

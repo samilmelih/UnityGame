@@ -5,6 +5,8 @@ using UnityEngine;
 public class Inventory
 {
 
+   
+
     public List<Weapon> purchasedWeapons;
     public List<Bullet> purchasedBullets;
     //whole items will be in the list
@@ -15,6 +17,10 @@ public class Inventory
 	public Inventory()
 	{
 		equippedWeapons = new Weapon[numberOfWeapon];
+        purchasedBullets = new List<Bullet>();
+        purchasedWeapons = new List<Weapon>();
+            
+      
        
 	}
 
@@ -43,6 +49,8 @@ public class Inventory
 	{
         if (item is Weapon)
             purchasedWeapons.Add(item as Weapon);
+
+
         else if (item is Bullet)
             purchasedBullets.Add(item as Bullet);
 
@@ -51,10 +59,41 @@ public class Inventory
         // make sure the item you wanna add in the list is inherited from Item class
 	}
 
+
+    //Tüm equip ettiğimiz itemleri bir listede tutarsak o listeyi burada eklememiz lazım
+    public List<string> GetEquippedItemsNameList()
+    {
+        List< string > list = new List< string >();
+
+        for (int i = 0; i < equippedWeapons.Length; i++)
+        {
+            if(equippedWeapons[i]!=null)
+                list.Add(equippedWeapons[i].name);
+        }
+        return list;
+    }
+
+    //Inventorydeki her bir itemin ismini bu listeye ekle
+    public List<string> GetAllItemsNameList()
+    {
+        List< string > list = new List< string >();
+
+        for (int i = 0; i < purchasedWeapons.Count; i++)
+        {
+            list.Add(purchasedWeapons[i].name);
+        }
+        for (int i = 0; i < purchasedBullets.Count; i++)
+        {
+            list.Add(purchasedBullets[i].name);
+        }
+        return list;
+    }
     public void RemoveItem(Item item)
 	{
         if (item is Weapon)
             purchasedWeapons.Remove(item as Weapon);
+
+
         else if (item is Bullet)
             purchasedBullets.Remove(item as Bullet);
 	}

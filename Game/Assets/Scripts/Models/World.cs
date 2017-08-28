@@ -17,6 +17,8 @@ public partial class World
 	Dictionary<string,Bullet> bulletPrototypes;
 
 	public Dictionary<string,Weapon> weaponPrototypes;
+    public Dictionary<string,Item> itemProtoTypes;
+
 
 	public World()
 	{
@@ -27,12 +29,35 @@ public partial class World
 	{
 		bulletPrototypes = new Dictionary<string, Bullet>();
 		weaponPrototypes = new Dictionary<string, Weapon>();
+        itemProtoTypes = new Dictionary<string, Item>();
 
 
 		CreatePrototypes();
+        FillItemProtoDictionary();
 		CreateCharacters();
 		CreateEnemies();
+
+
 	}
+
+    void FillItemProtoDictionary()
+    {
+        foreach (var item in weaponPrototypes)
+        {
+            if (itemProtoTypes.ContainsKey(item.Key))
+                continue;
+
+            itemProtoTypes.Add(item.Key,item.Value);
+        }
+
+        foreach (var item in bulletPrototypes)
+        {
+            if (itemProtoTypes.ContainsKey(item.Key))
+                continue;
+
+            itemProtoTypes.Add(item.Key,item.Value);
+        }
+    }
 
 	void CreateCharacters()
 	{
@@ -51,21 +76,24 @@ public partial class World
 
 		Inventory ch_inventory = new Inventory();
 
-		Debug.Log(PlayerPrefs.GetString("inventory"));
+                                		/*Debug.Log(PlayerPrefs.GetString("inventory"));
 
-		//bunun böyle olmaması lazım
-		if(!PlayerPrefs.GetString("inventory").Equals(""))
-		{
-			string[] myInv = PlayerPrefs.GetString("inventory").Split(',');
+                                		//bunun böyle olmaması lazım
+                                		if(!PlayerPrefs.GetString("inventory").Equals(""))
+                                		{
+                                			string[] myInv = PlayerPrefs.GetString("inventory").Split(',');
 
-			foreach (var item in myInv)
-			{
-				if (weaponPrototypes.ContainsKey(item))
-					ch_inventory.equippedWeapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
-				else
-					Debug.LogError("CreateCharacters() -- Can not find the weapon called " + item);
-			}
-		}
+                                			foreach (var item in myInv)
+                                			{
+                                				if (weaponPrototypes.ContainsKey(item))
+                                					ch_inventory.equippedWeapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
+                                				else
+                                					Debug.LogError("CreateCharacters() -- Can not find the weapon called " + item);
+                                			}
+                                		}*/
+
+        FillInventory(ch_inventory);
+
 
 		character.inventory = ch_inventory;
 
@@ -73,6 +101,41 @@ public partial class World
 		character.currentWeapon = character.inventory.equippedWeapons[0];
 	}
 
+    void FillInventory(Inventory inv)
+    {
+        string[] inventoryString=PlayerPrefs.GetString("inventory").Split(',');
+
+        for (int i = 0; i < inventoryString.Length; i++)
+        {
+            if (itemProtoTypes.ContainsKey(inventoryString[i]) == false)
+            {
+                Debug.LogError("World -- FillInventory  -- Something gone wrong dont you have any items?? couldnt find "+ inventoryString[i]);   
+                continue;
+            }
+
+            inv.AddItem(itemProtoTypes[inventoryString[i]]);
+        }
+
+        FillEquippedInventory(inv);
+
+
+    }
+    void FillEquippedInventory(Inventory inv)
+    {
+        string[] inventoryString=PlayerPrefs.GetString("equippedItems").Split(',');
+
+        for (int i = 0; i < inventoryString.Length; i++)
+        {
+            if (itemProtoTypes.ContainsKey(inventoryString[i]) == false)
+            {
+                Debug.LogError("World -- FillEquippedInventory  -- Something gone wrong dont you have any equipped items?? couldnt find "+ inventoryString[i]);   
+                continue;
+            }
+
+            inv.EquipItem(itemProtoTypes[inventoryString[i]]);
+        }
+
+    }
 	void CreateEnemies()
 	{
 		enemies = new List<Character>();
