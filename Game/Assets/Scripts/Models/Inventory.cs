@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Inventory
 {
+
+    public List<Weapon> purchasedWeapons;
+    public List<Bullet> purchasedBullets;
+    //whole items will be in the list
+
 	const int numberOfWeapon = 3;
-	public Weapon[] weapons;
+	public Weapon[] myWeapons;
 
 	public Inventory()
 	{
-		weapons = new Weapon[numberOfWeapon];
+		myWeapons = new Weapon[numberOfWeapon];
+       
 	}
 
 	// If a weapon equipped, add it our inventory.
-	public void AddWeapon()
+	public void AddItem()
 	{
 		
 	}
 
 	// If a weapon dropped, remove it from our inventory.
-	public void RemoveWeapon()
+	public void RemoveItem()
 	{
 	}
 		
@@ -28,15 +34,15 @@ public class Inventory
 		int type = (int) weaponType;
 		Debug.Log(type);
 		// If requested weapon is already on character then just return.
-		if(weapons[type] == null)
+		if(myWeapons[type] == null)
 			return character.currentWeapon;
 
-		weapons[(int) character.currentWeapon.type] = character.currentWeapon;
+		myWeapons[(int) character.currentWeapon.type] = character.currentWeapon;
 
 		// Keep weapon that will be changed
-		Weapon changed = weapons[type];
+		Weapon changed = myWeapons[type];
 
-		weapons[type] = null;
+		myWeapons[type] = null;
 
 		return changed;
 	}
