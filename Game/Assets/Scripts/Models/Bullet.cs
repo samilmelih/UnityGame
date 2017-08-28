@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Bullet
+public class Bullet : Item
 {
 	Action<Bullet> cbBulletActions;
 
@@ -17,21 +17,21 @@ public class Bullet
 	public float speed;
 
 	// We can use this to distinguish sprites.
-	string bulletType;
+
 
     // THINK : Bunun üzerine düşünelim.
     bool canPassTheWall;
 
 	public Bullet(string bulletType, float damage, float speed)
 	{
-        this.bulletType = bulletType;
+        this.name = bulletType;
         this.damage = damage;
 		this.speed = speed;
 	}
 
     protected Bullet(Bullet other)
     {
-        this.bulletType =other.bulletType;
+        this.name =other.name;
         this.damage = other.damage;
 		this.speed = other.speed;
     }

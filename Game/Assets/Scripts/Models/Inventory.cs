@@ -18,15 +18,38 @@ public class Inventory
        
 	}
 
+
+
 	// If a weapon equipped, add it our inventory.
-	public void AddItem()
+    public void EquipWeapon(Weapon weapon)
+    {
+        
+    }
+
+    // If a weapon dropped, remove it from our inventory.
+    public void DropWeapon(Weapon weapon)
+    {
+        
+    }
+
+    public void AddItem(Item item)
 	{
-		
+        if (item is Weapon)
+            purchasedWeapons.Add(item as Weapon);
+        else if (item is Bullet)
+            purchasedBullets.Add(item as Bullet);
+
+        //TODO   else if (item is (whatever))
+        //          purchasedWhatever.Add(item as whatever);
+        // make sure the item you wanna add in the list is inherited from Item class
 	}
 
-	// If a weapon dropped, remove it from our inventory.
-	public void RemoveItem()
+    public void RemoveItem(Item item)
 	{
+        if (item is Weapon)
+            purchasedWeapons.Remove(item as Weapon);
+        else if (item is Bullet)
+            purchasedBullets.Remove(item as Bullet);
 	}
 		
 	public Weapon ChangeWeapon(Character character, WeaponType weaponType)
