@@ -63,7 +63,7 @@ public class StoreController : MonoBehaviour
 	void Start ()
 	{
 
-       // CleanPlayerPrefs();return;
+       //CleanPlayerPrefs();return;
 		
 
         stringToSpriteMap = new Dictionary<string, Sprite>();
