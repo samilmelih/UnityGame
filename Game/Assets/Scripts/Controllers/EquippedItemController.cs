@@ -30,6 +30,8 @@ public class EquippedItemController : MonoBehaviour {
         LoadItemHolderPrefab();
 
         inventory.OnItemEquipped += UpdateUI;
+
+   
 	}
 
     void LoadItemSprites()
@@ -48,24 +50,47 @@ public class EquippedItemController : MonoBehaviour {
 
     }
 
+    void UpdateUIForOneGO(GameObject holder_GO)
+    {
+        holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite = null;
+        holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = "No Item";
+        holder_GO.GetComponentInChildren<Button>().enabled = false;
 
+    }
     void UpdateUI()
     {
         equippedItems = inventory.GetEquippedItemsNameList();
-        for (int i = 0; i < equippedItems.Count; i++)
+        for (int i = 0; i < maxEquippedItemSize; i++)
         {
             GameObject holder_GO = itemHolders[i];
 
-            holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite=stringToSpriteMap[equippedItems[i]];
-            holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = equippedItems[i];
+            if (i < equippedItems.Count)
+            {
+                holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[equippedItems[i]];
+                holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = equippedItems[i];
+                holder_GO.GetComponentInChildren<Button>().enabled = true;
 
-            holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
-                delegate
-                {
-                    OnDropButton_Click(equippedItems[i], holder_GO);
-                }
+                string itemName = equippedItems[i];
+                //removing all listeners because its acting like an array and running every single one
+                holder_GO.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
 
-            );
+                holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
+                    delegate
+                    {
+                        OnDropButton_Click(itemName, holder_GO);
+                    }
+
+                );
+            }
+            else
+            {
+               
+                holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite = null;
+                holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = "No Item";
+                holder_GO.GetComponentInChildren<Button>().enabled = false;
+
+             
+            }
 
         }
     }
@@ -82,7 +107,7 @@ public class EquippedItemController : MonoBehaviour {
 
             itemHolders.Add(holder_GO);
 
-            if (i < equippedItems.Count)
+            if (i <= equippedItems.Count - 1)
             {
 
                 //TODO : item ile ilgili sprite resourcestan çekilsin
@@ -93,11 +118,14 @@ public class EquippedItemController : MonoBehaviour {
 
                 holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite=stringToSpriteMap[equippedItems[i]];
                 holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = equippedItems[i];
+                string itemName = equippedItems[i];
 
+                //removing all listeners because its acting like an array and running every single one
+                holder_GO.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
                 holder_GO.GetComponentInChildren<Button>().onClick.AddListener(
                     delegate
                     {
-                        OnDropButton_Click(equippedItems[i], holder_GO);
+                        OnDropButton_Click(itemName, holder_GO);
                     }
 
                 );
@@ -111,7 +139,23 @@ public class EquippedItemController : MonoBehaviour {
     }
     void OnDropButton_Click(string itemName, object sender  )
     {
-        Debug.Log(string.Format("{0} isimli silah {1} isimli yerden alınmaya çalışılıyor",itemName,((GameObject)sender).name));
-        //TODO bu itemi listeden çıkart sonra playerprefs i güncelle
+        if (world.itemProtoTypes.ContainsKey(itemName))
+            inventory.DropItem(world.itemProtoTypes[itemName]);
+        
+        else
+            Debug.LogError("No item with name:" + itemName);
+
+
+        string equippedItemsString = "";
+        foreach (var equippedItemName in equippedItems)
+        {
+
+            if(equippedItemsString == "")
+                equippedItemsString += equippedItemName;
+            else
+                equippedItemsString += "," + equippedItemName;
+
+            PlayerPrefs.SetString("equippedItems",equippedItemsString);
+        }
     }
 }

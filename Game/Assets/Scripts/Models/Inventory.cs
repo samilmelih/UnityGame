@@ -5,9 +5,11 @@ using UnityEngine;
 public class Inventory
 {
 
-    public delegate void InventoryeventHandler();
-    public event InventoryeventHandler OnItemPurchased;
-    public event InventoryeventHandler OnItemEquipped;
+    public delegate void InventoryEventHandler();
+    public event InventoryEventHandler OnItemPurchased;
+    public event InventoryEventHandler OnItemEquipped;
+
+
 
     public List<Weapon> purchasedWeapons;
     public List<Bullet> purchasedBullets;
@@ -51,7 +53,16 @@ public class Inventory
         {
             equippedWeapons[(int)(item as Weapon).type] = null;
         }
+
+        if (OnItemEquipped != null)
+            OnItemEquipped();
+
+        if (OnItemPurchased != null)
+            OnItemPurchased();
     }
+
+
+
 
     public void AddItem(Item item)
 	{

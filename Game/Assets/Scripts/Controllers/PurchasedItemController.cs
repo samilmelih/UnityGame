@@ -52,18 +52,23 @@ public class PurchasedItemController : MonoBehaviour
 
 
         equippedItems = inventory.GetEquippedItemsNameList();
-
+        Button btn;
         for (int i = 0; i < currentInventoryItems.Length; i++)
         {
             GameObject holderGO = itemHolders[i];
             string itemName = currentInventoryItems[i];
             holderGO.transform.Find("ItemNameText").GetComponent<Text>().text = itemName;
             holderGO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[itemName];
-            //holderGo dan itemin ismini al
+   
+
+
             if (equippedItems.Contains(itemName) == true)
             {
-                //
+                btn = holderGO.GetComponentInChildren<Button>();
+
                 holderGO.GetComponentInChildren<Button>().enabled = false;
+          
+
                 holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
             }
             else
@@ -71,6 +76,9 @@ public class PurchasedItemController : MonoBehaviour
 
                 holderGO.GetComponentInChildren<Button>().enabled = true;
                 holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equip";
+
+                //removing all listeners because its acting like an array and running every single one
+                holderGO.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
                 holderGO.GetComponentInChildren<Button>().onClick.AddListener(
                     delegate
                     {
@@ -96,10 +104,11 @@ public class PurchasedItemController : MonoBehaviour
         for (int i = 0; i < inventoryItemSize; i++)
         {
             GameObject holderGO = Instantiate(itemHolderPrefab, this.transform);
-            itemHolders.Add(holderGO);
 
+            itemHolders.Add(holderGO);
             if (currentInventoryItems.Length > i)
             {
+               
                 string itemName = currentInventoryItems[i];
                 holderGO.transform.Find("ItemNameText").GetComponent<Text>().text = itemName;
                 holderGO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[itemName];
@@ -150,7 +159,7 @@ public class PurchasedItemController : MonoBehaviour
     {
         GameObject holderGO = sender as GameObject;
 
-
+        Debug.Log((sender as GameObject).transform.Find("ItemNameText").GetComponent<Text>().text);
 
         inventory.EquipItem(world.itemProtoTypes[itemName]);
 
@@ -170,6 +179,7 @@ public class PurchasedItemController : MonoBehaviour
 
 
         holderGO.GetComponentInChildren<Button>().enabled = false;
+
         holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
     }
 }
