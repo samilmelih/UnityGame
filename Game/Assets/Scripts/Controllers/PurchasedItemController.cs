@@ -52,7 +52,7 @@ public class PurchasedItemController : MonoBehaviour
 
 
         equippedItems = inventory.GetEquippedItemsNameList();
-        Button btn;
+       
         for (int i = 0; i < currentInventoryItems.Length; i++)
         {
             GameObject holderGO = itemHolders[i];
@@ -64,7 +64,7 @@ public class PurchasedItemController : MonoBehaviour
 
             if (equippedItems.Contains(itemName) == true)
             {
-                btn = holderGO.GetComponentInChildren<Button>();
+              
 
                 holderGO.GetComponentInChildren<Button>().enabled = false;
           
@@ -147,6 +147,18 @@ public class PurchasedItemController : MonoBehaviour
             stringToSpriteMap.Add(item.name,item);
         }
 
+        sprites = Resources.LoadAll<Sprite>("Sprites/BulletSprites");
+
+        foreach (var item in sprites)
+        {
+            if (stringToSpriteMap.ContainsKey(item.name))
+                Debug.LogError("PurchasedItemController -- LoadItemSprites we have same sprite name???");
+
+
+            stringToSpriteMap.Add(item.name,item);
+        }
+
+
 
     }
 	
@@ -158,8 +170,6 @@ public class PurchasedItemController : MonoBehaviour
     void OnEquipItem_Click(string itemName, Object sender)
     {
         GameObject holderGO = sender as GameObject;
-
-        Debug.Log((sender as GameObject).transform.Find("ItemNameText").GetComponent<Text>().text);
 
         inventory.EquipItem(world.itemProtoTypes[itemName]);
 

@@ -11,7 +11,7 @@ public class Item  {
 
     public bool isStackable;
 
-    public Item Clone()
+    public virtual Item Clone()
     {
         return null;
     }

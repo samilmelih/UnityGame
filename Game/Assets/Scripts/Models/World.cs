@@ -25,7 +25,7 @@ public partial class World
 		SetupWorld();
 	}
 
-	void SetupWorld()
+    public void SetupWorld()
 	{
 		bulletPrototypes = new Dictionary<string, Bullet>();
 		weaponPrototypes = new Dictionary<string, Weapon>();
@@ -47,6 +47,7 @@ public partial class World
             if (itemProtoTypes.ContainsKey(item.Key))
                 continue;
 
+            item.Value.isStackable = false;
             itemProtoTypes.Add(item.Key,item.Value);
         }
 
@@ -54,6 +55,11 @@ public partial class World
         {
             if (itemProtoTypes.ContainsKey(item.Key))
                 continue;
+
+
+
+
+            item.Value.isStackable = true;
 
             itemProtoTypes.Add(item.Key,item.Value);
         }
@@ -75,22 +81,7 @@ public partial class World
 		character.scale = new Vector3(1f, 1f, 0f);
 
 		Inventory ch_inventory = new Inventory();
-
-                                		/*Debug.Log(PlayerPrefs.GetString("inventory"));
-
-                                		//bunun böyle olmaması lazım
-                                		if(!PlayerPrefs.GetString("inventory").Equals(""))
-                                		{
-                                			string[] myInv = PlayerPrefs.GetString("inventory").Split(',');
-
-                                			foreach (var item in myInv)
-                                			{
-                                				if (weaponPrototypes.ContainsKey(item))
-                                					ch_inventory.equippedWeapons[(int)weaponPrototypes[item].type] = weaponPrototypes[item].Clone();
-                                				else
-                                					Debug.LogError("CreateCharacters() -- Can not find the weapon called " + item);
-                                			}
-                                		}*/
+                                      
 
         FillInventory(ch_inventory);
 
@@ -109,11 +100,14 @@ public partial class World
         {
             if (itemProtoTypes.ContainsKey(inventoryString[i]) == false)
             {
-                Debug.LogError("World -- FillInventory  -- Something gone wrong dont you have any items?? couldnt find "+ inventoryString[i]);   
+                Debug.LogError("World -- FillInventory -- Something gone wrong dont you have any items?? couldnt find " + inventoryString[i]);   
                 continue;
             }
 
-            inv.AddItem(itemProtoTypes[inventoryString[i]]);
+            if(itemProtoTypes[inventoryString[i]].isStackable == false)
+                inv.AddItem(itemProtoTypes[inventoryString[i]]);
+            else
+                inv.AddItem(itemProtoTypes[inventoryString[i]],PlayerPrefs.GetInt(inventoryString[i]));
         }
 
         FillEquippedInventory(inv);
@@ -157,9 +151,9 @@ public partial class World
 
 			// FIXME: şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
 			if(Random.Range(0, 2) == 0)
-				enemy.currentWeapon = weaponPrototypes["Magnum"].Clone();
+                enemy.currentWeapon = weaponPrototypes["Magnum"].Clone() as Weapon;
 			else
-				enemy.currentWeapon = weaponPrototypes["MP5"].Clone();
+                enemy.currentWeapon = weaponPrototypes["MP5"].Clone() as Weapon;
 
 			enemies.Add(enemy);
 		}

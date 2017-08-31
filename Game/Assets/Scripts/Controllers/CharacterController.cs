@@ -58,7 +58,7 @@ public class CharacterController : MonoBehaviour
             Destroy(go_mainCharacter);
             world.character.isAlive = false;
 
-			Debug.Log("Main Character is Dead Finish or restart the level");
+            world.SetupWorld();
             SceneManager.LoadScene(0);
         }
 	}

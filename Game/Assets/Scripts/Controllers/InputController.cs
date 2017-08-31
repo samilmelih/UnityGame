@@ -65,9 +65,9 @@ public class InputController : MonoBehaviour
                 character.Attack();
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.I))
             {
-                Debug.Log("It will reload automaticly when you run out of bullet");
+                GameObject.FindObjectOfType<InventoryController>().gameObject.SetActive(true);
             }
 
 			if (Input.GetKeyDown(KeyCode.Alpha1) == true)

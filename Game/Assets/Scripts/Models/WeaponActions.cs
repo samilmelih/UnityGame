@@ -7,6 +7,8 @@ public class WeaponActions : MonoBehaviour
     public static void CloseWeapons(Character character)
     {
 		Debug.Log("This weapon's attack mode is not implemented.");
+
+        ///we can ray from the object for a specified distance
     }
 
     public static void One_Shot(Character character)
@@ -67,18 +69,19 @@ public class WeaponActions : MonoBehaviour
 				{
 					float money = character.money;
 
-					if (money >= 40)
-					{
+					
 						Debug.Log("Reloaded");
-						WorldController.Instance.world.character.money -= 40;
-						weapon.weaponParameters["bulletCount"] = weapon.weaponParameters["maxBulletCount"];
-					}
-					else
-					{
-						Debug.Log("Run out of money and bullet Use Knife or sword kinda things");
-						character.currentWeapon = WorldController.Instance.world.weaponPrototypes["Knife"].Clone();
-					}
+                        if (character.inventory.FindItemCount(weapon.bullet) > weapon.weaponParameters["maxBulletCount"])
+                        {
+                            int currentCount = character.inventory.FindItemCount(weapon.bullet) - (int)weapon.weaponParameters["maxBulletCount"];
+                            character.inventory.AddItem(weapon.bullet, -(int)weapon.weaponParameters[ "maxBulletCount" ] );
+
+                            weapon.weaponParameters["bulletCount"] = weapon.weaponParameters["maxBulletCount"];
+                        }
+					
 				}
+                else
+                    weapon.weaponParameters["bulletCount"] = weapon.weaponParameters["maxBulletCount"];
 			}
 		}
 

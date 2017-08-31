@@ -17,16 +17,16 @@ public class Bullet : Item
 	public float speed;
 
 	// We can use this to distinguish sprites.
+    public int count;
 
 
-    // THINK : Bunun üzerine düşünelim.
-    bool canPassTheWall;
 
-	public Bullet(string bulletType, float damage, float speed)
+    public Bullet(string bulletType, float damage, float speed,int count)
 	{
         this.name = bulletType;
         this.damage = damage;
 		this.speed = speed;
+        this.count = count;
 	}
 
     protected Bullet(Bullet other)
@@ -36,7 +36,7 @@ public class Bullet : Item
 		this.speed = other.speed;
     }
 
-    public Bullet Clone()
+    public override Item Clone()
     {
         return new Bullet(this);
     }

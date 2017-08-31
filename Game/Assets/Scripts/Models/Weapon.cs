@@ -13,7 +13,7 @@ public class Weapon : Item
 
     public Bullet bullet;
 
-
+ 
 
 
     //FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
@@ -38,6 +38,7 @@ public class Weapon : Item
         {   
             isReloadable = true;
             this.bullet = bullet;
+           
         }
         else
             isReloadable = false;
@@ -60,7 +61,7 @@ public class Weapon : Item
         this.weaponParameters =new Dictionary<string, float>( weapon.weaponParameters);
 	}
 
-	public Weapon Clone()
+    public override Item Clone()
 	{
 		return new Weapon(this);
 	}

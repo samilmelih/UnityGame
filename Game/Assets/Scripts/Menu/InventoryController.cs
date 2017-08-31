@@ -10,10 +10,15 @@ public class InventoryController : MonoBehaviour
 	void Start ()
 	{
 		world = WorldController.Instance.world;	
+        DontDestroyOnLoad(this.transform.root.gameObject);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+    public  void CloseInventoryUI()
+    {
+        this.gameObject.SetActive(false);
+    }
 }
