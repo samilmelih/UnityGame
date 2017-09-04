@@ -8,6 +8,7 @@ public class WorldController : MonoBehaviour
 
 	public World world;
 
+
 	// Use this for initialization
 	void Awake()
 	{
@@ -22,5 +23,8 @@ public class WorldController : MonoBehaviour
 		}
 
 		DontDestroyOnLoad(gameObject);
+
+
+
 	}
 }

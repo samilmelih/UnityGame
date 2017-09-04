@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 
-public class EquippedItemController : MonoBehaviour {
+public class EquippedItemController : MonoBehaviour
+{
+
 
 
     GameObject itemHolderPrefab;
@@ -17,8 +17,9 @@ public class EquippedItemController : MonoBehaviour {
     public int maxEquippedItemSize = 10;
     Inventory inventory;
     World world;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         world = WorldController.Instance.world;
 
         inventory = world.character.inventory;
@@ -31,8 +32,8 @@ public class EquippedItemController : MonoBehaviour {
 
         inventory.OnItemEquipped += UpdateUI;
 
-   
-	}
+
+    }
 
     void LoadItemSprites()
     {
@@ -44,7 +45,7 @@ public class EquippedItemController : MonoBehaviour {
                 Debug.LogError("PurchasedItemController -- LoadItemSprites we have same sprite name???");
 
 
-            stringToSpriteMap.Add(item.name,item);
+            stringToSpriteMap.Add(item.name, item);
         }
 
 
@@ -84,12 +85,12 @@ public class EquippedItemController : MonoBehaviour {
             }
             else
             {
-               
+
                 holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite = null;
                 holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = "No Item";
                 holder_GO.GetComponentInChildren<Button>().enabled = false;
 
-             
+
             }
 
         }
@@ -116,7 +117,7 @@ public class EquippedItemController : MonoBehaviour {
 
                 //oyuncu hangi silahında kaç mermisi var bilmek ister yada hangisi daha çok vuruyordu gibi bilgiler 
 
-                holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite=stringToSpriteMap[equippedItems[i]];
+                holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[equippedItems[i]];
                 holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = equippedItems[i];
                 string itemName = equippedItems[i];
 
@@ -137,25 +138,15 @@ public class EquippedItemController : MonoBehaviour {
             }
         }
     }
-    void OnDropButton_Click(string itemName, object sender  )
+    void OnDropButton_Click(string itemName, object sender)
     {
         if (world.itemProtoTypes.ContainsKey(itemName))
             inventory.DropItem(world.itemProtoTypes[itemName]);
-        
+
         else
             Debug.LogError("No item with name:" + itemName);
 
 
-        string equippedItemsString = "";
-        foreach (var equippedItemName in equippedItems)
-        {
-
-            if(equippedItemsString == "")
-                equippedItemsString += equippedItemName;
-            else
-                equippedItemsString += "," + equippedItemName;
-
-            PlayerPrefs.SetString("equippedItems",equippedItemsString);
-        }
+        PlayerPrefsController.SaveEquippedInventoryItem(equippedItems);
     }
 }

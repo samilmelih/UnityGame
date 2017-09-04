@@ -67,7 +67,7 @@ public class InputController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.I))
             {
-                GameObject.FindObjectOfType<InventoryController>().gameObject.SetActive(true);
+                InventoryController.Instance.gameObject.SetActive(true);
             }
 
 			if (Input.GetKeyDown(KeyCode.Alpha1) == true)

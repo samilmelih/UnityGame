@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.UI;
 
 
@@ -26,8 +24,9 @@ public class PurchasedItemController : MonoBehaviour
     /// biz bir item seçtiğimizde ve equip dediğimzde equipped içinde bir nesne oluşturulacak ve içine bu item koyulacak 
     /// drop denildiği zaman sahip olann itemlere düzenlenip Equip butonu aktif edilecek texti değişecek
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
         inventory = WorldController.Instance.world.character.inventory;
         world = WorldController.Instance.world;
@@ -44,7 +43,7 @@ public class PurchasedItemController : MonoBehaviour
 
         inventory.OnItemPurchased += UpdatePurchasedUI;
 
-	
+
     }
     void UpdatePurchasedUI()
     {
@@ -52,22 +51,26 @@ public class PurchasedItemController : MonoBehaviour
 
 
         equippedItems = inventory.GetEquippedItemsNameList();
-       
+
         for (int i = 0; i < currentInventoryItems.Length; i++)
         {
-            GameObject holderGO = itemHolders[i];
+
             string itemName = currentInventoryItems[i];
+
+
+            GameObject holderGO = itemHolders[i];
+            holderGO.transform.Find("ItemDesciriptionText").GetComponent<Text>().text = "Bullet Count:" + PlayerPrefsController.GetItemCount(itemName + "_Bullet").ToString();
             holderGO.transform.Find("ItemNameText").GetComponent<Text>().text = itemName;
             holderGO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[itemName];
-   
+
 
 
             if (equippedItems.Contains(itemName) == true)
             {
-              
+
 
                 holderGO.GetComponentInChildren<Button>().enabled = false;
-          
+
 
                 holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
             }
@@ -108,9 +111,10 @@ public class PurchasedItemController : MonoBehaviour
             itemHolders.Add(holderGO);
             if (currentInventoryItems.Length > i)
             {
-               
+
                 string itemName = currentInventoryItems[i];
                 holderGO.transform.Find("ItemNameText").GetComponent<Text>().text = itemName;
+                holderGO.transform.Find("ItemDesciriptionText").GetComponent<Text>().text = "Bullet Count:" + PlayerPrefsController.GetItemCount(itemName + "_Bullet").ToString();
                 holderGO.transform.Find("ItemImage").GetComponent<Image>().sprite = stringToSpriteMap[itemName];
                 //holderGo dan itemin ismini al
                 if (equippedItems.Contains(itemName) == true)
@@ -144,7 +148,7 @@ public class PurchasedItemController : MonoBehaviour
                 Debug.LogError("PurchasedItemController -- LoadItemSprites we have same sprite name???");
 
 
-            stringToSpriteMap.Add(item.name,item);
+            stringToSpriteMap.Add(item.name, item);
         }
 
         sprites = Resources.LoadAll<Sprite>("Sprites/BulletSprites");
@@ -155,41 +159,35 @@ public class PurchasedItemController : MonoBehaviour
                 Debug.LogError("PurchasedItemController -- LoadItemSprites we have same sprite name???");
 
 
-            stringToSpriteMap.Add(item.name,item);
+            stringToSpriteMap.Add(item.name, item);
         }
 
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     void OnEquipItem_Click(string itemName, Object sender)
     {
         GameObject holderGO = sender as GameObject;
+        holderGO.GetComponentInChildren<Button>().enabled = false;
+        holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
+
+
 
         inventory.EquipItem(world.itemProtoTypes[itemName]);
 
-        string equippedItemsString = "";
-
         equippedItems = inventory.GetEquippedItemsNameList();
-        foreach (var equippedItemName in equippedItems)
-        {
-           
-            if(equippedItemsString == "")
-                equippedItemsString += equippedItemName;
-            else
-                equippedItemsString += "," + equippedItemName;
-        }
-
-        PlayerPrefs.SetString("equippedItems",equippedItemsString);
 
 
-        holderGO.GetComponentInChildren<Button>().enabled = false;
 
-        holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
+        PlayerPrefsController.SaveEquippedInventoryItem(equippedItems);
+
+
     }
 }

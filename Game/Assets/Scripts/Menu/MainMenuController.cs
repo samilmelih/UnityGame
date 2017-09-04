@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +6,7 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     public GameObject storeUI;
-	public GameObject inventoryUI;
+    public GameObject inventoryUI;
     public GameObject mainMenuUI;
     public Transform loadingScreen;
     public Slider sldrLoading;
@@ -20,12 +19,14 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void StartGame(int sceneIndex)
-	{
+    {
         StartCoroutine(LoadingScreen(sceneIndex));
         loadingScreen.gameObject.SetActive(true);
         mainMenuUI.SetActive(false);
         txtLoadingText.text = "Loading!";
-	}
+
+        WorldController.Instance.world.RestartGame();
+    }
 
     IEnumerator LoadingScreen(int sceneIndex)
     {
@@ -44,15 +45,15 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenStore()
     {
-		// FIXME: If we use canvas sort order, do we need to use SetActive?
-		// As far as I know, it destroys GameObjects and recreate. Maybe it is not
-		// important but I am leaving as a FIXME this comment.
-		mainMenuUI.SetActive(false);
+        // FIXME: If we use canvas sort order, do we need to use SetActive?
+        // As far as I know, it destroys GameObjects and recreate. Maybe it is not
+        // important but I am leaving as a FIXME this comment.
+        mainMenuUI.SetActive(false);
         storeUI.SetActive(true);
     }
 
-	public void OpenInventory()
-	{
-		inventoryUI.SetActive(true);
-	}
+    public void OpenInventory()
+    {
+        inventoryUI.SetActive(true);
+    }
 }
