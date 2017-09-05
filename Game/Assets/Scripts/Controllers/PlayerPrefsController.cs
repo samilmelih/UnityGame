@@ -53,6 +53,14 @@ public static class PlayerPrefsController
 
         }
 
+        int length = items.Count;
+        for (int i = 0; i < length; i++)
+        {
+            Item item = items[i];
+            if ((item as Weapon).bullet != null && PlayerPrefs.GetInt((item as Weapon).bullet.name) > 0)
+                items.Add((item as Weapon).bullet);
+        }
+
         return items;
 
     }

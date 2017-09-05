@@ -1,7 +1,4 @@
-﻿using System;
-
-
-public partial class World
+﻿public partial class World
 {
     #region Protos
 
@@ -39,7 +36,7 @@ public partial class World
             new Bullet(
                 "Shotgun_Bullet",      // name
                 50,         // damage
-                40 ,         // velocity
+                40,         // velocity
                 7          //Bullet Count that a magazine can carry
             )
         );
@@ -62,7 +59,7 @@ public partial class World
                 "Sniper_Bullet",      // name
                 90,         // damage
                 70,          // velocity
-                10          //Bullet Count that a magazine can carry
+                5          //Bullet Count that a magazine can carry
             )
         );
 
@@ -133,7 +130,7 @@ public partial class World
 
         bulletPrototypes["RocketLauncher_Side_Bullet"].cost = 1;
 
-    
+
     }
 
     /// <summary>
@@ -214,7 +211,7 @@ public partial class World
             "Magnum",
             new Weapon(
 
-                "Magnum", 
+                "Magnum",
                 bulletPrototypes["Magnum_Bullet"]
 
             ));
@@ -247,13 +244,13 @@ public partial class World
     {
 
         weaponPrototypes.Add(
-           
+
             "Shotgun",
             new Weapon(
 
                 "Shotgun",
                 bulletPrototypes["Shotgun_Bullet"]
-            
+
             ));
 
         weaponPrototypes["Shotgun"].type = WeaponType.Rifle;
@@ -288,13 +285,13 @@ public partial class World
     void CreateMP5Proto()
     {
         weaponPrototypes.Add(
-           
+
             "MP5",
             new Weapon(
 
-                "MP5", 
+                "MP5",
                 bulletPrototypes["MP5_Bullet"]
-            
+
             ));
 
         weaponPrototypes["MP5"].type = WeaponType.Rifle;
@@ -326,13 +323,13 @@ public partial class World
     void CreateSniperProto()
     {
         weaponPrototypes.Add(
-           
+
             "Sniper",
             new Weapon(
-                
-                "Sniper", 
+
+                "Sniper",
                 bulletPrototypes["Sniper_Bullet"]
-            
+
             ));
 
         weaponPrototypes["Sniper"].type = WeaponType.Rifle;
@@ -364,13 +361,13 @@ public partial class World
     void CreateUziProto()
     {
         weaponPrototypes.Add(
-           
+
             "Uzi",
             new Weapon(
 
                 "Uzi",
                 bulletPrototypes["Uzi_Bullet"]
-            
+
             ));
 
         weaponPrototypes["Uzi"].type = WeaponType.Rifle;
@@ -419,7 +416,7 @@ public partial class World
 
                 "RocketLauncher",
                 bulletPrototypes["RocketLauncher_Bullet"]
-            
+
             ));
 
         weaponPrototypes["RocketLauncher"].type = WeaponType.Rifle;
@@ -451,13 +448,13 @@ public partial class World
     void CreateRocketLauncher_ModernProto()
     {
         weaponPrototypes.Add(
-           
+
             "RocketLauncher_Modern",
             new Weapon(
 
                 "RocketLauncher_Modern",
                 bulletPrototypes["RocketLauncher_Modern_Bullet"]
-            
+
             ));
 
         weaponPrototypes["RocketLauncher_Modern"].type = WeaponType.Rifle;
@@ -483,51 +480,51 @@ public partial class World
             bulletPrototypes["RocketLauncher_Modern_Bullet"].count
         );
     }
-        void CreateRocketLauncher_SideProto()
-        {
-            weaponPrototypes.Add(
-            
-                "RocketLauncher_Side",
-            new Weapon(
-                "RocketLauncher_Side",
-                bulletPrototypes["RocketLauncher_Side_Bullet"]
-            
-            ));
+    void CreateRocketLauncher_SideProto()
+    {
+        weaponPrototypes.Add(
 
-            weaponPrototypes["RocketLauncher_Side"].type = WeaponType.Rifle;
-            weaponPrototypes["RocketLauncher_Side"].cost = 1;
-            weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
-                "fireFrequency",
-                .1f // .1 saniyede bir ateş edilebilir
-            );
+            "RocketLauncher_Side",
+        new Weapon(
+            "RocketLauncher_Side",
+            bulletPrototypes["RocketLauncher_Side_Bullet"]
 
-            weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
-                "fireCoolDown",
-                -weaponPrototypes["RocketLauncher_Side"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
-            );
+        ));
 
-            weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
-                "bulletCount",
+        weaponPrototypes["RocketLauncher_Side"].type = WeaponType.Rifle;
+        weaponPrototypes["RocketLauncher_Side"].cost = 1;
+        weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
+            "fireFrequency",
+            .1f // .1 saniyede bir ateş edilebilir
+        );
 
-            bulletPrototypes["RocketLauncher_Side_Bullet"].count
-            );
-            weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
-                "maxBulletCount",
+        weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
+            "fireCoolDown",
+            -weaponPrototypes["RocketLauncher_Side"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+        );
 
-            bulletPrototypes["RocketLauncher_Side_Bullet"].count
-            );
-        }
+        weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
+            "bulletCount",
+
+        bulletPrototypes["RocketLauncher_Side_Bullet"].count
+        );
+        weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
+            "maxBulletCount",
+
+        bulletPrototypes["RocketLauncher_Side_Bullet"].count
+        );
+    }
 
     void CreateMachinegunProto()
     {
         weaponPrototypes.Add(
-           
+
             "Machinegun",
             new Weapon(
-                
+
                 "Machinegun",
                 bulletPrototypes["Machinegun_Bullet"]
-            
+
             ));
 
         weaponPrototypes["Machinegun"].type = WeaponType.Rifle;
@@ -559,13 +556,13 @@ public partial class World
     void CreateUzi_LongProto()
     {
         weaponPrototypes.Add(
-            
+
             "Uzi_Long",
             new Weapon(
-                
-                "Uzi_Long", 
+
+                "Uzi_Long",
                 bulletPrototypes["Uzi_Long_Bullet"]
-            
+
             ));
 
         weaponPrototypes["Uzi_Long"].type = WeaponType.Rifle;
