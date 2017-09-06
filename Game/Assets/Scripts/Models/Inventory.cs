@@ -13,6 +13,9 @@ public class Inventory
     //    public List<Weapon> purchasedWeapons;
     //    public List<Bullet> purchasedBullets;
 
+
+	// FIXME: If I understood right, this dictionary for item count. Why
+	// item has not count variable.
     Dictionary<Item, int> itemToIntMap;
 
     Dictionary<Item, int> equippedItemtoIntMap;

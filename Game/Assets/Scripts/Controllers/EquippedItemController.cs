@@ -4,19 +4,21 @@ using UnityEngine.UI;
 
 public class EquippedItemController : MonoBehaviour
 {
-
-
-
     GameObject itemHolderPrefab;
-    Dictionary<string, Sprite> stringToSpriteMap;
+    
+	Dictionary<string, Sprite> stringToSpriteMap;
 
-    List<GameObject> itemHolders;
+	List<string> equippedItems;
 
-    List<string> equippedItems;
+	public int maxEquippedItemSize = 3;
 
-    public int maxEquippedItemSize = 10;
-    Inventory inventory;
-    World world;
+	Inventory inventory;
+	World world;
+
+
+
+	List<GameObject> itemHolders;
+
     // Use this for initialization
     void Start()
     {
@@ -28,11 +30,10 @@ public class EquippedItemController : MonoBehaviour
         itemHolders = new List<GameObject>();
 
         LoadItemSprites();
-        LoadItemHolderPrefab();
+        // LoadItemHolderPrefab();	// ***OLD***
+		LoadItems();
 
-        inventory.OnItemEquipped += UpdateUI;
-
-
+		inventory.OnItemEquipped += OnItemEquipped;
     }
 
     void LoadItemSprites()
@@ -42,22 +43,45 @@ public class EquippedItemController : MonoBehaviour
         foreach (var item in sprites)
         {
             if (stringToSpriteMap.ContainsKey(item.name))
+			{
                 Debug.LogError("PurchasedItemController -- LoadItemSprites we have same sprite name???");
-
+				return;
+			}
 
             stringToSpriteMap.Add(item.name, item);
         }
-
-
     }
 
+	// FIXME: It looks like this method is not used.
     void UpdateUIForOneGO(GameObject holder_GO)
     {
         holder_GO.transform.Find("ItemImage").GetComponent<Image>().sprite = null;
         holder_GO.transform.Find("ItemNameText").GetComponent<Text>().text = "No Item";
         holder_GO.GetComponentInChildren<Button>().enabled = false;
-
     }
+
+	// ***NEW***
+	void OnItemEquipped()
+	{
+		// FIXME: For now we update all equipped items but we don't need this.
+		// We can send which item will be update. itemHolders would be a dictionary.
+
+		equippedItems = inventory.GetEquippedItemsNameList();
+		for (int i = 0; i < maxEquippedItemSize; i++)
+		{
+			GameObject item_go = itemHolders[i];
+
+			item_go.name = equippedItems[i];
+
+			Image image = item_go.transform.GetComponentInChildren<Image>();
+			image.sprite = stringToSpriteMap[equippedItems[i]];
+
+			item_go.SetActive(true);
+		}
+	}
+
+
+	// ***OLD***
     void UpdateUI()
     {
         equippedItems = inventory.GetEquippedItemsNameList();
@@ -96,6 +120,29 @@ public class EquippedItemController : MonoBehaviour
         }
     }
 
+
+	// ***NEW***
+	void LoadItems()
+	{
+		equippedItems = inventory.GetEquippedItemsNameList();
+
+		itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Inventory/_EquippedItemHolder");
+
+		for (int i = 0; i < maxEquippedItemSize; i++)
+		{
+			Transform slot = this.transform.Find("Slot_" + (i + 1));
+			GameObject item_go = Instantiate(itemHolderPrefab, slot);
+
+			item_go.name = equippedItems[i];
+
+			Image image = item_go.transform.GetComponentInChildren<Image>();
+			image.sprite = stringToSpriteMap[equippedItems[i]];
+
+			itemHolders.Add(item_go);
+		}
+	}
+
+	// ***OLD***
     void LoadItemHolderPrefab()
     {
         equippedItems = inventory.GetEquippedItemsNameList();
@@ -138,6 +185,38 @@ public class EquippedItemController : MonoBehaviour
             }
         }
     }
+
+
+
+
+
+	// ***NEW***
+	public void OnItemDropped_Click(int slot)
+	{
+		Transform slot_go = this.transform.Find("Slot_" + slot);
+
+		// We only have one GameObject so just get child at index 0.
+		Transform equippedItem = slot_go.GetChild(0);
+
+		string itemName = equippedItem.name;
+
+		if (world.itemProtoTypes.ContainsKey(itemName))
+		{
+			inventory.DropItem(world.itemProtoTypes[itemName]);
+		}
+		else
+		{
+			Debug.LogError("OnItemDroppedButton_Click() -- item that will be dropped is not in the prototypes.");
+			return;
+		}
+
+		equippedItem.gameObject.SetActive(false);
+
+		PlayerPrefsController.SaveEquippedInventoryItem(equippedItems);
+	}
+
+
+	// ***OLD***
     void OnDropButton_Click(string itemName, object sender)
     {
         if (world.itemProtoTypes.ContainsKey(itemName))

@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class PurchasedItemController : MonoBehaviour
 {
     GameObject itemHolderPrefab;
@@ -166,15 +164,17 @@ public class PurchasedItemController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+	void OnEquipItem_Click()
+	{
+		Transform purchasedItem = this.transform.GetChild(0);
 
-    }
+
+	}
 
     void OnEquipItem_Click(string itemName, Object sender)
     {
         GameObject holderGO = sender as GameObject;
+
         holderGO.GetComponentInChildren<Button>().enabled = false;
         holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
 
