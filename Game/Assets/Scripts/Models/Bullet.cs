@@ -16,24 +16,20 @@ public class Bullet : Item
 	// How fast this bullet moves
 	public float speed;
 
-	// We can use this to distinguish sprites.
-    public int count;
-
-
-
-    public Bullet(string bulletType, float damage, float speed,int count)
+    public Bullet(string bulletType, float damage, float speed)
 	{
-        this.name = bulletType;
-        this.damage = damage;
-		this.speed = speed;
-        this.count = count;
+        this.name        = bulletType;
+        this.damage      = damage;
+		this.speed       = speed;
+		this.isStackable = true;
 	}
 
     protected Bullet(Bullet other)
     {
-        this.name =other.name;
-        this.damage = other.damage;
-		this.speed = other.speed;
+        this.name        = other.name;
+        this.damage      = other.damage;
+		this.speed       = other.speed;
+		this.isStackable = other.isStackable;
     }
 
     public override Item Clone()

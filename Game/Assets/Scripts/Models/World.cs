@@ -7,17 +7,15 @@ public partial class World
     // THINK: We can have multiple characters soon maybe???(think about it)
     // Yes, maybe AI allies?
 
-
-
     public Character character { get; protected set; }
 
     public List<Character> enemies { get; protected set; }
 
     Dictionary<string, Bullet> bulletPrototypes;
 
+	// FIXME: If we have unique item names, we don't need separate prototype dictionarys.
     public Dictionary<string, Weapon> weaponPrototypes;
     public Dictionary<string, Item> itemProtoTypes;
-
 
     public World()
     {
@@ -30,21 +28,16 @@ public partial class World
         weaponPrototypes = new Dictionary<string, Weapon>();
         itemProtoTypes = new Dictionary<string, Item>();
 
-
         CreatePrototypes();
         FillItemProtoDictionary();
         CreateCharacters();
         CreateEnemies();
-
-
     }
     public void RestartGame()
     {
-
         SetupWorld();
-
-
     }
+
     void FillItemProtoDictionary()
     {
         foreach (var item in weaponPrototypes)
@@ -52,7 +45,6 @@ public partial class World
             if (itemProtoTypes.ContainsKey(item.Key))
                 continue;
 
-            item.Value.isStackable = false;
             itemProtoTypes.Add(item.Key, item.Value);
         }
 
@@ -60,11 +52,6 @@ public partial class World
         {
             if (itemProtoTypes.ContainsKey(item.Key))
                 continue;
-
-
-
-
-            item.Value.isStackable = true;
 
             itemProtoTypes.Add(item.Key, item.Value);
         }
@@ -85,50 +72,10 @@ public partial class World
         character.direction = Direction.Right;
         character.scale = new Vector3(1f, 1f, 0f);
 
-        Inventory ch_inventory = new Inventory();
-
-
-        FillInventory(ch_inventory);
-
-
+        Inventory ch_inventory = new Inventory(this);
         character.inventory = ch_inventory;
-
-        // FIXME: şuan hangi silah var bizde onu bilmiyoruz hangi silahı currWeapon yapacağız elimize varsayılan olarak bıçak mı vereceğiz napcaz????
-        character.currentWeapon = character.inventory.equippedWeapons[0];
     }
 
-    void FillInventory(Inventory inv)
-    {
-        List<Item> items = PlayerPrefsController.GetSavedInventoryItemList(this);
-
-        foreach (Item item in items)
-        {
-            if (item is Bullet)
-            {
-                inv.AddItem(item, PlayerPrefsController.GetItemCount(item.name));
-            }
-
-            else
-            {
-                inv.AddItem(item);
-            }
-        }
-
-        FillEquippedInventory(inv);
-
-
-    }
-    void FillEquippedInventory(Inventory inv)
-    {
-
-        List<Item> items = PlayerPrefsController.GetSavedEquippedInventoryItemList(this);
-
-        foreach (var item in items)
-        {
-            inv.EquipItem(item);
-        }
-
-    }
     void CreateEnemies()
     {
         enemies = new List<Character>();
@@ -161,14 +108,6 @@ public partial class World
     //Bu çok uzun bir metod olacak parçalara ayıracağız muhtemelen her bir silah için ayrı bir metod yapmak daha okunaklı olacaktır
     void CreatePrototypes()
     {
-
-
-        //Buraya bir mermi animasyon metodu yerleştirebiliriz yada ona benzer birşey....
-        //THINK bunu burada mı yapmalıyız?
-        //metodlar nerede olmalı
-
-        // bulletPrototypes["Magnum"].RegisterBulletActionsCallback();
-
         CreateBulletProtos();
 
         CreateMagnumProto();
@@ -183,7 +122,7 @@ public partial class World
 
         CreateSniperProto();
 
-        ///Knife_Sharp
+        /// Knife_Sharp
         /// Knife_Smooth
         /// RockerLauncher
         /// RockerLauncher_Modern
@@ -205,5 +144,4 @@ public partial class World
 
         CreateMachinegunProto();
     }
-
 }

@@ -67,22 +67,22 @@ public class InputController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.I))
             {
-                InventoryController.Instance.gameObject.SetActive(true);
+                // InventoryController.Instance.gameObject.SetActive(true);
             }
 
 			if (Input.GetKeyDown(KeyCode.Alpha1) == true)
 			{
-                character.ChangeWeapon(WeaponType.Close);
+                character.ChangeWeapon(1);
 			}
 
 			if (Input.GetKeyDown(KeyCode.Alpha2) == true)
 			{
-                character.ChangeWeapon(WeaponType.Gun);
+                character.ChangeWeapon(2);
 			}
 
 			if (Input.GetKeyDown(KeyCode.Alpha3) == true)
 			{
-                character.ChangeWeapon(WeaponType.Rifle);
+                character.ChangeWeapon(3);
 			}
 		}
 
@@ -92,26 +92,17 @@ public class InputController : MonoBehaviour
     {
         UIShowed = !UIShowed;
 
-
-       gunChooseAnim.SetBool("open",UIShowed);
-
-  
-
-   
+    	gunChooseAnim.SetBool("open",UIShowed);
     }
    
-    public void ChangeWeapon(int type)
+    public void ChangeWeapon(int slot)
     {
         UIShowed = false;
         gunChooseAnim.SetBool("open",false);
-        character.ChangeWeapon((WeaponType)type);
-
-       
-       
-
-
+        character.ChangeWeapon(slot);
     }
-    	void FixedUpdate()
+    
+	void FixedUpdate()
 	{
 		// Eğer ikiside farklıysa bir tarafa gidilecek demektir.
 		// Eğer ikisi aynıysa ya hiç basılmadı yada iki tuşa birden basıldı.

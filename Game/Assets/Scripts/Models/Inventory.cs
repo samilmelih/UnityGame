@@ -1,205 +1,163 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Inventory
 {
+	// If we make different UI's for weapons and items,
+	// this List's would be enough. We have separate slots for weapons
+	// and other items. I think we don't need to separate other items but
+	// if we need to separate other items and also UI, we just need to make
+	// another List for it.
 
-    public delegate void InventoryEventHandler();
-    public event InventoryEventHandler OnItemPurchased;
-    public event InventoryEventHandler OnItemEquipped;
+	public int maxNumberOfWeapon = 3;
+	public List<string> equippedWeapons;
 
+	public int maxNumberOfItem = 3;
+	public List<string> equippedItems;
 
+	public Dictionary<string, Item> purchasedItemMap;
 
-    //    public List<Weapon> purchasedWeapons;
-    //    public List<Bullet> purchasedBullets;
+	Action<Item> cbOnItemPurchased;
+	Action<Item> cbOnItemEquipped;
+	Action<Item, Inventory> cbOnItemDropped;
 
+	World world;
+	Character character;
 
-	// FIXME: If I understood right, this dictionary for item count. Why
-	// item has not count variable.
-    Dictionary<Item, int> itemToIntMap;
-
-    Dictionary<Item, int> equippedItemtoIntMap;
-
-    //whole items will be in the list
-
-    const int numberOfWeapon = 3;
-    public Weapon[] equippedWeapons;
-
-    public Inventory()
+	public Inventory(World world)
     {
-        equippedWeapons = new Weapon[numberOfWeapon];
-        //        purchasedBullets = new List<Bullet>();
-        //        purchasedWeapons = new List<Weapon>();
+		this.world = world;
+		this.character = world.character;
 
-        itemToIntMap = new Dictionary<Item, int>();
+		equippedWeapons   = new List<string>();
+		equippedItems     = new List<string>();
+		purchasedItemMap  = new Dictionary<string, Item>();
 
-        equippedItemtoIntMap = new Dictionary<Item, int>();
+		cbOnItemPurchased += PlayerPrefsController.OnItemPurchased;
+		cbOnItemEquipped  += PlayerPrefsController.OnItemEquipped;
+		cbOnItemDropped   += PlayerPrefsController.OnItemDropped;
 
+		LoadInventory();
     }
 
-    public int FindItemCount(Item item)
+	public void LoadInventory()
+	{
+		List<Item> purchasedItems = PlayerPrefsController.GetPurchasedItemList(world);
+		if(purchasedItems != null)
+		{
+			foreach (Item item in purchasedItems)
+			{
+				purchasedItemMap.Add(item.name, item);
+			}
+		}
+			
+		equippedWeapons = PlayerPrefsController.GetEquippedWeaponList(world);
+		equippedItems   = PlayerPrefsController.GetEquippedItemList(world);
+	}
+		
+	// If an item is equipped, add it to it's list.
+	public void EquipItem(string itemName)
+	{
+		if(purchasedItemMap.ContainsKey(itemName) == false)
+		{
+			Debug.LogError("EquipItem() -- You are trying to equip an item that it's not in the purchased item.");
+			return;
+		}
+
+		Item item = purchasedItemMap[itemName];
+
+		// Weapons
+		if(item is Weapon)
+		{
+			if(equippedWeapons.Count >= maxNumberOfWeapon)
+			{
+				Debug.Log("EquipItem() -- You can't equip another weapon because all slots full.");
+				return;
+			}
+
+			equippedWeapons.Add(itemName);
+		}
+		// Other items
+		else
+		{
+			if(equippedItems.Count >= maxNumberOfItem)
+			{
+				Debug.Log("EquipItem() -- You can't equip another item because all slots full.");
+				return;
+			}
+
+			equippedItems.Add(itemName);
+		}
+
+		if(cbOnItemEquipped != null)
+			cbOnItemEquipped(item);
+	}
+
+	// If an item is dropped just remove from it's list.
+	public void DropItem(string itemName)
+	{
+		Item item = purchasedItemMap[itemName];
+
+		// Weapons
+		if(item is Weapon)
+		{
+			if(equippedWeapons.Contains(itemName) == false)
+			{
+				Debug.Log("DropItem() -- Weapon that you want to drop is not in the equippedWeapon list.");
+				return;
+			}
+
+			equippedWeapons.Remove(itemName);
+		}
+		// Other items
+		else
+		{
+			if(equippedItems.Contains(itemName) == false)
+			{
+				Debug.Log("DropItem() -- Item that you want to drop is not in the equippedItems list.");
+				return;
+			}
+
+			equippedItems.Remove(itemName);
+		}
+			
+		if(cbOnItemDropped != null)
+			cbOnItemDropped(item, this);
+	}
+
+	public void AddToPurchasedItems(Item item)
+	{
+		if(purchasedItemMap.ContainsKey(item.name) == true)
+		{
+			purchasedItemMap[item.name].count += item.purchaseAmount;
+		}
+		else
+		{
+			purchasedItemMap.Add(item.name, item);
+		}
+			
+		if(cbOnItemPurchased != null)
+			cbOnItemPurchased(item);
+	}
+
+	// FIXME: Character can pass as parameter.
+	public void ChangeWeapon(int slot)
+	{
+		// If requested weapon is already on character then just return.
+		if (equippedWeapons[slot] == null)
+			return;
+
+		character.currentWeapon = purchasedItemMap[equippedWeapons[slot]] as Weapon;
+	}
+
+	public List<string> GetEquippedWeaponList()
+	{
+		return equippedWeapons;
+	}
+
+    public List<string> GetEquippedItemsList()
     {
-        if (itemToIntMap.ContainsKey(item) == false)
-        {
-            Debug.LogError("Couldn't find the item with name : " + item.name);
-            return -1;
-        }
-
-        return itemToIntMap[item];
+		return equippedItems;
     }
-
-
-
-    // If a weapon equipped, add it our inventory.
-    public void EquipItem(Item item, int stackSize = -1)
-    {
-        //diğer itemleri de equip edildiğinde nerede tutulacak ise oraya yönlendirebiliriz
-        if (item is Weapon)
-        {
-            equippedWeapons[(int)(item as Weapon).type] = item as Weapon;
-        }
-        else
-        {
-            if (equippedItemtoIntMap.ContainsKey(item) == false)
-            {
-                equippedItemtoIntMap.Add(item, stackSize);
-            }
-            else
-            {
-                equippedItemtoIntMap[item] += stackSize;
-            }
-        }
-        if (OnItemEquipped != null)
-            OnItemEquipped();
-
-        if (OnItemPurchased != null)
-            OnItemPurchased();
-    }
-
-    // If a weapon dropped, remove it from our inventory.
-    public void DropItem(Item item)
-    {
-        if (item is Weapon)
-        {
-            equippedWeapons[(int)(item as Weapon).type] = null;
-        }
-
-        if (OnItemEquipped != null)
-            OnItemEquipped();
-
-        if (OnItemPurchased != null)
-            OnItemPurchased();
-    }
-
-
-
-
-    public void AddItem(Item item, int itemCount = -1)
-    {
-        if (itemCount != -1)
-        {
-            if (itemToIntMap.ContainsKey(item) == true)
-            {
-                itemToIntMap[item] += itemCount;
-            }
-            else
-            {
-                itemToIntMap.Add(item, itemCount);
-            }
-        }
-        else
-        {
-            if (itemToIntMap.ContainsKey(item) == true)
-            {
-                Debug.LogError("You can not add this item more than one somthing gone wrong ???" + item.name);
-            }
-            else
-            {
-                itemToIntMap.Add(item, itemCount);
-            }
-        }
-
-
-        if (OnItemPurchased != null)
-            OnItemPurchased();
-        //TODO   else if (item is (whatever))
-        //          purchasedWhatever.Add(item as whatever);
-        // make sure the item you wanna add in the list is inherited from Item class
-    }
-
-
-    //Tüm equip ettiğimiz itemleri bir listede tutarsak o listeyi burada eklememiz lazım
-    public List<string> GetEquippedItemsNameList()
-    {
-        List<string> list = new List<string>();
-
-        for (int i = 0; i < equippedWeapons.Length; i++)
-        {
-            if (equippedWeapons[i] != null)
-                list.Add(equippedWeapons[i].name);
-        }
-        return list;
-    }
-
-    //Inventorydeki her bir itemin ismini bu listeye ekle
-    public List<string> GetAllItemsNameList()
-    {
-        List<string> list = new List<string>();
-
-        //        for (int i = 0; i < purchasedWeapons.Count; i++)
-        //        {
-        //            list.Add(purchasedWeapons[i].name);
-        //        }
-        //        for (int i = 0; i < purchasedBullets.Count; i++)
-        //        {
-        //            list.Add(purchasedBullets[i].name);
-        //        }
-
-        foreach (var item in itemToIntMap.Keys)
-        {
-            if (!(item is Bullet))
-                list.Add(item.name);
-        }
-
-
-        return list;
-    }
-    public void RemoveItem(Item item)
-    {
-        //        if (item is Weapon)
-        //            purchasedWeapons.Remove(item as Weapon);
-        //
-        //
-        //        else if (item is Bullet)
-        //            purchasedBullets.Remove(item as Bullet);
-
-        if (itemToIntMap.ContainsKey(item) == false)
-        {
-            Debug.LogError(string.Format("Item {0} doesn't exist in the current invnetory", item.name));
-            return;
-
-        }
-
-        itemToIntMap.Remove(item);
-
-    }
-
-    public Weapon ChangeWeapon(Character character, WeaponType weaponType)
-    {
-        int type = (int)weaponType;
-
-        // If requested weapon is already on character then just return.
-        if (equippedWeapons[type] == null)
-            return character.currentWeapon;
-
-        equippedWeapons[(int)character.currentWeapon.type] = character.currentWeapon;
-
-        // Keep weapon that will be changed
-        Weapon changed = equippedWeapons[type];
-
-        equippedWeapons[type] = null;
-
-        return changed;
-    }
-
 }

@@ -18,7 +18,7 @@ public class WeaponActions : MonoBehaviour
 
         if (currTime - weapon.weaponParameters["fireCoolDown"] > weapon.weaponParameters["fireFrequency"])
         {
-            if (weapon.weaponParameters["bulletCount"] > 0f)
+			if (weapon.weaponParameters["Magazine_Count"] > 0f)
             {
                 SoundController.Instance.Shot();
                 GameObject chr_go;
@@ -53,38 +53,28 @@ public class WeaponActions : MonoBehaviour
 
                 bullet_go.GetComponent<BulletController>().go_shooter = chr_go;
 
-                weapon.weaponParameters["bulletCount"] -= 1f;
+				weapon.bullet.count -= 1;
                 weapon.weaponParameters["fireCoolDown"] = Time.time;
-
-                PlayerPrefsController.SetItemCount(weapon.bullet.name, -1);
             }
             else
             {
-
                 // We are out of bullet.
-                //FIXME: şimdilik direk değştiricez 
-                //FIXME sistem çalışması açısından yazıyorum bu kodu düzeltilecek
 
                 if (character.Type == "Main Character")
                 {
-                    float money = character.money;
-
-
                     Debug.Log("Reloaded");
-                    if (character.inventory.FindItemCount(weapon.bullet) > weapon.weaponParameters["maxBulletCount"])
+					if (weapon.bullet.count < weapon.weaponParameters["Max_Magazine_Count"])
                     {
-                        int currentCount = character.inventory.FindItemCount(weapon.bullet) - (int)weapon.weaponParameters["maxBulletCount"];
-                        character.inventory.AddItem(weapon.bullet, -(int)weapon.weaponParameters["maxBulletCount"]);
+						int reloadableBulletCount = Mathf.Min(
+							weapon.bullet.count,
+							(int) weapon.weaponParameters["Max_Magazine_Count"]
+						);
 
-                        weapon.weaponParameters["bulletCount"] = weapon.weaponParameters["maxBulletCount"];
+						weapon.bullet.count -= reloadableBulletCount;
+						weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
                     }
-
-                }
-                else
-                    weapon.weaponParameters["bulletCount"] = weapon.weaponParameters["maxBulletCount"];
+				}
             }
-        }
-
+		}
     }
-
 }

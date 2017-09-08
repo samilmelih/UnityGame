@@ -38,17 +38,15 @@ public class PurchasedItemController : MonoBehaviour
         LoadItemSprites();
 
         LoadPurchasedUI();
-
-        inventory.OnItemPurchased += UpdatePurchasedUI;
-
-
     }
+
     void UpdatePurchasedUI()
     {
-        currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
+		// FIXME:
+        //currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
 
 
-        equippedItems = inventory.GetEquippedItemsNameList();
+        equippedItems = inventory.GetEquippedItemsList();
 
         for (int i = 0; i < currentInventoryItems.Length; i++)
         {
@@ -92,11 +90,11 @@ public class PurchasedItemController : MonoBehaviour
     }
     void LoadPurchasedUI()
     {
+		// FIXME:
+        //currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
 
-        currentInventoryItems = inventory.GetAllItemsNameList().ToArray();
 
-
-        equippedItems = inventory.GetEquippedItemsNameList();
+        equippedItems = inventory.GetEquippedItemsList();
 
 
 
@@ -179,14 +177,15 @@ public class PurchasedItemController : MonoBehaviour
         holderGO.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "Equipped";
 
 
+		// FIXME:
+        //inventory.EquipItem(world.itemProtoTypes[itemName]);
 
-        inventory.EquipItem(world.itemProtoTypes[itemName]);
-
-        equippedItems = inventory.GetEquippedItemsNameList();
+        equippedItems = inventory.GetEquippedItemsList();
 
 
 
-        PlayerPrefsController.SaveEquippedInventoryItem(equippedItems);
+		// FIXME:
+        // PlayerPrefsController.OnItemEquipped(equippedItems);
 
 
     }

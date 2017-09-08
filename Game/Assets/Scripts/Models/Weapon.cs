@@ -5,28 +5,19 @@ using System;
 
 public class Weapon : Item
 {
-
- 
-
-
+	// FIXME: Probably we won't use
 	public WeaponType type;
 
     public Bullet bullet;
 
- 
-
-
-    //FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
-    public float Range = 0;
-
-	// Buradaki action larıda olay olay bölmemiz gerekli,
-	// tek bir action yetersiz olacaktır.
-	// Fire ı daha genel olarak attack ile değiştirdim.
 	public Action<Character> cbAttack;
     public Func<Character,bool> cbOnReload;
 
     //şimdilik buna ihtiyaç var mı bilmiyorum olursa diye yazdım
     public bool isReloadable = false;
+
+	//FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
+	public float Range = 0;
 
     public Dictionary<string, float> weaponParameters;
 
