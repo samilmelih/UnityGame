@@ -5,51 +5,44 @@ using System;
 
 public class Weapon : Item
 {
-	// FIXME: Probably we won't use
-	public WeaponType type;
+	public Dictionary<string, float> weaponParameters;
 
     public Bullet bullet;
 
+	//şimdilik buna ihtiyaç var mı bilmiyorum olursa diye yazdım
+	public bool isReloadable = false;
+
+	// FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
+	// FIXME : If we use this feature, don't forget to add to our constructor
+	// parameters and also Clone method.
+	public float range = 0;
+
 	public Action<Character> cbAttack;
-    public Func<Character,bool> cbOnReload;
 
-    //şimdilik buna ihtiyaç var mı bilmiyorum olursa diye yazdım
-    public bool isReloadable = false;
+	// FIXME: If we use it, don't forget to copy in Clone method.
+    public Func<Character, bool> cbOnReload;
 
-	//FIXME : her silahın bir range i olsa o mesafede mermi atabilse nasıl olur
-	public float Range = 0;
-
-    public Dictionary<string, float> weaponParameters;
-
-	// For now, we just have "type" for prototype parameters.
-    public Weapon(string name, Bullet bullet = null)
+	public Weapon(string name, int cost, int count, int purchaseAmount, bool isStackable, bool equipped,
+		Bullet bullet) : base(name, cost, count, purchaseAmount, isStackable, equipped)
 	{
         // if there is no bullet then it is a sword.
         if (bullet != null)
         {   
-            isReloadable = true;
-            this.bullet = bullet;
-           
+			this.bullet = bullet;
+			isReloadable = true;
         }
         else
             isReloadable = false;
-         
-        this.name = name;
+		
         weaponParameters = new Dictionary<string, float>();
 	}
 
-	protected Weapon(Weapon weapon)
+	protected Weapon(Weapon other) : base(other)
 	{
-        if (weapon.bullet != null)
-        {
-            this.bullet = weapon.bullet;
-        }
-
-		this.name = weapon.name;
-		this.type = weapon.type;
-		this.isReloadable = weapon.isReloadable;
-		this.cbAttack = weapon.cbAttack;
-        this.weaponParameters =new Dictionary<string, float>( weapon.weaponParameters);
+        this.bullet           = other.bullet;
+		this.isReloadable     = other.isReloadable;
+		this.cbAttack         = other.cbAttack;
+        this.weaponParameters = new Dictionary<string, float>(other.weaponParameters);
 	}
 
     public override Item Clone()
@@ -61,5 +54,4 @@ public class Weapon : Item
 	{
 		cbAttack += cb;
 	}
-   
 }

@@ -90,7 +90,7 @@ public static class PlayerPrefsController
 	static public List<string> GetEquippedWeaponList(World world)
 	{
 		if(PlayerPrefs.HasKey(equippedWeaponString) == false)
-			return null;
+			return new List<string>();
 
 		string[] equippedWeapons = PlayerPrefs.GetString(equippedWeaponString).Split(',');
 
@@ -100,7 +100,7 @@ public static class PlayerPrefsController
     static public List<string> GetEquippedItemList(World world)
     {
 		if(PlayerPrefs.HasKey(equippedItemString) == false)
-			return null;
+			return new List<string>();
 		
 		string[] equippedItems = PlayerPrefs.GetString(equippedItemString).Split(',');
 

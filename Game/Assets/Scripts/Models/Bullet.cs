@@ -16,20 +16,17 @@ public class Bullet : Item
 	// How fast this bullet moves
 	public float speed;
 
-    public Bullet(string bulletType, float damage, float speed)
+	public Bullet(string name, int cost, int count, int purchaseAmount, bool isStackable, bool equipped,
+		float damage, float speed) : base(name, cost, count, purchaseAmount, isStackable, equipped)
 	{
-        this.name        = bulletType;
-        this.damage      = damage;
-		this.speed       = speed;
-		this.isStackable = true;
+        this.damage = damage;
+		this.speed  = speed;
 	}
 
-    protected Bullet(Bullet other)
+	protected Bullet(Bullet other) : base(other)
     {
-        this.name        = other.name;
-        this.damage      = other.damage;
-		this.speed       = other.speed;
-		this.isStackable = other.isStackable;
+        this.damage = other.damage;
+		this.speed  = other.speed;
     }
 
     public override Item Clone()

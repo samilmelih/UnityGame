@@ -30,15 +30,15 @@ public class Inventory
 		this.world = world;
 		this.character = world.character;
 
-		equippedWeapons   = new List<string>();
-		equippedItems     = new List<string>();
 		purchasedItemMap  = new Dictionary<string, Item>();
 
-		cbOnItemPurchased += PlayerPrefsController.OnItemPurchased;
-		cbOnItemEquipped  += PlayerPrefsController.OnItemEquipped;
-		cbOnItemDropped   += PlayerPrefsController.OnItemDropped;
-
 		LoadInventory();
+
+		// I registered them in here because since PlayerPrefsController is a static class,
+		// I don't know where to register this callbacks in PlayerPrefsController.
+		RegisterOnItemPurchasedCallback(PlayerPrefsController.OnItemPurchased);
+		RegisterOnItemEquippedCallback(PlayerPrefsController.OnItemEquipped);
+		RegisterOnItemDroppedCallback(PlayerPrefsController.OnItemDropped);
     }
 
 	public void LoadInventory()
@@ -90,8 +90,12 @@ public class Inventory
 			equippedItems.Add(itemName);
 		}
 
+		item.equipped = true;
+
 		if(cbOnItemEquipped != null)
 			cbOnItemEquipped(item);
+
+		Debug.Log("Item equipped");
 	}
 
 	// If an item is dropped just remove from it's list.
@@ -121,6 +125,8 @@ public class Inventory
 
 			equippedItems.Remove(itemName);
 		}
+
+		item.equipped = false;
 			
 		if(cbOnItemDropped != null)
 			cbOnItemDropped(item, this);
@@ -136,7 +142,7 @@ public class Inventory
 		{
 			purchasedItemMap.Add(item.name, item);
 		}
-			
+
 		if(cbOnItemPurchased != null)
 			cbOnItemPurchased(item);
 	}
@@ -151,13 +157,33 @@ public class Inventory
 		character.currentWeapon = purchasedItemMap[equippedWeapons[slot]] as Weapon;
 	}
 
+	public List<Item> GetPurchasedItemList()
+	{
+		return new List<Item>(purchasedItemMap.Values);
+	}
+
 	public List<string> GetEquippedWeaponList()
 	{
-		return equippedWeapons;
+		return new List<string>(equippedWeapons);
 	}
 
     public List<string> GetEquippedItemsList()
     {
-		return equippedItems;
+		return new List<string>(equippedItems);
     }
+
+	public void RegisterOnItemPurchasedCallback(Action<Item> cb)
+	{
+		cbOnItemPurchased += cb;
+	}
+
+	public void RegisterOnItemEquippedCallback(Action<Item> cb)
+	{
+		cbOnItemEquipped += cb;
+	}
+
+	public void RegisterOnItemDroppedCallback(Action<Item, Inventory> cb)
+	{
+		cbOnItemDropped += cb;
+	}
 }

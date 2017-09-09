@@ -10,62 +10,67 @@
         bulletPrototypes.Add("Magnum_Bullet",
             new Bullet(
                 "Magnum_Bullet",	// name
-                15f,        		// damage
+				1,					// cost
+				0,					// count
+				10,					// purchaseAmount
+				true,				// isStackable
+				false,				// equipped
+                15f,				// damage
                 20f         		// velocity
          	)
 		);
 
-        bulletPrototypes["Magnum_Bullet"].cost = 1;
-		bulletPrototypes["Magnum_Bullet"].purchaseAmount = 10;
-
-
         bulletPrototypes.Add("MP5_Bullet",
             new Bullet(
-                "MP5_Bullet",	// name
-                25,         	// damage
-                20          	// velocity
+                "MP5_Bullet",		// name
+				1,					// cost
+				0,					// count
+				50,					// purchaseAmount
+				true,				// isStackable
+				false,				// equipped
+				25f,				// damage
+				20f         		// velocity
             )
         );
-
-        bulletPrototypes["MP5_Bullet"].cost = 1;
-		bulletPrototypes["MP5_Bullet"].purchaseAmount = 50;
-
 
         bulletPrototypes.Add("Shotgun_Bullet",
             new Bullet(
                 "Shotgun_Bullet",	// name
-                50,         		// damage
-                40         			// velocity
+				1,					// cost
+				0,					// count
+				5,					// purchaseAmount
+				true,				// isStackable
+				false,				// equipped
+				50f,				// damage
+				40f         		// velocity
             )
         );
-
-        bulletPrototypes["Shotgun_Bullet"].cost = 1;
-		bulletPrototypes["Shotgun_Bullet"].purchaseAmount = 5;
-
 
         bulletPrototypes.Add("Uzi_Bullet",
             new Bullet(
-                "Uzi_Bullet",	// name
-                30,         	// damage
-                25		       	// velocity
+                "Uzi_Bullet",		// name
+				1,					// cost
+				0,					// count
+				20,					// purchaseAmount
+				true,				// isStackable
+				false,				// equipped
+				30f,				// damage
+				25f         		// velocity
             )
         );
-
-        bulletPrototypes["Uzi_Bullet"].cost = 1;
-		bulletPrototypes["Uzi_Bullet"].purchaseAmount = 20;
-
 
         bulletPrototypes.Add("Sniper_Bullet",
             new Bullet(
                 "Sniper_Bullet",	// name
-                90,         		// damage
-                70          		// velocity
+				1,					// cost
+				0,					// count
+				7,					// purchaseAmount
+				true,				// isStackable
+				false,				// equipped
+				90f,				// damage
+				70f         		// velocity
             )
         );
-
-        bulletPrototypes["Sniper_Bullet"].cost = 1;
-		bulletPrototypes["Sniper_Bullet"].purchaseAmount = 7;
-
 
         /// Knife_Sharp
         /// Knife_Smooth
@@ -78,62 +83,67 @@
         bulletPrototypes.Add("Uzi_Long_Bullet",
             new Bullet(
                 "Uzi_Long_Bullet",		// name
-                30,         			// damage
-                25          			// velocity
+				1,						// cost
+				0,						// count
+				30,						// purchaseAmount
+				true,					// isStackable
+				false,					// equipped
+				30f,					// damage
+				25f         			// velocity
             )
         );
-
-        bulletPrototypes["Uzi_Long_Bullet"].cost = 1;
-		bulletPrototypes["Uzi_Long_Bullet"].purchaseAmount = 30;
-
 
         bulletPrototypes.Add("Machinegun_Bullet",
             new Bullet(
                 "Machinegun_Bullet",	// name
-                30,       				// damage
-                25          			// velocity
+				1,						// cost
+				0,						// count
+				100,					// purchaseAmount
+				true,					// isStackable
+				false,					// equipped
+				30f,					// damage
+				25f         			// velocity
             )
         );
-
-        bulletPrototypes["Machinegun_Bullet"].cost = 1;
-		bulletPrototypes["Machinegun_Bullet"].purchaseAmount = 100;
-
 
         bulletPrototypes.Add("RocketLauncher_Bullet",
             new Bullet(
                 "RocketLauncher_Bullet",	// name
-                30,         				// damege
-                25	       					// velocity
+				1,							// cost
+				0,							// count
+				3,							// purchaseAmount
+				true,						// isStackable
+				false,						// equipped
+				30f,						// damage
+				25f         				// velocity
             )
         );
-
-        bulletPrototypes["RocketLauncher_Bullet"].cost = 1;
-		bulletPrototypes["RocketLauncher_Bullet"].purchaseAmount = 3;
-
 
         bulletPrototypes.Add("RocketLauncher_Modern_Bullet",
             new Bullet(
                 "RocketLauncher_Modern_Bullet",		// name
-                30,         						// damage
-                25         							// velocity
+				1,									// cost
+				0,									// count
+				3,									// purchaseAmount
+				true,								// isStackable
+				false,								// equipped
+				30f,								// damage
+				25f         						// velocity
             )
         );
-
-        bulletPrototypes["RocketLauncher_Modern_Bullet"].cost = 1;
-		bulletPrototypes["RocketLauncher_Modern_Bullet"].purchaseAmount = 3;
-
 
         bulletPrototypes.Add("RocketLauncher_Side_Bullet",
             new Bullet(
-                "RocketLauncher_Side_Bullet",		// name
-                30,        							// damage
-                25						         	// velocity
+                "RocketLauncher_Side_Bullet",	// name
+				1,								// cost
+				0,								// count
+				3,								// purchaseAmount
+				true,							// isStackable
+				false,							// equipped
+				30f,							// damage
+				25f         					// velocity
             )
         );
-
-        bulletPrototypes["RocketLauncher_Side_Bullet"].cost = 1;
-		bulletPrototypes["RocketLauncher_Side_Bullet"].purchaseAmount = 3;
-
     }
 
     /// <summary>
@@ -142,13 +152,18 @@
 
     void CreateKnifeProto()
     {
-        weaponPrototypes.Add(
-            "Knife",
-            new Weapon("Knife")
+        weaponPrototypes.Add("Knife",
+            new Weapon(
+				"Knife",	// name
+				1,			// cost
+				0,			// count
+				1,			// purchaseAmount
+				false,		// isStackable
+				false,		// equipped
+				null		// Bullet
+			)
         );
 
-        weaponPrototypes["Knife"].type = WeaponType.Close;
-        weaponPrototypes["Knife"].cost = 1;
         weaponPrototypes["Knife"].weaponParameters.Add(
             "hitPower",
             5
@@ -164,13 +179,18 @@
 
     void CreateKnife_SmoothProto()
     {
-        weaponPrototypes.Add(
-            "Knife_Smooth",
-            new Weapon("Knife_Smooth")
+        weaponPrototypes.Add("Knife_Smooth",
+            new Weapon(
+				"Knife_Smooth",		// name
+				1,					// cost
+				0,					// count
+				1,					// purchaseAmount
+				false,				// isStackable
+				false,				// equipped
+				null				// Bullet
+			)
         );
 
-        weaponPrototypes["Knife_Smooth"].type = WeaponType.Close;
-        weaponPrototypes["Knife_Smooth"].cost = 1;
         weaponPrototypes["Knife_Smooth"].weaponParameters.Add(
             "hitPower",
             5
@@ -186,13 +206,18 @@
 
     void CreateKnife_SharpProto()
     {
-        weaponPrototypes.Add(
-            "Knife_Sharp",
-            new Weapon("Knife_Sharp")
+        weaponPrototypes.Add("Knife_Sharp",
+            new Weapon(
+				"Knife_Sharp",		// name
+				1,					// cost
+				0,					// count
+				1,					// purchaseAmount
+				false,				// isStackable
+				false,				// equipped
+				null				// Bullet
+			)
         );
-
-        weaponPrototypes["Knife_Sharp"].type = WeaponType.Close;
-        weaponPrototypes["Knife_Sharp"].cost = 1;
+			
         weaponPrototypes["Knife_Sharp"].weaponParameters.Add(
             "hitPower",
             5
@@ -215,12 +240,15 @@
 
 		weaponPrototypes.Add(name,
             new Weapon(
-				name,
-                bulletPrototypes[name + "_Bullet"]
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
             )
 		);
-			
-		weaponPrototypes[name].cost = 1;
 
 		weaponPrototypes[name].weaponParameters.Add(
 			"Max_Magazine_Count",
@@ -251,12 +279,15 @@
 
 		weaponPrototypes.Add(name,
             new Weapon(
-				name,
-                bulletPrototypes[name + "_Bullet"]
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
             )
 		);
-				
-		weaponPrototypes[name].cost = 1;
 
 		weaponPrototypes[name].weaponParameters.Add(
 			"Max_Magazine_Count",
@@ -290,12 +321,15 @@
 
 		weaponPrototypes.Add(name,
             new Weapon(
-				name,
-				bulletPrototypes[name + "_Bullet"]
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
             )
 		);
-
-		weaponPrototypes["MP5"].cost = 1;
 
 		weaponPrototypes[name].weaponParameters.Add(
 			"Max_Magazine_Count",
@@ -326,12 +360,15 @@
 
 		weaponPrototypes.Add(name,
             new Weapon(
-				name,
-                bulletPrototypes[name + "_Bullet"]
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
             )
 		);
-
-		weaponPrototypes[name].cost = 1;
 
 		weaponPrototypes[name].weaponParameters.Add(
 			"Max_Magazine_Count",
@@ -362,12 +399,15 @@
 
 		weaponPrototypes.Add(name,
             new Weapon(
-				name,
-                bulletPrototypes[name + "_Bullet"]
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
             )
 		);
-
-		weaponPrototypes[name].cost = 1;
 
 		weaponPrototypes[name].weaponParameters.Add(
 			"Max_Magazine_Count",
@@ -401,11 +441,7 @@
     #region newGuns
 
 	// *******TODO******TODO*******
-	// These guns weaponParameters have not edited.
-	// They have some compatibility problems. Edit later.
-
-	// FIXME: They make some problem in store. After we setup everything, we can
-	// add new weapons. For now I leave them as comment.
+	// These gun's weaponParameters have not edited.
 
     /// Knife_Sharp
     /// Knife_Smooth
@@ -417,131 +453,142 @@
 
     void CreateRocketLauncherProto()
     {
-        weaponPrototypes.Add(
+		string name = "RocketLauncher";
 
-            "RocketLauncher",
-            new Weapon(
+        weaponPrototypes.Add(name,
+			new Weapon(
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet		
+            )
+		);
 
-                "RocketLauncher",
-                bulletPrototypes["RocketLauncher_Bullet"]
-
-            ));
-
-        weaponPrototypes["RocketLauncher"].type = WeaponType.Rifle;
-        weaponPrototypes["RocketLauncher"].cost = 1;
-        weaponPrototypes["RocketLauncher"].weaponParameters.Add(
+        weaponPrototypes[name].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes["RocketLauncher"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireCoolDown",
-            -weaponPrototypes["RocketLauncher"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+			-weaponPrototypes[name].weaponParameters["fireFrequency"]
         );
 
-        weaponPrototypes["RocketLauncher"].cbAttack += WeaponActions.One_Shot;
+		weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateRocketLauncher_ModernProto()
     {
-        weaponPrototypes.Add(
+		string name = "RocketLauncher_Modern";
 
-            "RocketLauncher_Modern",
+		weaponPrototypes.Add(name,
             new Weapon(
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet		
+            )
+		);
 
-                "RocketLauncher_Modern",
-                bulletPrototypes["RocketLauncher_Modern_Bullet"]
-
-            ));
-
-        weaponPrototypes["RocketLauncher_Modern"].type = WeaponType.Rifle;
-        weaponPrototypes["RocketLauncher_Modern"].cost = 1;
-        weaponPrototypes["RocketLauncher_Modern"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes["RocketLauncher_Modern"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireCoolDown",
-            -weaponPrototypes["RocketLauncher_Modern"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+			-weaponPrototypes[name].weaponParameters["fireFrequency"]
         );
     }
     void CreateRocketLauncher_SideProto()
     {
-        weaponPrototypes.Add(
+		string name = "RocketLauncher_Side";
 
-            "RocketLauncher_Side",
+		weaponPrototypes.Add(name,
         new Weapon(
-            "RocketLauncher_Side",
-            bulletPrototypes["RocketLauncher_Side_Bullet"]
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet	
+        	)
+		);
 
-        ));
-
-        weaponPrototypes["RocketLauncher_Side"].type = WeaponType.Rifle;
-        weaponPrototypes["RocketLauncher_Side"].cost = 1;
-        weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes["RocketLauncher_Side"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireCoolDown",
-            -weaponPrototypes["RocketLauncher_Side"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+			-weaponPrototypes[name].weaponParameters["fireFrequency"]
         );
     }
 
     void CreateMachinegunProto()
     {
-        weaponPrototypes.Add(
+		string name = "Machinegun";
 
-            "Machinegun",
+		weaponPrototypes.Add(name,
             new Weapon(
-
-                "Machinegun",
-                bulletPrototypes["Machinegun_Bullet"]
-
-            ));
-
-        weaponPrototypes["Machinegun"].type = WeaponType.Rifle;
-        weaponPrototypes["Machinegun"].cost = 1;
-        weaponPrototypes["Machinegun"].weaponParameters.Add(
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
+            )
+		);
+				
+        weaponPrototypes[name].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes["Machinegun"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireCoolDown",
-            -weaponPrototypes["Machinegun"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+			-weaponPrototypes[name].weaponParameters["fireFrequency"]
         );
 
-        weaponPrototypes["Machinegun"].cbAttack += WeaponActions.One_Shot;
+		weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateUzi_LongProto()
     {
-        weaponPrototypes.Add(
+		string name = "Uzi_Long";
 
-            "Uzi_Long",
+		weaponPrototypes.Add(name,
             new Weapon(
-
-                "Uzi_Long",
-                bulletPrototypes["Uzi_Long_Bullet"]
-
-            ));
-
-        weaponPrototypes["Uzi_Long"].type = WeaponType.Rifle;
-        weaponPrototypes["Uzi_Long"].cost = 1;
-        weaponPrototypes["Uzi_Long"].weaponParameters.Add(
+				name,			// name
+				1,				// cost
+				0,				// count
+				1,				// purchaseAmount
+				false,			// isStackable
+				false,			// equipped
+				bulletPrototypes[name + "_Bullet"].Clone() as Bullet	// bullet
+            )
+		);
+				
+		weaponPrototypes[name].weaponParameters.Add(
             "fireFrequency",
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes["Uzi_Long"].weaponParameters.Add(
+		weaponPrototypes[name].weaponParameters.Add(
             "fireCoolDown",
-            -weaponPrototypes["Uzi_Long"].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
+			-weaponPrototypes[name].weaponParameters["fireFrequency"]   // Başlangıç aniden ateş edebilmesi için gerekli
         );
 
-        weaponPrototypes["Uzi_Long"].cbAttack += WeaponActions.One_Shot;
+		weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
     }
 	#endregion
 }
