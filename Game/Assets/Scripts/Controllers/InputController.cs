@@ -6,10 +6,15 @@ public class InputController : MonoBehaviour
 {
 	// KeyboardController sadece karakter üzerinde işler yaptığı
 	// için direk karakteri referansı almayı daha uygun gördüm.
+
+	public GameObject GunTypesGO;
+
+	Animator gunChooseAnim;
+
 	Character character;
-    public GameObject GunTypesGO;
-    bool UIShowed=false;
-     Animator gunChooseAnim;
+
+	bool UIShowed = false;
+
 
 	#if UNITY_ANDROID || UNITY_IOS
 		
@@ -180,7 +185,9 @@ public class InputController : MonoBehaviour
 			leftDown = true;
 		}
 		else
+		{
 			rightDown = true;
+		}
 	}
 
 	#endif

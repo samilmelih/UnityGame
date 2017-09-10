@@ -15,12 +15,10 @@ public class Character
 	/// </summary>
 	int CurrentLevel;
 
-
 	public Direction direction;
 
 	//bu şimdilik public buna daha iyi çözümler üretebiliriz
-	public bool isAlive=true;
-	// how fast my character moves right to left 2 fps
+	public bool isAlive = true;
 
 	// FIXME: bunun public olma konusunda düşün
 	public Weapon currentWeapon;
@@ -54,7 +52,6 @@ public class Character
 		if(cbOnAttack != null)
 		{
 			cbOnAttack(this);
-
 		}
 	}
 

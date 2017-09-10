@@ -15,7 +15,6 @@ public class WorldController : MonoBehaviour
 		Debug.Log("PlayerPrefs is cleaned.");
 
 		PlayerPrefsController.DebugSaveStrings();
-
         if(Instance == null)
 		{
 			world = new World();

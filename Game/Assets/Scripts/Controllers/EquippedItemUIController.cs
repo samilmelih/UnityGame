@@ -55,7 +55,10 @@ public class EquippedItemUIController : MonoBehaviour
 		equippedWeapons = inventory.GetEquippedWeaponList();
 		for (i = 0; i < equippedWeapons.Count; i++)
 		{
-			GameObject equippedItem_go = this.transform.Find("Slot_" + (i + 1)).GetChild(0).gameObject;
+			Transform slot_trans = this.transform.Find("Slot_" + (i + 1));
+			slot_trans.GetComponent<Button>().enabled = true;
+
+			GameObject equippedItem_go = slot_trans.GetChild(0).gameObject;
 
 			equippedItem_go.name = equippedWeapons[i];
 
@@ -67,7 +70,10 @@ public class EquippedItemUIController : MonoBehaviour
 
 		while(i < inventory.maxNumberOfWeapon)
 		{
-			GameObject equippedItem_go = this.transform.Find("Slot_" + (i + 1)).GetChild(0).gameObject;
+			Transform slot_trans = this.transform.Find("Slot_" + (i + 1));
+			slot_trans.GetComponent<Button>().enabled = false;
+
+			GameObject equippedItem_go = slot_trans.GetChild(0).gameObject;
 			equippedItem_go.SetActive(false);
 
 			i++;
@@ -81,9 +87,10 @@ public class EquippedItemUIController : MonoBehaviour
 	{
 		equippedWeapons = inventory.GetEquippedWeaponList();
 
-		GameObject equippedItem_go =
-			this.transform.Find("Slot_" + (equippedWeapons.Count)).GetChild(0).gameObject;
+		Transform slot_trans = this.transform.Find("Slot_" + (equippedWeapons.Count));
+		slot_trans.GetComponent<Button>().enabled = true;
 
+		GameObject equippedItem_go = slot_trans.GetChild(0).gameObject;
 		equippedItem_go.name = item.name;
 
 		Image image = equippedItem_go.GetComponentInChildren<Image>();
@@ -101,10 +108,10 @@ public class EquippedItemUIController : MonoBehaviour
 
 	public void OnItemDropped_Click(int slot)
 	{
-		Transform slot_go = this.transform.Find("Slot_" + slot);
+		Transform slot_trans = this.transform.Find("Slot_" + slot);
 
 		// We only have one GameObject so just get child at index 0.
-		Transform equippedItem = slot_go.GetChild(0);
+		GameObject equippedItem = slot_trans.GetChild(0).gameObject;
 
 		string itemName = equippedItem.name;
 

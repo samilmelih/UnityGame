@@ -37,7 +37,7 @@ public class StoreController : MonoBehaviour
             world.character.money = PlayerPrefsController.Money;
         }
 			
-        LoadPurchasedItems();
+        LoadAllItems();
     }
 
 	void LoadAllSprites()
@@ -66,14 +66,13 @@ public class StoreController : MonoBehaviour
 		}
 	}
 
-    void LoadPurchasedItems()
+    void LoadAllItems()
     {
         GameObject itemHolderPrefab = Resources.Load<GameObject>("Prefabs/Store/ItemHolder");
 
         foreach (Item itemProto in world.itemProtoTypes.Values)
         {
             GameObject itemHolderGO = Instantiate(itemHolderPrefab, this.transform);
-            Transform itemPlaceOfThisObject = itemHolderGO.transform.Find("ItemPlace");
 
             itemNameText  = itemHolderGO.transform.Find("ItemNameText").GetComponent<Text>();
             buyButtonText = itemHolderGO.transform.Find("PurchaseButton").GetComponentInChildren<Text>();

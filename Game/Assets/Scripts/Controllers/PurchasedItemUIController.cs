@@ -93,6 +93,8 @@ public class PurchasedItemUIController : MonoBehaviour
 
 	void LoadPurchasedItemUI()
 	{
+		this.gameObject.GetComponent<Button>().enabled = true;
+
 		GameObject purchasedItem_go = this.transform.GetChild(0).gameObject;
 		purchasedItem_go.SetActive(true);
 	}

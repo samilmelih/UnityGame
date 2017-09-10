@@ -63,17 +63,16 @@ public class WeaponActions : MonoBehaviour
                 if (character.Type == "Main Character")
                 {
                     Debug.Log("Reloaded");
-					if (weapon.bullet.count < weapon.weaponParameters["Max_Magazine_Count"])
-                    {
-						int reloadableBulletCount = Mathf.Min(
-							weapon.bullet.count,
-							(int) weapon.weaponParameters["Max_Magazine_Count"]
-						);
+					int reloadableBulletCount = Mathf.Min(
+						weapon.bullet.count,
+						(int) weapon.weaponParameters["Max_Magazine_Count"]
+					);
 
-						weapon.bullet.count -= reloadableBulletCount;
-						weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
-                    }
+					weapon.bullet.count -= reloadableBulletCount;
+					weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
 				}
+				else
+					weapon.weaponParameters["Magazine_Count"] = weapon.weaponParameters["Max_Magazine_Count"];
             }
 		}
     }

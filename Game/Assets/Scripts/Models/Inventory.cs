@@ -150,11 +150,11 @@ public class Inventory
 	// FIXME: Character can pass as parameter.
 	public void ChangeWeapon(int slot)
 	{
-		// If requested weapon is already on character then just return.
-		if (equippedWeapons[slot] == null)
+		// If requested slot is empty, just return.
+		if (slot > equippedWeapons.Count)
 			return;
 
-		character.currentWeapon = purchasedItemMap[equippedWeapons[slot]] as Weapon;
+		character.currentWeapon = purchasedItemMap[equippedWeapons[slot - 1]] as Weapon;
 	}
 
 	public List<Item> GetPurchasedItemList()

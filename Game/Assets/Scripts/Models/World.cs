@@ -33,6 +33,7 @@ public partial class World
         CreateCharacters();
         CreateEnemies();
     }
+
     public void RestartGame()
     {
         SetupWorld();
@@ -97,10 +98,13 @@ public partial class World
 
             // FIXME: şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
             if (Random.Range(0, 2) == 0)
+			{
                 enemy.currentWeapon = weaponPrototypes["Magnum"].Clone() as Weapon;
+			}
             else
+			{
                 enemy.currentWeapon = weaponPrototypes["MP5"].Clone() as Weapon;
-
+			}
             enemies.Add(enemy);
         }
     }
