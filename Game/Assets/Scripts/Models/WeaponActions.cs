@@ -18,7 +18,7 @@ public class WeaponActions : MonoBehaviour
 
         if (currTime - weapon.weaponParameters["fireCoolDown"] > weapon.weaponParameters["fireFrequency"])
         {
-			if (weapon.weaponParameters["Magazine_Count"] > 0f)
+            if (weapon.weaponParameters["Magazine_Count"] > 0f)
             {
                 SoundController.Instance.Shot();
                 GameObject chr_go;
@@ -53,7 +53,9 @@ public class WeaponActions : MonoBehaviour
 
                 bullet_go.GetComponent<BulletController>().go_shooter = chr_go;
 
-				weapon.bullet.count -= 1;
+                weapon.weaponParameters["Magazine_Count"] -= 1;
+
+                weapon.bullet.count -= 1;
                 weapon.weaponParameters["fireCoolDown"] = Time.time;
             }
             else
@@ -63,17 +65,17 @@ public class WeaponActions : MonoBehaviour
                 if (character.Type == "Main Character")
                 {
                     Debug.Log("Reloaded");
-					int reloadableBulletCount = Mathf.Min(
-						weapon.bullet.count,
-						(int) weapon.weaponParameters["Max_Magazine_Count"]
-					);
+                    int reloadableBulletCount = Mathf.Min(
+                        weapon.bullet.count,
+                        (int)weapon.weaponParameters["Max_Magazine_Count"]
+                    );
 
-					weapon.bullet.count -= reloadableBulletCount;
-					weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
-				}
-				else
-					weapon.weaponParameters["Magazine_Count"] = weapon.weaponParameters["Max_Magazine_Count"];
+                    weapon.bullet.count -= reloadableBulletCount;
+                    weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
+                }
+                else
+                    weapon.weaponParameters["Magazine_Count"] = weapon.weaponParameters["Max_Magazine_Count"];
             }
-		}
+        }
     }
 }
