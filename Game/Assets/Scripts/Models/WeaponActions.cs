@@ -48,14 +48,12 @@ public class WeaponActions : MonoBehaviour
                 // We need to attach bullet instance into bullet go.
                 // Because when we hit something we need to know how damage we gave to enemy/character
                 bullet_go.GetComponent<BulletController>().bullet = weapon.bullet;
-
                 bullet_go.GetComponent<BulletController>().character = character;
-
                 bullet_go.GetComponent<BulletController>().go_shooter = chr_go;
 
                 weapon.weaponParameters["Magazine_Count"] -= 1;
-
                 weapon.bullet.count -= 1;
+
                 weapon.weaponParameters["fireCoolDown"] = Time.time;
             }
             else
@@ -70,7 +68,6 @@ public class WeaponActions : MonoBehaviour
                         (int)weapon.weaponParameters["Max_Magazine_Count"]
                     );
 
-                    weapon.bullet.count -= reloadableBulletCount;
                     weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
                 }
                 else
