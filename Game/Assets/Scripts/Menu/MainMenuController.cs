@@ -13,19 +13,12 @@ public class MainMenuController : MonoBehaviour
     public Text txtLoadingPerc;
     public Text txtLoadingText;
 
-    void Start()
-    {
-        loadingScreen.gameObject.SetActive(false);
-    }
-
     public void StartGame(int sceneIndex)
     {
         StartCoroutine(LoadingScreen(sceneIndex));
         loadingScreen.gameObject.SetActive(true);
         mainMenuUI.SetActive(false);
         txtLoadingText.text = "Loading!";
-
-        WorldController.Instance.world.RestartGame();
     }
 
     IEnumerator LoadingScreen(int sceneIndex)

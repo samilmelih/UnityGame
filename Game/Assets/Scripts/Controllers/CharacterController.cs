@@ -7,15 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
-	// We only have one character. I guess, we'll need this GameObject info
-	// in a lot of place. If we want allias, it won't effect them. We can
-	// still create AlliesController like EnemyController and control them to
-	// serve our main character.
+	public static CharacterController Instance;
+
 	public GameObject go_mainCharacter;
 
 	World world;
-
-	public static CharacterController Instance;
 
     void Start()
     {
@@ -24,8 +20,6 @@ public class CharacterController : MonoBehaviour
 		world = WorldController.Instance.world;
 
 		CreateCharacter();
-
-        world.character.money = PlayerPrefs.GetInt("money");
 	}
 
 	void CreateCharacter()
@@ -57,7 +51,6 @@ public class CharacterController : MonoBehaviour
             Destroy(go_mainCharacter);
             world.character.isAlive = false;
 
-            world.SetupWorld();
             SceneManager.LoadScene(0);
         }
 	}

@@ -19,24 +19,14 @@ public partial class World
 
     public World()
     {
-        SetupWorld();
-    }
+		bulletPrototypes = new Dictionary<string, Bullet>();
+		weaponPrototypes = new Dictionary<string, Weapon>();
+		itemProtoTypes = new Dictionary<string, Item>();
 
-    public void SetupWorld()
-    {
-        bulletPrototypes = new Dictionary<string, Bullet>();
-        weaponPrototypes = new Dictionary<string, Weapon>();
-        itemProtoTypes = new Dictionary<string, Item>();
-
-        CreatePrototypes();
-        FillItemProtoDictionary();
-        CreateCharacters();
-        CreateEnemies();
-    }
-
-    public void RestartGame()
-    {
-        SetupWorld();
+		CreatePrototypes();
+		FillItemProtoDictionary();
+		CreateCharacters();
+		CreateEnemies();
     }
 
     void FillItemProtoDictionary()
