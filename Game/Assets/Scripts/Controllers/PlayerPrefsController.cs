@@ -6,6 +6,7 @@ public static class PlayerPrefsController
     // FIXME: We need to make this general because we forget how we typed.
     // Maybe a string literal class, it will only contain const strings.
 
+	// TODO or FIXME: count of an item that is not stackable should not be saved.
 
     /// <summary>
     /// Sets or gets the money to PlayerPrefs as an int
