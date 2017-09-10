@@ -13,20 +13,20 @@ public partial class World
 
     Dictionary<string, Bullet> bulletPrototypes;
 
-	// FIXME: If we have unique item names, we don't need separate prototype dictionarys.
+    // FIXME: If we have unique item names, we don't need separate prototype dictionarys.
     public Dictionary<string, Weapon> weaponPrototypes;
     public Dictionary<string, Item> itemProtoTypes;
 
     public World()
     {
-		bulletPrototypes = new Dictionary<string, Bullet>();
-		weaponPrototypes = new Dictionary<string, Weapon>();
-		itemProtoTypes = new Dictionary<string, Item>();
+        bulletPrototypes = new Dictionary<string, Bullet>();
+        weaponPrototypes = new Dictionary<string, Weapon>();
+        itemProtoTypes = new Dictionary<string, Item>();
 
-		CreatePrototypes();
-		FillItemProtoDictionary();
-		CreateCharacters();
-		CreateEnemies();
+        CreatePrototypes();
+        FillItemProtoDictionary();
+        CreateCharacters();
+        CreateEnemies();
     }
 
     void FillItemProtoDictionary()
@@ -53,7 +53,7 @@ public partial class World
         // We only have one character, maybe later we'll have allias?
         // If we have, We need a character list.
         character = new Character();
-        character.Type = "Main Character";
+        character.Type = StringLiterals.CharacterName;
 
         // Default move speed in x-axis is +-5f.
         // Default jump speed in y-axis is 12f.
@@ -74,7 +74,7 @@ public partial class World
         for (int i = 0; i < 8; i++)
         {
             Character enemy = new Character();
-            enemy.Type = "Enemy";
+            enemy.Type = StringLiterals.EnemyName;
 
             // Default move speed in x-axis is +-3f.
             // Default jump speed in y-axis is 9f.
@@ -88,13 +88,13 @@ public partial class World
 
             // FIXME: şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
             if (Random.Range(0, 2) == 0)
-			{
-                enemy.currentWeapon = weaponPrototypes["Magnum"].Clone() as Weapon;
-			}
+            {
+                enemy.currentWeapon = weaponPrototypes[StringLiterals.Magnum].Clone() as Weapon;
+            }
             else
-			{
-                enemy.currentWeapon = weaponPrototypes["MP5"].Clone() as Weapon;
-			}
+            {
+                enemy.currentWeapon = weaponPrototypes[StringLiterals.Mp5].Clone() as Weapon;
+            }
             enemies.Add(enemy);
         }
     }

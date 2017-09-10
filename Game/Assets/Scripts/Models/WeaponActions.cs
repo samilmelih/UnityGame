@@ -16,18 +16,18 @@ public class WeaponActions : MonoBehaviour
 
         float currTime = Time.time;
 
-        if (currTime - weapon.weaponParameters["fireCoolDown"] > weapon.weaponParameters["fireFrequency"])
+        if (currTime - weapon.weaponParameters[StringLiterals.FireCoolDown] > weapon.weaponParameters[StringLiterals.FireFrequency])
         {
-            if (weapon.weaponParameters["Magazine_Count"] > 0f)
+            if (weapon.weaponParameters[StringLiterals.MagazineCount] > 0f)
             {
                 SoundController.Instance.Shot();
                 GameObject chr_go;
 
-                if (character.Type == "Enemy")
+                if (character.Type == StringLiterals.EnemyName)
                 {
                     chr_go = EnemyController.Instance.enemyGOMap[character];
                 }
-                else if (character.Type == "Main Character")
+                else if (character.Type == StringLiterals.CharacterName)
                 {
                     chr_go = go_mainCharacter;
                 }
@@ -51,27 +51,27 @@ public class WeaponActions : MonoBehaviour
                 bullet_go.GetComponent<BulletController>().character = character;
                 bullet_go.GetComponent<BulletController>().go_shooter = chr_go;
 
-                weapon.weaponParameters["Magazine_Count"] -= 1;
+                weapon.weaponParameters[StringLiterals.MagazineCount] -= 1;
                 weapon.bullet.count -= 1;
 
-                weapon.weaponParameters["fireCoolDown"] = Time.time;
+                weapon.weaponParameters[StringLiterals.FireCoolDown] = Time.time;
             }
             else
             {
                 // We are out of bullet.
 
-                if (character.Type == "Main Character")
+                if (character.Type == StringLiterals.CharacterName)
                 {
                     Debug.Log("Reloaded");
                     int reloadableBulletCount = Mathf.Min(
                         weapon.bullet.count,
-                        (int)weapon.weaponParameters["Max_Magazine_Count"]
+                        (int)weapon.weaponParameters[StringLiterals.MaxMagazineCount]
                     );
 
-                    weapon.weaponParameters["Magazine_Count"] = reloadableBulletCount;
+                    weapon.weaponParameters[StringLiterals.MagazineCount] = reloadableBulletCount;
                 }
                 else
-                    weapon.weaponParameters["Magazine_Count"] = weapon.weaponParameters["Max_Magazine_Count"];
+                    weapon.weaponParameters[StringLiterals.MagazineCount] = weapon.weaponParameters[StringLiterals.MaxMagazineCount];
             }
         }
     }
