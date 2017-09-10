@@ -68,12 +68,14 @@ public static class PlayerPrefsController
         for (int i = 0; i < purchasedItems.Length; i++)
         {
             Item item = world.itemProtoTypes[purchasedItems[i]].Clone();
-            item.count = GetItemCount(item.name);
+
+            if (item.isStackable)
+                item.count = GetItemCount(item.name);
 
             if (item is Weapon && (item as Weapon).isReloadable == true)
             {
                 Weapon weapon = item as Weapon;
-                weapon.bullet.count = GetItemCount(StringLiterals.GetItemCountString(item.name));
+                weapon.bullet.count = GetItemCount(StringLiterals.GetBulletNameForGun(item.name));
             }
 
             items.Add(item);

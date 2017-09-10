@@ -68,6 +68,9 @@ public class WeaponActions : MonoBehaviour
                         (int)weapon.weaponParameters[StringLiterals.MaxMagazineCount]
                     );
 
+                    
+                   
+
                     weapon.weaponParameters[StringLiterals.MagazineCount] = reloadableBulletCount;
                 }
                 else
