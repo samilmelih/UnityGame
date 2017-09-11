@@ -19,27 +19,13 @@ public class StoreController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		world = WorldController.Instance.world;
+		inventory = world.character.inventory;
 
+		stringToSpriteMap = new Dictionary<string, Sprite>();
 
-        world = WorldController.Instance.world;
-        inventory = world.character.inventory;
-
-        stringToSpriteMap = new Dictionary<string, Sprite>();
-
-        LoadAllSprites();
-
-        // FIXME: This may be in character constructer.
-        if (PlayerPrefsController.IsGameFirstStarted == true)
-        {
-            world.character.money = 200;
-            PlayerPrefsController.Money = world.character.money;
-        }
-        else
-        {
-            world.character.money = PlayerPrefsController.Money;
-        }
-
-        LoadAllItems();
+		LoadAllSprites();
+		LoadAllItems();
     }
 
     void LoadAllSprites()
@@ -105,7 +91,7 @@ public class StoreController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneytext.text = "Gold : " + PlayerPrefsController.Money;
+		moneytext.text = "Gold : " + world.character.money;
     }
 
     public void PurchaseItem(string itemName, object sender)

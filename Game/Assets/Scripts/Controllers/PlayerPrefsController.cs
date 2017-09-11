@@ -22,7 +22,7 @@ public static class PlayerPrefsController
         }
     }
 
-    static public bool IsGameFirstStarted
+    static public bool FirstTimeStarted
     {
         get
         {
@@ -40,9 +40,9 @@ public static class PlayerPrefsController
 
     static public void DebugSaveStrings()
     {
-        //Debug.Log(purchasedItemString + ": " + PlayerPrefs.GetString(purchasedItemString));
-        //Debug.Log(equippedItemString  + ": " + PlayerPrefs.GetString(equippedItemString));
-        //Debug.Log(equippedWeaponString  + ": " + PlayerPrefs.GetString(equippedWeaponString));
+		Debug.Log(StringLiterals.PurchasedItemString + ": " + PlayerPrefs.GetString(StringLiterals.PurchasedItemString));
+		Debug.Log(StringLiterals.EquippedWeaponString  + ": " + PlayerPrefs.GetString(StringLiterals.EquippedWeaponString));
+		Debug.Log(StringLiterals.EquippedItemString  + ": " + PlayerPrefs.GetString(StringLiterals.EquippedItemString));
 
         string[] purchasedItems = PlayerPrefs.GetString(StringLiterals.PurchasedItemString).Split(',');
         if (purchasedItems[0] == "")
@@ -104,29 +104,23 @@ public static class PlayerPrefsController
         return new List<string>(equippedItems);
     }
 
-    static public void OnItemPurchased(Item item)
+	static public void OnItemPurchased(Item item, bool itemExistBefore)
     {
-        int itemCount = 0;
+		string saveString;
 
-        if (PlayerPrefs.HasKey(StringLiterals.GetItemCountString(item.name)) == true)
-        {
-            itemCount = PlayerPrefs.GetInt(StringLiterals.GetItemCountString(item.name));
-        }
-        else
-        {
-            itemCount = PlayerPrefs.GetInt(StringLiterals.GetItemCountString(item.name));
+		if(itemExistBefore == false)
+		{
+			saveString = PlayerPrefs.GetString(StringLiterals.PurchasedItemString);
 
-            string saveString = PlayerPrefs.GetString(StringLiterals.PurchasedItemString);
+			if (saveString == "")
+				saveString += item.name;
+			else
+				saveString += "," + item.name;
 
-            if (saveString == "")
-                saveString += item.name;
-            else
-                saveString += "," + item.name;
+			PlayerPrefs.SetString(StringLiterals.PurchasedItemString, saveString);
+		}
 
-            PlayerPrefs.SetString(StringLiterals.PurchasedItemString, saveString);
-        }
-
-        PlayerPrefs.SetInt(StringLiterals.GetItemCountString(item.name), itemCount + item.purchaseAmount);
+		PlayerPrefs.SetInt(StringLiterals.GetItemCountString(item.name), item.count);
     }
 
     static public void OnItemEquipped(Item item)

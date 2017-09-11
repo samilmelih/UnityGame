@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
 	void Update()
 	{
-		GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
+		GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
 
         if (go_mainCharacter != null)
         {

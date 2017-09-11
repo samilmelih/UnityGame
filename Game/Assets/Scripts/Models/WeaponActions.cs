@@ -11,7 +11,7 @@ public class WeaponActions : MonoBehaviour
 
     public static void One_Shot(Character character)
     {
-        GameObject go_mainCharacter = CharacterController.Instance.go_mainCharacter;
+        GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
         Weapon weapon = character.currentWeapon;
 
         float currTime = Time.time;
@@ -62,10 +62,12 @@ public class WeaponActions : MonoBehaviour
 
                 if (character.Type == StringLiterals.CharacterName)
                 {
+					Debug.Log("There is " + weapon.count + " " + weapon.bullet.name);
+
                     Debug.Log("Reloaded");
                     int reloadableBulletCount = Mathf.Min(
                         weapon.bullet.count,
-                        (int)weapon.weaponParameters[StringLiterals.MaxMagazineCount]
+                        (int)weapon.weaponParameters[StringLiterals.MagazineCapacity]
                     );
 
                     
@@ -74,7 +76,7 @@ public class WeaponActions : MonoBehaviour
                     weapon.weaponParameters[StringLiterals.MagazineCount] = reloadableBulletCount;
                 }
                 else
-                    weapon.weaponParameters[StringLiterals.MagazineCount] = weapon.weaponParameters[StringLiterals.MaxMagazineCount];
+                    weapon.weaponParameters[StringLiterals.MagazineCount] = weapon.weaponParameters[StringLiterals.MagazineCapacity];
             }
         }
     }

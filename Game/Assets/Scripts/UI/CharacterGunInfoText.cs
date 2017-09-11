@@ -17,6 +17,8 @@ public class CharacterGunInfoText : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		// FIXME: These need local string literals.
+
 		HealthText.text = "Health : " + WorldController.Instance.world.character.health.ToString();
 
 		MoneyText.text = "Money : " + WorldController.Instance.world.character.money.ToString();
@@ -25,19 +27,21 @@ public class CharacterGunInfoText : MonoBehaviour
 
         if (characterWeapon != null)
         {
-            GunNameText.text = "Curr Weapon: " + characterWeapon.name;
+            GunNameText.text = "Weapon: " + characterWeapon.name;
 
             if(characterWeapon.isReloadable == true)
             {
-				BulletCount.text = "Magazine Count: " + characterWeapon.weaponParameters["Magazine_Count"].ToString();
+				BulletCount.text =
+					"Magazine: " + characterWeapon.weaponParameters[StringLiterals.MagazineCount].ToString();
 
-				MaxBulletCount.text = "Max Magazine Count: " + characterWeapon.weaponParameters["Max_Magazine_Count"].ToString();
+				MaxBulletCount.text =
+					"Magazine Capacity: " + characterWeapon.weaponParameters[StringLiterals.MagazineCapacity].ToString();
             }
             else
             {
-                BulletCount.text = "Bullet Count: ";
+				BulletCount.text = "Magazine: ";
 
-                MaxBulletCount.text = "Max Bullet Count: ";
+				MaxBulletCount.text = "Magazine Capacity: ";
             }
 
         }

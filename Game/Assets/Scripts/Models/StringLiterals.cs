@@ -1,11 +1,11 @@
 ﻿public static class StringLiterals
 {
 
-    public static string MaxMagazineCount
+    public static string MagazineCapacity
     {
         get
         {
-            return "Max_Magazine_Count";
+            return "Magazine_Capacity";
         }
     }
 

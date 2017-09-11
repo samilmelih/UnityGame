@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : MonoBehaviour
 {
+	public static EnemyController Instance;
+
+	public Transform[] spawnPos;
+
     public Dictionary<Character, GameObject> enemyGOMap;
     public Dictionary<GameObject, Character> GOenemyMap;
 
-    World world;
-
-    public Transform[] spawnPos;
-
-    public static EnemyController Instance;
+	World world;
 
     // Use this for initialization
     void Start()
@@ -30,7 +31,7 @@ public class EnemyController : MonoBehaviour
         int numberOfEnemy = 0;
         foreach (Character enemy in world.enemies)
         {
-            GameObject enemy_prefab = (GameObject)Resources.Load("Prefabs/Enemy");      // FIXME: This need to be change in the future.
+            GameObject enemy_prefab = (GameObject)Resources.Load("Prefabs/Characters/Enemy");
 
             //TODO : burada bir transform list içince spawn positions belirlenecek
             //bu posizsyonlar ne olursa olsun bu şekilde yapılabilir
@@ -46,8 +47,9 @@ public class EnemyController : MonoBehaviour
 
             enemyGOMap.Add(enemy, enemy_go);
             GOenemyMap.Add(enemy_go, enemy);
-        }
 
+			//Debug.LogError("hello fuck");
+        }
     }
 
     // Update is called once per frame
@@ -81,6 +83,7 @@ public class EnemyController : MonoBehaviour
 
                 // remove from the world
                 world.enemies.Remove(enemy);
+				world.OnEnemyDestroyed(enemy);
             }
         }
     }
@@ -91,6 +94,7 @@ public class EnemyController : MonoBehaviour
         foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
         {
             Walk(enemy);
+			world.OnEnemyChanged(enemy.Key);
         }
     }
 
@@ -147,14 +151,6 @@ public class EnemyController : MonoBehaviour
         {
             enemy.velocity.x *= -1f;
             enemy.scale.x *= -1f;
-
-            // This is a workaround.
-            Transform enemyCanvas = enemy_go.transform.Find("CanvasHolder");
-            enemyCanvas.localScale = new Vector3(
-                enemyCanvas.localScale.x * -1f,
-                enemyCanvas.localScale.y,
-                enemyCanvas.localScale.z
-            );
 
             if (enemy.direction == Direction.Left)
                 enemy.direction = Direction.Right;

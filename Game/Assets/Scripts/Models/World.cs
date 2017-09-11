@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public partial class World
 {
@@ -17,8 +18,15 @@ public partial class World
     public Dictionary<string, Weapon> weaponPrototypes;
     public Dictionary<string, Item> itemProtoTypes;
 
+	Action<Character> cbOnEnemyChanged;
+	Action<Character> cbOnEnemyDestroyed;
+
+	bool firstTimeStarted;
+
     public World()
     {
+		firstTimeStarted = PlayerPrefsController.FirstTimeStarted;
+
         bulletPrototypes = new Dictionary<string, Bullet>();
         weaponPrototypes = new Dictionary<string, Weapon>();
         itemProtoTypes = new Dictionary<string, Item>();
@@ -54,6 +62,7 @@ public partial class World
         // If we have, We need a character list.
         character = new Character();
         character.Type = StringLiterals.CharacterName;
+		character.money = (firstTimeStarted) ? 200 : PlayerPrefsController.Money;
 
         // Default move speed in x-axis is +-5f.
         // Default jump speed in y-axis is 12f.
@@ -80,14 +89,14 @@ public partial class World
             // Default jump speed in y-axis is 9f.
             enemy.speed = new Vector2(3f, 9f);
 
-            enemy.direction = (Direction)Random.Range(1, 3);
+            enemy.direction = (Direction)UnityEngine.Random.Range(1, 3);
             if (enemy.direction == Direction.Left)
                 enemy.scale = new Vector3(-1f, 1f, 0f);
             else
                 enemy.scale = new Vector3(1f, 1f, 0f);
 
             // FIXME: şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
-            if (Random.Range(0, 2) == 0)
+            if (UnityEngine.Random.Range(0, 2) == 0)
             {
                 enemy.currentWeapon = weaponPrototypes[StringLiterals.Magnum].Clone() as Weapon;
             }
@@ -138,4 +147,26 @@ public partial class World
 
         CreateMachinegunProto();
     }
+
+	public void OnEnemyChanged(Character enemy)
+	{
+		if(cbOnEnemyChanged != null)
+			cbOnEnemyChanged(enemy);
+	}
+
+	public void OnEnemyDestroyed(Character enemy)
+	{
+		if(cbOnEnemyDestroyed != null)
+			cbOnEnemyDestroyed(enemy);
+	}
+
+	public void RegisterOnEnemyChangedCallback(Action<Character> cb)
+	{
+		cbOnEnemyChanged += cb;
+	}
+
+	public void RegisterOnEnemyDestroyedCallback(Action<Character> cb)
+	{
+		cbOnEnemyDestroyed += cb;
+	}
 }

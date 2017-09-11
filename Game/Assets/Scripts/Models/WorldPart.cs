@@ -282,7 +282,7 @@
         );
 
         weaponPrototypes[name].weaponParameters.Add(
-            StringLiterals.MaxMagazineCount,
+            StringLiterals.MagazineCapacity,
             14f
         );
 
@@ -293,7 +293,7 @@
 
         weaponPrototypes[name].weaponParameters.Add(
              StringLiterals.FireFrequency,
-            1f      // .5 saniyede bir ateş edilebilir
+            .1f
         );
 
         weaponPrototypes[name].weaponParameters.Add(
@@ -321,7 +321,7 @@
         );
 
         weaponPrototypes[name].weaponParameters.Add(
-            StringLiterals.MaxMagazineCount,
+            StringLiterals.MagazineCapacity,
             3f
         );
 
@@ -363,7 +363,7 @@
         );
 
         weaponPrototypes[name].weaponParameters.Add(
-            StringLiterals.MaxMagazineCount,
+            StringLiterals.MagazineCapacity,
             50f
         );
 
@@ -402,7 +402,7 @@
         );
 
         weaponPrototypes[name].weaponParameters.Add(
-            StringLiterals.MaxMagazineCount,
+            StringLiterals.MagazineCapacity,
             6f
         );
 
@@ -441,7 +441,7 @@
         );
 
         weaponPrototypes[name].weaponParameters.Add(
-            StringLiterals.MaxMagazineCount,
+            StringLiterals.MagazineCapacity,
             30f
         );
 

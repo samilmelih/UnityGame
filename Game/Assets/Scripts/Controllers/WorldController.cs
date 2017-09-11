@@ -9,10 +9,8 @@ public class WorldController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        //PlayerPrefsController.CleanPlayerPrefs();
-        Debug.Log("PlayerPrefs is cleaned.");
-
         PlayerPrefsController.DebugSaveStrings();
+
         if (Instance == null)
         {
             world = new World();

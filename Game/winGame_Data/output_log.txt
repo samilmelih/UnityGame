@@ -1,0 +1,3521 @@
+Initialize engine version: 5.6.2f1 (a2913c821e27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 740M (ID=0x1292)
+    Vendor:   NVIDIA
+    VRAM:     2020 MB
+    Driver:   21.21.13.7654
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.024 seconds
+Platform assembly: C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\workspace\unity\UnityGame\Game\winGame_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 59Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.631200 ms
+PurchasedItem: Magnum,Magnum_Bullet
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedWeapon: 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedItem: 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.079941 ms
+PurchasedItem: Magnum,Magnum_Bullet
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedWeapon: Magnum
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedItem: 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 64 unused Assets to reduce memory usage. Loaded Objects now: 689.
+Total: 0.684672 ms (FindLiveObjects: 0.068424 ms CreateObjectMapping: 0.048752 ms MarkObjects: 0.440482 ms  DeleteObjects: 0.126585 ms)
+
+There is 0 Magnum_Bullet
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reloaded
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+There is 0 Magnum_Bullet
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reloaded
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.229074 ms
+PurchasedItem: Magnum,Magnum_Bullet
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedWeapon: Magnum
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedItem: 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 570.
+Total: 0.883530 ms (FindLiveObjects: 0.065430 ms CreateObjectMapping: 0.048324 ms MarkObjects: 0.647038 ms  DeleteObjects: 0.121881 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.462720 ms
+PurchasedItem: Magnum,Magnum_Bullet
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedWeapon: Magnum
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+EquippedItem: 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 559.
+Total: 0.392585 ms (FindLiveObjects: 0.024376 ms CreateObjectMapping: 0.020099 ms MarkObjects: 0.325443 ms  DeleteObjects: 0.022237 ms)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at EnemyPanelController.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at (wrapper delegate-invoke) System.Action`1<Character>:invoke_void__this___Character (Character)
+  at World.OnEnemyChanged (.Character enemy) [0x00000] in <filename unknown>:0 
+  at EnemyController.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1e68 -> priority: 1 
+  Thread -> id: 8a4 -> priority: 1 

@@ -18,7 +18,7 @@ public class Inventory
 
 	public Dictionary<string, Item> purchasedItemMap;
 
-	Action<Item> cbOnItemPurchased;
+	Action<Item, bool> cbOnItemPurchased;
 	Action<Item> cbOnItemEquipped;
 	Action<Item, Inventory> cbOnItemDropped;
 
@@ -92,10 +92,10 @@ public class Inventory
 
 		item.equipped = true;
 
+		ChangeWeapon(1);
+
 		if(cbOnItemEquipped != null)
 			cbOnItemEquipped(item);
-
-		Debug.Log("Item equipped");
 	}
 
 	// If an item is dropped just remove from it's list.
@@ -127,6 +127,8 @@ public class Inventory
 		}
 
 		item.equipped = false;
+
+		ChangeWeapon(1);
 			
 		if(cbOnItemDropped != null)
 			cbOnItemDropped(item, this);
@@ -137,14 +139,32 @@ public class Inventory
 		if(purchasedItemMap.ContainsKey(item.name) == true)
 		{
 			purchasedItemMap[item.name].count += item.purchaseAmount;
+
+			if(cbOnItemPurchased != null)
+				cbOnItemPurchased(purchasedItemMap[item.name], true);
 		}
 		else
 		{
+			item.count = item.purchaseAmount;
 			purchasedItemMap.Add(item.name, item);
+
+			if(cbOnItemPurchased != null)
+				cbOnItemPurchased(item, false);
 		}
 
-		if(cbOnItemPurchased != null)
-			cbOnItemPurchased(item);
+		// If item is a bullet we need to attach it to weapon.
+		if(item is Bullet)
+		{
+			string weaponName = item.name.Substring(0, item.name.IndexOf('_'));
+			Debug.Log(weaponName);
+			if(purchasedItemMap.ContainsKey(weaponName) == false)
+			{
+				Debug.Log("AddToPurchasedItems() -- You purchased this bullet but there is no weapon for it. ");
+				return;
+			}
+
+			(purchasedItemMap[weaponName] as Weapon).bullet = purchasedItemMap[item.name] as Bullet;
+		}
 	}
 
 	// FIXME: Character can pass as parameter.
@@ -153,7 +173,7 @@ public class Inventory
 		// If requested slot is empty, just return.
 		if (slot > equippedWeapons.Count)
 			return;
-
+		
 		character.currentWeapon = purchasedItemMap[equippedWeapons[slot - 1]] as Weapon;
 	}
 
@@ -172,7 +192,7 @@ public class Inventory
 		return new List<string>(equippedItems);
     }
 
-	public void RegisterOnItemPurchasedCallback(Action<Item> cb)
+	public void RegisterOnItemPurchasedCallback(Action<Item, bool> cb)
 	{
 		cbOnItemPurchased += cb;
 	}
