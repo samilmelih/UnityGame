@@ -7,9 +7,13 @@
     /// </summary>
     void CreateBulletProtos()
     {
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.Magnum),
+
+        //Magnum
+        string name = StringLiterals.GetBulletNameForGun(StringLiterals.Magnum);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.Magnum),    // name
+                name,               // name
                 1,                  // cost
                 0,                  // count
                 10,                 // purchaseAmount
@@ -20,9 +24,13 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.Mp5),
+
+        //Mp5
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.Mp5);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.Mp5),       // name
+                name,               // name
                 1,                  // cost
                 0,                  // count
                 50,                 // purchaseAmount
@@ -33,9 +41,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.Shotgun),
+        //Shotgun
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.Shotgun);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.Shotgun),   // name
+                name,               // name
                 1,                  // cost
                 0,                  // count
                 5,                  // purchaseAmount
@@ -46,9 +57,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.Uzi),
+        //Uzi
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.Uzi);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.Uzi),       // name
+                name,               // name
                 1,                  // cost
                 0,                  // count
                 20,                 // purchaseAmount
@@ -59,9 +73,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.Sniper),
+        //Sniper
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.Sniper);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.Sniper),    // name
+               name,                // name
                 1,                  // cost
                 0,                  // count
                 7,                  // purchaseAmount
@@ -72,17 +89,13 @@
             )
         );
 
-        /// Knife_Sharp
-        /// Knife_Smooth
-        /// RockerLauncher
-        /// RockerLauncher_Modern
-        /// RockerLauncher_Side
-        /// Uzi_Long
-        /// Machinegun
+        //UziLong
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.UziLong);
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.UziLong),
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.UziLong),      // name
+                name,                   // name
                 1,                      // cost
                 0,                      // count
                 30,                     // purchaseAmount
@@ -93,9 +106,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.Machinegun),
+        //Machinegun
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.Machinegun);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-               StringLiterals.GetBulletNameForGun(StringLiterals.Machinegun),    // name
+                name,                   // name
                 1,                      // cost
                 0,                      // count
                 100,                    // purchaseAmount
@@ -106,9 +122,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncher),
+        //RocketLauncher
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncher);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncher),    // name
+                name,                       // name
                 1,                          // cost
                 0,                          // count
                 3,                          // purchaseAmount
@@ -119,9 +138,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherModern),
+        //RocketLauncherModern
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherModern);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-               StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherModern),     // name
+                name,                               // name
                 1,                                  // cost
                 0,                                  // count
                 3,                                  // purchaseAmount
@@ -132,9 +154,12 @@
             )
         );
 
-        bulletPrototypes.Add(StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherSide),
+        //RocketLauncherSide
+        name = StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherSide);
+
+        bulletPrototypes.Add(name,
             new Bullet(
-                StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherSide),   // name
+                name,                           // name
                 1,                              // cost
                 0,                              // count
                 3,                              // purchaseAmount
@@ -176,6 +201,8 @@
         );
 
         weaponPrototypes[name].cbAttack += WeaponActions.CloseWeapons;
+
+
     }
 
     void CreateKnife_SmoothProto()
