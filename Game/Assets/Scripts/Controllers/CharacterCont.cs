@@ -26,7 +26,6 @@ public class CharacterCont : MonoBehaviour
 
         // FIXME: This need to be change in the future.
         GameObject chr_prefab = (GameObject)Resources.Load("Prefabs/Characters/Character");
-
         go_mainCharacter = Instantiate(chr_prefab, chr_prefab.transform);
 
         go_mainCharacter.name = StringLiterals.CharacterName;
