@@ -31,11 +31,11 @@ public class EnemyController : MonoBehaviour
         int numberOfEnemy = 0;
         foreach (Character enemy in world.enemies)
         {
-            GameObject enemy_prefab = (GameObject)Resources.Load("Prefabs/Characters/Enemy");
+			GameObject enemy_prefab = Resources.Load<GameObject>("Prefabs/Characters/Enemy");
 
             //TODO : burada bir transform list içince spawn positions belirlenecek
             //bu posizsyonlar ne olursa olsun bu şekilde yapılabilir
-            GameObject enemy_go = (GameObject)Instantiate(enemy_prefab, spawnPos[numberOfEnemy], false);
+			GameObject enemy_go = Instantiate<GameObject>(enemy_prefab, spawnPos[numberOfEnemy], false);
 
             enemy_go.name = "Enemy_" + (++numberOfEnemy);
             enemy_go.tag = StringLiterals.EnemyName;
@@ -47,8 +47,6 @@ public class EnemyController : MonoBehaviour
 
             enemyGOMap.Add(enemy, enemy_go);
             GOenemyMap.Add(enemy_go, enemy);
-
-			//Debug.LogError("hello fuck");
         }
     }
 

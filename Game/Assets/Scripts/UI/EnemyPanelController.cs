@@ -40,7 +40,7 @@ public class EnemyPanelController : MonoBehaviour
 
 			GameObject enemy_panel_go = Instantiate<GameObject>(enemy_panel_prefab, enemyPanels, false);
 
-			enemy_panel_go.name = "Enemy_Panel" + (numberOfEnemy + 1);
+			enemy_panel_go.name = "Enemy_Panel_" + (numberOfEnemy + 1);
 			enemy_panel_go.transform.position = Camera.main.WorldToScreenPoint(spawnPos[numberOfEnemy].position);
 
 			enemyPanelMap.Add(enemy, enemy_panel_go);
@@ -56,9 +56,9 @@ public class EnemyPanelController : MonoBehaviour
 		// There is no order between them. Enemy could be die anytime.
 		if(enemy.isAlive == false)
 			return;
-		
-		EnemyController enemyController = EnemyController.Instance;
 
+		EnemyController enemyController = EnemyController.Instance;
+		
 		Transform enemy_panel_trans = enemyPanelMap[enemy].transform;
 		Transform enemy_trans       = enemyController.enemyGOMap[enemy].transform;
 		Vector3   position          = enemy_trans.Find("PanelPosition").position;

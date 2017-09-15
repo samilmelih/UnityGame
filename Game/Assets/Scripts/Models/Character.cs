@@ -85,11 +85,11 @@ public class Character
 	{
 
 	}
+
 	public void RegisterOnAttackCallback(Action<Character> cb)
 	{
 		cbOnAttack += cb;
 	}
-
 
 	public void RegisterOnJumpCallback(Action<Character> cb)
 	{
@@ -104,6 +104,14 @@ public class Character
 	public void RegisterOnWalkCallback(Action<Character> cb)
 	{
 		cbOnWalk += cb;
+	}
+
+	public void ResetCharacterCallbacks()
+	{
+		cbOnAttack = null;
+		cbOnJump   = null;
+		cbOnCrouch = null;
+		cbOnWalk   = null;
 	}
 
 	//TODO : İlerleyen zamanda 2 yada 1 kullanılabilir büyü ekleyebiliriz 

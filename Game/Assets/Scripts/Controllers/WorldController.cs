@@ -15,12 +15,12 @@ public class WorldController : MonoBehaviour
         {
             world = new World();
             Instance = this;
+
+			DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 }

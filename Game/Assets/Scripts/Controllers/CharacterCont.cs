@@ -25,8 +25,8 @@ public class CharacterCont : MonoBehaviour
         // we only have one character.
 
         // FIXME: This need to be change in the future.
-        GameObject chr_prefab = (GameObject)Resources.Load("Prefabs/Characters/Character");
-        go_mainCharacter = Instantiate(chr_prefab, chr_prefab.transform);
+		GameObject chr_prefab = Resources.Load<GameObject>("Prefabs/Characters/Character");
+		go_mainCharacter      = Instantiate<GameObject>(chr_prefab, chr_prefab.transform);
 
         go_mainCharacter.name = StringLiterals.CharacterName;
         go_mainCharacter.tag = "Player";
@@ -45,7 +45,11 @@ public class CharacterCont : MonoBehaviour
         if (world.character.isAlive && world.character.health <= 0)
         {
             Destroy(go_mainCharacter);
-            world.character.isAlive = false;
+            // world.character.isAlive = false;
+			world.character.health = 100;
+
+			world.ResetWorldCallbacks();
+			world.character.ResetCharacterCallbacks();
 
             SceneManager.LoadScene(0);
         }

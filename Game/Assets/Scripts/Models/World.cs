@@ -169,4 +169,10 @@ public partial class World
 	{
 		cbOnEnemyDestroyed += cb;
 	}
+
+	public void ResetWorldCallbacks()
+	{
+		cbOnEnemyChanged   = null;
+		cbOnEnemyDestroyed = null;
+	}
 }
