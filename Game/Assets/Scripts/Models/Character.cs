@@ -38,9 +38,20 @@ public class Character
 	Action<Character> cbOnJump;
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
+	Action cbUnlockCameraFromCheckpoint;
 
 	public Inventory inventory;
 
+	// This is for whether camera locked to our character or not.
+	// This is default true.
+	public bool cameraLockedToCharacter = true;
+
+	World world;
+
+	public Character(World world)
+	{
+		this.world = world;
+	}
 
 	public void ChangeWeapon(int slot)
 	{
@@ -69,9 +80,50 @@ public class Character
 			scale = new Vector2(1f, 1f);
 			direction = Direction.Right;
 		}
+			
+		if(axis != 0)
+		{
+			world.checkpointManager.Check();
+
+			float diff = Mathf.Abs(
+				CharacterCont.GetCharacterPosition().x -
+				CameraController.GetCameraPosition().x
+			);
+
+			// FIXME: We don't like constants. Find a better way.
+			// Maybe something related to character's velocity.
+			if(cameraLockedToCharacter == false && diff < 0.1f)
+			{
+				if(cbUnlockCameraFromCheckpoint != null)
+					cbUnlockCameraFromCheckpoint();
+
+				cameraLockedToCharacter = true;
+				world.checkpointManager.cameraLockedToCheckpoint = false;
+			}
+			else if(IsCharacterAtEdge() == true)
+			{
+				velocity.x = 0f;
+			}
+		}
 
 		if(cbOnWalk != null)
 			cbOnWalk(this);
+	}
+
+	bool IsCharacterAtEdge()
+	{
+		Vector3 characterPos    = CharacterCont.GetCharacterPosition();
+		Vector3 leftCameraEdge  = CameraController.GetLeftEdgePosition();
+		Vector3 rightCameraEdge = CameraController.GetRightEdgePosition();
+
+		// FIXME: Make constant offsets.
+		if(characterPos.x <= leftCameraEdge.x + 2f && direction == Direction.Left ||
+		   characterPos.x >= rightCameraEdge.x - 2f && direction == Direction.Right
+		){
+			return true;
+		}
+
+		return false;
 	}
 
 	public void Jump()
@@ -84,6 +136,11 @@ public class Character
 	public void Crouch()
 	{
 
+	}
+
+	public void RegisterUnlockCameraFromCheckpointCallback(Action cb)
+	{
+		cbUnlockCameraFromCheckpoint += cb;
 	}
 
 	public void RegisterOnAttackCallback(Action<Character> cb)
@@ -108,10 +165,11 @@ public class Character
 
 	public void ResetCharacterCallbacks()
 	{
-		cbOnAttack = null;
-		cbOnJump   = null;
-		cbOnCrouch = null;
-		cbOnWalk   = null;
+		cbUnlockCameraFromCheckpoint = null;
+		cbOnAttack     = null;
+		cbOnJump       = null;
+		cbOnCrouch     = null;
+		cbOnWalk       = null;
 	}
 
 	//TODO : İlerleyen zamanda 2 yada 1 kullanılabilir büyü ekleyebiliriz 

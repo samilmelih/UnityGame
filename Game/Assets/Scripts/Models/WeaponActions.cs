@@ -61,17 +61,11 @@ public class WeaponActions : MonoBehaviour
                 // We are out of bullet.
 
                 if (character.Type == StringLiterals.CharacterName)
-                {
-					Debug.Log("There is " + weapon.count + " " + weapon.bullet.name);
-
-                    Debug.Log("Reloaded");
+				{
                     int reloadableBulletCount = Mathf.Min(
                         weapon.bullet.count,
                         (int)weapon.weaponParameters[StringLiterals.MagazineCapacity]
-                    );
-
-                    
-                   
+                    );  
 
                     weapon.weaponParameters[StringLiterals.MagazineCount] = reloadableBulletCount;
                 }

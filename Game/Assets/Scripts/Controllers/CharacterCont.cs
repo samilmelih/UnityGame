@@ -99,4 +99,9 @@ public class CharacterCont : MonoBehaviour
     void OnCharacterCrouch(Character ch)
     {
     }
+
+	public static Vector3 GetCharacterPosition()
+	{
+		return Instance.go_mainCharacter.transform.position;
+	}
 }

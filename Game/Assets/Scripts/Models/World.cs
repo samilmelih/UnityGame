@@ -10,6 +10,8 @@ public partial class World
 
     public Character character { get; protected set; }
 
+	public CheckpointManager checkpointManager;
+
     public List<Character> enemies { get; protected set; }
 
     Dictionary<string, Bullet> bulletPrototypes;
@@ -29,7 +31,9 @@ public partial class World
 
         bulletPrototypes = new Dictionary<string, Bullet>();
         weaponPrototypes = new Dictionary<string, Weapon>();
-        itemProtoTypes = new Dictionary<string, Item>();
+        itemProtoTypes   = new Dictionary<string, Item>();
+
+		checkpointManager = new CheckpointManager();
 
         CreatePrototypes();
         FillItemProtoDictionary();
@@ -60,7 +64,7 @@ public partial class World
     {
         // We only have one character, maybe later we'll have allias?
         // If we have, We need a character list.
-        character = new Character();
+        character = new Character(this);
         character.Type = StringLiterals.CharacterName;
 		character.money = (firstTimeStarted) ? 200 : PlayerPrefsController.Money;
 
@@ -82,7 +86,7 @@ public partial class World
 
         for (int i = 0; i < 8; i++)
         {
-            Character enemy = new Character();
+            Character enemy = new Character(this);
             enemy.Type = StringLiterals.EnemyName;
 
             // Default move speed in x-axis is +-3f.
