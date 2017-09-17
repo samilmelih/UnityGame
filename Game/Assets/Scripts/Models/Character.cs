@@ -25,6 +25,10 @@ public class Character
 
 	public string Type{ get; set; }
 
+	public Vector2 lastPosition;
+
+	public Vector2 currPosition;
+
 	// This is just speed, no direction. We use this to get velocity
 	public Vector2 speed;
 
@@ -69,6 +73,8 @@ public class Character
 	public void Walk(float axis)
 	{
 		velocity.x = speed.x * axis;
+		lastPosition = currPosition;
+		currPosition = CharacterCont.GetCharacterPosition();
 
 		if (axis < 0)
 		{

@@ -33,6 +33,9 @@ public class CharacterCont : MonoBehaviour
         go_mainCharacter.transform.position = transform.position;
         go_mainCharacter.transform.SetParent(this.transform, true);
 
+		world.character.lastPosition = go_mainCharacter.transform.position;
+		world.character.currPosition = go_mainCharacter.transform.position;
+
         world.character.RegisterOnAttackCallback(OnCharacterAttack);
         world.character.RegisterOnCrouchCallback(OnCharacterCrouch);
         world.character.RegisterOnJumpCallback(OnCharacterJump);
@@ -44,8 +47,6 @@ public class CharacterCont : MonoBehaviour
     {
         if (world.character.isAlive && world.character.health <= 0)
         {
-            Destroy(go_mainCharacter);
-            // world.character.isAlive = false;
 			world.character.health = 100;
 
 			world.ResetWorldCallbacks();
