@@ -42,13 +42,9 @@ public class Character
 	Action<Character> cbOnJump;
 	Action<Character> cbOnCrouch;
 	Action<Character> cbOnWalk;
-	Action cbUnlockCameraFromCheckpoint;
+	Action<Direction> cbUnlockCameraFromCheckpoint;
 
 	public Inventory inventory;
-
-	// This is for whether camera locked to our character or not.
-	// This is default true.
-	public bool cameraLockedToCharacter = true;
 
 	World world;
 
@@ -73,38 +69,32 @@ public class Character
 	public void Walk(float axis)
 	{
 		velocity.x = speed.x * axis;
+
 		lastPosition = currPosition;
 		currPosition = CharacterCont.GetCharacterPosition();
 
-		if (axis < 0)
-		{
-			scale = new Vector2(-1f, 1f);
-			direction = Direction.Left;
-		}
-		else if (axis > 0)
-		{
-			scale = new Vector2(1f, 1f);
-			direction = Direction.Right;
-		}
-			
 		if(axis != 0)
 		{
 			world.checkpointManager.Check();
 
-			float diff = Mathf.Abs(
-				CharacterCont.GetCharacterPosition().x -
-				CameraController.GetCameraPosition().x
-			);
+			float distToCenterOfCamera      = UnityEngine.Mathf.Abs(currPosition.x - CameraController.GetCameraPosition().x);
+			float positionChangeOfCharacter = UnityEngine.Mathf.Abs(lastPosition.x - currPosition.x);
 
-			// FIXME: We don't like constants. Find a better way.
-			// Maybe something related to character's velocity.
-			if(cameraLockedToCharacter == false && diff < 0.1f)
+			if (axis < 0)
+			{
+				scale = new Vector2(-1f, 1f);
+				direction = Direction.Left;
+			}
+			else if (axis > 0)
+			{
+				scale = new Vector2(1f, 1f);
+				direction = Direction.Right;
+			}
+
+			if(distToCenterOfCamera <= positionChangeOfCharacter)
 			{
 				if(cbUnlockCameraFromCheckpoint != null)
-					cbUnlockCameraFromCheckpoint();
-
-				cameraLockedToCharacter = true;
-				world.checkpointManager.cameraLockedToCheckpoint = false;
+					cbUnlockCameraFromCheckpoint(direction);
 			}
 			else if(IsCharacterAtEdge() == true)
 			{
@@ -144,7 +134,7 @@ public class Character
 
 	}
 
-	public void RegisterUnlockCameraFromCheckpointCallback(Action cb)
+	public void RegisterUnlockCameraFromCheckpointCallback(Action<Direction> cb)
 	{
 		cbUnlockCameraFromCheckpoint += cb;
 	}

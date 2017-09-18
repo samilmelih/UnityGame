@@ -6,10 +6,9 @@ public class CameraController : MonoBehaviour
 {
 	World world;
 
-	bool rightLocked;
-	bool leftLocked;
+	Direction lockedSide;
 
-	static float cameraWidth;
+	static float halfCameraWidth;
 
 	void Start()
 	{
@@ -18,80 +17,88 @@ public class CameraController : MonoBehaviour
 		world.character.RegisterUnlockCameraFromCheckpointCallback(UnlockCamera);
 		world.checkpointManager.RegisterLockCameraToCheckpointCallback(LockCamera);
 	
+		lockedSide = Direction.None;
+
 		float aspectRatio = (float) Screen.width / (float) Screen.height;
-		cameraWidth = (Camera.main.orthographicSize * 2) * aspectRatio;
+		halfCameraWidth = ((Camera.main.orthographicSize * 2) * aspectRatio) / 2;
 	}
 
 	void Update()
 	{
-		GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
-
-		if(rightLocked || leftLocked)
+		// If camera is locked just return.
+		if(lockedSide != Direction.None)
 			return;
 
-        if (go_mainCharacter != null)
-        {
-        	Vector3 new_position = new Vector3(
-         		go_mainCharacter.transform.position.x,
-				Camera.main.transform.position.y,
-                Camera.main.transform.position.z
-			);
+		GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
 
-			Camera.main.transform.position = new_position;
-		}
-	}
-
-	void LockCamera(Direction direction)
-	{
-		if(direction == Direction.Left)
+		if(go_mainCharacter == null)
 		{
-			leftLocked = true;
-		
-			Transform mainCharacter = CharacterCont.Instance.go_mainCharacter.transform;
-
-			// FIXME: We don't like constants. Find a better way.
-			// We move character left/right, when we locked camera to a checkpoint.
-			// Why 0.2f constant? It's because we use 0.1f constant to lock camera to 
-			// our character. If it's less then 0.2f, it can not escape from locking to character.
-			mainCharacter.transform.Translate(-0.2f, 0f, 0f);
+			Debug.LogError("CameraController -- Update() -- Character's gameobject is null.");
+			return;
 		}
-		else
-		{
-			Transform mainCharacter = CharacterCont.Instance.go_mainCharacter.transform;
-			mainCharacter.transform.Translate(0.2f, 0f, 0f);
-
-			rightLocked = true;
-		}
-	}
-
-	void UnlockCamera()
-	{
-		CheckpointManager cpm = world.checkpointManager;
-		Vector3 new_position;
-
-		if(leftLocked == true)
-		{
-			leftLocked = false;
-
-			new_position = new Vector3(
-				// FIXME: We don't like constants. Find a better way.
-				cpm.left.x + 0.1f,	
-				Camera.main.transform.position.y,
-				Camera.main.transform.position.z
-			);
-		}
-		else
-		{
-			rightLocked = false;
-
-			new_position = new Vector3(
-				cpm.right.x - 0.1f,
-				Camera.main.transform.position.y,
-				Camera.main.transform.position.z
-			);
-		}
+ 
+    	Vector3 new_position = new Vector3(
+     		go_mainCharacter.transform.position.x,
+			Camera.main.transform.position.y,
+            Camera.main.transform.position.z
+		);
 
 		Camera.main.transform.position = new_position;
+	}
+
+	void LockCamera(Checkpoint checkpoint, Direction direction)
+	{
+		// We have already locked the camera. Don't need to change position.
+		if(lockedSide != Direction.None)
+			return;
+
+		lockedSide = direction;
+
+		float xPos;
+		if(direction == Direction.Left)
+			xPos = checkpoint.x + halfCameraWidth;
+		else
+			xPos = checkpoint.x - halfCameraWidth;
+
+		Vector3 newCameraPos = new Vector3(
+			xPos,	
+			Camera.main.transform.position.y,
+			Camera.main.transform.position.z
+		);
+
+		Transform chr_trans = CharacterCont.Instance.go_mainCharacter.transform;
+
+		Vector3 newCharacterPos = new Vector3(
+			xPos,	
+			chr_trans.position.y,
+			chr_trans.position.z
+		);
+			
+		Camera.main.transform.position = newCameraPos;
+		CharacterCont.Instance.go_mainCharacter.transform.position = newCharacterPos;
+	}
+
+	void UnlockCamera(Direction direction)
+	{
+		if(lockedSide == Direction.None)
+			return;
+
+		// When we lock camera, charater is at center of the camera so it'll try
+		// to unlock camera but if we look the direction, we can prevent this issue.
+		// We know that if we wanna unlock camera, locked side and the direction of the 
+		// character should be different.
+		if(lockedSide == direction)
+			return;
+
+		float xPos = Camera.main.transform.position.x;
+
+		Vector3 newCharacterPos = new Vector3(
+			xPos,
+			CharacterCont.GetCharacterPosition().y,
+			CharacterCont.GetCharacterPosition().z
+		);
+			
+		lockedSide = Direction.None;
 	}
 
 	public static Vector3 GetCameraPosition()
@@ -102,7 +109,7 @@ public class CameraController : MonoBehaviour
 	public static Vector3 GetRightEdgePosition()
 	{
 		return new Vector3(
-			Camera.main.transform.position.x + (cameraWidth / 2),
+			Camera.main.transform.position.x + halfCameraWidth,
 			Camera.main.transform.position.y
 		);
 	}
@@ -110,7 +117,7 @@ public class CameraController : MonoBehaviour
 	public static Vector3 GetLeftEdgePosition()
 	{
 		return new Vector3(
-			Camera.main.transform.position.x - (cameraWidth / 2),
+			Camera.main.transform.position.x - halfCameraWidth,
 			Camera.main.transform.position.y
 		);
 	}

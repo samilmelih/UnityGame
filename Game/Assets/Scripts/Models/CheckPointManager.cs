@@ -5,40 +5,53 @@ using System;
 
 public class CheckpointManager
 {
-	public Checkpoint left;
-	public Checkpoint right;
+	public Checkpoint leftCheckpoint;
+	public Checkpoint rightCheckpoint;
 
 	// Don't forget me to unregister FIXME
-	Action<Direction> cbLockCameraToCheckpoint;
+	Action<Checkpoint, Direction> cbLockCameraToCheckpoint;
 
-	public bool cameraLockedToCheckpoint = false;
+	Character character;
 
+	public CheckpointManager(Character character)
+	{
+		this.character = character;
+	}
+
+	// If remaining distance of the camera to checkpoint is equal or less then character's
+	// position change, then lock camera to checkpoint. In other words, if camera
+	// close enough to checkpoint, then lock camera to the checkpoint.
 	public void Check()
 	{
-		if(cameraLockedToCheckpoint == false && CameraController.GetLeftEdgePosition().x <= left.x)
-		{
-			if(cbLockCameraToCheckpoint != null)
-				cbLockCameraToCheckpoint(Direction.Left);
+		float positionChangeOfCharacter = UnityEngine.Mathf.Abs(character.lastPosition.x - character.currPosition.x);
+		float distToCheckpoint;
 
-			WorldController.Instance.world.character.cameraLockedToCharacter = false;
-			cameraLockedToCheckpoint = true;
+		Checkpoint checkpointToBeLock;
+
+		if(character.direction == Direction.Left)
+		{
+			distToCheckpoint = UnityEngine.Mathf.Abs(CameraController.GetLeftEdgePosition().x - leftCheckpoint.x);
+			checkpointToBeLock = leftCheckpoint;
 		}
-		else if(cameraLockedToCheckpoint == false && CameraController.GetRightEdgePosition().x >= right.x)
+		else
+		{
+			distToCheckpoint = UnityEngine.Mathf.Abs(CameraController.GetRightEdgePosition().x - rightCheckpoint.x);
+			checkpointToBeLock = rightCheckpoint;
+		}
+
+		if(distToCheckpoint <= positionChangeOfCharacter)
 		{
 			if(cbLockCameraToCheckpoint != null)
-				cbLockCameraToCheckpoint(Direction.Right);
-
-			WorldController.Instance.world.character.cameraLockedToCharacter = false;
-			cameraLockedToCheckpoint = true;
+				cbLockCameraToCheckpoint(checkpointToBeLock, character.direction);
 		}
 	}
 
-	public void RegisterLockCameraToCheckpointCallback(Action<Direction> cb)
+	public void RegisterLockCameraToCheckpointCallback(Action<Checkpoint, Direction> cb)
 	{
 		cbLockCameraToCheckpoint += cb;
 	}
 
-	public void UnregisterLockCameraToCheckpointCallback(Action<Direction> cb)
+	public void UnregisterLockCameraToCheckpointCallback(Action<Checkpoint, Direction> cb)
 	{
 		cbLockCameraToCheckpoint -= cb;
 	}

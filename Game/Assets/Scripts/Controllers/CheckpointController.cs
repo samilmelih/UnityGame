@@ -13,8 +13,8 @@ public class CheckpointController : MonoBehaviour
 	{
 		cpm = WorldController.Instance.world.checkpointManager;
 
-		cpm.left = new Checkpoint(checkpoints[0].position.x);
-		Checkpoint curr = cpm.left;
+		cpm.leftCheckpoint = new Checkpoint(checkpoints[0].position.x);
+		Checkpoint curr = cpm.leftCheckpoint;
 
 		for(int i = 1; i < checkpoints.Length; i++)
 		{
@@ -22,6 +22,6 @@ public class CheckpointController : MonoBehaviour
 			curr = curr.next;
 		}
 
-		cpm.right = cpm.left.next;
+		cpm.rightCheckpoint = cpm.leftCheckpoint.next;
 	}
 }

@@ -33,12 +33,13 @@ public partial class World
         weaponPrototypes = new Dictionary<string, Weapon>();
         itemProtoTypes   = new Dictionary<string, Item>();
 
-		checkpointManager = new CheckpointManager();
-
         CreatePrototypes();
         FillItemProtoDictionary();
         CreateCharacters();
         CreateEnemies();
+
+		// Character should be created before checkpoint manager. Because it uses character.
+		checkpointManager = new CheckpointManager(character);
     }
 
     void FillItemProtoDictionary()
@@ -84,7 +85,7 @@ public partial class World
     {
         enemies = new List<Character>();
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 0; i++)
         {
             Character enemy = new Character(this);
             enemy.Type = StringLiterals.EnemyName;
