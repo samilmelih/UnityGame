@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public partial class World
 {
@@ -10,7 +10,7 @@ public partial class World
 
     public Character character { get; protected set; }
 
-	public CheckpointManager checkpointManager;
+    public CheckpointManager checkpointManager;
 
     public List<Character> enemies { get; protected set; }
 
@@ -20,26 +20,26 @@ public partial class World
     public Dictionary<string, Weapon> weaponPrototypes;
     public Dictionary<string, Item> itemProtoTypes;
 
-	Action<Character> cbOnEnemyChanged;
-	Action<Character> cbOnEnemyDestroyed;
+    Action<Character> cbOnEnemyChanged;
+    Action<Character> cbOnEnemyDestroyed;
 
-	bool firstTimeStarted;
+    bool firstTimeStarted;
 
     public World()
     {
-		firstTimeStarted = PlayerPrefsController.FirstTimeStarted;
+        firstTimeStarted = PlayerPrefsController.FirstTimeStarted;
 
         bulletPrototypes = new Dictionary<string, Bullet>();
         weaponPrototypes = new Dictionary<string, Weapon>();
-        itemProtoTypes   = new Dictionary<string, Item>();
+        itemProtoTypes = new Dictionary<string, Item>();
 
         CreatePrototypes();
         FillItemProtoDictionary();
         CreateCharacters();
         CreateEnemies();
 
-		// Character should be created before checkpoint manager. Because it uses character.
-		checkpointManager = new CheckpointManager(character);
+        // Character should be created before checkpoint manager. Because it uses character.
+        checkpointManager = new CheckpointManager(character);
     }
 
     void FillItemProtoDictionary()
@@ -67,7 +67,7 @@ public partial class World
         // If we have, We need a character list.
         character = new Character(this);
         character.Type = StringLiterals.CharacterName;
-		character.money = (firstTimeStarted) ? 200 : PlayerPrefsController.Money;
+        character.money = (firstTimeStarted) ? 200 : PlayerPrefsController.Money;
 
         // Default move speed in x-axis is +-5f.
         // Default jump speed in y-axis is 12f.
@@ -85,7 +85,7 @@ public partial class World
     {
         enemies = new List<Character>();
 
-        for (int i = 0; i < 0; i++)
+        for (int i = 0; i < 10; i++)
         {
             Character enemy = new Character(this);
             enemy.Type = StringLiterals.EnemyName;
@@ -153,31 +153,31 @@ public partial class World
         CreateMachinegunProto();
     }
 
-	public void OnEnemyChanged(Character enemy)
-	{
-		if(cbOnEnemyChanged != null)
-			cbOnEnemyChanged(enemy);
-	}
+    public void OnEnemyChanged(Character enemy)
+    {
+        if (cbOnEnemyChanged != null)
+            cbOnEnemyChanged(enemy);
+    }
 
-	public void OnEnemyDestroyed(Character enemy)
-	{
-		if(cbOnEnemyDestroyed != null)
-			cbOnEnemyDestroyed(enemy);
-	}
+    public void OnEnemyDestroyed(Character enemy)
+    {
+        if (cbOnEnemyDestroyed != null)
+            cbOnEnemyDestroyed(enemy);
+    }
 
-	public void RegisterOnEnemyChangedCallback(Action<Character> cb)
-	{
-		cbOnEnemyChanged += cb;
-	}
+    public void RegisterOnEnemyChangedCallback(Action<Character> cb)
+    {
+        cbOnEnemyChanged += cb;
+    }
 
-	public void RegisterOnEnemyDestroyedCallback(Action<Character> cb)
-	{
-		cbOnEnemyDestroyed += cb;
-	}
+    public void RegisterOnEnemyDestroyedCallback(Action<Character> cb)
+    {
+        cbOnEnemyDestroyed += cb;
+    }
 
-	public void ResetWorldCallbacks()
-	{
-		cbOnEnemyChanged   = null;
-		cbOnEnemyDestroyed = null;
-	}
+    public void ResetWorldCallbacks()
+    {
+        cbOnEnemyChanged = null;
+        cbOnEnemyDestroyed = null;
+    }
 }

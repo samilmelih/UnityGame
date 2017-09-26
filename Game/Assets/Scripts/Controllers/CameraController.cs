@@ -1,124 +1,122 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-	World world;
+    World world;
 
-	Direction lockedSide;
+    Direction lockedSide;
 
-	static float halfCameraWidth;
+    static float halfCameraWidth;
 
-	void Start()
-	{
-		world = WorldController.Instance.world;
+    void Start()
+    {
+        world = WorldController.Instance.world;
 
-		world.character.RegisterUnlockCameraFromCheckpointCallback(UnlockCamera);
-		world.checkpointManager.RegisterLockCameraToCheckpointCallback(LockCamera);
-	
-		lockedSide = Direction.None;
+        world.character.RegisterUnlockCameraFromCheckpointCallback(UnlockCamera);
+        world.checkpointManager.RegisterLockCameraToCheckpointCallback(LockCamera);
 
-		float aspectRatio = (float) Screen.width / (float) Screen.height;
-		halfCameraWidth = ((Camera.main.orthographicSize * 2) * aspectRatio) / 2;
-	}
+        lockedSide = Direction.None;
 
-	void Update()
-	{
-		// If camera is locked just return.
-		if(lockedSide != Direction.None)
-			return;
+        float aspectRatio = (float)Screen.width / (float)Screen.height;
+        halfCameraWidth = ((Camera.main.orthographicSize * 2) * aspectRatio) / 2;
+    }
 
-		GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
+    void Update()
+    {
+        // If camera is locked just return.
+        if (lockedSide != Direction.None)
+            return;
 
-		if(go_mainCharacter == null)
-		{
-			Debug.LogError("CameraController -- Update() -- Character's gameobject is null.");
-			return;
-		}
- 
-    	Vector3 new_position = new Vector3(
-     		go_mainCharacter.transform.position.x,
-			Camera.main.transform.position.y,
+        GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
+
+        if (go_mainCharacter == null)
+        {
+            Debug.LogError("CameraController -- Update() -- Character's gameobject is null.");
+            return;
+        }
+
+        Vector3 new_position = new Vector3(
+             go_mainCharacter.transform.position.x,
+            Mathf.Lerp(Camera.main.transform.position.y, go_mainCharacter.transform.position.y, Time.deltaTime),
             Camera.main.transform.position.z
-		);
+        );
 
-		Camera.main.transform.position = new_position;
-	}
+        Camera.main.transform.position = new_position;
+    }
 
-	void LockCamera(Checkpoint checkpoint, Direction direction)
-	{
-		// We have already locked the camera. Don't need to change position.
-		if(lockedSide != Direction.None)
-			return;
+    void LockCamera(Checkpoint checkpoint, Direction direction)
+    {
+        // We have already locked the camera. Don't need to change position.
+        if (lockedSide != Direction.None)
+            return;
 
-		lockedSide = direction;
+        lockedSide = direction;
 
-		float xPos;
-		if(direction == Direction.Left)
-			xPos = checkpoint.x + halfCameraWidth;
-		else
-			xPos = checkpoint.x - halfCameraWidth;
+        float xPos;
+        if (direction == Direction.Left)
+            xPos = checkpoint.x + halfCameraWidth;
+        else
+            xPos = checkpoint.x - halfCameraWidth;
 
-		Vector3 newCameraPos = new Vector3(
-			xPos,	
-			Camera.main.transform.position.y,
-			Camera.main.transform.position.z
-		);
+        Vector3 newCameraPos = new Vector3(
+            xPos,
+            Camera.main.transform.position.y,
+            Camera.main.transform.position.z
+        );
 
-		Transform chr_trans = CharacterCont.Instance.go_mainCharacter.transform;
+        Transform chr_trans = CharacterCont.Instance.go_mainCharacter.transform;
 
-		Vector3 newCharacterPos = new Vector3(
-			xPos,	
-			chr_trans.position.y,
-			chr_trans.position.z
-		);
-			
-		Camera.main.transform.position = newCameraPos;
-		CharacterCont.Instance.go_mainCharacter.transform.position = newCharacterPos;
-	}
+        Vector3 newCharacterPos = new Vector3(
+            xPos,
+            chr_trans.position.y,
+            chr_trans.position.z
+        );
 
-	void UnlockCamera(Direction direction)
-	{
-		if(lockedSide == Direction.None)
-			return;
+        Camera.main.transform.position = newCameraPos;
+        CharacterCont.Instance.go_mainCharacter.transform.position = newCharacterPos;
+    }
 
-		// When we lock camera, charater is at center of the camera so it'll try
-		// to unlock camera but if we look the direction, we can prevent this issue.
-		// We know that if we wanna unlock camera, locked side and the direction of the 
-		// character should be different.
-		if(lockedSide == direction)
-			return;
+    void UnlockCamera(Direction direction)
+    {
+        if (lockedSide == Direction.None)
+            return;
 
-		float xPos = Camera.main.transform.position.x;
+        // When we lock camera, charater is at center of the camera so it'll try
+        // to unlock camera but if we look the direction, we can prevent this issue.
+        // We know that if we wanna unlock camera, locked side and the direction of the 
+        // character should be different.
+        if (lockedSide == direction)
+            return;
 
-		Vector3 newCharacterPos = new Vector3(
-			xPos,
-			CharacterCont.GetCharacterPosition().y,
-			CharacterCont.GetCharacterPosition().z
-		);
-			
-		lockedSide = Direction.None;
-	}
+        float xPos = Camera.main.transform.position.x;
 
-	public static Vector3 GetCameraPosition()
-	{
-		return Camera.main.transform.position;
-	}
+        Vector3 newCharacterPos = new Vector3(
+            xPos,
+            CharacterCont.GetCharacterPosition().y,
+            CharacterCont.GetCharacterPosition().z
+        );
 
-	public static Vector3 GetRightEdgePosition()
-	{
-		return new Vector3(
-			Camera.main.transform.position.x + halfCameraWidth,
-			Camera.main.transform.position.y
-		);
-	}
+        lockedSide = Direction.None;
+    }
 
-	public static Vector3 GetLeftEdgePosition()
-	{
-		return new Vector3(
-			Camera.main.transform.position.x - halfCameraWidth,
-			Camera.main.transform.position.y
-		);
-	}
+    public static Vector3 GetCameraPosition()
+    {
+        return Camera.main.transform.position;
+    }
+
+    public static Vector3 GetRightEdgePosition()
+    {
+        return new Vector3(
+            Camera.main.transform.position.x + halfCameraWidth,
+            Camera.main.transform.position.y
+        );
+    }
+
+    public static Vector3 GetLeftEdgePosition()
+    {
+        return new Vector3(
+            Camera.main.transform.position.x - halfCameraWidth,
+            Camera.main.transform.position.y
+        );
+    }
 }

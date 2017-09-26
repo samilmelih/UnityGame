@@ -1,211 +1,211 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Inventory
 {
-	// If we make different UI's for weapons and items,
-	// this List's would be enough. We have separate slots for weapons
-	// and other items. I think we don't need to separate other items but
-	// if we need to separate other items and also UI, we just need to make
-	// another List for it.
+    // If we make different UI's for weapons and items,
+    // this List's would be enough. We have separate slots for weapons
+    // and other items. I think we don't need to separate other items but
+    // if we need to separate other items and also UI, we just need to make
+    // another List for it.
 
-	public int maxNumberOfWeapon = 3;
-	public List<string> equippedWeapons;
+    public int maxNumberOfWeapon = 3;
+    public List<string> equippedWeapons;
 
-	public int maxNumberOfItem = 3;
-	public List<string> equippedItems;
+    public int maxNumberOfItem = 3;
+    public List<string> equippedItems;
 
-	public Dictionary<string, Item> purchasedItemMap;
+    public Dictionary<string, Item> purchasedItemMap;
 
-	Action<Item, bool> cbOnItemPurchased;
-	Action<Item> cbOnItemEquipped;
-	Action<Item, Inventory> cbOnItemDropped;
+    Action<Item, bool> cbOnItemPurchased;
+    Action<Item> cbOnItemEquipped;
+    Action<Item, Inventory> cbOnItemDropped;
 
-	World world;
-	Character character;
+    World world;
+    Character character;
 
-	public Inventory(World world)
+    public Inventory(World world)
     {
-		this.world = world;
-		this.character = world.character;
+        this.world = world;
+        this.character = world.character;
 
-		purchasedItemMap  = new Dictionary<string, Item>();
+        purchasedItemMap = new Dictionary<string, Item>();
 
-		LoadInventory();
+        LoadInventory();
 
-		// I registered them in here because since PlayerPrefsController is a static class,
-		// I don't know where to register this callbacks in PlayerPrefsController.
-		RegisterOnItemPurchasedCallback(PlayerPrefsController.OnItemPurchased);
-		RegisterOnItemEquippedCallback(PlayerPrefsController.OnItemEquipped);
-		RegisterOnItemDroppedCallback(PlayerPrefsController.OnItemDropped);
+        // I registered them in here because since PlayerPrefsController is a static class,
+        // I don't know where to register this callbacks in PlayerPrefsController.
+        RegisterOnItemPurchasedCallback(PlayerPrefsController.OnItemPurchased);
+        RegisterOnItemEquippedCallback(PlayerPrefsController.OnItemEquipped);
+        RegisterOnItemDroppedCallback(PlayerPrefsController.OnItemDropped);
     }
 
-	public void LoadInventory()
-	{
-		List<Item> purchasedItems = PlayerPrefsController.GetPurchasedItemList(world);
-		if(purchasedItems != null)
-		{
-			foreach (Item item in purchasedItems)
-			{
-				purchasedItemMap.Add(item.name, item);
-			}
-		}
-			
-		equippedWeapons = PlayerPrefsController.GetEquippedWeaponList(world);
-		equippedItems   = PlayerPrefsController.GetEquippedItemList(world);
+    public void LoadInventory()
+    {
+        List<Item> purchasedItems = PlayerPrefsController.GetPurchasedItemList(world);
+        if (purchasedItems != null)
+        {
+            foreach (Item item in purchasedItems)
+            {
+                purchasedItemMap.Add(item.name, item);
+            }
+        }
 
-		ChangeWeapon(1);
-	}
-		
-	// If an item is equipped, add it to it's list.
-	public void EquipItem(string itemName)
-	{
-		if(purchasedItemMap.ContainsKey(itemName) == false)
-		{
-			Debug.LogError("EquipItem() -- You are trying to equip an item that it's not in the purchased item.");
-			return;
-		}
+        equippedWeapons = PlayerPrefsController.GetEquippedWeaponList(world);
+        equippedItems = PlayerPrefsController.GetEquippedItemList(world);
 
-		Item item = purchasedItemMap[itemName];
+        //	ChangeWeapon(1);
+    }
 
-		// Weapons
-		if(item is Weapon)
-		{
-			if(equippedWeapons.Count >= maxNumberOfWeapon)
-			{
-				Debug.Log("EquipItem() -- You can't equip another weapon because all slots full.");
-				return;
-			}
+    // If an item is equipped, add it to it's list.
+    public void EquipItem(string itemName)
+    {
+        if (purchasedItemMap.ContainsKey(itemName) == false)
+        {
+            Debug.LogError("EquipItem() -- You are trying to equip an item that it's not in the purchased item.");
+            return;
+        }
 
-			equippedWeapons.Add(itemName);
-		}
-		// Other items
-		else
-		{
-			if(equippedItems.Count >= maxNumberOfItem)
-			{
-				Debug.Log("EquipItem() -- You can't equip another item because all slots full.");
-				return;
-			}
+        Item item = purchasedItemMap[itemName];
 
-			equippedItems.Add(itemName);
-		}
+        // Weapons
+        if (item is Weapon)
+        {
+            if (equippedWeapons.Count >= maxNumberOfWeapon)
+            {
+                Debug.Log("EquipItem() -- You can't equip another weapon because all slots full.");
+                return;
+            }
 
-		item.equipped = true;
+            equippedWeapons.Add(itemName);
+        }
+        // Other items
+        else
+        {
+            if (equippedItems.Count >= maxNumberOfItem)
+            {
+                Debug.Log("EquipItem() -- You can't equip another item because all slots full.");
+                return;
+            }
 
-		ChangeWeapon(1);
+            equippedItems.Add(itemName);
+        }
 
-		if(cbOnItemEquipped != null)
-			cbOnItemEquipped(item);
-	}
+        item.equipped = true;
 
-	// If an item is dropped just remove from it's list.
-	public void DropItem(string itemName)
-	{
-		Item item = purchasedItemMap[itemName];
+        ChangeWeapon(1);
 
-		// Weapons
-		if(item is Weapon)
-		{
-			if(equippedWeapons.Contains(itemName) == false)
-			{
-				Debug.Log("DropItem() -- Weapon that you want to drop is not in the equippedWeapon list.");
-				return;
-			}
+        if (cbOnItemEquipped != null)
+            cbOnItemEquipped(item);
+    }
 
-			equippedWeapons.Remove(itemName);
-		}
-		// Other items
-		else
-		{
-			if(equippedItems.Contains(itemName) == false)
-			{
-				Debug.Log("DropItem() -- Item that you want to drop is not in the equippedItems list.");
-				return;
-			}
+    // If an item is dropped just remove from it's list.
+    public void DropItem(string itemName)
+    {
+        Item item = purchasedItemMap[itemName];
 
-			equippedItems.Remove(itemName);
-		}
+        // Weapons
+        if (item is Weapon)
+        {
+            if (equippedWeapons.Contains(itemName) == false)
+            {
+                Debug.Log("DropItem() -- Weapon that you want to drop is not in the equippedWeapon list.");
+                return;
+            }
 
-		item.equipped = false;
+            equippedWeapons.Remove(itemName);
+        }
+        // Other items
+        else
+        {
+            if (equippedItems.Contains(itemName) == false)
+            {
+                Debug.Log("DropItem() -- Item that you want to drop is not in the equippedItems list.");
+                return;
+            }
 
-		ChangeWeapon(1);
-			
-		if(cbOnItemDropped != null)
-			cbOnItemDropped(item, this);
-	}
+            equippedItems.Remove(itemName);
+        }
 
-	public void AddToPurchasedItems(Item item)
-	{
-		if(purchasedItemMap.ContainsKey(item.name) == true)
-		{
-			purchasedItemMap[item.name].count += item.purchaseAmount;
+        item.equipped = false;
 
-			if(cbOnItemPurchased != null)
-				cbOnItemPurchased(purchasedItemMap[item.name], true);
-		}
-		else
-		{
-			item.count = item.purchaseAmount;
-			purchasedItemMap.Add(item.name, item);
+        ChangeWeapon(1);
 
-			if(cbOnItemPurchased != null)
-				cbOnItemPurchased(item, false);
-		}
+        if (cbOnItemDropped != null)
+            cbOnItemDropped(item, this);
+    }
 
-		// If item is a bullet we need to attach it to weapon.
-		if(item is Bullet)
-		{
-			string weaponName = item.name.Substring(0, item.name.IndexOf('_'));
-			Debug.Log(weaponName);
-			if(purchasedItemMap.ContainsKey(weaponName) == false)
-			{
-				Debug.Log("AddToPurchasedItems() -- You purchased this bullet but there is no weapon for it. ");
-				return;
-			}
+    public void AddToPurchasedItems(Item item)
+    {
+        if (purchasedItemMap.ContainsKey(item.name) == true)
+        {
+            purchasedItemMap[item.name].count += item.purchaseAmount;
 
-			(purchasedItemMap[weaponName] as Weapon).bullet = purchasedItemMap[item.name] as Bullet;
-		}
-	}
+            if (cbOnItemPurchased != null)
+                cbOnItemPurchased(purchasedItemMap[item.name], true);
+        }
+        else
+        {
+            item.count = item.purchaseAmount;
+            purchasedItemMap.Add(item.name, item);
 
-	// FIXME: Character can pass as parameter.
-	public void ChangeWeapon(int slot)
-	{
-		// If requested slot is empty, just return.
-		if (slot > equippedWeapons.Count)
-			return;
-		
-		character.currentWeapon = purchasedItemMap[equippedWeapons[slot - 1]] as Weapon;
-	}
+            if (cbOnItemPurchased != null)
+                cbOnItemPurchased(item, false);
+        }
 
-	public List<Item> GetPurchasedItemList()
-	{
-		return new List<Item>(purchasedItemMap.Values);
-	}
+        // If item is a bullet we need to attach it to weapon.
+        if (item is Bullet)
+        {
+            string weaponName = item.name.Substring(0, item.name.IndexOf('_'));
+            Debug.Log(weaponName);
+            if (purchasedItemMap.ContainsKey(weaponName) == false)
+            {
+                Debug.Log("AddToPurchasedItems() -- You purchased this bullet but there is no weapon for it. ");
+                return;
+            }
 
-	public List<string> GetEquippedWeaponList()
-	{
-		return new List<string>(equippedWeapons);
-	}
+            (purchasedItemMap[weaponName] as Weapon).bullet = purchasedItemMap[item.name] as Bullet;
+        }
+    }
+
+    // FIXME: Character can pass as parameter.
+    public void ChangeWeapon(int slot)
+    {
+        // If requested slot is empty, just return.
+        if (slot > equippedWeapons.Count)
+            return;
+
+        character.currentWeapon = purchasedItemMap[equippedWeapons[slot - 1]] as Weapon;
+    }
+
+    public List<Item> GetPurchasedItemList()
+    {
+        return new List<Item>(purchasedItemMap.Values);
+    }
+
+    public List<string> GetEquippedWeaponList()
+    {
+        return new List<string>(equippedWeapons);
+    }
 
     public List<string> GetEquippedItemsList()
     {
-		return new List<string>(equippedItems);
+        return new List<string>(equippedItems);
     }
 
-	public void RegisterOnItemPurchasedCallback(Action<Item, bool> cb)
-	{
-		cbOnItemPurchased += cb;
-	}
+    public void RegisterOnItemPurchasedCallback(Action<Item, bool> cb)
+    {
+        cbOnItemPurchased += cb;
+    }
 
-	public void RegisterOnItemEquippedCallback(Action<Item> cb)
-	{
-		cbOnItemEquipped += cb;
-	}
+    public void RegisterOnItemEquippedCallback(Action<Item> cb)
+    {
+        cbOnItemEquipped += cb;
+    }
 
-	public void RegisterOnItemDroppedCallback(Action<Item, Inventory> cb)
-	{
-		cbOnItemDropped += cb;
-	}
+    public void RegisterOnItemDroppedCallback(Action<Item, Inventory> cb)
+    {
+        cbOnItemDropped += cb;
+    }
 }

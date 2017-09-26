@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class EnemyController : MonoBehaviour
 {
-	public static EnemyController Instance;
+    public static EnemyController Instance;
 
-	public Transform[] spawnPos;
+    public Transform[] spawnPos;
 
     public Dictionary<Character, GameObject> enemyGOMap;
     public Dictionary<GameObject, Character> GOenemyMap;
 
-	World world;
+    World world;
 
     // Use this for initialization
     void Start()
@@ -31,11 +30,11 @@ public class EnemyController : MonoBehaviour
         int numberOfEnemy = 0;
         foreach (Character enemy in world.enemies)
         {
-			GameObject enemy_prefab = Resources.Load<GameObject>("Prefabs/Characters/Enemy");
+            GameObject enemy_prefab = Resources.Load<GameObject>("Prefabs/Characters/Enemy");
 
             //TODO : burada bir transform list içince spawn positions belirlenecek
             //bu posizsyonlar ne olursa olsun bu şekilde yapılabilir
-			GameObject enemy_go = Instantiate<GameObject>(enemy_prefab, spawnPos[numberOfEnemy], false);
+            GameObject enemy_go = Instantiate<GameObject>(enemy_prefab, spawnPos[numberOfEnemy % spawnPos.Length], false);
 
             enemy_go.name = "Enemy_" + (++numberOfEnemy);
             enemy_go.tag = StringLiterals.EnemyName;
@@ -81,7 +80,7 @@ public class EnemyController : MonoBehaviour
 
                 // remove from the world
                 world.enemies.Remove(enemy);
-				world.OnEnemyDestroyed(enemy);
+                world.OnEnemyDestroyed(enemy);
             }
         }
     }
@@ -92,7 +91,7 @@ public class EnemyController : MonoBehaviour
         foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
         {
             Walk(enemy);
-			world.OnEnemyChanged(enemy.Key);
+            world.OnEnemyChanged(enemy.Key);
         }
     }
 
