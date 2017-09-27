@@ -31,15 +31,13 @@ public class CameraController : MonoBehaviour
         {
 
             //we only wanna change the Y position after locked the camera
-            Vector3 lerpBy_Y = new Vector3(
-            Camera.main.transform.position.x,
-           Mathf.Lerp(Camera.main.transform.position.y, go_mainCharacter.transform.position.y, Time.deltaTime),
-           Camera.main.transform.position.z
 
-       );
-            Camera.main.transform.position = lerpBy_Y;
+
             return;
         }
+
+
+
         if (go_mainCharacter == null)
             go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
 
@@ -51,7 +49,7 @@ public class CameraController : MonoBehaviour
 
         Vector3 new_position = new Vector3(
              go_mainCharacter.transform.position.x,
-            Mathf.Lerp(Camera.main.transform.position.y, go_mainCharacter.transform.position.y, Time.deltaTime),
+            Camera.main.transform.position.y,
             Camera.main.transform.position.z
         );
 

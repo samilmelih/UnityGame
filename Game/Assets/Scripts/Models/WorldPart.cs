@@ -11,7 +11,7 @@
         //Magnum
         string name = StringLiterals.GetBulletNameForGun(StringLiterals.Magnum);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,               // name
                 1,                  // cost
@@ -28,7 +28,7 @@
         //Mp5
         name = StringLiterals.GetBulletNameForGun(StringLiterals.Mp5);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,               // name
                 1,                  // cost
@@ -44,7 +44,7 @@
         //Shotgun
         name = StringLiterals.GetBulletNameForGun(StringLiterals.Shotgun);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,               // name
                 1,                  // cost
@@ -60,7 +60,7 @@
         //Uzi
         name = StringLiterals.GetBulletNameForGun(StringLiterals.Uzi);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,               // name
                 1,                  // cost
@@ -76,7 +76,7 @@
         //Sniper
         name = StringLiterals.GetBulletNameForGun(StringLiterals.Sniper);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                name,                // name
                 1,                  // cost
@@ -93,7 +93,7 @@
         name = StringLiterals.GetBulletNameForGun(StringLiterals.UziLong);
 
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,                   // name
                 1,                      // cost
@@ -109,7 +109,7 @@
         //Machinegun
         name = StringLiterals.GetBulletNameForGun(StringLiterals.Machinegun);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,                   // name
                 1,                      // cost
@@ -125,7 +125,7 @@
         //RocketLauncher
         name = StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncher);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,                       // name
                 1,                          // cost
@@ -141,7 +141,7 @@
         //RocketLauncherModern
         name = StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherModern);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,                               // name
                 1,                                  // cost
@@ -157,7 +157,7 @@
         //RocketLauncherSide
         name = StringLiterals.GetBulletNameForGun(StringLiterals.RocketLauncherSide);
 
-        bulletPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Bullet(
                 name,                           // name
                 1,                              // cost
@@ -178,7 +178,7 @@
     void CreateKnifeProto()
     {
         string name = StringLiterals.Knife;
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,    // name
                 1,          // cost
@@ -190,17 +190,17 @@
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             "hitPower",
             5
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             "hitSpeed",
             2
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.CloseWeapons;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.CloseWeapons;
 
 
     }
@@ -209,7 +209,7 @@
     {
         string name = StringLiterals.KnifeSmooth;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,     // name
                 1,                  // cost
@@ -221,23 +221,23 @@
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             "hitPower",
             5
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             "hitSpeed",
             2
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.CloseWeapons;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.CloseWeapons;
     }
 
     void CreateKnife_SharpProto()
     {
         string name = StringLiterals.Knife_Sharp;
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,      // name
                 1,                  // cost
@@ -249,17 +249,17 @@
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             "hitPower",
             5
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             "hitSpeed",
             2
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.CloseWeapons;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.CloseWeapons;
     }
 
     /// <summary>
@@ -269,7 +269,7 @@
     {
         string name = StringLiterals.Magnum;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -277,38 +277,38 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
             14f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCount,
             0f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]   // Başlangıçta aniden ateş edebilmesi için gerekli
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]   // Başlangıçta aniden ateş edebilmesi için gerekli
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateShotgunProto()
     {
         string name = StringLiterals.Shotgun;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -316,31 +316,31 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
             3f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCount,
             0f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireFrequency,
             1f      // .5 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
 
     /// <summary>
@@ -350,7 +350,7 @@
     {
         string name = StringLiterals.Mp5;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -358,38 +358,38 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
             50f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCount,
             0f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .3f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateSniperProto()
     {
         string name = StringLiterals.Sniper;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -397,38 +397,38 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
             6f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCount,
             0f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .5f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]   // Başlangıç aniden ateş edebilmesi için gerekli
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]   // Başlangıç aniden ateş edebilmesi için gerekli
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateUziProto()
     {
         string name = StringLiterals.Uzi;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -436,57 +436,43 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
             30f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCount,
             0f
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
-
-    #endregion
-
-
-
-
-
-    #region newGuns
 
     // *******TODO******TODO*******
     // These gun's weaponParameters have not edited.
 
-    /// Knife_Sharp
-    /// Knife_Smooth
-    /// RockerLauncher
-    /// RockerLauncher_Modern
-    /// RockerLauncher_Side
-    /// Uzi_Long
-    /// Machinegun
+
 
     void CreateRocketLauncherProto()
     {
         string name = StringLiterals.RocketLauncher;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -494,28 +480,28 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet		
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet		
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateRocketLauncher_ModernProto()
     {
         string name = StringLiterals.RocketLauncherModern;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -523,25 +509,25 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet		
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet		
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
     }
     void CreateRocketLauncher_SideProto()
     {
         string name = StringLiterals.RocketLauncherSide;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
         new Weapon(
                 name,           // name
                 1,              // cost
@@ -549,18 +535,18 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet    // bullet	
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet    // bullet	
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
     }
 
@@ -568,7 +554,7 @@
     {
         string name = StringLiterals.Machinegun;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -576,28 +562,28 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
 
     void CreateUzi_LongProto()
     {
         string name = StringLiterals.UziLong;
 
-        weaponPrototypes.Add(name,
+        itemProtoTypes.Add(name,
             new Weapon(
                 name,           // name
                 1,              // cost
@@ -605,21 +591,21 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                bulletPrototypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
             .1f // .1 saniyede bir ateş edilebilir
         );
 
-        weaponPrototypes[name].weaponParameters.Add(
+        (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireCoolDown,
-            -weaponPrototypes[name].weaponParameters[StringLiterals.FireFrequency]   // Başlangıç aniden ateş edebilmesi için gerekli
+            -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]   // Başlangıç aniden ateş edebilmesi için gerekli
         );
 
-        weaponPrototypes[name].cbAttack += WeaponActions.One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += WeaponActions.One_Shot;
     }
     #endregion
 }

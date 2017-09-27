@@ -35,7 +35,7 @@ public class EnemyPanelController : MonoBehaviour
 
         foreach (Character enemy in world.enemies)
         {
-            Debug.Log(enemy.Type);
+
             GameObject enemy_panel_prefab = Resources.Load<GameObject>("Prefabs/EnemyPanel");
 
             GameObject enemy_panel_go = Instantiate<GameObject>(enemy_panel_prefab, enemyPanels, false);

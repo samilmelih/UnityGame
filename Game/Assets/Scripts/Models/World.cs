@@ -14,10 +14,6 @@ public partial class World
 
     public List<Character> enemies { get; protected set; }
 
-    Dictionary<string, Bullet> bulletPrototypes;
-
-    // FIXME: If we have unique item names, we don't need separate prototype dictionarys.
-    public Dictionary<string, Weapon> weaponPrototypes;
     public Dictionary<string, Item> itemProtoTypes;
 
     Action<Character> cbOnEnemyChanged;
@@ -29,12 +25,10 @@ public partial class World
     {
         firstTimeStarted = PlayerPrefsController.FirstTimeStarted;
 
-        bulletPrototypes = new Dictionary<string, Bullet>();
-        weaponPrototypes = new Dictionary<string, Weapon>();
         itemProtoTypes = new Dictionary<string, Item>();
 
         CreatePrototypes();
-        FillItemProtoDictionary();
+
         CreateCharacters();
         CreateEnemies();
 
@@ -42,24 +36,8 @@ public partial class World
         checkpointManager = new CheckpointManager(character);
     }
 
-    void FillItemProtoDictionary()
-    {
-        foreach (var item in weaponPrototypes)
-        {
-            if (itemProtoTypes.ContainsKey(item.Key))
-                continue;
 
-            itemProtoTypes.Add(item.Key, item.Value);
-        }
 
-        foreach (var item in bulletPrototypes)
-        {
-            if (itemProtoTypes.ContainsKey(item.Key))
-                continue;
-
-            itemProtoTypes.Add(item.Key, item.Value);
-        }
-    }
 
     void CreateCharacters()
     {
@@ -103,11 +81,11 @@ public partial class World
             // FIXME: şimdilik oyunun akışı açısından silah atamasını rastgele yapıyorum
             if (UnityEngine.Random.Range(0, 2) == 0)
             {
-                enemy.currentWeapon = weaponPrototypes[StringLiterals.Magnum].Clone() as Weapon;
+                enemy.currentWeapon = itemProtoTypes[StringLiterals.Magnum].Clone() as Weapon;
             }
             else
             {
-                enemy.currentWeapon = weaponPrototypes[StringLiterals.Mp5].Clone() as Weapon;
+                enemy.currentWeapon = itemProtoTypes[StringLiterals.Mp5].Clone() as Weapon;
             }
             enemies.Add(enemy);
         }
@@ -129,14 +107,6 @@ public partial class World
         CreateUziProto();
 
         CreateSniperProto();
-
-        /// Knife_Sharp
-        /// Knife_Smooth
-        /// RockerLauncher
-        /// RockerLauncher_Modern
-        /// RockerLauncher_Side
-        /// Uzi_Long
-        /// Machinegun
 
         CreateKnife_SharpProto();
 
