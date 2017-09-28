@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 
     Direction lockedSide;
 
+
     static float halfCameraWidth;
     GameObject go_mainCharacter;
 
@@ -24,7 +25,7 @@ public class CameraController : MonoBehaviour
 
     }
 
-    void Update()
+    void LateUpdate()
     {
         // If camera is locked just return.
         if (lockedSide != Direction.None)
@@ -49,8 +50,8 @@ public class CameraController : MonoBehaviour
 
         Vector3 new_position = new Vector3(
              go_mainCharacter.transform.position.x,
-            Camera.main.transform.position.y,
-            Camera.main.transform.position.z
+             Camera.main.transform.position.y,
+             Camera.main.transform.position.z
         );
 
         Camera.main.transform.position = new_position;
