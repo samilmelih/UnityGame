@@ -91,9 +91,16 @@ public class EnemyController : MonoBehaviour
         foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
         {
             Walk(enemy);
-            world.OnEnemyChanged(enemy.Key);
         }
     }
+
+	void LateUpdate()
+	{
+		foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
+		{
+			world.OnEnemyChanged(enemy.Key);
+		}
+	}
 
     void Walk(KeyValuePair<Character, GameObject> enemyGOPair)
     {
