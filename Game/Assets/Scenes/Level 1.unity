@@ -2491,6 +2491,21 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.008668
       objectReference: {fileID: 0}
+    - target: {fileID: 212656594062184412, guid: 1dff386b0148e5e4a894df417868af13,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212656594062184412, guid: 1dff386b0148e5e4a894df417868af13,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212656594062184412, guid: 1dff386b0148e5e4a894df417868af13,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dff386b0148e5e4a894df417868af13, type: 2}
   m_IsPrefabParent: 0
@@ -3911,7 +3926,7 @@ AudioSource:
   m_Volume: 0.08
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

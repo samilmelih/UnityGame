@@ -34,6 +34,9 @@ public partial class World
 
         // Character should be created before checkpoint manager. Because it uses character.
         checkpointManager = new CheckpointManager(character);
+
+    
+
     }
 
 
