@@ -76,9 +76,7 @@ public class InputController : MonoBehaviour
                 ///
 
 
-                HealPot h = new HealPot("", 0, 0, 0, false, false, 25, 6);
-                h.RegisterHealPotAction(ItemActions.HealPotAct);
-                h.Use();
+                Heal();
 
 
                 ////
@@ -173,6 +171,14 @@ public class InputController : MonoBehaviour
     public void Crouch()
     {
         character.Crouch();
+
+    }
+
+    public void Heal()
+    {
+        HealPot h = new HealPot("", 0, 0, 0, false, false, 25, 6);
+        h.RegisterHealPotAction(ItemActions.HealPotAct);
+        h.Use();
     }
 
     public void Attack()
