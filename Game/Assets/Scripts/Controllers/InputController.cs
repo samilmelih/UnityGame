@@ -77,7 +77,7 @@ public class InputController : MonoBehaviour
 
 
                 HealPot h = new HealPot("", 0, 0, 0, false, false, 25, 6);
-                h.RegisterHealPotAction(ItemActions.Instance.HealPotAct);
+                h.RegisterHealPotAction(ItemActions.HealPotAct);
                 h.Use();
 
 

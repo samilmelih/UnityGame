@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class ItemActions : MonoBehaviour
 {
-    #region Singelton
 
-    public static ItemActions Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-
-        DontDestroyOnLoad(Instance);
-    }
-
-    #endregion
 
     #region Weapons
-    public void CloseWeapons(Character character)
+    public static void CloseWeapons(Character character)
     {
         Debug.Log("This weapon's attack mode is not implemented.");
 
         ///we can ray from the object for a specified distance
     }
 
-    public void Weapons_One_Shot(Character character)
+    public static void Weapons_One_Shot(Character character)
     {
         GameObject go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
         Weapon weapon = character.currentWeapon;
@@ -97,9 +86,9 @@ public class ItemActions : MonoBehaviour
 
 
     //Şuan iyileştirme aşaması başladı mı?
-    bool healing = false;
+    static bool healing = false;
     //şuan kullandığımız HealPot
-    HealPot currentHealPot = null;
+    static HealPot currentHealPot = null;
 
     //Yapılan iyileştirme miktarı. Bu miktar potun MaxHealValue 'su kadar olmalı toplam iyileştirmeyi bu şekilde bulabiliriz.
     float topHealing = 0;
@@ -132,7 +121,7 @@ public class ItemActions : MonoBehaviour
         }
 
     }
-    public void HealPotAct(HealPot h)
+    public static void HealPotAct(HealPot h)
     {
         //Bazı kodlar geçici olacağı için açıklamalrı türkçe yapıyorum
 

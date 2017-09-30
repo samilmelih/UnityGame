@@ -200,7 +200,7 @@
             2
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.CloseWeapons;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.CloseWeapons;
 
 
     }
@@ -231,7 +231,7 @@
             2
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.CloseWeapons;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.CloseWeapons;
     }
 
     void CreateKnife_SharpProto()
@@ -259,7 +259,7 @@
             2
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.CloseWeapons;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.CloseWeapons;
     }
 
     /// <summary>
@@ -301,7 +301,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]   // Başlangıçta aniden ateş edebilmesi için gerekli
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     void CreateShotgunProto()
@@ -340,7 +340,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     /// <summary>
@@ -382,7 +382,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     void CreateSniperProto()
@@ -421,7 +421,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]   // Başlangıç aniden ateş edebilmesi için gerekli
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     void CreateUziProto()
@@ -460,7 +460,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     // *******TODO******TODO*******
@@ -494,7 +494,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     void CreateRocketLauncher_ModernProto()
@@ -576,7 +576,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
 
     void CreateUzi_LongProto()
@@ -605,7 +605,7 @@
             -(itemProtoTypes[name] as Weapon).weaponParameters[StringLiterals.FireFrequency]   // Başlangıç aniden ateş edebilmesi için gerekli
         );
 
-        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Instance.Weapons_One_Shot;
+        (itemProtoTypes[name] as Weapon).cbAttack += ItemActions.Weapons_One_Shot;
     }
     #endregion
 }
