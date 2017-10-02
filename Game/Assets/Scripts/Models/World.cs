@@ -35,7 +35,7 @@ public partial class World
         // Character should be created before checkpoint manager. Because it uses character.
         checkpointManager = new CheckpointManager(character);
 
-    
+
 
     }
 
@@ -66,7 +66,7 @@ public partial class World
     {
         enemies = new List<Character>();
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 0; i++)
         {
             Character enemy = new Character(this);
             enemy.Type = StringLiterals.EnemyName;
