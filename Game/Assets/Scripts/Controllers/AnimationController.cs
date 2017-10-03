@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimationController : MonoBehaviour
@@ -6,36 +7,16 @@ public class AnimationController : MonoBehaviour
     string animationParameter = "open";
 
     [SerializeField]
-    Animator item1Animator;
-    [SerializeField]
-    Animator item2Animator;
-    [SerializeField]
-    Animator item3Animator;
-    [SerializeField]
-    Animator item4Animator;
-    [SerializeField]
-    Animator ArrowAnimator;
+    List<Animator> animatorList;
 
     [SerializeField]
     Button btnUpDownArrow;
 
     [SerializeField]
-    Button btnItem1;
-
-    [SerializeField]
-    Button btnItem2;
-
-    [SerializeField]
-    Button btnItem3;
-
-    [SerializeField]
-    Button btnItem4;
-
-    [SerializeField]
-    Button btnItem5;
-
-    [SerializeField]
     Button btnDefaultItem;
+
+    [SerializeField]
+    List<Button> itemButtonList;
 
     [SerializeField]
     GameObject DefaultItemPıckerGO;
@@ -51,32 +32,18 @@ public class AnimationController : MonoBehaviour
             btnUpDownArrow_Clik();
         });
 
-        int i = 1;
 
-        btnItem1.onClick.AddListener(delegate
+
+        for (int i = 0; i < itemButtonList.Count; i++)
         {
-            onGunSelection(i++);
+            itemButtonList[i].onClick.AddListener(delegate
+        {
+            onGunSelection(i + 1);
         });
 
-        btnItem2.onClick.AddListener(delegate
-        {
-            onGunSelection(i++);
-        });
+        }
 
-        btnItem3.onClick.AddListener(delegate
-        {
-            onGunSelection(i++);
-        });
 
-        btnItem4.onClick.AddListener(delegate
-        {
-            onGunSelection(i++);
-        });
-
-        btnItem5.onClick.AddListener(delegate
-        {
-            onGunSelection(i++);
-        });
 
         btnDefaultItem.onClick.AddListener(delegate
         {
@@ -117,11 +84,12 @@ public class AnimationController : MonoBehaviour
             openClose = !openClose;
         }
 
-        item1Animator.SetBool(animationParameter, openClose);
-        item2Animator.SetBool(animationParameter, openClose);
-        item3Animator.SetBool(animationParameter, openClose);
-        item4Animator.SetBool(animationParameter, openClose);
-        ArrowAnimator.SetBool(animationParameter, openClose);
+        for (int i = 0; i < animatorList.Count; i++)
+        {
+            animatorList[i].SetBool(animationParameter, openClose);
+
+        }
+
 
     }
 

@@ -66,7 +66,7 @@ public partial class World
     {
         enemies = new List<Character>();
 
-        for (int i = 0; i < 0; i++)
+        for (int i = 0; i < 25; i++)
         {
             Character enemy = new Character(this);
             enemy.Type = StringLiterals.EnemyName;
