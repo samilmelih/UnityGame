@@ -101,13 +101,13 @@ public class CameraController : MonoBehaviour
         if (lockedSide == direction)
             return;
 
-        float xPos = Camera.main.transform.position.x;
+        //float xPos = Camera.main.transform.position.x;
 
-        Vector3 newCharacterPos = new Vector3(
-            xPos,
-            CharacterCont.GetCharacterPosition().y,
-            CharacterCont.GetCharacterPosition().z
-        );
+        //Vector3 newCharacterPos = new Vector3(
+        //    xPos,
+        //    CharacterCont.GetCharacterPosition().y,
+        //    CharacterCont.GetCharacterPosition().z
+        //);
 
         lockedSide = Direction.None;
     }

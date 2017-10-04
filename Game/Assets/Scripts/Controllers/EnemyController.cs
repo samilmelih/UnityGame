@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     public static EnemyController Instance;
 
+    public bool enemyCanshoot = true;
     public Transform[] spawnPos;
 
     public Dictionary<Character, GameObject> enemyGOMap;
@@ -94,13 +95,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-	void LateUpdate()
-	{
-		foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
-		{
-			world.OnEnemyChanged(enemy.Key);
-		}
-	}
+    void LateUpdate()
+    {
+        foreach (KeyValuePair<Character, GameObject> enemy in enemyGOMap)
+        {
+            world.OnEnemyChanged(enemy.Key);
+        }
+    }
 
     void Walk(KeyValuePair<Character, GameObject> enemyGOPair)
     {
@@ -125,7 +126,8 @@ public class EnemyController : MonoBehaviour
                 turnBack = true;
                 break;
             case EnemyImpact.Player:
-                enemy.currentWeapon.cbAttack(enemy);
+                if (enemyCanshoot)
+                    enemy.currentWeapon.cbAttack(enemy);
                 break;
             case EnemyImpact.Wall:
                 turnBack = true;

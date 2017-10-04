@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class AnimationController : MonoBehaviour
 {
     string animationParameter = "open";
+    string UpDwonanimationParameter = "upDown";
+
+    public bool UpDwonAnimate = true;
 
     [SerializeField]
     List<Animator> animatorList;
@@ -31,18 +34,24 @@ public class AnimationController : MonoBehaviour
         {
             btnUpDownArrow_Clik();
         });
+        for (int i = 0; i < animatorList.Count; i++)
+        {
+            animatorList[i].SetBool(UpDwonanimationParameter, UpDwonAnimate);
+            animatorList[i].SetBool(animationParameter, openClose);
 
+        }
 
 
         for (int i = 0; i < itemButtonList.Count; i++)
         {
+            itemButtonList[i].gameObject.name = (i + 1).ToString();
+            int gunNum = i + 1;
             itemButtonList[i].onClick.AddListener(delegate
         {
-            onGunSelection(i + 1);
+            onGunSelection(gunNum);
         });
 
         }
-
 
 
         btnDefaultItem.onClick.AddListener(delegate
@@ -50,6 +59,8 @@ public class AnimationController : MonoBehaviour
             OnDefaultItem_Click();
         });
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -86,6 +97,7 @@ public class AnimationController : MonoBehaviour
 
         for (int i = 0; i < animatorList.Count; i++)
         {
+            animatorList[i].SetBool(UpDwonanimationParameter, UpDwonAnimate);
             animatorList[i].SetBool(animationParameter, openClose);
 
         }
@@ -98,7 +110,10 @@ public class AnimationController : MonoBehaviour
         //Close Anims
         btnUpDownArrow_Clik(false, false);
 
+
         //Pick the Gun
+        InputController.Instance.ChangeWeapon(index);
+
 
         //show on The default Item 
 

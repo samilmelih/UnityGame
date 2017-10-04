@@ -4,10 +4,10 @@ public class InputController : MonoBehaviour
 {
     // KeyboardController sadece karakter üzerinde işler yaptığı
     // için direk karakteri referansı almayı daha uygun gördüm.
+    #region Singleton
+    public static InputController Instance;
+    #endregion
 
-    public GameObject GunTypesGO;
-
-    Animator gunChooseAnim;
 
     Character character;
 
@@ -15,23 +15,25 @@ public class InputController : MonoBehaviour
 
 
 #if UNITY_ANDROID || UNITY_IOS
-		
-	// We need these variables because we are updating walk state
-	// in FixedUpdate so use these variables to check in FixedUpdate
-	
-	bool leftDown;
-	bool rightDown;
+
+    // We need these variables because we are updating walk state
+    // in FixedUpdate so use these variables to check in FixedUpdate
+
+    bool leftDown;
+    bool rightDown;
 
 #endif
 
     // Use this for initialization
     void Start()
     {
+
+        Instance = this;
         character = WorldController.Instance.world.character;
 
         // GunTypesGO.SetActive(UIShowed);
 
-        gunChooseAnim = GunTypesGO.GetComponent<Animator>();
+
         //  gunChooseAnim.SetBool("open",UIShowed);
 
 #if UNITY_STANDALONE_WIN
@@ -107,17 +109,10 @@ public class InputController : MonoBehaviour
 
 #endif
     }
-    public void ChangeWeapon()
-    {
-        UIShowed = !UIShowed;
 
-        gunChooseAnim.SetBool("open", UIShowed);
-    }
 
     public void ChangeWeapon(int slot)
     {
-        UIShowed = false;
-        gunChooseAnim.SetBool("open", false);
         character.ChangeWeapon(slot);
     }
 
@@ -130,21 +125,21 @@ public class InputController : MonoBehaviour
         if (character.isAlive)
         {
 #if UNITY_ANDROID || UNITY_IOS
-				
-			// This should look like as a comment but it's not. When we switch
-			// build settings to android or ios, it won't be comment.
 
-			if(leftDown ^ rightDown)
-			{
-				if(leftDown)
-					character.Walk(-1f);
-				else
-					character.Walk(1f);
-			}
-			else
-			{
-				character.Walk(0f);
-			}	
+            // This should look like as a comment but it's not. When we switch
+            // build settings to android or ios, it won't be comment.
+
+            if (leftDown ^ rightDown)
+            {
+                if (leftDown)
+                    character.Walk(-1f);
+                else
+                    character.Walk(1f);
+            }
+            else
+            {
+                character.Walk(0f);
+            }
 
 #endif
 
@@ -188,29 +183,29 @@ public class InputController : MonoBehaviour
 
 #if UNITY_ANDROID || UNITY_IOS
 
-	public void Mobile_Button_Up(int direction)
-	{
-		if(direction == 0)
-		{
-			leftDown = false;
-		}
-		else
-		{
-			rightDown = false;
-		}
-	}
+    public void Mobile_Button_Up(int direction)
+    {
+        if (direction == 0)
+        {
+            leftDown = false;
+        }
+        else
+        {
+            rightDown = false;
+        }
+    }
 
-	public void Mobile_Button_Down(int direction)
-	{
-		if (direction == 0)
-		{
-			leftDown = true;
-		}
-		else
-		{
-			rightDown = true;
-		}
-	}
+    public void Mobile_Button_Down(int direction)
+    {
+        if (direction == 0)
+        {
+            leftDown = true;
+        }
+        else
+        {
+            rightDown = true;
+        }
+    }
 
 #endif
 
