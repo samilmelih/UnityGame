@@ -144,6 +144,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 25747563}
+  - component: {fileID: 25747564}
   m_Layer: 5
   m_Name: ItemPack
   m_TagString: Untagged
@@ -157,7 +158,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25747562}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -168,14 +169,32 @@ RectTransform:
   - {fileID: 1071929399}
   - {fileID: 713572300}
   - {fileID: 1927693867}
-  m_Father: {fileID: 321557045}
+  m_Father: {fileID: 2111796484}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -56.2, y: -377.42}
+  m_AnchoredPosition: {x: -15.812988, y: 128.84854}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &25747564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25747562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324e316a3cf3dd84195b561e5e5162bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemsList:
+  - {fileID: 572694120}
+  - {fileID: 2043188976}
+  - {fileID: 2050276890}
+  - {fileID: 69934578}
+  - {fileID: 1071929398}
+  - {fileID: 713572299}
 --- !u!1001 &46746806
 Prefab:
   m_ObjectHideFlags: 0
@@ -1328,8 +1347,6 @@ RectTransform:
   - {fileID: 1569987040}
   - {fileID: 2111796484}
   - {fileID: 1384558037}
-  - {fileID: 25747563}
-  - {fileID: 526271315}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2064,6 +2081,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 526271315}
+  - component: {fileID: 526271316}
   m_Layer: 5
   m_Name: WeaponPack
   m_TagString: Untagged
@@ -2079,21 +2097,37 @@ RectTransform:
   m_GameObject: {fileID: 526271314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000039, y: 1.0000039, z: 1.0000039}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 239777722}
   - {fileID: 1186245712}
   - {fileID: 391582927}
   - {fileID: 59603664}
   - {fileID: 663935894}
-  m_Father: {fileID: 321557045}
+  m_Father: {fileID: 2111796484}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
+  m_AnchoredPosition: {x: 15.387207, y: 242.0997}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &526271316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526271314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b98f5d5ad4ff64d99a06805f2f2118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemsList:
+  - {fileID: 239777721}
+  - {fileID: 1186245711}
+  - {fileID: 391582926}
+  - {fileID: 59603663}
 --- !u!1 &529034628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,15 +2205,6 @@ MonoBehaviour:
   - {fileID: 2050276894}
   - {fileID: 69934582}
   - {fileID: 1927693870}
-  btnUpDownArrow: {fileID: 1927693871}
-  btnDefaultItem: {fileID: 713572303}
-  itemButtonList:
-  - {fileID: 572694125}
-  - {fileID: 2043188981}
-  - {fileID: 2050276895}
-  - {fileID: 69934583}
-  - {fileID: 1071929402}
-  "DefaultItemP\u0131ckerGO": {fileID: 713572299}
 --- !u!1 &542494134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,6 +2805,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 640171501}
+--- !u!1 &640838902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 640838903}
+  - component: {fileID: 640838904}
+  m_Layer: 0
+  m_Name: ItemSpriteController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640838903
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 640838902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1728603128}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640838904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 640838902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0646aa9c715c298489aed239e968549f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &649571311
 Prefab:
   m_ObjectHideFlags: 0
@@ -3343,6 +3408,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd22ba4fcff58f448655daffcfef0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPackButtonList:
+  - {fileID: 239777723}
+  - {fileID: 1186245713}
+  - {fileID: 391582928}
+  itemPackButtonList: []
+  btnWeaponUpDownArrow: {fileID: 663935896}
+  btnItemUpDownArrow: {fileID: 1927693871}
+  "WeaponDefaultItemP\u0131ckerGO": {fileID: 59603663}
+  "ItemDefaultItemP\u0131ckerGO": {fileID: 713572299}
 --- !u!1 &775799033
 GameObject:
   m_ObjectHideFlags: 0
@@ -5281,6 +5355,7 @@ Transform:
   - {fileID: 1408596163}
   - {fileID: 535408720}
   - {fileID: 2095796771}
+  - {fileID: 640838903}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6738,13 +6813,6 @@ MonoBehaviour:
   - {fileID: 239777724}
   - {fileID: 1186245714}
   - {fileID: 663935895}
-  btnUpDownArrow: {fileID: 663935896}
-  btnDefaultItem: {fileID: 59603665}
-  itemButtonList:
-  - {fileID: 239777723}
-  - {fileID: 1186245713}
-  - {fileID: 391582928}
-  "DefaultItemP\u0131ckerGO": {fileID: 59603663}
 --- !u!1 &2100898747
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,6 +6916,8 @@ RectTransform:
   - {fileID: 775799034}
   - {fileID: 1890072342}
   - {fileID: 425849650}
+  - {fileID: 25747563}
+  - {fileID: 526271315}
   m_Father: {fileID: 321557045}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

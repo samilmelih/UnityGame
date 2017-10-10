@@ -1,18 +1,44 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
+    public enum DefaultGOtype { Weapon, Item }
     // KeyboardController sadece karakter üzerinde işler yaptığı
     // için direk karakteri referansı almayı daha uygun gördüm.
     #region Singleton
     public static InputController Instance;
     #endregion
 
+    //We need to know when an item selected and we can change the default item picker sprite in
+    //animatedItemMenuController3
+
+
 
     Character character;
 
+    //we need this info when we click on DefaultItemGO
+    Item DefaultItem;
+
     bool UIShowed = false;
 
+    [SerializeField]
+    List<Button> weaponPackButtonList;
+    [SerializeField]
+    List<Button> itemPackButtonList;
+
+    [SerializeField]
+    Button btnWeaponUpDownArrow;
+    [SerializeField]
+    Button btnItemUpDownArrow;
+
+    [SerializeField]
+    GameObject WeaponDefaultItemPıckerGO;
+
+    [SerializeField]
+    GameObject ItemDefaultItemPıckerGO;
 
 #if UNITY_ANDROID || UNITY_IOS
 
@@ -31,6 +57,33 @@ public class InputController : MonoBehaviour
         Instance = this;
         character = WorldController.Instance.world.character;
 
+        btnWeaponUpDownArrow.onClick.AddListener(delegate
+        {
+            btnUpDownArrow_Clik(DefaultGOtype.Weapon);
+        });
+        btnItemUpDownArrow.onClick.AddListener(delegate
+        {
+            btnUpDownArrow_Clik(DefaultGOtype.Item);
+        });
+
+        for (int i = 0; i < weaponPackButtonList.Count; i++)
+        {
+            int index = i + 1;
+            weaponPackButtonList[i].onClick.AddListener(delegate
+            {
+                onGunSelection(index);
+            });
+        }
+        for (int i = 0; i < itemPackButtonList.Count; i++)
+        {
+            GameObject selected = itemPackButtonList[i].gameObject;
+            itemPackButtonList[i].onClick.AddListener(delegate
+            {
+                OnItemSelection(selected);
+            });
+        }
+
+
         // GunTypesGO.SetActive(UIShowed);
 
 
@@ -44,6 +97,65 @@ public class InputController : MonoBehaviour
         Destroy(canvas.transform.Find("MobileInputs").gameObject);
 
 #endif
+
+    }
+
+    public void OnItemSelection(GameObject selectedGO)
+    {
+        Item item = AnimatedItemMenuController.Instance.GetItemByGO(selectedGO);
+        AnimatedItemMenuController.Instance.DefaultItemSprite(item);
+        DefaultItem = item;
+
+    }
+
+    //the Menu state
+    [NonSerialized]
+    public bool menuOpen = false;
+    /// <summary>
+    /// handels click event of arrow Button
+    /// </summary>
+    /// <param name="openMenu">if this is not triggerd by button then I called this as method I want to do things </param>
+    /// <param name="triggeredByButton">this is a control if we triggered by button or nah</param>
+    public void btnUpDownArrow_Clik(DefaultGOtype defGOType, bool openMenu = false, bool triggeredByButton = true)
+    {
+
+
+        if (defGOType == DefaultGOtype.Weapon)
+        {
+            WeaponDefaultItemPıckerGO.SetActive(menuOpen);
+        }
+        else
+        {
+            ItemDefaultItemPıckerGO.SetActive(menuOpen);
+        }
+
+
+        if (triggeredByButton == false)
+        {
+            menuOpen = openMenu;
+        }
+        else
+        {
+            menuOpen = !menuOpen;
+        }
+
+
+
+
+    }
+
+    public void onGunSelection(int index)//TODO: find an useful parameter to detect what I've choosed
+    {
+        //Close Anims
+        btnUpDownArrow_Clik(DefaultGOtype.Weapon, false, false);
+
+
+        //Pick the Gun
+        ChangeWeapon(index);
+
+
+        //show on The default Item 
+
     }
 
     // Update is called once per frame
@@ -110,7 +222,6 @@ public class InputController : MonoBehaviour
 #endif
     }
 
-
     public void ChangeWeapon(int slot)
     {
         character.ChangeWeapon(slot);
@@ -158,6 +269,7 @@ public class InputController : MonoBehaviour
         }
     }
 
+    #region Character Moves
     public void Jump()
     {
         character.Jump();
@@ -180,7 +292,7 @@ public class InputController : MonoBehaviour
     {
         character.Attack();
     }
-
+    #endregion
 #if UNITY_ANDROID || UNITY_IOS
 
     public void Mobile_Button_Up(int direction)

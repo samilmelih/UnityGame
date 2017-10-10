@@ -1,9 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AnimationController : MonoBehaviour
 {
+
+    #region Singelton
+
+    static public AnimationController Instance;
+
+    #endregion
+
     string animationParameter = "open";
     string UpDwonanimationParameter = "upDown";
 
@@ -12,54 +18,22 @@ public class AnimationController : MonoBehaviour
     [SerializeField]
     List<Animator> animatorList;
 
-    [SerializeField]
-    Button btnUpDownArrow;
-
-    [SerializeField]
-    Button btnDefaultItem;
-
-    [SerializeField]
-    List<Button> itemButtonList;
-
-    [SerializeField]
-    GameObject DefaultItemPıckerGO;
-
-
-
 
     // Use this for initialization
     void Start()
     {
-        btnUpDownArrow.onClick.AddListener(delegate
-        {
-            btnUpDownArrow_Clik();
-        });
+        #region Sing.
+        Instance = this;
+        if (Instance == null)
+            Instance = new AnimationController();
+        #endregion
+
+
         for (int i = 0; i < animatorList.Count; i++)
         {
             animatorList[i].SetBool(UpDwonanimationParameter, UpDwonAnimate);
-            animatorList[i].SetBool(animationParameter, openClose);
-
         }
-
-
-        for (int i = 0; i < itemButtonList.Count; i++)
-        {
-            itemButtonList[i].gameObject.name = (i + 1).ToString();
-            int gunNum = i + 1;
-            itemButtonList[i].onClick.AddListener(delegate
-        {
-            onGunSelection(gunNum);
-        });
-
-        }
-
-
-        btnDefaultItem.onClick.AddListener(delegate
-        {
-            OnDefaultItem_Click();
-        });
     }
-
 
 
     // Update is called once per frame
@@ -67,61 +41,18 @@ public class AnimationController : MonoBehaviour
     {
 
     }
-    //the Menu state
-    bool openClose = false;
-    /// <summary>
-    /// handels click event of arrow Button
-    /// </summary>
-    /// <param name="openCloseParam">if this is not triggerd by button then I called this as method I want to do things </param>
-    /// <param name="fromButton">this is a control if we triggered by button or nah</param>
-    public void btnUpDownArrow_Clik(bool openCloseParam = false, bool fromButton = true)
+
+    public void PlayAnimations(bool menuOpen)
     {
-
-        if (openClose == true)
-        {
-            DefaultItemPıckerGO.SetActive(openClose);
-        }
-        else
-        {
-            DefaultItemPıckerGO.SetActive(openClose);
-        }
-
-        if (fromButton == false)
-        {
-            openClose = openCloseParam;
-        }
-        else
-        {
-            openClose = !openClose;
-        }
-
         for (int i = 0; i < animatorList.Count; i++)
         {
             animatorList[i].SetBool(UpDwonanimationParameter, UpDwonAnimate);
-            animatorList[i].SetBool(animationParameter, openClose);
+            animatorList[i].SetBool(animationParameter, menuOpen);
 
         }
-
-
     }
 
-    public void onGunSelection(int index)//TODO: find an useful parameter to detect what I've choosed
-    {
-        //Close Anims
-        btnUpDownArrow_Clik(false, false);
 
 
-        //Pick the Gun
-        InputController.Instance.ChangeWeapon(index);
-
-
-        //show on The default Item 
-
-    }
-
-    public void OnDefaultItem_Click()
-    {
-        //use this item...
-    }
 
 }
