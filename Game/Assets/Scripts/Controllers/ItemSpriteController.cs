@@ -11,8 +11,9 @@ public class ItemSpriteController : MonoBehaviour
     Dictionary<Item, Sprite> itemToSpriteMap;
 
     World world;
+
     // Use this for initialization
-    void Awake()
+	void Start()	// changed to Start(), because world created in Awake() so we don't know the order.
     {
 
         Instance = this;

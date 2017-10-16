@@ -188,13 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324e316a3cf3dd84195b561e5e5162bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsList:
-  - {fileID: 572694120}
-  - {fileID: 2043188976}
-  - {fileID: 2050276890}
-  - {fileID: 69934578}
-  - {fileID: 1071929398}
-  - {fileID: 713572299}
+  itemList: []
 --- !u!1001 &46746806
 Prefab:
   m_ObjectHideFlags: 0
@@ -2123,11 +2117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b98f5d5ad4ff64d99a06805f2f2118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsList:
-  - {fileID: 239777721}
-  - {fileID: 1186245711}
-  - {fileID: 391582926}
-  - {fileID: 59603663}
+  ItemsList: []
 --- !u!1 &529034628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2158,7 @@ GameObject:
   - component: {fileID: 535408720}
   - component: {fileID: 535408721}
   m_Layer: 0
-  m_Name: ItemPackAnimCont
+  m_Name: ItemAnimationController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2195,16 +2185,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 535408719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67313a0d9dc777f4da9b0c9c07a41ef1, type: 3}
+  m_Script: {fileID: 11500000, guid: bfdd9b550f29acc458078233068eba55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpDwonAnimate: 1
-  animatorList:
-  - {fileID: 572694124}
-  - {fileID: 2043188980}
-  - {fileID: 2050276894}
-  - {fileID: 69934582}
-  - {fileID: 1927693870}
+  itemList: []
+  weaponPackButtonList: []
+  itemPackButtonList: []
+  btnWeaponUpDownArrow: {fileID: 0}
+  btnItemUpDownArrow: {fileID: 0}
+  defaultWeaponPickerGO: {fileID: 0}
+  defaultItemPickerGO: {fileID: 0}
 --- !u!1 &542494134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,7 +2822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1728603128}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &640838904
 MonoBehaviour:
@@ -3408,15 +3398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd22ba4fcff58f448655daffcfef0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPackButtonList:
-  - {fileID: 239777723}
-  - {fileID: 1186245713}
-  - {fileID: 391582928}
-  itemPackButtonList: []
-  btnWeaponUpDownArrow: {fileID: 663935896}
-  btnItemUpDownArrow: {fileID: 1927693871}
-  "WeaponDefaultItemP\u0131ckerGO": {fileID: 59603663}
-  "ItemDefaultItemP\u0131ckerGO": {fileID: 713572299}
 --- !u!1 &775799033
 GameObject:
   m_ObjectHideFlags: 0
@@ -4010,6 +3991,66 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802342777}
+--- !u!1 &808937819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 808937820}
+  - component: {fileID: 808937822}
+  - component: {fileID: 808937821}
+  m_Layer: 0
+  m_Name: AnimatorController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808937820
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808937819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1728603128}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &808937821
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808937819}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a210e112fe46da47b08d01f6a010f94, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &808937822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808937819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498e2e51fc873e149b49aa6b937f56a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upDownAnimate: 1
+  itemSelectAnimator: {fileID: 808937821}
 --- !u!4 &840847839 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4414117994607406, guid: 1dff386b0148e5e4a894df417868af13,
@@ -5354,8 +5395,8 @@ Transform:
   - {fileID: 151300989}
   - {fileID: 1408596163}
   - {fileID: 535408720}
-  - {fileID: 2095796771}
   - {fileID: 640838903}
+  - {fileID: 808937820}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6768,51 +6809,6 @@ Transform:
   m_Father: {fileID: 1190014955}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2095796770
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2095796771}
-  - component: {fileID: 2095796772}
-  m_Layer: 0
-  m_Name: WeaponPackAnimCont
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2095796771
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2095796770}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1728603128}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2095796772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2095796770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67313a0d9dc777f4da9b0c9c07a41ef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpDwonAnimate: 0
-  animatorList:
-  - {fileID: 239777724}
-  - {fileID: 1186245714}
-  - {fileID: 663935895}
 --- !u!1 &2100898747
 GameObject:
   m_ObjectHideFlags: 0
