@@ -8,11 +8,12 @@ public class WorldController : MonoBehaviour
 
     // Use this for initialization
     void Awake()
-    {
+	{
         // PlayerPrefsController.DebugSaveStrings();
 
         if (Instance == null)
         {
+			
             world = new World();
             Instance = this;
 

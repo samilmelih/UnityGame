@@ -16,11 +16,6 @@ public class InputController : MonoBehaviour
 
 #endif
 
-	// We need to know when an item selected and we can change the default item picker sprite in
-	// animatedItemMenuController
-
-    
-
     #region Singleton
     public static InputController Instance;
     #endregion
@@ -32,10 +27,6 @@ public class InputController : MonoBehaviour
     {
         Instance = this;
         character = WorldController.Instance.world.character;
-
-        // GunTypesGO.SetActive(UIShowed);	FIXME: Do we need them?
-        //gunChooseAnim.SetBool("open",UIShowed);
-
 
 	#if UNITY_STANDALONE_WIN
         // If platform is not mobile, we won't need buttons on the screen so Destroy them.

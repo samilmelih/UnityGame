@@ -3,63 +3,48 @@ using UnityEngine;
 
 public class ItemSpriteController : MonoBehaviour
 {
-
     #region Singelton
     public static ItemSpriteController Instance;
     #endregion
 
-    Dictionary<Item, Sprite> itemToSpriteMap;
+    Dictionary<string, Sprite> itemToSpriteMap;
 
-    World world;
+	World world;
 
-    // Use this for initialization
-	void Start()	// changed to Start(), because world created in Awake() so we don't know the order.
+	void Start()
     {
-
         Instance = this;
-
         world = WorldController.Instance.world;
 
-        itemToSpriteMap = new Dictionary<Item, Sprite>();
+        itemToSpriteMap = new Dictionary<string, Sprite>();
 
-        Dictionary<string, Sprite> loadedSprites = LoadSpritesForItems();
-
-        foreach (Item item in world.itemProtoTypes.Values)
-        {
-            itemToSpriteMap[item] = loadedSprites[item.name];
-        }
-
+		LoadSpritesForItems();
     }
 
-    private Dictionary<string, Sprite> LoadSpritesForItems()
+    private void LoadSpritesForItems()
     {
         Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites");
 
-        Dictionary<string, Sprite> stringToSpritesMap = new Dictionary<string, Sprite>();
-
-        foreach (Sprite s in sprites)
+        foreach (Sprite sprite in sprites)
         {
-            stringToSpritesMap[s.name] = s;
+            itemToSpriteMap[sprite.name] = sprite;
         }
-
-        return stringToSpritesMap;
-
-
     }
 
-    public Sprite GetSpriteForItem(Item item)
+    public Sprite GetSpriteForItem(string itemName)
     {
-        if (item == null) return null;
-        if (itemToSpriteMap == null) return null;
-        if (itemToSpriteMap.ContainsKey(item) == false) return null;
+        if (itemToSpriteMap == null)
+		{
+			Debug.LogError("GetSpriteForItem() -- Map is null. Did we assign null to this map somewhere?");
+			return null;
+		}
 
-        return itemToSpriteMap[item];
-    }
+		if (itemToSpriteMap.ContainsKey(itemName) == false)
+		{
+			Debug.LogError("GetSpriteForItem() -- Item is not found in the itemToSpriteMap.");
+			return null;
+		}
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        return itemToSpriteMap[itemName];
     }
 }

@@ -7,7 +7,6 @@ public class ItemAnimatorCont : MonoBehaviour
     public static ItemAnimatorCont Instance;
     #endregion
 
-	// 0 = idle, 1 = vertical, 2 = horizontal
 	string openParam = "open";
 	string verticalAnimationParam = "vertical";
 

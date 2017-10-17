@@ -7,20 +7,6 @@ public class ItemAnimationController : MonoBehaviour
 {
 	public static ItemAnimationController Instance;
 
-	World world;
-	Character character;
-
-	public enum DefaultGOType { Weapon, Item }	// FIXME: Where this is used?
-
-    //First five objects are Items. Last  one is Default one we are gonna shot on it what we choose as default
-    //--default object is the item that we used lately--
-    [SerializeField]
-	List<GameObject> itemList;
-
-    List<string> equippedWeapons;
-
-    Dictionary<GameObject, Item> GOToItemMap;
-
 	[SerializeField]
 	List<Button> weaponPackButtonList;
 
@@ -28,10 +14,10 @@ public class ItemAnimationController : MonoBehaviour
 	List<Button> itemPackButtonList;
 
 	[SerializeField]
-	Button btnWeaponUpDownArrow;
+	Button weaponArrowButton;
 
 	[SerializeField]
-	Button btnItemUpDownArrow;
+	Button itemArrowButton;
 
 	[SerializeField]
 	GameObject defaultWeaponPickerGO;
@@ -39,10 +25,11 @@ public class ItemAnimationController : MonoBehaviour
 	[SerializeField]
 	GameObject defaultItemPickerGO;
 
-	// we need this info when we click on DefaultItemGO
-	Item DefaultItem;
+	World world;
+	Character character;
 
-
+	List<string> equippedWeapons;
+	List<string> equippedItems;
 
 	bool openWeapon;
 	bool openItem;
@@ -58,141 +45,78 @@ public class ItemAnimationController : MonoBehaviour
 		equippedWeapons = character.inventory.equippedWeapons;
 
 
-
-	
-
-		btnWeaponUpDownArrow.onClick.AddListener(delegate
+		weaponArrowButton.onClick.AddListener(delegate
 		{
-			btnUpDownArrow_Click(DefaultGOType.Weapon);
+			WeaponArrowButton_OnClick();
 		});
 
-		btnItemUpDownArrow.onClick.AddListener(delegate
+		itemArrowButton.onClick.AddListener(delegate
 		{
-			btnUpDownArrow_Click(DefaultGOType.Item);
+			ItemArrowButton_OnClick();
 		});
 
 
 		for (int i = 0; i < weaponPackButtonList.Count; i++)
 		{
-			weaponPackButtonList[i].gameObject.name = equippedWeapons[i];
+			string weaponName = equippedWeapons[i];
+
+			Image image = weaponPackButtonList[i].transform.GetChild(0).GetComponent<Image>();
+			image.sprite = ItemSpriteController.Instance.GetSpriteForItem(weaponName);
+
+			weaponPackButtonList[i].gameObject.name = weaponName;
 			weaponPackButtonList[i].onClick.AddListener(delegate
 			{
-				onGunSelection(i + 1);
+					// If we pass "i" directly as a parameter. It's value is
+					// always equal to weapon size.
+					int index = i;
+					OnWeaponSelection(index);
 			});
 		}
-//
-//		for (int i = 0; i < itemPackButtonList.Count; i++)
-//		{
-//			GameObject selected = itemPackButtonList[i].gameObject;
-//			itemPackButtonList[i].onClick.AddListener(delegate
-//			{
-//				OnItemSelection(selected);
-//			});
-//		}
 
+		for (int i = 0; i < itemPackButtonList.Count; i++)
+		{
+			// TODO: Will be implemented after some item is added.
+		}
 
-//        List<string> equippedItemsNameList = world.character.inventory.equippedItems;
-//        equippedItems = new List<Item>();
-//
-//        GOToItemMap = new Dictionary<GameObject, Item>();
-//
-//        foreach (string itemName in equippedItemsNameList)
-//        {
-//            equippedItems.Add(world.itemProtoTypes[itemName]);
-//        }
-//
-//        for (int i = 0; i < itemList.Count - 1; i++)
-//        {
-//            if (i >= equippedItems.Count) break;
-//            GOToItemMap[itemList[i]] = equippedItems[i];
-//
-//            itemList[i].GetComponentInChildren<Image>().sprite =
-//                ItemSpriteController.Instance.GetSpriteForItem(equippedItems[i]);
-//        }
-
-        //FIXME:  Item for non-selected Default Item picker we need a Sprite for this
-
+        // FIXME: Item for non-selected Default Item picker we need a Sprite for this
     }
 
 	/// <summary>
-	/// handels click event of arrow Button
+	/// Handles click event of arrow button and also handles close
+	/// operations when a weapon has been choosen.
 	/// </summary>
-	/// <param name="openMenu">if this is not triggerd by button then I called this as method I want to do things </param>
-	/// <param name="triggeredByButton">this is a control if we triggered by button or nah</param>
-	public void btnUpDownArrow_Click(DefaultGOType defGOType)
+	public void WeaponArrowButton_OnClick()
 	{
-		if (defGOType == DefaultGOType.Weapon)
-		{
-			openWeapon = !openWeapon;
-			defaultWeaponPickerGO.SetActive(!openWeapon);
+		openWeapon = !openWeapon;
+		defaultWeaponPickerGO.SetActive(!openWeapon);
 
-			ItemAnimatorCont animator = ItemAnimatorCont.Instance;
-			animator.PlayWeaponAnimations(openWeapon, weaponVertical);
-		}
-		else
-		{
-			openItem = !openItem;
-			defaultItemPickerGO.SetActive(!openItem);
-
-			ItemAnimatorCont animator = ItemAnimatorCont.Instance;
-			animator.PlayItemAnimations(openItem, itemVertical);
-		}
+		ItemAnimatorCont animator = ItemAnimatorCont.Instance;
+		animator.PlayWeaponAnimations(openWeapon, weaponVertical);
 	}
 
-	public void onGunSelection(int index)//TODO: find an useful parameter to detect what I've choosed
+	public void ItemArrowButton_OnClick()
 	{
-		//Close Anims
-		//btnUpDownArrow_Click(DefaultGOType.Weapon, false, false);
+		openItem = !openItem;
+		defaultItemPickerGO.SetActive(!openItem);
 
-
-		//Pick the Gun
-		ChangeWeapon(index);
-
-
-		//show on The default Item 
-
+		ItemAnimatorCont animator = ItemAnimatorCont.Instance;
+		animator.PlayItemAnimations(openItem, itemVertical);
 	}
 
-	public void ChangeWeapon(int slot)
+	public void OnWeaponSelection(int slot)
 	{
+		// Close weapon animation
+		WeaponArrowButton_OnClick();
+
+		// Pick the weapon
 		character.ChangeWeapon(slot);
 	}
 
 	public void OnItemSelection(GameObject selectedGO)
 	{
-		Item item = ItemAnimationController.Instance.GetItemByGO(selectedGO);
-		ItemAnimationController.Instance.DefaultItemSprite(item);
-		DefaultItem = item;
+		// Close item animation
+		ItemArrowButton_OnClick();
+
+		// TODO: We need to use this item here (I am not sure about the concept)
 	}
-		
-
-
-
-
-
-
-
-
-    public void DefaultItemSprite(Item defaultItem)
-    {
-        if (defaultItem == null) return;
-
-        itemList[itemList.Count - 1].GetComponentInChildren<Image>().sprite =
-           ItemSpriteController.Instance.GetSpriteForItem(defaultItem);
-    }
-
-    public Item GetItemByGO(GameObject go)
-    {
-        if (go == null) return null;
-        if (GOToItemMap.ContainsKey(go) == false) return null;
-
-        return GOToItemMap[go];
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
