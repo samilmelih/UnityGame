@@ -2162,7 +2162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdd9b550f29acc458078233068eba55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList: []
   weaponPackButtonList:
   - {fileID: 239777723}
   - {fileID: 1186245713}
@@ -2173,8 +2172,8 @@ MonoBehaviour:
   - {fileID: 2050276895}
   - {fileID: 69934583}
   - {fileID: 1071929402}
-  btnWeaponUpDownArrow: {fileID: 663935896}
-  btnItemUpDownArrow: {fileID: 1927693871}
+  weaponArrowButton: {fileID: 663935896}
+  itemArrowButton: {fileID: 1927693871}
   defaultWeaponPickerGO: {fileID: 59603663}
   defaultItemPickerGO: {fileID: 713572299}
 --- !u!1 &542494134
