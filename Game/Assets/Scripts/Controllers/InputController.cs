@@ -152,7 +152,7 @@ public class InputController : MonoBehaviour
     public void Crouch()
     {
         character.Crouch();
-    }
+	}
 
     public void Heal()
     {

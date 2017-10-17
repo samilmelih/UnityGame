@@ -186,6 +186,9 @@ public class Inventory
 
     public List<string> GetEquippedWeaponList()
     {
+		Debug.Log(equippedWeapons.GetHashCode());
+		Debug.Log(equippedWeapons.Count + "***");
+		Debug.Log(new List<string>(equippedWeapons).Count + "***");
         return new List<string>(equippedWeapons);
     }
 

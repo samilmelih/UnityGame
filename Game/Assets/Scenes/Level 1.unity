@@ -144,7 +144,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 25747563}
-  - component: {fileID: 25747564}
   m_Layer: 5
   m_Name: ItemPack
   m_TagString: Untagged
@@ -174,21 +173,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.812988, y: 128.84854}
+  m_AnchoredPosition: {x: -9.6128, y: 85.146}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &25747564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 25747562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 324e316a3cf3dd84195b561e5e5162bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemList: []
 --- !u!1001 &46746806
 Prefab:
   m_ObjectHideFlags: 0
@@ -2075,7 +2062,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 526271315}
-  - component: {fileID: 526271316}
   m_Layer: 5
   m_Name: WeaponPack
   m_TagString: Untagged
@@ -2103,21 +2089,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 15.387207, y: 242.0997}
+  m_AnchoredPosition: {x: 15.387207, y: 208}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &526271316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 526271314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b98f5d5ad4ff64d99a06805f2f2118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemsList: []
 --- !u!1 &529034628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,12 +2163,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: []
-  weaponPackButtonList: []
-  itemPackButtonList: []
-  btnWeaponUpDownArrow: {fileID: 0}
-  btnItemUpDownArrow: {fileID: 0}
-  defaultWeaponPickerGO: {fileID: 0}
-  defaultItemPickerGO: {fileID: 0}
+  weaponPackButtonList:
+  - {fileID: 239777723}
+  - {fileID: 1186245713}
+  - {fileID: 391582928}
+  itemPackButtonList:
+  - {fileID: 572694125}
+  - {fileID: 2043188981}
+  - {fileID: 2050276895}
+  - {fileID: 69934583}
+  - {fileID: 1071929402}
+  btnWeaponUpDownArrow: {fileID: 663935896}
+  btnItemUpDownArrow: {fileID: 1927693871}
+  defaultWeaponPickerGO: {fileID: 59603663}
+  defaultItemPickerGO: {fileID: 713572299}
 --- !u!1 &542494134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,7 +2913,7 @@ GameObject:
   - component: {fileID: 663935896}
   - component: {fileID: 663935895}
   m_Layer: 5
-  m_Name: UPDOWNArrow
+  m_Name: WeaponArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4000,7 +3982,6 @@ GameObject:
   m_Component:
   - component: {fileID: 808937820}
   - component: {fileID: 808937822}
-  - component: {fileID: 808937821}
   m_Layer: 0
   m_Name: AnimatorController
   m_TagString: Untagged
@@ -4021,23 +4002,6 @@ Transform:
   m_Father: {fileID: 1728603128}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &808937821
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 808937819}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a210e112fe46da47b08d01f6a010f94, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &808937822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4046,11 +4010,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 808937819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498e2e51fc873e149b49aa6b937f56a9, type: 3}
+  m_Script: {fileID: 11500000, guid: cf95b507bacd1144986a832a3b1635d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upDownAnimate: 1
-  itemSelectAnimator: {fileID: 808937821}
+  itemSelectAnimator: {fileID: 0}
+  itemAnimators:
+  - {fileID: 572694124}
+  - {fileID: 2043188980}
+  - {fileID: 2050276894}
+  - {fileID: 69934582}
+  - {fileID: 1927693870}
+  weaponAnimators:
+  - {fileID: 239777724}
+  - {fileID: 1186245714}
+  - {fileID: 663935895}
 --- !u!4 &840847839 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4414117994607406, guid: 1dff386b0148e5e4a894df417868af13,
@@ -6279,7 +6252,7 @@ GameObject:
   - component: {fileID: 1927693870}
   - component: {fileID: 1927693871}
   m_Layer: 5
-  m_Name: UPDOWNArrow
+  m_Name: ItemArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

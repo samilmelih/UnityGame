@@ -19,7 +19,7 @@ public class WorldController : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
         }
         else
-        {
+        {			
             Destroy(gameObject);
         }
     }

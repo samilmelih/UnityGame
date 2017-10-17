@@ -17,7 +17,7 @@ public class ItemAnimationController : MonoBehaviour
     [SerializeField]
 	List<GameObject> itemList;
 
-    List<Item> equippedItems;
+    List<string> equippedWeapons;
 
     Dictionary<GameObject, Item> GOToItemMap;
 
@@ -42,10 +42,12 @@ public class ItemAnimationController : MonoBehaviour
 	// we need this info when we click on DefaultItemGO
 	Item DefaultItem;
 
-	bool UIShowed = false;
 
-	bool weaponToggleButton;
-	bool itemToggleButton;
+
+	bool openWeapon;
+	bool openItem;
+	bool itemVertical = true;
+	bool weaponVertical = true;
 
     // Use this for initialization
     void Start()
@@ -53,6 +55,11 @@ public class ItemAnimationController : MonoBehaviour
 		Instance = this;
         world = WorldController.Instance.world;
 		character = world.character;
+		equippedWeapons = character.inventory.equippedWeapons;
+
+
+
+	
 
 		btnWeaponUpDownArrow.onClick.AddListener(delegate
 		{
@@ -64,14 +71,15 @@ public class ItemAnimationController : MonoBehaviour
 			btnUpDownArrow_Click(DefaultGOType.Item);
 		});
 
-//		for (int i = 0; i < weaponPackButtonList.Count; i++)
-//		{
-//			int index = i + 1;
-//			weaponPackButtonList[i].onClick.AddListener(delegate
-//			{
-//				onGunSelection(index);
-//			});
-//		}
+
+		for (int i = 0; i < weaponPackButtonList.Count; i++)
+		{
+			weaponPackButtonList[i].gameObject.name = equippedWeapons[i];
+			weaponPackButtonList[i].onClick.AddListener(delegate
+			{
+				onGunSelection(i + 1);
+			});
+		}
 //
 //		for (int i = 0; i < itemPackButtonList.Count; i++)
 //		{
@@ -115,20 +123,21 @@ public class ItemAnimationController : MonoBehaviour
 	{
 		if (defGOType == DefaultGOType.Weapon)
 		{
-			weaponToggleButton = !weaponToggleButton;
-			defaultWeaponPickerGO.SetActive(weaponToggleButton);
+			openWeapon = !openWeapon;
+			defaultWeaponPickerGO.SetActive(!openWeapon);
 
+			ItemAnimatorCont animator = ItemAnimatorCont.Instance;
+			animator.PlayWeaponAnimations(openWeapon, weaponVertical);
 		}
 		else
 		{
-			itemToggleButton = !itemToggleButton;
-			defaultItemPickerGO.SetActive(itemToggleButton);
+			openItem = !openItem;
+			defaultItemPickerGO.SetActive(!openItem);
+
+			ItemAnimatorCont animator = ItemAnimatorCont.Instance;
+			animator.PlayItemAnimations(openItem, itemVertical);
 		}
 	}
-
-	//the Menu state
-	[NonSerialized]
-	public bool menuOpen = false;
 
 	public void onGunSelection(int index)//TODO: find an useful parameter to detect what I've choosed
 	{

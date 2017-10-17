@@ -34,14 +34,8 @@ public partial class World
 
         // Character should be created before checkpoint manager. Because it uses character.
         checkpointManager = new CheckpointManager(character);
-
-
-
     }
-
-
-
-
+		
     void CreateCharacters()
     {
         // We only have one character, maybe later we'll have allias?
