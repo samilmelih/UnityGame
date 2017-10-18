@@ -61,15 +61,16 @@ public class CharacterCont : MonoBehaviour
         // We can just jump on grounds.
         LayerMask whatIsGround = 1024;  // 100 0000 0000
 
-        Transform groundCheck = go_mainCharacter.transform.Find("GroundCheck");
-
+		Transform frontGroundCheck = go_mainCharacter.transform.Find("FrontGroundCheck");
+		Transform rearGroundCheck = go_mainCharacter.transform.Find("RearGroundCheck");
         float groundRadius = 0.2f;
 
-        Collider2D grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+		Collider2D frontGrounded = Physics2D.OverlapCircle(frontGroundCheck.position, groundRadius, whatIsGround);
+		Collider2D rearGrounded  = Physics2D.OverlapCircle(rearGroundCheck.position, groundRadius, whatIsGround);
 
         Rigidbody2D rgbd2D = go_mainCharacter.GetComponent<Rigidbody2D>();
 
-        if (grounded != null)
+		if (frontGrounded != null || rearGrounded != null)
         {
             rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, ch.velocity.y);
             SoundController.Instance.Jump();

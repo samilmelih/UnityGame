@@ -36,8 +36,8 @@
                 50,                 // purchaseAmount
                 true,               // isStackable
                 false,              // equipped
-                25f,                // damage
-                20f         		// velocity
+                22f,                // damage
+                25f         		// velocity
             )
         );
 
@@ -53,7 +53,7 @@
                 true,               // isStackable
                 false,              // equipped
                 50f,                // damage
-                40f         		// velocity
+                25f         		// velocity
             )
         );
 
@@ -68,7 +68,7 @@
                 20,                 // purchaseAmount
                 true,               // isStackable
                 false,              // equipped
-                30f,                // damage
+                10f,                // damage
                 25f         		// velocity
             )
         );
@@ -84,8 +84,8 @@
                 7,                  // purchaseAmount
                 true,               // isStackable
                 false,              // equipped
-                90f,                // damage
-                70f         		// velocity
+                100f,                // damage
+                80f         		// velocity
             )
         );
 
@@ -101,7 +101,7 @@
                 30,                     // purchaseAmount
                 true,                   // isStackable
                 false,                  // equipped
-                30f,                    // damage
+                10f,                    // damage
                 25f         			// velocity
             )
         );
@@ -117,7 +117,7 @@
                 100,                    // purchaseAmount
                 true,                   // isStackable
                 false,                  // equipped
-                30f,                    // damage
+                35f,                    // damage
                 25f         			// velocity
             )
         );
@@ -133,8 +133,8 @@
                 3,                          // purchaseAmount
                 true,                       // isStackable
                 false,                      // equipped
-                30f,                        // damage
-                25f         				// velocity
+                100f,                       // damage
+                20f         				// velocity
             )
         );
 
@@ -149,8 +149,8 @@
                 3,                                  // purchaseAmount
                 true,                               // isStackable
                 false,                              // equipped
-                30f,                                // damage
-                25f         						// velocity
+                100f,                                // damage
+                20f         						// velocity
             )
         );
 
@@ -165,8 +165,8 @@
                 3,                              // purchaseAmount
                 true,                           // isStackable
                 false,                          // equipped
-                30f,                            // damage
-                25f         					// velocity
+                100f,                            // damage
+                20f         					// velocity
             )
         );
     }
@@ -322,7 +322,7 @@
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
-            3f
+            2f
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -332,7 +332,7 @@
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.FireFrequency,
-            1f      // .5 saniyede bir ateş edilebilir
+            0.5f      // .5 saniyede bir ateş edilebilir
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -364,7 +364,7 @@
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
-            50f
+            30f
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -374,7 +374,7 @@
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
-            .3f // .1 saniyede bir ateş edilebilir
+            0.1f		// .1 saniyede bir ateş edilebilir
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -403,7 +403,7 @@
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
-            6f
+            10f
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -413,7 +413,7 @@
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
              StringLiterals.FireFrequency,
-            .5f // .1 saniyede bir ateş edilebilir
+            1f // .1 saniyede bir ateş edilebilir
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -436,13 +436,13 @@
                 1,              // purchaseAmount
                 false,          // isStackable
                 false,          // equipped
-                itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
+				itemProtoTypes[StringLiterals.GetBulletNameForGun(name)].Clone() as Bullet	// bullet
             )
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
             StringLiterals.MagazineCapacity,
-            30f
+            20f
         );
 
         (itemProtoTypes[name] as Weapon).weaponParameters.Add(
@@ -465,7 +465,6 @@
 
     // *******TODO******TODO*******
     // These gun's weaponParameters have not edited.
-
 
 
     void CreateRocketLauncherProto()

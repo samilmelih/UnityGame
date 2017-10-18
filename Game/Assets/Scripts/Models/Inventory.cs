@@ -55,7 +55,7 @@ public class Inventory
         equippedWeapons = PlayerPrefsController.GetEquippedWeaponList(world);
         equippedItems = PlayerPrefsController.GetEquippedItemList(world);
 
-        //	ChangeWeapon(1);
+        ChangeWeapon(0);
     }
 
     // If an item is equipped, add it to it's list.

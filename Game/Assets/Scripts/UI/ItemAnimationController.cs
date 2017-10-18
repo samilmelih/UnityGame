@@ -66,7 +66,7 @@ public class ItemAnimationController : MonoBehaviour
 		// of the equipped item's button.
 		// Note: Get method doesn't return the original list. It copies
 		// the original one so we won't mess up with it.
-		equippedWeapons = character.inventory.GetEquippedItemsList();
+		equippedWeapons = character.inventory.GetEquippedWeaponList();
 
 		for (int i = 0; i < weaponPackButtonList.Count; i++)
 		{
