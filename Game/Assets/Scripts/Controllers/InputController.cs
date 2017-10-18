@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
-	
+	#region Singleton
+	public static InputController Instance;
+	#endregion
+
+	Character character;
+
+
 #if UNITY_ANDROID || UNITY_IOS
 
 	// We need these variables because we are updating walk state
@@ -16,11 +22,6 @@ public class InputController : MonoBehaviour
 
 #endif
 
-    #region Singleton
-    public static InputController Instance;
-    #endregion
-
-    Character character;
 
     // Use this for initialization
     void Start()
@@ -33,6 +34,8 @@ public class InputController : MonoBehaviour
 
         GameObject canvas = GameObject.Find("Canvas");
         Destroy(canvas.transform.Find("MobileInputs").gameObject);
+
+		// TODO: We should destroy weapon/item picker buttons.
 	#endif
 
     }
@@ -79,17 +82,17 @@ public class InputController : MonoBehaviour
 				
             if (Input.GetKeyDown(KeyCode.Alpha1) == true)
             {
-                character.ChangeWeapon(1);
+                character.ChangeWeapon(0);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2) == true)
             {
-                character.ChangeWeapon(2);
+                character.ChangeWeapon(1);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3) == true)
             {
-                character.ChangeWeapon(3);
+                character.ChangeWeapon(2);
             }
 		}
 	#endif

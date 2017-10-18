@@ -20,11 +20,13 @@ public class ItemAnimatorCont : MonoBehaviour
     void Start()
     {
         #region Sing.
-        Instance = this;
-        if (Instance == null)	// FIXME: Will this condition be true ever? 
-            Instance = new ItemAnimatorCont();
+        if (Instance == null)
+			Instance = this;
         #endregion
 
+		// Before animations start, we should decide orientation.
+		// If we don't, it chooses horizontal because "vertical"
+		// parameter is set false as default.
 		PlayItemAnimations(false, true);
     }
 

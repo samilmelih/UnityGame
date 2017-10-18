@@ -41,45 +41,59 @@ public class ItemAnimationController : MonoBehaviour
         Instance = this;
         world = WorldController.Instance.world;
         character = world.character;
-        equippedWeapons = character.inventory.equippedWeapons;
 
-
-        weaponArrowButton.onClick.AddListener(delegate
-        {
-            WeaponArrowButton_OnClick();
-        });
-
-        itemArrowButton.onClick.AddListener(delegate
-        {
-            ItemArrowButton_OnClick();
-        });
-
-
-        for (int i = 0; i < weaponPackButtonList.Count; i++)
-        {
-            string weaponName = equippedWeapons[i];
-
-            Image image = weaponPackButtonList[i].transform.GetChild(0).GetComponent<Image>();
-            image.sprite = ItemSpriteController.Instance.GetSpriteForItem(weaponName);
-
-            weaponPackButtonList[i].gameObject.name = weaponName;
-            // If we pass "i" directly as a parameter. It's value is
-            // always equal to weapon size.
-            int index = i + 1;
-            weaponPackButtonList[i].onClick.AddListener(delegate
-            {
-
-                OnWeaponSelection(index);
-            });
-        }
-
-        for (int i = 0; i < itemPackButtonList.Count; i++)
-        {
-            // TODO: Will be implemented after some item is added.
-        }
-
-        // FIXME: Item for non-selected Default Item picker we need a Sprite for this
+		AddListenerToButtons();
+		UpdateItemSelectionButtons();
     }
+
+	void AddListenerToButtons()
+	{
+		weaponArrowButton.onClick.AddListener(delegate
+			{
+				WeaponArrowButton_OnClick();
+			});
+
+		itemArrowButton.onClick.AddListener(delegate
+			{
+				ItemArrowButton_OnClick();
+			});
+	}
+
+	void UpdateItemSelectionButtons()
+	{
+		// TODO: We need to know if equipped weapons are changed.
+		// An action would be nice. We will also update image and name
+		// of the equipped item's button.
+		// Note: Get method doesn't return the original list. It copies
+		// the original one so we won't mess up with it.
+		equippedWeapons = character.inventory.GetEquippedItemsList();
+
+		for (int i = 0; i < weaponPackButtonList.Count; i++)
+		{
+			string weaponName = equippedWeapons[i];
+
+			Image image = weaponPackButtonList[i].transform.GetChild(0).GetComponent<Image>();
+			image.sprite = ItemSpriteController.Instance.GetSpriteForItem(weaponName);
+
+			weaponPackButtonList[i].gameObject.name = weaponName;
+
+			// If we pass "i" directly as a parameter. It's value is
+			// always equal to weapon size.
+			int slot = i;
+			weaponPackButtonList[i].onClick.AddListener(delegate
+				{
+					OnWeaponSelection(slot);
+				}
+			);
+		}
+
+		for (int i = 0; i < itemPackButtonList.Count; i++)
+		{
+			// TODO: Will be implemented after some item is added.
+		}
+
+		// FIXME: Item for non-selected Default Item picker we need a Sprite for this
+	}
 
     /// <summary>
     /// Handles click event of arrow button and also handles close

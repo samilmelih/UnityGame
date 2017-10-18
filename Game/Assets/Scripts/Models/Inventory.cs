@@ -94,8 +94,6 @@ public class Inventory
 
         item.equipped = true;
 
-        ChangeWeapon(1);
-
         if (cbOnItemEquipped != null)
             cbOnItemEquipped(item);
     }
@@ -129,8 +127,6 @@ public class Inventory
         }
 
         item.equipped = false;
-
-        ChangeWeapon(1);
 
         if (cbOnItemDropped != null)
             cbOnItemDropped(item, this);
@@ -176,7 +172,7 @@ public class Inventory
         if (slot > equippedWeapons.Count)
             return;
 
-        character.currentWeapon = purchasedItemMap[equippedWeapons[slot - 1]] as Weapon;
+        character.currentWeapon = purchasedItemMap[equippedWeapons[slot]] as Weapon;
     }
 
     public List<Item> GetPurchasedItemList()
@@ -186,9 +182,6 @@ public class Inventory
 
     public List<string> GetEquippedWeaponList()
     {
-		Debug.Log(equippedWeapons.GetHashCode());
-		Debug.Log(equippedWeapons.Count + "***");
-		Debug.Log(new List<string>(equippedWeapons).Count + "***");
         return new List<string>(equippedWeapons);
     }
 
