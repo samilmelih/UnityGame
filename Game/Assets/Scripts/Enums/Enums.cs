@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿
 public enum Direction
 {
-	None,
-	Left,
-	Right
+    None,
+    Left,
+    Right
 }
 
 public enum EnemyImpact
@@ -19,7 +16,7 @@ public enum EnemyImpact
 
 public enum WeaponType : byte
 {
-	Gun=1,
-	Rifle=2,
-	Close=0
+    Gun = 1,
+    Rifle = 2,
+    Close = 0
 }
