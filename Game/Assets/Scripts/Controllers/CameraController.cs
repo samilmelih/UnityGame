@@ -4,25 +4,23 @@ public class CameraController : MonoBehaviour
 {
     World world;
 
-    Direction lockedSide;
+    public Direction lockedSide;
+    
+	GameObject go_mainCharacter;
 
-
-    static float halfCameraWidth;
-    GameObject go_mainCharacter;
+	static float halfCameraWidth;
 
     void Start()
     {
         world = WorldController.Instance.world;
 
-        world.character.RegisterUnlockCameraFromCheckpointCallback(UnlockCamera);
+		world.checkpointManager.RegisterUnlockCameraFromCheckpointCallback(UnlockCamera);
         world.checkpointManager.RegisterLockCameraToCheckpointCallback(LockCamera);
 
         lockedSide = Direction.None;
 
         float aspectRatio = (float)Screen.width / (float)Screen.height;
         halfCameraWidth = ((Camera.main.orthographicSize * 2) * aspectRatio) / 2;
-
-
     }
 
     void LateUpdate()
@@ -30,21 +28,14 @@ public class CameraController : MonoBehaviour
         // If camera is locked just return.
         if (lockedSide != Direction.None)
         {
-
-            //we only wanna change the Y position after locked the camera
-
-
+            // We only wanna change the Y position after locked the camera
             return;
         }
 
-
-
-        if (go_mainCharacter == null)
-            go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
-
+		go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
         if (go_mainCharacter == null)
         {
-            Debug.LogError("CameraController -- Update() -- Character's gameobject is null.");
+            Debug.LogError("CameraController -- LateUpdate() -- Character's gameobject is null.");
             return;
         }
 
@@ -71,22 +62,27 @@ public class CameraController : MonoBehaviour
         else
             xPos = checkpoint.x - halfCameraWidth;
 
+		go_mainCharacter = CharacterCont.Instance.go_mainCharacter;
+		if (go_mainCharacter == null)
+		{
+			Debug.LogError("CameraController -- LateUpdate() -- Character's gameobject is null.");
+			return;
+		}
+
         Vector3 newCameraPos = new Vector3(
             xPos,
             Camera.main.transform.position.y,
             Camera.main.transform.position.z
         );
-
-        Transform chr_trans = CharacterCont.Instance.go_mainCharacter.transform;
-
+			
         Vector3 newCharacterPos = new Vector3(
             xPos,
-            chr_trans.position.y,
-            chr_trans.position.z
+			go_mainCharacter.transform.position.y,
+			go_mainCharacter.transform.position.z
         );
 
-        Camera.main.transform.position = newCameraPos;
-        CharacterCont.Instance.go_mainCharacter.transform.position = newCharacterPos;
+		Camera.main.transform.position = newCameraPos;	
+        go_mainCharacter.transform.position = newCharacterPos;
     }
 
     void UnlockCamera(Direction direction)
@@ -98,17 +94,19 @@ public class CameraController : MonoBehaviour
         // to unlock camera but if we look the direction, we can prevent this issue.
         // We know that if we wanna unlock camera, locked side and the direction of the 
         // character should be different.
-        if (lockedSide == direction)
+
+		// FIX: Eğer karakter ileride darbe aldığında geri tepme yaparsa
+		// kamera kilitten kurtulmayabilir. Bunu karakterin baktığı yönden bağımsız yapmalıyız.
+		// Karakterin lastPosition ve currPosition değerlerini kullanıp nereye 
+		// doğru hareket ettiğini tespit edebiliriz.
+		Character character = WorldController.Instance.world.character;
+		if (lockedSide == Direction.Left && character.currPosition.x < character.lastPosition.x ||
+			lockedSide == Direction.Right && character.currPosition.x > character.lastPosition.x
+		){
             return;
+		}
 
-        //float xPos = Camera.main.transform.position.x;
-
-        //Vector3 newCharacterPos = new Vector3(
-        //    xPos,
-        //    CharacterCont.GetCharacterPosition().y,
-        //    CharacterCont.GetCharacterPosition().z
-        //);
-
+		// Unlock the camera
         lockedSide = Direction.None;
     }
 

@@ -41,7 +41,7 @@ public class Character
     Action<Character> cbOnJump;
     Action<Character> cbOnCrouch;
     Action<Character> cbOnWalk;
-    Action<Direction> cbUnlockCameraFromCheckpoint;
+    
 
     public Inventory inventory;
 
@@ -72,40 +72,24 @@ public class Character
         lastPosition = currPosition;
         currPosition = CharacterCont.GetCharacterPosition();
 
-        if (axis != 0)
+        if (axis < 0)
         {
-            world.checkpointManager.Check();
-
-            float distToCenterOfCamera = UnityEngine.Mathf.Abs(currPosition.x - CameraController.GetCameraPosition().x);
-            float positionChangeOfCharacter = UnityEngine.Mathf.Abs(lastPosition.x - currPosition.x);
-
-            if (axis < 0)
-            {
-                scale = new Vector2(-1f, 1f);
-                direction = Direction.Left;
-            }
-            else if (axis > 0)
-            {
-                scale = new Vector2(1f, 1f);
-                direction = Direction.Right;
-            }
-
-            if (distToCenterOfCamera <= positionChangeOfCharacter)
-            {
-                if (cbUnlockCameraFromCheckpoint != null)
-                    cbUnlockCameraFromCheckpoint(direction);
-            }
-            else if (IsCharacterAtEdge() == true)
-            {
-                velocity.x = 0f;
-            }
+            scale = new Vector2(-1f, 1f);
+            direction = Direction.Left;
         }
+        else if (axis > 0)
+        {
+            scale = new Vector2(1f, 1f);
+            direction = Direction.Right;
+        }
+
+		world.checkpointManager.Check();
 
         if (cbOnWalk != null)
             cbOnWalk(this);
     }
 
-    bool IsCharacterAtEdge()
+    public bool IsCharacterAtEdge()
     {
         Vector3 characterPos = CharacterCont.GetCharacterPosition();
         Vector3 leftCameraEdge = CameraController.GetLeftEdgePosition();
@@ -114,8 +98,7 @@ public class Character
         // FIXME: Make constant offsets.
         if (characterPos.x <= leftCameraEdge.x + 2f && direction == Direction.Left ||
            characterPos.x >= rightCameraEdge.x - 2f && direction == Direction.Right
-        )
-        {
+        ){
             return true;
         }
 
@@ -134,10 +117,6 @@ public class Character
 
     }
 
-    public void RegisterUnlockCameraFromCheckpointCallback(Action<Direction> cb)
-    {
-        cbUnlockCameraFromCheckpoint += cb;
-    }
 
     public void RegisterOnAttackCallback(Action<Character> cb)
     {
@@ -161,7 +140,6 @@ public class Character
 
     public void ResetCharacterCallbacks()
     {
-        cbUnlockCameraFromCheckpoint = null;
         cbOnAttack = null;
         cbOnJump = null;
         cbOnCrouch = null;
